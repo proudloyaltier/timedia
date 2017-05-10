@@ -14,11 +14,13 @@
 <!-- start Feedback -->
 <script data-sil-id='591367bea43fd60015db241c'> (function() {var d = document, w = window, l = window.location,p = l.protocol == 'file:' ? 'http://' : '//';if (!w.WS) w.WS = {}; c = w.WS;var m=function(t, o){  var e = d.getElementsByTagName('script'); e=e[e.length-1];  var n = d.createElement(t); if (t=='script') {n.async=true;} for (k in o) n[k] = o[k];  e.parentNode.insertBefore(n, e)};   m('script', {      src: p+'bawkbox.com/widget/feedback/591367bea43fd60015db241c?page='+encodeURIComponent(l+''),      type: 'text/javascript'  });  c.load_net = m;})();</script><div class='sil-widget-feedback sil-widget' id='sil-widget-591367bea43fd60015db241c'<a href='https://bawkbox.com/install/feedback'>Feedback is loading...</a></div>
 <!-- end Feedback -->
+<div id="protected">
 <h3>Content Protected</h3>
 <p>You must answer the following to see this content.</p>
 <p>Do you like <i>Casio</i>?</p>
-<input id="answer"></input>
+<input id="answer">
 <button onclick="checkanswer();">Access Content</button>
+</div>
 
  <!-- begin comment box -->
  <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
@@ -27,16 +29,15 @@
 <!-- end comment box -->
 
 <script>
+document.getElementById('HCB_comment_box').style = "visibility: hidden;";
  function checkanswer();
  {
-  if (document.getElementById('answer').value == "yes") {
+  if (document.getElementById('answer').value == "no") {
     document.getElementById('HCB_comment_box').style = "visibility: block;";
+   document.getElementById('protected').style = "visibility: hidden;";
   }
   
  }
- 
- document.getElementById('HCB_comment_box').style = "visibility: hidden;";
-
  
 </script>
 </center>
