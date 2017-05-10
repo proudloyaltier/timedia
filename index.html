@@ -17,7 +17,7 @@
 <div id="protected">
 <h3>Content Protected</h3>
 <p>You must answer the following to see this content.</p>
-<p>Do you like <i>Casio</i>?</p>
+<p>Do you like Casio?</p>
 <input id="answer">
 <button onclick="checkanswer();">Access Content</button>
 </div>
@@ -31,7 +31,7 @@
 <script>
  function checkanswer()
  {
-  if (document.getElementById('answer').value == "no") {
+  if (document.getElementById('answer').value == "no" || document.getElementById('answer').value == "No" || document.getElementById('answer').value == "NO") {
     document.getElementById('HCB_comment_box').style = "visibility: block;";
    document.getElementById('protected').style = "visibility: hidden;";
   }
