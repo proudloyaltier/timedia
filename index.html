@@ -16,6 +16,9 @@
 <!-- end Feedback -->
 <h3>Content Protected</h3>
 <p>You must answer the following to see this content.</p>
+<p>Do you like <i>Casio</i>?</p>
+<input id="answer"></input>
+<button onclick="checkanswer();">Access Content</button>
 
  <!-- begin comment box -->
  <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
@@ -23,6 +26,18 @@
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=278&num=50&ts=1494365140122");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 <!-- end comment box -->
 
-<script>document.getElementById('HCB_comment_box').style = "visibility: hidden;";</script>
+<script>
+ function checkanswer();
+ {
+  if (document.getElementById('answer').value == "yes") {
+    document.getElementById('HCB_comment_box').style = "visibility: block;";
+  }
+  
+ }
+ 
+ document.getElementById('HCB_comment_box').style = "visibility: hidden;";
+
+ 
+</script>
 </center>
  </body>
