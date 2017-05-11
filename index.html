@@ -55,7 +55,7 @@ function check() {
 }
  
 function checkPass() {
- if (contains(logins,document.getElementById('username') + ':' + document.getElementById('password'))) {
+ if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
    document.getElementById('access').style = "visibility: hidden;"
    document.getElementById('content').style = "visibility: block;";
  }
