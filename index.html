@@ -1,5 +1,5 @@
 <h2>TiMedia is currently being worked on!</h2>
-<p>B 2.1</p>
+<p>B 2.2</p>
 <input type="text" id="username">
 <input type="password" id="password">
 <button onclick="attemptLogin()">Login!</button>
@@ -23,7 +23,7 @@ function getJSONP(url, success) {
 function attemptLogin() { 
     request = "http://limited.zone/login.php?username=" + document.getElementById('username').value + "&password=" + document.getElementById('password').value;
  getJSONP(request, function(data){
-    console.log(data.access);
+    console.log(data);
 });  
 
  
