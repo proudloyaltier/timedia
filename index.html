@@ -41,6 +41,23 @@
 </div>
 <script>
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes"];
+ 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+ 
 function contains(a, obj) {
 
   for (var i = 0; i < a.length; i++) {
@@ -61,8 +78,13 @@ function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
    document.getElementById('access').style = "visibility: hidden;"
    document.getElementById('content').style = "visibility: block;";
+   document.cookie = "login=true";
  }
 }
-  
+
+ if (getCookie("login") == true) {
+     document.getElementById('access').style = "visibility: hidden;";
+     document.getElementById('content').style = "visibility: block;";
+ }
  </script>
 </html>
