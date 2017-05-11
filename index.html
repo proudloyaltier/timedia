@@ -20,8 +20,8 @@ function getJSONP(url, success) {
  
 request = "https://limited.zone/login.php?username=" + document.getElementById('username').value + "&password=" + document.getElementById('password').value;
 
- getJSONP(request, function(access){
-    console.log(access);
+ getJSONP(request, function(data){
+    console.log(data.access);
 });  
 
  
