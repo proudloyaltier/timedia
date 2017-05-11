@@ -1,5 +1,8 @@
 <h2>TiMedia is currently being worked on!</h2>
 <p>BUILD 0.0.0.1</p>
+<input type="text" id="username">
+<input type="password" id="password">
+<button onclick="attemptLogin()"></button>
 <script>
 function getJSONP(url, success) {
 
@@ -17,9 +20,8 @@ function getJSONP(url, success) {
     head.appendChild(script);
 
 }
- 
-request = "https://limited.zone/login.php?username=" + document.getElementById('username').value + "&password=" + document.getElementById('password').value;
-
+function attemptLogin() { 
+    request = "https://limited.zone/login.php?username=" + document.getElementById('username').value + "&password=" + document.getElementById('password').value;
  getJSONP(request, function(data){
     console.log(data.access);
 });  
@@ -29,6 +31,7 @@ request = "https://limited.zone/login.php?username=" + document.getElementById('
  document.write('');
 } else {
  alert("Username or password is incorrect.");
+}
 }
 </script>
 </html>
