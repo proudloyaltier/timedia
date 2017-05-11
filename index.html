@@ -9,7 +9,7 @@
  <p>Solve to following. (This is used to stop bots.)</p><br>
  <img src="http://www.mathopolis.com/questions/latex/7/9/c5c978161edb1d801afc2a7e561ea91.gif"><br>
  <input id="answer">
- <button onclick="check()">See page.</button><br>
+ <button onclick="check()">See page.</button>
  <p>OR login with your username and password</p><br>
  <input id="username" type="text"><br>
  <input id="password" type="password"><br>
@@ -48,7 +48,7 @@ function check() {
 }
  
 function checkPass() {
- if (document.getElementById('password').value == "tier12345671") {
+ if (document.getElementById('username').value == "hymenopus" && document.getElementById('password').value == "tier") {
    document.getElementById('access').style = "visibility: hidden;";
    document.getElementById('content').style = "visibility: block;";
  }
