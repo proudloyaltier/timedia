@@ -36,6 +36,17 @@
 
 </div>
 <script>
+var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes"];
+
+function contains(a, obj) {
+    for (var i = 0; i < a.length; i++) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function check() {
  if (document.getElementById('answer').value == "1/3[ln(3)+ln(v)-ln(4)-ln(pi)]") {
    document.getElementById('access').style = "visibility: hidden;";
@@ -44,7 +55,7 @@ function check() {
 }
  
 function checkPass() {
- if (document.getElementById('username').value == "hymenopus" && document.getElementById('password').value == "tier" || document.getElementById('username').value == "henry" && document.getElementById('password').value == "port" || document.getElementById('username').value == "jellyfishguy" && document.getElementById('password').value == "jellyfishes") {
+ if (contains(logins,document.getElementById('username') + ':' + document.getElementById('password'))) {
    document.getElementById('access').style = "visibility: hidden;"
    document.getElementById('content').style = "visibility: block;";
  }
