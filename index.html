@@ -1,5 +1,5 @@
 <h2>TiMedia is currently being worked on!</h2>
-<p>B 2.2</p>
+<p>B 2.3</p>
 <input type="text" id="username">
 <input type="password" id="password">
 <button onclick="attemptLogin()">Login!</button>
@@ -22,16 +22,9 @@ function getJSONP(url, success) {
 }
 function attemptLogin() { 
     request = "http://limited.zone/login.php?username=" + document.getElementById('username').value + "&password=" + document.getElementById('password').value;
- getJSONP(request, function(data){
+    getJSONP(request, function(data){
     console.log(data);
-});  
-
- 
- if (access == "1") {
- document.write('');
-} else {
- alert("Username or password is incorrect.");
-}
-}
+}); 
+window.close();
 </script>
 </html>
