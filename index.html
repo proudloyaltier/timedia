@@ -58,7 +58,13 @@ function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
    document.getElementById('access').style = "visibility: hidden;"
    document.getElementById('content').style = "visibility: block;";
+   setInterval(changeUser(), 50);
  }
+}
+ 
+function changeUser() {
+   document.getElementById('hcb_form_name').value = document.getElementById('username').value;
+   document.getElementById('hcb_form_name').disabled = true;
 }
  </script>
 </html>
