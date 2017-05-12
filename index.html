@@ -26,6 +26,7 @@
  </div>
  <br>
 <div id="content" style="visibility: hidden;">
+ <h1 id="name"></h1>
  <a href="#HCB_comment_box"><button class="base btn2">Click here to scroll down to the comments!</button></a><br><br>
 <div id="news" style="border: 4px solid;border-radius: 8px;">
  <h3>Latest updates/news</h3>
@@ -115,11 +116,14 @@ function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
    document.getElementById('access').remove();
    document.getElementById('content').style = "visibility: block;";
+   document.getElementById('name').innerHTML = "Hello, " + document.getElementById('username').value + "1"
    document.cookie = "login=true";
+   document.cookie = "name=" + document.getElementById('username').value
  }
 }
 
  if (getCookie("login") == "true") {
+     document.getElementById('name').innerHTML = "Hello, " + document.getElementById('username').value + "1"
      document.getElementById('access').remove();
      document.getElementById('content').style = "visibility: block;";
  }
