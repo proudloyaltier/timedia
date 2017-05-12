@@ -130,6 +130,7 @@ function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
    document.getElementById('access').remove();
   if (contains(bannedusers,document.getElementById('username').value)) {
+    document.getElementById('ban').style = "visibility: block;";
     delete_cookie("login");
   } else {
    document.getElementById('ban').remove();
