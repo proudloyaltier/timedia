@@ -13,4 +13,4 @@ May 9th, 2017 - created TiMedia.
 TiMedia is a global TI forum, not a social media like CoffeeMedia.
 
 ## How do I start posting?
-Visit https://proudloyaltier.github.io/timedia and request for an account.
+Visit http://timedia.tk and request for an account.
