@@ -116,14 +116,16 @@ function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
    document.getElementById('access').remove();
    document.getElementById('content').style = "visibility: block;";
-   document.getElementById('name').innerHTML = "Hello, " + document.getElementById('username').value + "!";
    document.cookie = "login=true";
-   document.cookie = "name=" + document.getElementById('username').value;
  }
+}
+ 
+function changeUser() {
+    document.getElementById('hcb_form_name').value = getCookie("name");
+    document.getElementById('hcb_form_name').remove();
 }
 
  if (getCookie("login") == "true") {
-     document.getElementById('name').innerHTML = "Hello, " + getCookie("name") + "!";
      document.getElementById('access').remove();
      document.getElementById('content').style = "visibility: block;";
  }
