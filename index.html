@@ -31,6 +31,7 @@
  </div>
  <br>
 <div id="content" style="visibility: hidden;">
+ <h1 id="hello">Hello!</h1>
  <a href="#HCB_comment_box"><button class="base btn2">Click here to scroll down to the comments!</button></a><br><br>
 <div id="news" style="border: 4px solid;border-radius: 8px;">
  <h3>Latest updates/news</h3>
@@ -124,8 +125,10 @@ function checkPass() {
                  document.getElementById('access').remove();
            } else {
                  document.cookie = "login=true";
+                 document.cookie = "name=" + document.getElementById('username').value;
                  document.getElementById('access').remove();
                  document.getElementById('ban').remove();
+                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
                  document.getElementById('content').style = "visibility: block;";
            }
            } else {
@@ -134,9 +137,15 @@ function checkPass() {
 }
 
  if (getCookie("login") == "true") {
-     document.getElementById('ban').remove();
-     document.getElementById('access').remove();
-     document.getElementById('content').style = "visibility: block;";
+          if (contains(bannedusers,getCookie("name"))) {
+                 document.getElementById('ban').style = "visibility: block;";
+                 document.getElementById('access').remove();
+           } else {
+                 document.getElementById('access').remove();
+                 document.getElementById('ban').remove();
+                 document.getElementById('content').style = "visibility: block;";
+                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
+           }
  }
  </script>
 </html>
