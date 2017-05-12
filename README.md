@@ -1,6 +1,9 @@
 ## Welcome to TiMedia! 
 For another forum like this visit coffee-media.github.io
 
+## News
+We are changing to timedia.tk soon!
+
 ## Changelog
 May 10th, 2017 - added a CAPTCHA for security.
 
