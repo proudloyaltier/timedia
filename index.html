@@ -118,10 +118,11 @@ function check() {
  
 function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
-         document.getElementById('access').remove();
           if (contains(bannedusers,document.getElementById('username').value)) {
                  document.getElementById('ban').style = "visibility: block;";
+                 document.getElementById('access').remove();
            } else {
+                 document.getElementById('access').remove();
                  document.getElementById('ban').remove();
                  document.getElementById('content').style = "visibility: block;";
                  document.cookie = "login=true";
