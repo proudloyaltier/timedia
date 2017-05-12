@@ -23,6 +23,11 @@
  <input placeholder="Password" id="password" type="password"><br>
  <button class="base btn" onclick="checkPass()">Login!</button>
  <p>Don't have a login? Request one <a href="https://coffee-media.github.io/net"><b>here.</b></a>
+ </div><br>
+<div style="visibility:hidden;" id="ban">
+ <h3>You are banned from TiMedia</h3>
+ <p>If you would like to appeal, post why on CoffeeMedia.</p>
+ <p><b>Reason:</b> None.
  </div>
  <br>
 <div id="content" style="visibility: hidden;">
@@ -66,6 +71,7 @@
 </div>
 <script>
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty"];
+var bannedusers = ["jellyfishguy"];
  
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
@@ -103,6 +109,16 @@ function contains(a, obj) {
     }
     return false;
 }
+ 
+function delete_cookie( name, path, domain ) {
+  if( get_cookie( name ) ) {
+    document.cookie = name + "=" +
+      ((path) ? ";path="+path:"")+
+      ((domain)?";domain="+domain:"") +
+      ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+  }
+}
+ 
 function check() {
  if (document.getElementById('answer').value == "1/3[ln(3)+ln(v)-ln(4)-ln(pi)]") {
    document.getElementById('access').style = "visibility: hidden;";
@@ -113,10 +129,16 @@ function check() {
 function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
    document.getElementById('access').remove();
+  if (contains(bannedusers,document.getElementById('username').value)) {
+    delete_cookie("login");
+  } else {
+   document.getElementById('ban').remove();
    document.getElementById('content').style = "visibility: block;";
    document.cookie = "login=true";
+  }
  }
 }
+
  if (getCookie("login") == "true") {
      document.getElementById('access').remove();
      document.getElementById('content').style = "visibility: block;";
