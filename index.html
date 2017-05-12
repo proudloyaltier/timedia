@@ -137,7 +137,8 @@ function checkPass() {
    document.getElementById('content').style = "visibility: block;";
    document.cookie = "login=true";
   }
- }
+ } else {
+  alert("Username or password is incorrect.");
 }
 
  if (getCookie("login") == "true") {
