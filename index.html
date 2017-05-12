@@ -134,6 +134,7 @@ function checkPass() {
 }
 
  if (getCookie("login") == "true") {
+     document.getElementById('ban').remove();
      document.getElementById('access').remove();
      document.getElementById('content').style = "visibility: block;";
  }
