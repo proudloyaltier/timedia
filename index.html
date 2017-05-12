@@ -26,7 +26,6 @@
  </div>
  <br>
 <div id="content" style="visibility: hidden;">
- <h1 id="name"></h1>
  <a href="#HCB_comment_box"><button class="base btn2">Click here to scroll down to the comments!</button></a><br><br>
 <div id="news" style="border: 4px solid;border-radius: 8px;">
  <h3>Latest updates/news</h3>
@@ -97,7 +96,6 @@ function getCookie(cname) {
 }
  
 function contains(a, obj) {
-
   for (var i = 0; i < a.length; i++) {
         if (a[i] === obj) {
             return true;
@@ -119,12 +117,6 @@ function checkPass() {
    document.cookie = "login=true";
  }
 }
- 
-function changeUser() {
-    document.getElementById('hcb_form_name').value = getCookie("name");
-    document.getElementById('hcb_form_name').remove();
-}
-
  if (getCookie("login") == "true") {
      document.getElementById('access').remove();
      document.getElementById('content').style = "visibility: block;";
