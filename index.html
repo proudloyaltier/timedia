@@ -70,7 +70,7 @@
 
 </div>
 <script>
-var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "guest:"];
+var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty"];
 var bannedusers = ["henry"];
  
  Element.prototype.remove = function() {
@@ -123,15 +123,10 @@ function checkPass() {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
+                 document.cookie = "login=true";
                  document.getElementById('access').remove();
                  document.getElementById('ban').remove();
                  document.getElementById('content').style = "visibility: block;";
-                 if (document.getElementById('username').value == "guest") {
-                   document.getElementById('HCB_comment_form_box').remove();
-                 } else {
-                  document.cookie = "login=true";
-                 }
-  }
  } else {
   alert("Username or password is incorrect.");
  }
