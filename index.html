@@ -128,17 +128,18 @@ function check() {
  
 function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
-   document.getElementById('access').remove();
-  if (contains(bannedusers,document.getElementById('username').value)) {
-    document.getElementById('ban').style = "visibility: block;";
-    delete_cookie("login");
-  } else {
-   document.getElementById('ban').remove();
-   document.getElementById('content').style = "visibility: block;";
-   document.cookie = "login=true";
+         document.getElementById('access').remove();
+          if (contains(bannedusers,document.getElementById('username').value)) {
+                 document.getElementById('ban').style = "visibility: block;";
+                 delete_cookie("login");
+           } else {
+                 document.getElementById('ban').remove();
+                 document.getElementById('content').style = "visibility: block;";
+                 document.cookie = "login=true";
   }
  } else {
   alert("Username or password is incorrect.");
+ }
 }
 
  if (getCookie("login") == "true") {
