@@ -16,8 +16,8 @@
  </div><br>
 <div style="visibility:hidden;" id="ban">
  <h3>You are banned from TiMedia</h3>
- <p>An admin has banned you from TiMedia!</p>
- <p id="reason">No reason</p>
+ <p id="whoban">An admin has banned you from TiMedia!</p>
+ <p id="reason">Reason: No reason</p>
  </div>
  <br>
 <div id="content" style="visibility: hidden;">
@@ -49,7 +49,8 @@
 <script>
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "raef:ti"];
 var bannedusers = ["henry"];
-var banreason = ["", "Spamming on TiMedia.", "", "", "", ""]
+var banreason = ["", "Spamming.", "", "", "", ""]
+var whobanned = ["", "jellyfishguy", "", "", "", ""]
  
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
@@ -102,6 +103,7 @@ function checkPass() {
             while (logins[i] !== document.getElementById('username').value + ":" + document.getElementById('password').value) {
                   i++;
               }
+                 document.getElementById('whoban').innerHTML = whobanned[i] + " has banned you from TiMedia!";
                  document.getElementById('reason').innerHTML = "Reason: " + banreason[i];
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
@@ -124,6 +126,7 @@ function checkPass() {
             while (logins[i] !== document.getElementById('username').value + ":" + document.getElementById('password').value) {
                   i++;
               }
+                 document.getElementById('whoban').innerHTML = whobanned[i] + " has banned you from TiMedia!";
                  document.getElementById('reason').innerHTML = "Reason: " + banreason[i];
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
