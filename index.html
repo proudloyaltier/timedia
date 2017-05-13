@@ -99,7 +99,7 @@ function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
           if (contains(bannedusers,document.getElementById('username').value)) {
                        var i = 0;
-            while (!logins[i] == document.getElementById('username').value + ":" + document.getElementById('password').value) {
+            while (logins[i] !== document.getElementById('username').value + ":" + document.getElementById('password').value) {
                   i++;
               }
                  document.getElementById('reason').innerHTML = "Reason: " + banreason[i];
@@ -121,7 +121,7 @@ function checkPass() {
  if (getCookie("login") == "true") {
           if (contains(bannedusers,getCookie("name"))) {
                        var i = 0;
-            while (!logins[i] == document.getElementById('username').value + ":" + document.getElementById('password').value) {
+            while (logins[i] !== document.getElementById('username').value + ":" + document.getElementById('password').value) {
                   i++;
               }
                  document.getElementById('reason').innerHTML = "Reason: " + banreason[i];
