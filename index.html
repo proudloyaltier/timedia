@@ -17,6 +17,7 @@
 <div style="visibility:hidden;" id="ban">
  <h3>You are banned from TiMedia</h3>
  <p>An admin has banned you from TiMedia!</p>
+ <p id="reason">No reason</p>
  </div>
  <br>
 <div id="content" style="visibility: hidden;">
@@ -47,7 +48,8 @@
 </div>
 <script>
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "raef:ti"];
-var bannedusers = ["hymenopus", "henry", "neil"];
+var bannedusers = ["henry"];
+var banreason = ["", "Spamming on TiMedia.", "", "", "", ""]
  
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
@@ -96,6 +98,7 @@ function check() {
 function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
           if (contains(bannedusers,document.getElementById('username').value)) {
+                 document.getElementById('reason').innerHTML = "Reason: " + banreason[i];
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
@@ -113,6 +116,7 @@ function checkPass() {
 
  if (getCookie("login") == "true") {
           if (contains(bannedusers,getCookie("name"))) {
+                 document.getElementById('reason').innerHTML = "Reason: " + banreason[i];
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
