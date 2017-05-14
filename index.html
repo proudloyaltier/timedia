@@ -51,9 +51,11 @@
 <script>
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "raef:ti"];
 var bannedusers = ["henry", "raef"];
-var banreason = ["Saying 'casio'!<br><img width=450px src='http://i.imgur.com/xrSWRhz.png'>", "Spamming/compromised account.", "", "'.", "", "Spamming."]
+var banreason = ["Compromised account.", "Spamming/compromised account.", "", "'.", "", "Spamming."]
 var whobanned = ["jellyfishguy", "jellyfishguy", "", "jellyfishguy", "", "ABS (automatic ban system)"]
- 
+var warnedusers = ["hymenopus"]
+var warntext = ["We've recently noticed that you've said 'casio' on CoffeeMedia. This is just a warning letting you know. If you recieve another warning, you will be banned."]
+
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
@@ -110,20 +112,24 @@ function checkPass() {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
-                 document.cookie = "login=true";
-                 document.cookie = "name=" + document.getElementById('username').value;
+            if (contains(warnedusers,getCookie("name"))) {
+               while (logins[i] !== document.getElementById('username').value + ":" + document.getElementById('password').value) {
+                  i++;
+              }
+             alert(warntext[i]);
+              } else {
                  document.getElementById('access').remove();
                  document.getElementById('ban').remove();
-                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
                  document.getElementById('content').style = "visibility: block;";
-           }
+                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
+              }
            } else {
   alert("Username or password is incorrect.");
  }
 }
 
  if (getCookie("login") == "true") {
-          if (contains(bannedusers,getCookie("name"))) {
+          if (contains(warnedusers,getCookie("name"))) {
                        var i = 0;
             while (logins[i] !== document.getElementById('username').value + ":" + document.getElementById('password').value) {
                   i++;
@@ -133,10 +139,17 @@ function checkPass() {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
+            if (contains(bannedusers,getCookie("name"))) {
+               while (logins[i] !== document.getElementById('username').value + ":" + document.getElementById('password').value) {
+                  i++;
+              }
+             alert(warntext[i]);
+            } else {
                  document.getElementById('access').remove();
                  document.getElementById('ban').remove();
                  document.getElementById('content').style = "visibility: block;";
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
+              }
            }
  }
  </script>
