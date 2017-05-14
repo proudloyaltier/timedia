@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <title>TiMedia</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <body>
@@ -51,9 +52,9 @@
 <script>
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "raef:ti"];
 var bannedusers = [];
-var banreason = ["Saying 'casio'!<br><img width=450px src='http://i.imgur.com/xrSWRhz.png'>", "Spamming/compromised account.", "", "'.", "", "Spamming."]
-var whobanned = ["jellyfishguy", "jellyfishguy", "", "jellyfishguy", "", "ABS (automatic ban system)"]
-var mutedusers = ["henry"]'
+var banreason = ["Saying 'casio'!<br><img width=450px src='http://i.imgur.com/xrSWRhz.png'>", "Spamming/compromised account.", "", "'.", "", "Spamming."];
+var whobanned = ["jellyfishguy", "jellyfishguy", "", "jellyfishguy", "", "ABS (automatic ban system)"];
+var mutedusers = ["henry"];
  
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
@@ -111,9 +112,9 @@ function checkPass() {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
-            if (contains(mutedusers,document.getElementById('username').value)) {
-             document.getElementById('HCB_comment_form_box').remove();
-            }
+                        if (contains(mutedusers,getCookie("name"))) {
+                    document.getElementById('HCB_comment_form_box').remove();
+                       }
                  document.cookie = "login=true";
                  document.cookie = "name=" + document.getElementById('username').value;
                  document.getElementById('access').remove();
@@ -137,8 +138,8 @@ function checkPass() {
                  document.getElementById('access').remove();
            } else {
                         if (contains(mutedusers,getCookie("name"))) {
-             document.getElementById('HCB_comment_form_box').remove();
-            }
+                    document.getElementById('HCB_comment_form_box').remove();
+                       }
                  document.getElementById('access').remove();
                  document.getElementById('ban').remove();
                  document.getElementById('content').style = "visibility: block;";
