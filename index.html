@@ -55,7 +55,7 @@
 <script>
 function checkLogin() {
 $.getJSON('http://limited.zone/login.php?username=' + document.getElementById('username').value + '&password=' + document.getElementById('password').value, function(data) {
-  if (data.access == "1") {
+  if (data.access == "0") {
      return true;
   } else {
      return false;
