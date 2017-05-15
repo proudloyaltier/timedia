@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- v1.2, B2 -->
-<html>
 <title>TiMedia</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <body>
@@ -11,23 +9,19 @@
 <br><br>
 <div id="access">
  <h3>You need access to this page</h3>
- <p><b>NOTE:</b> This is currently being fixed! (v1.2, B2)</p>
  <input placeholder="Username" id="username" type="text"><br>
  <input placeholder="Password" id="password" type="password"><br>
  <button class="base btn" onclick="checkPass()">Login!</button>
  <p>Don't have a login? Request one <a href="https://coffee-media.github.io/net"><b>here.</b></a>
  </div><br>
 <div style="visibility:hidden;" id="ban">
- <h3>You are banned from TiMedia!</h3>
- <p id="whoban">An admin has banned you from TiMedia!</p>
- <p id="reason">Reason: No reason</p>
- <p>Unfair ban? Appeal on <a href="https://coffee-media.github.io/net">CoffeeMedia</a>!</p>
+ <h3>You are banned from TiMedia</h3>
+ <p>If you would like to appeal, post why on CoffeeMedia.</p>
  </div>
  <br>
 <div id="content" style="visibility: hidden;">
  <h1 id="hello">Hello!</h1>
- <p>This is a TI forum, not social media. For social media (and non TI related disscussions), visit <a href="http://coffee-media.github.io/net">CoffeeMedia!</a> (The admins regularly post there too!)</p>
- <p><b>Only official mods have "(mod)" at the end of their name! We now ban people who say "casio"!</b></p>
+ <p>This is a TI forum, not social media. For social media (and non TI related disscussions), visit <a href="http://coffee-media.github.io/net">CoffeeMedia!</a>(The admins regularly post there too!)</p><br>
  <img width=175px src="https://images-na.ssl-images-amazon.com/images/I/71RH7Vj8FUL._SL1500_.jpg">
  <img width=85px src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/TI-nspire_CX_CAS.jpg/220px-TI-nspire_CX_CAS.jpg">
  <img width=150px src="https://images-na.ssl-images-amazon.com/images/I/A1p6HHnJWaL._SX466_.jpg">
@@ -51,17 +45,10 @@
  </body>
 
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> <!-- jQuery -->
 <script>
-function checkLogin() {
-jQuery.getJSON('http://limited.zone/login.php?username=' + document.getElementById('username').value + '&password=' + document.getElementById('password').value, function(data) {
-  if (data.access == "1") {
-     return true; 
-  } else {
-     return false;
-  }
-});
-}
+var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "raef:ti"];
+var bannedusers = [];
+ 
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
@@ -73,16 +60,66 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     }
 }
  
+ 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+ 
+function contains(a, obj) {
+  for (var i = 0; i < a.length; i++) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+ 
+function check() {
+ if (document.getElementById('answer').value == "1/3[ln(3)+ln(v)-ln(4)-ln(pi)]") {
+   document.getElementById('access').style = "visibility: hidden;";
+   document.getElementById('content').style = "visibility: block;";
+ }
+}
+ 
 function checkPass() {
-  if (checkLogin()) {
-                 document.cookie = "name=" + document.getElementById('username');
+ if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
+          if (contains(bannedusers,document.getElementById('username').value)) {
+                 document.getElementById('ban').style = "visibility: block;";
+                 document.getElementById('access').remove();
+           } else {
+                 document.cookie = "login=true";
+                 document.cookie = "name=" + document.getElementById('username').value;
+                 document.getElementById('access').remove();
+                 document.getElementById('ban').remove();
+                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
+                 document.getElementById('content').style = "visibility: block;";
+           }
+           } else {
+  alert("Username or password is incorrect.");
+ }
+}
+ if (getCookie("login") == "true") {
+          if (contains(bannedusers,getCookie("name"))) {
+                 document.getElementById('ban').style = "visibility: block;";
+                 document.getElementById('access').remove();
+           } else {
                  document.getElementById('access').remove();
                  document.getElementById('ban').remove();
                  document.getElementById('content').style = "visibility: block;";
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
-  } else {
-   alert("Username or password is incorrect!");
-  }
-}
+           }
+ }
  </script>
 </html>
