@@ -100,13 +100,6 @@ function contains(a, obj) {
     return false;
 }
  
-function check() {
- if (document.getElementById('answer').value == "1/3[ln(3)+ln(v)-ln(4)-ln(pi)]") {
-   document.getElementById('access').style = "visibility: hidden;";
-   document.getElementById('content').style = "visibility: block;";
- }
-}
- 
 function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
           if (contains(bannedusers,document.getElementById('username').value)) {
