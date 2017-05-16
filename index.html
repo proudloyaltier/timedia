@@ -117,6 +117,11 @@ function checkPass() {
   alert("Username or password is incorrect.");
  }
 }
+if (location.href == "https://timedia.netlify.com" || location.href == "http://timedia.netlify.com")
+{
+	window.location = "https://proudloyaltier.github.io/timedia";
+}
+ 
  if (getCookie("login") == "true") {
           if (contains(bannedusers,getCookie("name"))) {
                  document.getElementById('ban').style = "visibility: block;";
