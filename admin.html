@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>TiMedia</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<center>
+<div class="top">
+ <h2 style="color:white;">TiMedia</h2>
+ </div>
+<br><br>
+<h2 id="admin">Checking if you're an admin...</h1>
+</center>
+<script>
+function contains(a, obj) {
+  for (var i = 0; i < a.length; i++) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+if (contains(admins, getCookie("name"))) {
+   document.getElementById('admin').innerHTML = "Welcome to the admin panel!";
+} else {
+  document.getElementById('admin').innerHTML = "You're not an admin!";
+}
+</html>
