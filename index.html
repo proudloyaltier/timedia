@@ -65,7 +65,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
  
 
 function checkMute() {
-if (contains(mutedusers, getCookie("name")) || checkCookie("mute") == "true") {
+if (contains(mutedusers, getCookie("name")) || getCookie("mute") == "true") {
   document.getElementById('HCB_comment_form_box').remove();
   document.getElementById('mutemessage').innerHTML = "You are muted! You cannot post comments.";
  }
