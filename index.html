@@ -23,6 +23,7 @@
  <br>
 <div id="content" style="visibility: hidden;">
  <h1 id="hello">Hello!</h1><button onclick="logOut()" class="base btn">Log Out</button>
+ <p id="adminpanelnotice"></p>
  <h3>WARNING: DO NOT POST "CASIO"!</h3>
  <p>This is a TI forum, not social media. For social media (and non TI related disscussions), visit <a href="http://coffee-media.github.io/net">CoffeeMedia!</a> (The admins regularly post there too!)</p><br>
  <img width=175px src="https://images-na.ssl-images-amazon.com/images/I/71RH7Vj8FUL._SL1500_.jpg">
@@ -53,6 +54,14 @@
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "raef:ti", "nachocheese2017:mccormick", "guest:"];
 var bannedusers = ["raef"];
 var mutedusers = [];
+var admins = ["hymenopus", "jellyfishguy"];
+
+ function checkAdmin() {
+   if (contains(admins, getCookie("name")) {
+            document.getElementById('adminpanelnotice').innerHTML = "There is an admin panel where we can talk privatley! <a href='admin.html'>Click here!</a> (Only you and jellyfishguy and see this text).";
+       }
+ }
+ 
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
@@ -133,6 +142,7 @@ function checkPass() {
                  document.getElementById('content').style = "visibility: block;";
                  checkMute();
                  setInterval(checkCasioer, 50);
+                 checkAdmin();
            }
            } else {
   alert("Username or password is incorrect.");
@@ -151,6 +161,8 @@ function checkPass() {
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
                  setTimeout(checkMute, 200);
                  setInterval(checkCasioer, 50);
+                 checkAdmin();
+                 
            }
  }
  </script>
