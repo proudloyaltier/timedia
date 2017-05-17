@@ -57,9 +57,9 @@ var mutedusers = [];
 var admins = ["hymenopus", "jellyfishguy"];
 
  function checkAdmin() {
-   if (contains(admins, getCookie("name")) {
+  if (contains(admins, getCookie("name"))) {
             document.getElementById('adminpanelnotice').innerHTML = "There is an admin panel where we can talk privatley! <a href='admin.html'>Click here!</a> (Only you and jellyfishguy and see this text).";
-       }
+   }
  }
  
  Element.prototype.remove = function() {
