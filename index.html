@@ -135,7 +135,7 @@ function checkPass() {
                  document.getElementById('ban').remove();
                  document.getElementById('content').style = "visibility: block;";
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
-                 setTimeout(checkMute(), 200);
+                 setTimeout(checkMute, 200);
            }
  }
  </script>
