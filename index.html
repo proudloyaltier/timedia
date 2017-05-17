@@ -111,7 +111,7 @@ function contains(a, obj) {
  
 function checkCasioer() {
 var comment = document.getElementById('hcb_form_content').value;
- if (content.includes("casio") || content.includes("Casio") || content.includes("CASIO")) {
+ if (comment.includes("casio") || comment.includes("Casio") || comment.includes("CASIO")) {
   document.cookie = "mute=true";
   alert("Don't say Casio! You've been muted!");
   checkMute();
