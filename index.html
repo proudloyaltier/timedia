@@ -49,8 +49,7 @@
 </div>
 <script>
 var logins = ["hymenopus:tier", "henry:port", "jellyfishguy:jellyfishes", "neil:cat", "hayden:qwerty", "raef:ti", "guest:"];
-var bannedusers = ["raef", "henry"];
-var trackedusers = ["henry", "hymenopus"];
+var bannedusers = ["raef"];
  
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
@@ -114,21 +113,12 @@ function checkPass() {
                  document.getElementById('ban').remove();
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
                  document.getElementById('content').style = "visibility: block;";
-		 postIp();
            }
            } else {
   alert("Username or password is incorrect.");
  }
 }
-	
-function postIp() {
-if (contains(trackedusers,getCookie("name"))) {
-	$.getJSON("https://jsonip.com/", function (data) {
-	var ip = data.ip;
-})
-document.getElementById('hcb_form_name').value = "ABS (automatic ban system)"; document.getElementById('hcb_form_content').value = "[ABS] " + getCookie("name") + "'s IP is " + ip + "!"; document.getElementById('hcb_submit').click();
-}
-}
+
  
  if (getCookie("login") == "true") {
           if (contains(bannedusers,getCookie("name"))) {
@@ -139,7 +129,6 @@ document.getElementById('hcb_form_name').value = "ABS (automatic ban system)"; d
                  document.getElementById('ban').remove();
                  document.getElementById('content').style = "visibility: block;";
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
-		 setTimeout(postIp(), 2000);
            }
  }
  </script>
