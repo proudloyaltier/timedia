@@ -65,7 +65,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
  
 
 function checkMute() {
-if (contains(mutedusers, getCookie("name"))) {
+if (contains(mutedusers, getCookie("name")) || checkCookie("mute") == "true") {
   document.getElementById('HCB_comment_form_box').remove();
   document.getElementById('mutemessage').innerHTML = "You are muted! You cannot post comments.";
  }
@@ -108,6 +108,15 @@ function contains(a, obj) {
     return false;
 }
  
+ 
+function checkCasioer() {
+ if (document.getElementById('hcb_form_content').value.indexOf("casio") == 0 || document.getElementById('hcb_form_content').value.indexOf("Casio") == 0 || document.getElementById('hcb_form_content').value.indexOf("CASIO") == 0) {
+  document.cookie = "mute=true";
+  alert("Don't say Casio! You've been muted!");
+  checkMute();
+ }
+}
+ 
 function checkPass() {
  if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
           if (contains(bannedusers,document.getElementById('username').value)) {
@@ -121,6 +130,7 @@ function checkPass() {
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
                  document.getElementById('content').style = "visibility: block;";
                  checkMute();
+                 setInterval(checkCasioer, 50);
            }
            } else {
   alert("Username or password is incorrect.");
@@ -138,6 +148,7 @@ function checkPass() {
                  document.getElementById('content').style = "visibility: block;";
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
                  setTimeout(checkMute, 200);
+                 setInterval(checkCasioer, 50);
            }
  }
  </script>
