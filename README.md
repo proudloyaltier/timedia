@@ -1,5 +1,5 @@
 ## Welcome to TiMedia! 
-For another forum like this visit coffee-media.github.io
+For another forum like this visit coffee-media.github.io/net
 
 ## News
 We are changing to timedia.tk soon!
