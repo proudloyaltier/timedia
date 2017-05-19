@@ -65,6 +65,11 @@ var admins = ["hymenopus", "jellyfishguy"];
    }
  }
  
+  function changeName() {
+   document.getElementById('hcb_form_name').value = getCookie("name");
+   document.getElementById('hcb_form_name').disabled = true;   
+   }
+  
  Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
@@ -145,6 +150,7 @@ function checkPass() {
                  document.getElementById('content').style = "visibility: block;";
                  checkMute();
                  setInterval(checkCasioer, 50);
+                 setInterval(changeName, 50);
                  checkAdmin();
            }
            } else {
@@ -165,6 +171,7 @@ function checkPass() {
                  setTimeout(checkMute, 200);
                  setInterval(checkCasioer, 50);
                  checkAdmin();
+                 setInterval(changeName, 50);
                  
            }
  }
