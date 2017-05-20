@@ -16,7 +16,6 @@
  <input placeholder="Username" id="username" type="text"><br>
  <input placeholder="Password" id="password" type="password"><br>
  <button class="base btn" onclick="checkPass()">Login!</button>
- <a onclick="document.getElementById('username').value = 'guest'; document.getElementById('password').value = ''; checkPass();"> or sign in as guest</a>
  <p>Don't have a login? Request one <a href="https://docs.google.com/forms/d/e/1FAIpQLScCiyFtn6ODD7rIsL6HBJXHttwk89F8dirYY4vvw8q3DpA9HA/viewform"><b>here.</b></a>
  </div><br>
 <div style="visibility:hidden;" id="ban">
@@ -54,9 +53,9 @@
 
 </div>
 <script>
-var logins = ["hymenopus:tier", "henry:port", "graphinghandheld:tI", "neil:cat", "hayden:qwerty", "raef:ti", "nachocheese2017:mccormick", "guest:"];
+var logins = ["hymenopus:tier", "henry:port", "graphinghandheld:tI", "neil:cat", "hayden:qwerty", "raef:ti", "nachocheese2017:mccormick"]
 var bannedusers = [];
-var mutedusers = ["guest", "henry"];
+var mutedusers = ["henry"];
 var mods = ["hymenopus", "graphinghandheld", "hayden", "neil"];
 
  function checkAdmin() {
