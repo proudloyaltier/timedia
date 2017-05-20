@@ -53,11 +53,33 @@
 
 </div>
 <script>
-var logins = ["hymenopus:tier", "henry:port", "graphinghandheld:tI", "neil:cat", "hayden:qwerty", "raef:ti", "nachocheese2017:mccormick"]
+var logins = ["104121109101110111112117115058116105101114", "104101110114121058112111114116", "103114097112104105110103104097110100104101108100058116073", "110101105108058099097116", "104097121100101110058113119101114116121", "114097101102058116105", "110097099104111099104101101115101050048049055058109099099111114109105099107"]
 var bannedusers = ["henry"];
 var banreason = ["Spamming (x2), compromised account"]
 var mutedusers = ["henry"];
 var mods = ["hymenopus", "graphinghandheld", "hayden", "neil"];
+  
+function zeroPad(n, w){
+    while(n.toString().length<w) n = '0' + n;
+    return n;
+}
+
+function toNumbers(s){
+    var nums = '';
+    for(var i=0; i<s.length; i++) {
+        nums += zeroPad(s.charCodeAt(i), 3);
+    }
+    return nums;
+}
+
+function fromNumbers(nums){
+    var s = '';
+    for(var i=0; i<nums.length; i+=3){
+        console.log(i + ': ' + nums.substring(i, i+3))
+        s += String.fromCharCode(nums.substring(i, i+3));
+    }
+    return s;
+}
 
  function checkAdmin() {
   if (contains(mods, getCookie("name"))) {
@@ -137,7 +159,7 @@ var comment = document.getElementById('hcb_form_content').value;
 }
  
 function checkPass() {
- if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
+ if (contains(toNumbers(logins,document.getElementById('username').value + ':' + document.getElementById('password').value))) {
           if (contains(bannedusers,document.getElementById('username').value)) {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
