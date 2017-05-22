@@ -58,6 +58,11 @@ var bannedusers = ["henry"];
 var banreason = ["Spamming (x2), compromised account"]
 var mutedusers = ["henry"];
 var mods = ["hymenopus", "graphinghandheld", "hayden", "neil"];
+
+  if (window.location.href == "https://timedia.netlify.com" || window.location.href == "http://timedia.netlify.com") {
+      document.write("");
+  }
+  
  function checkAdmin() {
   if (contains(mods, getCookie("name"))) {
             document.getElementById('modpanelnotice').innerHTML = "<a href='mod.html'>Click here to access the moderator panel!</a>";
