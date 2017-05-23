@@ -32,14 +32,14 @@ function getCookie(cname) {
 }
  
 function buyVit() {
-  if (Number(getCookie("points") > 999) {
-      var r = confirm("Would you like to buy VIT for 1000 TiPoints? Your balance after this purchase will be " + Number(getCookie("points") - 1000) + " TiPoints.");
-      if (r == true) {
-         alert("Purchase successful.");   
-      }
-  } else {
-   alert("Insufficent funds.");
-  }
+if (Number(getCookie("points") > 999) {
+var r = confirm("Would you like to buy VIT for 1000 TiPoints? Your balance after this purchase will be " + Number(getCookie("points") - 1000) + " TiPoints.");
+if (r == true) {
+alert("Purchase successful.");   
+}
+} else {
+alert("Insufficent funds.");
+}
 }
 
 function buyMvt() {
