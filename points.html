@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <title>TiMedia</title>
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -33,7 +32,7 @@ function getCookie(cname) {
 }
  
 function buyVit() {
-if (getCookie("isVit") == "true") {
+if (localStorage.isVit == true) {
  alert("Already purchased.");
 } else {
 if (Number(localStorage.points) > 499) {
@@ -51,7 +50,7 @@ var r = confirm("Would you like to buy VIT for 500 TiPoints?");
 }
 
 function buyMvt() {
-if (getCookie("isMvt") == "true") {
+if (localStorage.isMvt == true) {
  alert("Already purchased.");
 } else {
 if (Number(localStorage.points) > 2499) {
