@@ -18,7 +18,7 @@ function getCookie(cname) {
     return "0";
 }
 
-var balance = getCookie("points") + 1;
+var balance = Number(getCookie("points")) + 1;
 document.cookie = "points=" + Number(balance);
 if (balance == 1) {
     alert("You've been rewarded 1 TiPoint. You now have 1 TiPoint.");
