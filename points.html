@@ -40,7 +40,7 @@ if (Number(localStorage.points) > 499) {
 var r = confirm("Would you like to buy VIT for 500 TiPoints?");
  if (r == true) {
      localStorage.setItem("points", Number(localStorage.points - 500));
-   document.cookie = "isVit=true";
+   localStorage.setItem("isVit", true);
    alert("Purchase successful.");
    location.reload();
    }
@@ -58,7 +58,7 @@ if (Number(localStorage.points) > 2499) {
     var r = confirm("Would you like to buy MVT for 2500 TiPoints?");
     if (r == true) {
      localStorage.setItem("points", Number(localStorage.points - 2500));
-       document.cookie = "isMvt=true";
+       localStorage.setItem("isMvt", true);
        alert("Purchase successful."); 
        location.reload();  
     }
