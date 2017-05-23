@@ -99,7 +99,20 @@ function logOut() {
  delete_cookie("name");
  location.reload();
 }
- 
+
+function grantAccess() {
+                 document.cookie = "login=true";
+                 document.cookie = "name=" + document.getElementById('username').value;
+                 document.getElementById('access').remove();
+                 document.getElementById('ban').remove();
+                 document.getElementById('content').style = "visibility: block;";
+                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
+                 setInterval(checkMute, 50);
+                 setInterval(checkCasioer, 50);
+                 checkAdmin();
+                 setInterval(changeName, 50);
+  
+}
  
 function delete_cookie( name ) {
   document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
@@ -147,16 +160,7 @@ function checkPass() {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
-                 document.cookie = "login=true";
-                 document.cookie = "name=" + document.getElementById('username').value;
-                 document.getElementById('access').remove();
-                 document.getElementById('ban').remove();
-                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
-                 document.getElementById('content').style = "visibility: block;";
-                 checkMute();
-                 setInterval(checkCasioer, 50);
-                 setInterval(changeName, 50);
-                 checkAdmin();
+              grantAccess();
            }
            } else {
   alert("Username or password is incorrect.");
@@ -168,15 +172,7 @@ function checkPass() {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
-                 document.getElementById('access').remove();
-                 document.getElementById('ban').remove();
-                 document.getElementById('content').style = "visibility: block;";
-                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
-                 setTimeout(checkMute, 200);
-                 setInterval(checkCasioer, 50);
-                 checkAdmin();
-                 setInterval(changeName, 50);
-                 
+                 grantAccess();
            }
  }
  </script>
