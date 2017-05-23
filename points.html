@@ -67,6 +67,10 @@ if (Number(getCookie("points") > 2499)) {
 }
 }
 }
+ 
+if (localStorage.points == undefined) {
+ localStorage.setItem("points", 0);
+}
 document.getElementById('balance').innerHTML = "Current balance: " + localStorage.points + " TiPoints";
 </script>
 </body></center>
