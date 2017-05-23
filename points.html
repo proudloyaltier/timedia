@@ -32,7 +32,7 @@ function getCookie(cname) {
 }
  
 function buyVit() {
-if (localStorage.isVit == true) {
+if (localStorage.isVit == "true") {
  alert("Already purchased.");
 } else {
 if (Number(localStorage.points) > 499) {
@@ -50,7 +50,7 @@ var r = confirm("Would you like to buy VIT for 500 TiPoints?");
 }
 
 function buyMvt() {
-if (localStorage.isMvt == true) {
+if (localStorage.isMvt == "true") {
  alert("Already purchased.");
 } else {
 if (Number(localStorage.points) > 2499) {
