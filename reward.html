@@ -18,8 +18,7 @@ function getCookie(cname) {
     return "0";
 }
 
-var balance = Number(getCookie("points")) + 1;
-document.cookie = "points=" + Number(balance);
+localStorage.points = Number(localStorage.points) + 1;
 window.location.href = "points.html";
 </script>
 </html>
