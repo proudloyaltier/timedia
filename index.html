@@ -69,6 +69,26 @@ var mods = ["hymenopus", "graphinghandheld", "hayden", "neil"];
    }
  }
  
+function checkRank() {
+  if (getCookie("isVit") = "true") {
+    var i = 0;
+while (i < 10) {
+if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
+	document.getElementsByClassName('author-name')[i].style = "color:yellow;";
+}
+i++;
+}
+  }
+  if (getCookie("isMvt") = "true") {
+    var i = 0;
+while (i < 10) {
+if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
+	document.getElementsByClassName('author-name')[i].style = "color:green;";
+}
+i++;
+}
+  }
+}
   function changeName() {
    document.getElementById('hcb_form_name').value = getCookie("name");
    document.getElementById('hcb_form_name').disabled = true;   
@@ -153,6 +173,7 @@ function checkPass() {
                  checkMute();
                  setInterval(checkCasioer, 50);
                  setInterval(changeName, 50);
+                 setInterval(checkRank, 50);
                  checkAdmin();
            }
            } else {
