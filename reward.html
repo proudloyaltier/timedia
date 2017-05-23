@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<title>TiMedia</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<center>
+<div class="top">
+ <h2 style="color:white;">TiMedia</h2>
+ </div>
+<br><br>
+<script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "0";
+}
+
+var balance = getCookie("points") + 1;
+document.cookie = "points=" + balance;
+if (balance == 1) {
+    alert("You've been awared 1 TiPoint. You now have 1 TiPoint.);
+} else {
+  alert("You've been awared 1 TiPoint. You now have " + balance + " TiPoints.");
+}
+window.location.href = "index.html";
+</script>
+</html>
