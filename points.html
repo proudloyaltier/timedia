@@ -9,6 +9,10 @@
  <p align="left"><a href="index.html">Back to Home</a></p>
 <h3 id="balance">Current balance: Loading...</h3><br>
  <a href="http://microify.com/1zrV">Earn TiPoints by watching ads!</a>
+ <h3>Earn points by pledging TI!</h3>
+ <img width=200px src="http://i.imgur.com/QxFCwIN.png">
+ <input type="text" placeholder="Type the pledge here.">
+ <br>
  <h3>Store</h3>
 <img onclick="buyVit();" width=200px src="http://i.imgur.com/m5ITKZ0.png">
 <img onclick="buyMvt();" width=200px src="http://i.imgur.com/bsGBadI.png">
@@ -87,10 +91,20 @@ if (Number(localStorage.points) > 2499) {
 }
 }
  
+function checkPledge() {
+ if (document.getElementById('pledge').value == "I pledge TI to the TI of the TI of Texas Instruments, and to the TI for which it TIs one TI under TI divisible by one and TI with TI and TI for TI.") {
+  document.getElementById('pledge').value = "";
+  localStorage.setItem("points", Number(localStorage.points + 25));
+  alert("Thank you pledging! You've been rewarded 25 TiPoints!");
+  location.reload();
+ }
+ 
 if (localStorage.points == undefined) {
  localStorage.setItem("points", 0);
 }
 document.getElementById('balance').innerHTML = "Current balance: " + localStorage.points + " TiPoints";
+ 
+setInterval(checkPledge, 50);
 </script>
 </body></center>
 </html>
