@@ -173,6 +173,7 @@ function checkPass() {
            } else {
                  document.cookie = "login=true";
                  document.cookie = "name=" + document.getElementById('username').value;
+		 window.location.href = "sync.html";
                  document.getElementById('access').remove();
                  document.getElementById('ban').remove();
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
