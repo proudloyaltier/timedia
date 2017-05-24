@@ -12,6 +12,7 @@
  <h3>Store</h3>
 <img onclick="buyVit();" width=200px src="http://i.imgur.com/m5ITKZ0.png">
 <img onclick="buyMvt();" width=200px src="http://i.imgur.com/bsGBadI.png">
+<img onclick="buyCalc();" width=200px src="http://i.imgur.com/8keIyTp.png">
  <div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=50&ts=1495572466451");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
@@ -59,6 +60,24 @@ if (Number(localStorage.points) > 2499) {
     if (r == true) {
      localStorage.setItem("points", Number(localStorage.points - 2500));
        localStorage.setItem("isMvt", true);
+       alert("Purchase successful."); 
+       location.reload();  
+    }
+} else {
+ alert("Insufficient funds.");
+}
+}
+}
+ 
+function buyCalc() {
+if (localStorage.calc == "true") {
+ alert("Already purchased.");
+} else {
+if (Number(localStorage.points) > 2499) {
+    var r = confirm("Would you like to buy Virtual Calculator for 100 TiPoints?");
+    if (r == true) {
+     localStorage.setItem("points", Number(localStorage.points - 100));
+       localStorage.setItem("calc", true);
        alert("Purchase successful."); 
        location.reload();  
     }
