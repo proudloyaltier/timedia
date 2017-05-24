@@ -94,9 +94,10 @@ if (Number(localStorage.points) > 2499) {
 function checkPledge() {
  if (document.getElementById('pledge').value == "I pledge TI to the TI of the TI of Texas Instruments, and to the TI for which it TIs one TI under TI divisible by one and TI with TI and TI for TI.") {
   document.getElementById('pledge').value = "";
-  localStorage.setItem("points", Number(localStorage.points + 25));
-  alert("Thank you pledging! You've been rewarded 25 TiPoints!");
+  localStorage.setItem("points", Number(localStorage.points + 5));
+  alert("Thank you pledging! You've been rewarded 5 TiPoints!");
   location.reload();
+ }
  }
  
 if (localStorage.points == undefined) {
