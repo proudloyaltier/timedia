@@ -56,6 +56,11 @@
 
 </div>
 <script>
+	
+if (localStorage.calc == "true") {
+	document.getElementById('calculator').style = "visibility:block;";
+}
+	
 var logins = ["hymenopus:tier", "henry:port", "graphinghandheld:tI", "neil:cat", "hayden:qwerty", "raef:ti", "nachocheese2017:mccormick"]
 var bannedusers = [""];
 var banreason = [""]
@@ -90,9 +95,6 @@ if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("na
 i++;
 }
   }
-if (localStorage.calc == "true") {
-	document.getElementById('calculator').style = "visibility:block;";
-}
 }
   function changeName() {
    document.getElementById('hcb_form_name').value = getCookie("name");
