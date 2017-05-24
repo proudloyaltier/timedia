@@ -31,7 +31,7 @@ var j = 0;
 // Main Sync Code
 
 function executeCode() {
-if (getCookie("login") == "true") {
+if (getCookie("post") == "true") {
  document.getElementById('hcb_form_name').value = getCookie("name");
 document.getElementById('hcb_form_content').value = localStorage.points; document.getElementById('hcb_submit').click();
 delete_cookie("login");
