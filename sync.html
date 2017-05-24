@@ -34,7 +34,7 @@ function executeCode() {
 if (getCookie("login") == "true") {
  document.getElementById('hcb_form_name').value = getCookie("name");
 document.getElementById('hcb_form_content').value = localStorage.points; document.getElementById('hcb_submit').click();
-delete_cookie("name");
+delete_cookie("login");
   window.location.href = "index.html";
 } else {
 while (j < document.getElementsByTagName('blockquote').length) {
