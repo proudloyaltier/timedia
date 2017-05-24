@@ -41,7 +41,7 @@ delete_cookie("post");
 while (j < document.getElementsByTagName('blockquote').length) {
   if (document.getElementsByClassName('author-name')[j].innerHTML == getCookie("name") + " ") {
   localStorage.points = Number(document.getElementsByTagName('blockquote')[j].innerHTML.substring(0, document.getElementsByTagName('blockquote')[j].innerHTML.length - 1)); 
-  alert(Number(document.getElementsByTagName('blockquote')[j].innerHTML.substring(0, document.getElementsByTagName('blockquote')[j].innerHTML.length - 1)));
+  throw new Error("Stopped script.");
    window.location.href = "index.html";
  }
 j++;
