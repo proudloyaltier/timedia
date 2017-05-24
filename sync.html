@@ -5,6 +5,8 @@
 <!-- end www.htmlcommentbox.com -->
 
 <script>
+var i = 0;
+
 while (i < document.getElementsByTagName('blockquote').length) {
   if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
   localStorage.points = Number(document.getElementsByTagName('blockquote')[i].innerHTML.substring(0, document.getElementsByTagName('blockquote')[i].innerHTML.length - 1)); 
