@@ -22,7 +22,12 @@
 </center>
 <script>
 var mods = ["hymenopus", "graphinghandheld", "hayden", "neil"];
- 
+
+   function changeName() {
+   document.getElementById('hcb_form_name').value = getCookie("name");
+   document.getElementById('hcb_form_name').disabled = true;   
+   }
+
 function contains(a, obj) {
   for (var i = 0; i < a.length; i++) {
         if (a[i] === obj) {
@@ -54,5 +59,7 @@ if (contains(mods, getCookie("name"))) {
 } else {
   document.getElementById('mod').innerHTML = "You're not a mod!";
 }
+
+setInterval(changeName, 50);
  </script>
 </html>
