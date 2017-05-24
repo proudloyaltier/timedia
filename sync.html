@@ -1,4 +1,4 @@
-Please wait...
+Syncing your TiPoints and purchases...
 
 <!-- begin wwww.htmlcommentbox.com -->
  <div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
@@ -7,7 +7,7 @@ Please wait...
 <!-- end www.htmlcommentbox.com -->
 
 <script>
-var i = 0;
+var j = 0;
  function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -24,12 +24,28 @@ var i = 0;
     return "";
 }
  
+ function delete_cookie(name) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+ 
+// Main Sync Code
 
-while (i < document.getElementsByTagName('blockquote').length) {
-  if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
-  localStorage.points = Number(document.getElementsByTagName('blockquote')[i].innerHTML.substring(0, document.getElementsByTagName('blockquote')[i].innerHTML.length - 1)); 
+function executeCode() {
+if (getCookie("login") == "true") {
+ document.getElementById('hcb_form_name').value = getCookie("name");
+document.getElementById('hcb_form_content').value = localStorage.points; document.getElementById('hcb_submit').click();
+delete_cookie("name");
+  window.location.href = "index.html";
+} else {
+while (j < document.getElementsByTagName('blockquote').length) {
+  if (document.getElementsByClassName('author-name')[j].innerHTML == getCookie("name") + " ") {
+  localStorage.points = Number(document.getElementsByTagName('blockquote')[j].innerHTML.substring(0, document.getElementsByTagName('blockquote')[j].innerHTML.length - 1)); 
   window.location.href = "index.html";
  }
-i++;
+j++;
 }
+}
+}
+ 
+setInterval(executeCode, 50);
 </script>
