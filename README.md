@@ -2,9 +2,11 @@
 For another forum like this visit coffee-media.github.io/net
 
 ## News
-We are changing to timedia.tk soon!
+New updates!
 
 ## Changelog
+May 24th, 2017 - added TiPoints, a virtual currency you can use to buy things on the site.
+
 May 10th, 2017 - added a CAPTCHA for security.
 
 May 9th, 2017 - created TiMedia.
