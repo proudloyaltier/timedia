@@ -61,8 +61,7 @@ j++;
 	while (j < document.getElementsByTagName('blockquote').length) {
 	document.cookie = "log=" + getCookie("log") + document.getElementsByClassName('author-name')[j].innerHTML + "now has " + document.getElementsByTagName('blockquote')[j].innerHTML + "TiPoints.<br>";
 	j++;
-	}
-}
+		}
 window.location.href = "log.html";
   delete_cookie("view");
  } else {
