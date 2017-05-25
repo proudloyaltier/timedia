@@ -55,6 +55,11 @@ j++;
 }
 }
 }
- 
+
+ if (getCookie("view") == "true") {
+  document.getElementById('HCB_comment_box').style = "visibility:block;";
+  delete_cookie("view");
+ } else {
 setInterval(executeCode, 100);
+ }
 </script>
