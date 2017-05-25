@@ -56,6 +56,7 @@ j++;
 }
 }
 
+function doCode() {
  if (getCookie("view") == "true") {
 	  var j = 0;
 	while (j < document.getElementsByTagName('blockquote').length) {
@@ -66,4 +67,7 @@ j++;
  } else {
 setInterval(executeCode, 100);
  }
+}
+	
+setTimeout(doCode, 1000);
 </script>
