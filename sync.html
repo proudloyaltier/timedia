@@ -34,6 +34,7 @@ if (getCookie("send") == "true") {
 document.getElementById('hcb_form_content').value = getCookie("amount"); document.getElementById('hcb_submit').click();
  delete_cookie("sendto");
  delete_cookie("amount");
+	 delete_cookie("send");
 } else {
 if (getCookie("post") == "true") {
  document.getElementById('hcb_form_name').value = getCookie("name");
@@ -62,6 +63,7 @@ function doCode() {
 	j++;
 		}
 	 delete_cookie("view");
+	 
 	 window.location.href = "log.html";
  } else {
 setInterval(executeCode, 100);
