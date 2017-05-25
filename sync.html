@@ -61,6 +61,7 @@ function doCode() {
 	document.cookie = "log=" + getCookie("log") + document.getElementsByClassName('author-name')[j].innerHTML + "now has " + document.getElementsByTagName('blockquote')[j].innerHTML + "TiPoints.<br>";
 	j++;
 		}
+	 delete_cookie("view");
 	 window.location.href = "log.html";
  } else {
 setInterval(executeCode, 100);
