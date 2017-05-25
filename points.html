@@ -78,7 +78,7 @@ function buyCalc() {
 if (localStorage.calc == "true") {
  alert("Already purchased.");
 } else {
-if (Number(localStorage.points) > 2499) {
+if (Number(localStorage.points) > 99) {
     var r = confirm("Would you like to buy Virtual Calculator for 100 TiPoints?");
     if (r == true) {
      localStorage.setItem("points", Number(localStorage.points - 100));
