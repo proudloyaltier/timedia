@@ -58,7 +58,7 @@ function doCode() {
  if (getCookie("view") == "true") {
 	  var j = 0;
 	while (j < document.getElementsByTagName('blockquote').length) {
-	document.cookie = "log=" + getCookie("log") + document.getElementsByClassName('author-name')[j].innerHTML + "now has " + document.getElementsByTagName('blockquote')[j].innerHTML + "TiPoints.<br>";
+	document.cookie = "log=" + getCookie("log") + document.getElementsByClassName('date')[j].innerHTML + " " + document.getElementsByClassName('author-name')[j].innerHTML + "now has " + document.getElementsByTagName('blockquote')[j].innerHTML + "TiPoints.<br>";
 	j++;
 		}
 	 delete_cookie("view");
