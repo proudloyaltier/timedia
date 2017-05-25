@@ -57,7 +57,12 @@ j++;
 }
 
  if (getCookie("view") == "true") {
-  document.getElementById('HCB_comment_box').style = "visibility:block;";
+  var j = 0;
+while (j < document.getElementsByTagName('blockquote').length) {
+	document.cookie = "log=" + getCookie("log") + document.getElementsByClassName('author-name')[j].innerHTML + "now has " + document.getElementsByTagName('blockquote')[j].innerHTML + "TiPoints.<br>";
+	j++;
+}
+window.location.href = "log.html";
   delete_cookie("view");
  } else {
 setInterval(executeCode, 100);
