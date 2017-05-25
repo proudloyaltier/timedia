@@ -31,6 +31,12 @@ var j = 0;
 // Main Sync Code
 
 function executeCode() {
+if (getCookie("send") == "true") {
+  document.getElementById('hcb_form_name').value = getCookie("sendto");
+document.getElementById('hcb_form_content').value = getCookie("amount"); document.getElementById('hcb_submit').click();
+ delete_cookie("sendto");
+ delete_cookie("amount");
+} else {
 if (getCookie("post") == "true") {
  document.getElementById('hcb_form_name').value = getCookie("name");
 document.getElementById('hcb_form_content').value = localStorage.points; document.getElementById('hcb_submit').click();
@@ -45,6 +51,7 @@ while (j < document.getElementsByTagName('blockquote').length) {
    throw new Error("Stopped script.");
  }
 j++;
+}
 }
 }
 }
