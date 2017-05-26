@@ -69,6 +69,10 @@ function exeCode() {
 setInterval(executeCode, 100);
  }
 }
-	
+
+if (getCookie("pause") == "true") {
+alert("Paused.");
+} else {
 setInterval(exeCode, 50);
+}
 </script>
