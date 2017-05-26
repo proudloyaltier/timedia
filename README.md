@@ -2,10 +2,14 @@
 For another forum like this visit coffee-media.github.io/net
 
 ## News
-New updates! I'll try to update this more.
+We are now trying to make updates once every one or two days.
 
 ## Changelog
+May 24th, 2017 - added the shop, where you can buy things for TiPoints.
+
 May 24th, 2017 - added TiPoints, a virtual currency you can use to buy things on the site.
+
+May 11th, 2017 - removed the CAPTCHA because it got annoying.
 
 May 10th, 2017 - added a CAPTCHA for security.
 
