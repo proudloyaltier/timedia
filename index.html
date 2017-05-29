@@ -55,7 +55,7 @@
 
 </div>
 <script>	
-var logins = ["hymenopus:tier", "henry:port", "graphinghandheld:tI", "neil:cat", "hayden:qwerty", "raef:ti", "nachocheese2017:mccormick"]
+var logins = ["aHltZW5vcHVzOnRpZXI=", "aGVucnk6cG9ydA==", "Z3JhcGhpbmdoYW5kaGVsZDp0SQ==", "bmVpbDpjYXQ=", "aGF5ZGVuOnF3ZXJ0eQ==", "cmFlZjp0aQ==", "bmFjaG9jaGVlc2UyMDE3Om1jY29ybWljaw=="]
 var bannedusers = [""];
 var banreason = [""]
 var mutedusers = [""];
@@ -161,7 +161,7 @@ var comment = document.getElementById('hcb_form_content').value;
 }
  
 function checkPass() {
- if (contains(logins,document.getElementById('username').value + ':' + document.getElementById('password').value)) {
+ if (contains(logins,btoa(document.getElementById('username').value + ':' + document.getElementById('password').value))) {
           if (contains(bannedusers,document.getElementById('username').value)) {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
