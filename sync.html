@@ -4,7 +4,6 @@ Syncing your TiPoints and purchases...
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10000000&ts=1495665618881");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 
 <script>
-var j = 0;
 document.getElementsByTagName('a')[0].remove();
  function getCookie(cname) {
     var name = cname + "=";
@@ -46,18 +45,13 @@ function storeInDatabase(name, value) {
 }
 
 	
-if (getCookie("pause") == "true") {
-	alert("Paused.");
-} else {
-	if (getCookie("post") == "true") {
+if (getCookie("post") == "true") {
 		storeInDatabase("points", localStorage.points);
 		storeInDatabase("purchases", localStorage.purchases);
 		delete_cookie("login");
 		window.location.href = "index.html";
-	} else {
-		localStorage.points = getFromDatabase("points");
-		localStorage.purchases = getFromDatabase("purchases");
-		window.location.href = "index.html";
-	}
+} else {
+		getFromDatabase("points");
+		getFromDatabase("purchases");
 }
 </script>
