@@ -47,7 +47,7 @@ while (j < document.getElementsByTagName('blockquote').length) {
   if (document.getElementsByClassName('author-name')[j].innerHTML == getCookie("name") + " ") {
   localStorage.points = Number(document.getElementsByTagName('blockquote')[j].innerHTML.substring(0, document.getElementsByTagName('blockquote')[j].innerHTML.length - 1)); 
    window.location.href = "index.html";
-   throw new Error("Stopped script.");
+   throw new Error("TI! Stopped script.");
  }
 j++;
 }
@@ -71,8 +71,8 @@ setInterval(executeCode, 100);
 }
 
 if (getCookie("pause") == "true") {
-alert("Paused.");
+	alert("Paused.");
 } else {
-setInterval(exeCode, 50);
+	setInterval(exeCode, 50);
 }
 </script>
