@@ -166,15 +166,6 @@ function checkPass() {
                  document.cookie = "login=true";
                  document.cookie = "name=" + document.getElementById('username').value;
 		 window.location.href = "sync.html";
-                 document.getElementById('access').remove();
-                 document.getElementById('ban').remove();
-                 document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
-                 document.getElementById('content').style = "visibility: block;";
-                 checkMute();
-                 setInterval(checkCasioer, 50);
-                 setInterval(changeName, 50);
-                 setInterval(checkRank, 50);
-                 checkAdmin();
            }
            } else {
   alert("Username or password is incorrect.");
@@ -199,7 +190,7 @@ function checkPass() {
                  checkAdmin();
 		 setInterval(checkRank, 50);
                  setInterval(changeName, 50);
-		   if (localStorage.has89 !== true) {
+		   if (localStorage.has89 !== "true") {
 				document.getElementById('89').remove();	   
 		   } 
                  
