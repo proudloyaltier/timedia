@@ -1,11 +1,11 @@
-<!-- begin wwww.htmlcommentbox.com -->
+Syncing your TiPoints and purchases...
  <div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10000000&ts=1495665618881");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<!-- end www.htmlcommentbox.com -->
 
 <script>
 var j = 0;
+document.getElementsByTagName('a')[0].remove();
  function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -25,54 +25,40 @@ var j = 0;
  function delete_cookie(name) {
   document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
- 
-// Main Sync Code
 
-function executeCode() {
-if (getCookie("send") == "true") {
-  document.getElementById('hcb_form_name').value = getCookie("sendto");
-document.getElementById('hcb_form_content').value = getCookie("amount"); document.getElementById('hcb_submit').click();
- delete_cookie("sendto");
- delete_cookie("amount");
-	 delete_cookie("send");
-} else {
-if (getCookie("post") == "true") {
- document.getElementById('hcb_form_name').value = getCookie("name");
-document.getElementById('hcb_form_content').value = localStorage.points; document.getElementById('hcb_submit').click();
-delete_cookie("login");
-delete_cookie("post");
-  window.location.href = "index.html";
-} else {
-while (j < document.getElementsByTagName('blockquote').length) {
-  if (document.getElementsByClassName('author-name')[j].innerHTML == getCookie("name") + " ") {
-  localStorage.points = Number(document.getElementsByTagName('blockquote')[j].innerHTML.substring(0, document.getElementsByTagName('blockquote')[j].innerHTML.length - 1)); 
-   window.location.href = "index.html";
-   throw new Error("TI! Stopped script.");
- }
-j++;
+function getFromDatabase(name) {
+var i = 0;
+while (i < document.getElementsByTagName('blockquote').length) {
+			if (document.getElementsByTagName('blockquote')[i].innerHTML.includes(name) && document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
+				localStorage.setItem(name, document.getElementsByTagName('blockquote')[i].innerHTML.substring(name.length + 1));
+				window.location.href = "index.html";
+				throw new Error("Got value from database.");
+			}
+		i++;
+	}
+	
 }
-}
-}
+	
+function storeInDatabase(name, value) {
+	document.getElementById('hcb_form_name').value = getCookie("name");
+	document.getElementById('hcb_form_content').value = name + ":" + value;
+	document.getElementById('hcb_submit').click();
 }
 
-function exeCode() {
- if (getCookie("view") == "true") {
-	  var j = 0;
-	while (j < document.getElementsByTagName('blockquote').length) {
-	document.cookie = "log=" + getCookie("log") + document.getElementsByClassName('date')[j].innerHTML + " " + document.getElementsByClassName('author-name')[j].innerHTML + "now has " + document.getElementsByTagName('blockquote')[j].innerHTML + "TiPoints.<br>";
-	j++;
-		}
-	 delete_cookie("view");
-	 
-	 window.location.href = "log.html";
- } else {
-setInterval(executeCode, 100);
- }
-}
-
+	
 if (getCookie("pause") == "true") {
 	alert("Paused.");
 } else {
-	setInterval(exeCode, 50);
+	if (getCookie("post") == "true") {
+		storeInDatabase("points", localStorage.points);
+		storeInDatabase("purchases", localStorage.purchases);
+		delete_cookie("login");
+		delete_cookie("name");
+		window.location.href = "index.html";
+	} else {
+		localStorage.points = getFromDatabase("points");
+		localStorage.purchases = getFromDatabase("purchases");
+		window.location.href = "index.html";
+	}
 }
 </script>
