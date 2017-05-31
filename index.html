@@ -71,7 +71,7 @@ var mods = ["hymenopus", "graphinghandheld", "hayden", "neil", "henry"];
  }
  
 function checkRank() {
-  if (localStorage.isVit == "true") {
+  if (localStorage.purchases.includes("!!isvit:true!!") {
     var i = 0;
 while (i < 10) {
 if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
@@ -80,7 +80,7 @@ if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("na
 i++;
 }
   }
-  if (localStorage.isMvt == "true") {
+  if (localStorage.purchases.includes("!!ismvt:true!!") {
     var i = 0;
 while (i < 10) {
 if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
@@ -192,9 +192,11 @@ function checkPass() {
                  checkAdmin();
 		 setInterval(checkRank, 50);
                  setInterval(changeName, 50);
-		   if (localStorage.has89 !== "true") {
-				document.getElementById('89').remove();	   
-		   } 
+		   if (localStorage.purchases.includes("!!has89:true!!") {  
+				document.cookie = "has89=true";
+		       } else {
+		       		document.getElementById('89').remove();	 
+		       }
                  
            }
  }
