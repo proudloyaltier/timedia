@@ -1,1 +1,45 @@
-
+<!DOCTYPE html>
+<title>Check out TI Media</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<center>
+<div class="top">
+ <h2 style="color:white;">TiMedia</h2>
+ </div>
+<br><br>
+<div id="access" style="padding:35px;">
+ <input placeholder="Username" id="username" type="text"><br>
+ <input placeholder="Password" id="password" type="password"><br>
+ <button class="base btn" onclick="checkPass()">Login!</button>
+ <p>Don't have a login? Request one <a href="https://docs.google.com/forms/d/e/1FAIpQLScCiyFtn6ODD7rIsL6HBJXHttwk89F8dirYY4vvw8q3DpA9HA/viewform"><b>here.</b></a>
+</div>
+<div style="visibility:hidden;" id="ban">
+ <h3>You are banned from TiMedia</h3>
+ <p>You may not appeal for this ban.<p>
+ <button onclick="logOut()" class="base btn">Log Out</button>
+ </div>
+<div id="content" style="visibility:hidden;">
+<div class="background" id="navbar">
+	<a href="index.html"><img draggable=false id="home-icon" style="padding:50px;" width=50px src="home.png"></a>
+	<a href="news.html"><img draggable=false id="news-icon" style="padding:50px;" width=50px src="news.png"></a>
+	<a href="points.html"><img draggable=false id="money-icon" style="padding:50px;" width=50px src="money.png"></a>
+	<a href="settings.html"><img draggable=false id="gears-icon" style="padding:50px;" width=50px src="gears.png"></a>
+</div><br><br><br><br><br>
+ <h1 id="hello">Hello!</h1><button onclick="logOut()" class="base btn">Log Out</button>
+<p id="modpanelnotice"></p>
+<img width=175px src="https://images-na.ssl-images-amazon.com/images/I/71RH7Vj8FUL._SL1500_.jpg">
+ <img width=85px src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/TI-nspire_CX_CAS.jpg/220px-TI-nspire_CX_CAS.jpg">
+ <img width=150px src="https://images-na.ssl-images-amazon.com/images/I/A1p6HHnJWaL._SX466_.jpg">
+ <img width=90px src="https://images-na.ssl-images-amazon.com/images/G/01/aplusautomation/vendorimages/0e74993e-8b04-4f99-a980-2437ad5c0728.jpg._CB283769908__SR150,300_.jpg">
+ <img width=215px src="http://i258.photobucket.com/albums/hh259/kaspernova/84PCS-Pink.jpg">
+ <img width=95px src="https://upload.wikimedia.org/wikipedia/commons/8/89/PLT-SHH1.jpg">
+ <img width=85px src="http://tiplanet.org/forum/gallery/image.php?album_id=15&image_id=273&view=no_count">
+ <img width=190px src="http://s7d1.scene7.com/is/image/officedepot/905739_scene7?$OD-Dynamic$&wid=450&hei=450">
+ <img width=190px src="http://www.staples-3p.com/s7/is/image/Staples/m000916946_sc7?$splssku$"><br>
+ <img id="89" src="http://ti.zewaren.net/en/images/calc-ti89.gif">
+ <p id="mutemessage"></p>
+</center>
+ </body>
+</div>
+</html>
