@@ -43,14 +43,14 @@ function getCookie(cname) {
 }
  
 function buyVit() {
-if (localStorage.isVit == "true") {
+if (localStorage.purchases.includes("!!isvit:true!!")) {
  alert("Already purchased.");
 } else {
 if (Number(localStorage.points) > 499) {
 var r = confirm("Would you like to buy VIT for 500 TiPoints?");
  if (r == true) {
      localStorage.setItem("points", Number(localStorage.points - 500));
-   localStorage.setItem("isVit", true);
+   localStorage.purchases = localStorage.purchases + "!!isvit:true!!";
    alert("Purchase successful.");
    location.reload();
    }
@@ -61,14 +61,14 @@ var r = confirm("Would you like to buy VIT for 500 TiPoints?");
 }
 
 function buyMvt() {
-if (localStorage.isMvt == "true") {
+if (localStorage.purchases.includes("!!ismvt:true!!")) {
  alert("Already purchased.");
 } else {
 if (Number(localStorage.points) > 2499) {
     var r = confirm("Would you like to buy MVT for 2500 TiPoints?");
     if (r == true) {
      localStorage.setItem("points", Number(localStorage.points - 2500));
-       localStorage.setItem("isMvt", true);
+   localStorage.purchases = localStorage.purchases + "!!ismvt:true!!";
        alert("Purchase successful."); 
        location.reload();  
     }
