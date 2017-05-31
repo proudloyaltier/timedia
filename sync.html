@@ -53,6 +53,7 @@ if (getCookie("post") == "true") {
   storeInDatabase("points", localStorage.points); // Upload TiPoints
   storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
   delete_cookie("login"); // Logout
+  delete_cookie("post"); // Get Next Time
   window.location.href = "index.html";
 } else {
   getFromDatabase("points"); // Get TiPoints
