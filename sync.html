@@ -23,11 +23,11 @@ function delete_cookie(name) {
   document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
-function getFromDatabase(name) {
+function getFromDatabase(gname) {
   var i = 0;
   while (i < document.getElementsByTagName('blockquote').length) {
-    if (document.getElementsByTagName('blockquote')[i].innerHTML.includes(name) && document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
-      localStorage.setItem(name, document.getElementsByTagName('blockquote')[i].innerHTML.substring(name.length + 1));
+    if (document.getElementsByTagName('blockquote')[i].innerHTML.includes(gname) && document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
+      localStorage.setItem(gname, document.getElementsByTagName('blockquote')[i].innerHTML.substring(gname.length + 1));
       window.location.href = "index.html";
       throw new Error("Got value from database.");
     }
@@ -36,21 +36,21 @@ function getFromDatabase(name) {
 
 }
 
-function storeInDatabase(name, value) {
+function storeInDatabase(sname, value) {
   document.getElementById("hcb_form_name").value = getCookie("name");
-  document.getElementById("hcb_form_content").value = name + ":" + value;
+  document.getElementById("hcb_form_content").value = sname + ":" + value;
   document.getElementById("hcb_submit").click();
 }
 
 
 if (getCookie("post") == "true") {
-  storeInDatabase("points", localStorage.points);
-  storeInDatabase("purchases", localStorage.purchases);
-  delete_cookie("login");
+  storeInDatabase("points", localStorage.points); // Upload TiPoints
+  storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
+  delete_cookie("login"); // Logout
   window.location.href = "index.html";
 } else {
-  getFromDatabase("points");
-  getFromDatabase("purchases");
+  getFromDatabase("points"); // Get TiPoints
+  getFromDatabase("purchases"); // Get Purchases
 }
 
 </script>
