@@ -48,7 +48,7 @@ function removeTag() {
 }
 
 setInterval(removeTag, 0)
-
+function executeSync() {
 if (getCookie("post") == "true") {
   storeInDatabase("points", localStorage.points); // Upload TiPoints
   storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
@@ -58,5 +58,7 @@ if (getCookie("post") == "true") {
   getFromDatabase("points"); // Get TiPoints
   getFromDatabase("purchases"); // Get Purchases
 }
-
+}
+	
+setInterval(executeSync, 500);
 </script>
