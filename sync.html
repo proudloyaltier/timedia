@@ -60,6 +60,8 @@ if (getCookie("post") == "true") {
   getFromDatabase("purchases"); // Get Purchases
 }
 }
-	
-setInterval(executeSync, 500);
+
+if (getCookie("pause") !== "true") {
+	setInterval(executeSync, 500);
+}
 </script>
