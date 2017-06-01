@@ -112,7 +112,7 @@ if (localStorage.points == undefined) {
  localStorage.setItem("points", 0);
 }
 	
-document.getElementById('balance').innerHTML = localStorage.points;
+document.getElementById('balance').innerHTML = localStorage.points + " TiPoints";
 
 document.getElementById('timeleft').innerHTML = 48 - new Date().getHours() + " hours left!";
 	
