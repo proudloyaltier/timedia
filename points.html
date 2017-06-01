@@ -114,7 +114,7 @@ if (localStorage.points == undefined) {
 	
 document.getElementById('balance').innerHTML = localStorage.points + " TiPoints";
 
-document.getElementById('timeleft').innerHTML = 48 - new Date().getHours() + " hours left!";
+document.getElementById('timeleft').innerHTML =  24 - new Date().getHours() + " hours left!";
 	
 setInterval(checkPledge, 50);
 </script>
