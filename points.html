@@ -12,7 +12,8 @@
 	<a href="points.html"><img draggable=false id="money-icon" style="padding:50px;" width=50px src="money.png"></a>
 	<a href="settings.html"><img draggable=false id="gears-icon" style="padding:50px;" width=50px src="gears.png"></a>
 </div><br><br><br><br><br>
-<h3 id="balance">Loading...</h3><br>
+<h1 id="balance">Loading...</h1><br>
+	<p>TiPoints</p>
  <a href="http://microify.com/1zrV">Earn TiPoints by watching ads!</a>
  <h3>Earn points by pledging TI!</h3>
  <img width=400px id="pledgeimg" src="http://i.imgur.com/QxFCwIN.png"><br>
@@ -112,7 +113,7 @@ if (localStorage.points == undefined) {
  localStorage.setItem("points", 0);
 }
 	
-document.getElementById('balance').innerHTML = "Current balance: " + localStorage.points + " TiPoints";
+document.getElementById('balance').innerHTML = localStorage.points;
 
 document.getElementById('timeleft').innerHTML = 48 - new Date().getHours() + " hours left!";
 	
