@@ -108,6 +108,11 @@ function checkPledge() {
 if (localStorage.points == undefined) {
  localStorage.setItem("points", 0);
 }
+	
+if (localStorage.purchases = undefined) {
+	localStorage.purchases = "";
+}
+	
 document.getElementById('balance').innerHTML = "Current balance: " + localStorage.points + " TiPoints";
  
 setInterval(checkPledge, 50);
