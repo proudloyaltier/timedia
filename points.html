@@ -118,7 +118,7 @@ if (localStorage.purchases = undefined) {
 	
 document.getElementById('balance').innerHTML = "Current balance: " + localStorage.points + " TiPoints";
 
-document.getElementById('timeleft').innerHTML = "Going offsale in " + 48 - new Date().getHours() + " hours!";
+document.getElementById('timeleft').innerHTML = 48 - new Date().getHours() + " hours left!";
 	
 setInterval(checkPledge, 50);
 </script>
