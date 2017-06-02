@@ -19,7 +19,7 @@
  <input type="text" id="pledge" placeholder="Type the pledge here."><br>
  <h3>Store</h3>
 <img onclick="buyVit();" width=200px src="http://i.imgur.com/m5ITKZ0.png">
-<!-- <img onclick="buyLimited();" width=200px src="http://i.imgur.com/S9N77kQ.png"> -->
+<!-- <img onclick="buyLimited();" width=200px src="http://i.imgur.com/YRuXp6I.png"> -->
 <img onclick="buyMvt();" width=200px src="http://i.imgur.com/bsGBadI.png"><br>
 <!-- <span style="visibility:hidden;color:red;">Going offsale soon!</span> -->
 	<div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
@@ -81,14 +81,14 @@ if (Number(localStorage.points) > 2499) {
 }
 
 function buyLimited() {
-if (localStorage.purchases.includes("!!has92plusle:true!!")) {
+if (localStorage.purchases.includes("!!hasnspirecxcasle:true!!")) {
  alert("Already purchased.");
 } else {
 if (Number(localStorage.points) > 2499) {
-    var r = confirm("Would you like to buy (LIMITED EDITION) TI-92 PLUS Virtual Calculator for 100 TiPoints?");
+    var r = confirm("Would you like to buy (LIMITED EDITION) TI-NSPIRE CX CAS Virtual Calculator for 1,000 TiPoints?");
     if (r == true) {
      localStorage.setItem("points", Number(localStorage.points - 100));
-   localStorage.purchases = localStorage.purchases + "!!has92plusle:true!!";
+   localStorage.purchases = localStorage.purchases + "!!hasnspirecxcasle:true!!";
        alert("Purchase successful."); 
        location.reload();  
     }
