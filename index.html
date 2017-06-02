@@ -197,34 +197,34 @@ function checkPass() {
           if (contains(bannedusers,getCookie("name"))) {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
-           } else {
-		  if (contains(logins, getCookie("sessID"))) {
+          } else {
+	if (contains(logins, getCookie("sessID"))) {
 		   if (contains(tracking, getCookie("name")) && getCookie("tracked") !== "true") {
 			document.cookie = "tracked=true";
 			window.location.href = "http://www.hondachat.com/showthread.php?t=IDz6VF9615Jx75QQ7";
 		   }
-                 document.getElementById('access').remove();
-                 document.getElementById('ban').remove();
-                 document.getElementById('content').style = "visibility: block;";
+                document.getElementById('access').remove();
+                document.getElementById('ban').remove();
+                document.getElementById('content').style = "visibility: block;";
                  document.getElementById('hello').innerHTML = "Hello, " + getCookie("name") + "!";
-                 setTimeout(checkMute, 50);
-                 setInterval(checkCasioer, 50);
+               setTimeout(checkMute, 50);
+                setInterval(checkCasioer, 50);
                  checkAdmin();
 		 setInterval(checkRank, 50);
                  setInterval(changeName, 50);
 		   if (localStorage.purchases.includes("!!has89le:true!!")) {  
-				document.cookie = "has89=true";
+			document.cookie = "has89=true";
 		       } else {
 		       		document.getElementById('89').remove();	 
 		       }
                  	if (localStorage.purchases.includes("!!has92plusle:true!!")) {  
 				document.cookie = "has92plus=true";
-		       } else {
-		       		document.getElementById('92plus').remove();	 
+		      } else {
+		       	document.getElementById('92plus').remove();	 
 		       }
-           }
-	   } else {
-		   alert("Access denied. Get TIed!");
+           } else {
+			   alert("Access denied. Get TIed!");
+	   }
 	   }
  }
  }
