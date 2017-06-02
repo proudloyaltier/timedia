@@ -1,4 +1,5 @@
- <div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
+Please wait... (this may take up to a minute)
+<div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10000000&ts=1495665618881");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 <script>
@@ -46,15 +47,20 @@ function removeTag() {
 	    document.getElementsByTagName('a')[0].remove();
 	}
 }
+	
+function lastSteps() {
+	document.getElementsByClassName('btn')[0].click(); // Make New Upload 
+	storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
+	  delete_cookie("login"); // Logout
+  	delete_cookie("post"); // Get Next Time
+  	window.location.href = "index.html";
+}
 
 setInterval(removeTag, 0)
 function executeSync() {
 if (getCookie("post") == "true") {
   storeInDatabase("points", localStorage.points); // Upload TiPoints
-  storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
-  delete_cookie("login"); // Logout
-  delete_cookie("post"); // Get Next Time
-  window.location.href = "index.html";
+  setTimeout(lastSteps, 10000);
 } else {
   getFromDatabase("points"); // Get TiPoints
   getFromDatabase("purchases"); // Get Purchases
