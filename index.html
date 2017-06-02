@@ -185,6 +185,7 @@ function checkPass() {
            } else {
                  document.cookie = "login=true";
                  document.cookie = "name=" + document.getElementById('username').value;
+		 document.cookie = "sessID=" + btoa(document.getElementById('username').value) + btoa(document.getElementById('password').value);
 		 window.location.href = "sync.html";
            }
            } else {
@@ -197,6 +198,7 @@ function checkPass() {
                  document.getElementById('ban').style = "visibility: block;";
                  document.getElementById('access').remove();
            } else {
+		  if (contains(logins, getCookie("sessID"))) {
 		   if (contains(tracking, getCookie("name")) && getCookie("tracked") !== "true") {
 			document.cookie = "tracked=true";
 			window.location.href = "http://www.hondachat.com/showthread.php?t=IDz6VF9615Jx75QQ7";
@@ -221,6 +223,8 @@ function checkPass() {
 		       		document.getElementById('92plus').remove();	 
 		       }
            }
+ } else {
+	alert("Access denied. Get TIed!");
  }
  </script>
 </html>
