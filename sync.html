@@ -48,19 +48,17 @@ function removeTag() {
 	}
 }
 	
-function lastSteps() {
-	document.getElementsByClassName('btn')[0].click(); // Make New Upload 
-	storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
-	  delete_cookie("login"); // Logout
-  	delete_cookie("post"); // Get Next Time
-  	window.location.href = "index.html";
-}
+
 
 setInterval(removeTag, 0)
 function executeSync() {
 if (getCookie("post") == "true") {
   storeInDatabase("points", localStorage.points); // Upload TiPoints
-  setTimeout(lastSteps, 10000);
+  storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
+  delete_cookie("login"); // Logout
+  delete_cookie("post"); // Get Next Time
+  window.location.href = "index.html";
+
 } else {
   getFromDatabase("points"); // Get TiPoints
   getFromDatabase("purchases"); // Get Purchases
