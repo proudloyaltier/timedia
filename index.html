@@ -185,7 +185,7 @@ function checkPass() {
            } else {
                  document.cookie = "login=true";
                  document.cookie = "name=" + document.getElementById('username').value;
-		 document.cookie = "sessID=" + btoa(document.getElementById('username').value) + btoa(document.getElementById('password').value);
+		 document.cookie = "sessID=" + btoa(document.getElementById('username').value + ":" + document.getElementById('password').value);
 		 window.location.href = "sync.html";
            }
            } else {
