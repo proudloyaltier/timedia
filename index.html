@@ -79,7 +79,7 @@ var mods = ["hymenopus", "graphinghandheld", "hayden", "neil", "henry"];
  
 function checkRank() {
   if (localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!ismvtplus:true!!")) {
-    var i = 0;
+    	var i = 0;
 	while (i < 10) {
 		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
 		document.getElementsByClassName('author-name')[i].style = "color:gold;";
@@ -116,6 +116,8 @@ function checkRank() {
 	i++;
 	}
   }
+	
+
 }
   function changeName() {
    document.getElementById('hcb_form_name').value = getCookie("name");
