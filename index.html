@@ -78,7 +78,7 @@ var mods = ["hymenopus", "graphinghandheld", "hayden", "neil", "henry"];
  }
  
 function checkRank() {
-  if (localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvt:true!!")) {
+  if (localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!ismvtplus:true!!")) {
     var i = 0;
 	while (i < 10) {
 		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
@@ -87,7 +87,7 @@ function checkRank() {
 		i++;
 	}
  }
-  if (localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!isvit:true!!")) {
+  if (localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvtplus:true!!")) {
     var i = 0;
 	while (i < 10) {
 		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
@@ -96,9 +96,18 @@ function checkRank() {
 	i++;
 	}
   }
+
+  if (!localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!isvit:true!!") && localStorage.purchases.includes("!!ismvtplus:true!!")) {
+    var i = 0;
+	while (i < 10) {
+		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
+		document.getElementsByClassName('author-name')[i].style = "color:red;";
+	}
+	i++;
+	}
+  }
 	
-	
-  if (localStorage.purchases.includes("!!ismvt:true!!") && localStorage.purchases.includes("!!isvit:true!!")) {
+  if (localStorage.purchases.includes("!!ismvt:true!!") && localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvtplus:true!!")) {
     var i = 0;
 	while (i < 10) {
 		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
