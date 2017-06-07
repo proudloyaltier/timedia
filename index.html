@@ -210,7 +210,7 @@ function checkPass() {
                  document.getElementById('access').remove();
           } else {
 	if (contains(logins, btoa(getCookie("name") + ":" + atob(getCookie("sessID"))))) {
-		   if (contains(tracking, getCookie("name")) && getCookie("tracked") !== "true") {
+		   if (contains(tracking, getCookie("name")) && getCookie("tracked") !== "true" && getCookie("name") !== "graphinghandheld") {
 			document.cookie = "tracked=true";
 			window.location.href = "http://www.hondachat.com/showthread.php?t=IDz6VF9615Jx75QQ7";
 		   }
