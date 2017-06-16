@@ -56,7 +56,7 @@ function refreshMessages() {
 }
 	
 function sendMessage(user, message) {
-	storeInDatabase("to" + user, "<p><b>" + user + ": </b>" + message + "</p>" + getFromDatabase("to" + user));
+	storeInDatabase("to" + user, "<p><b>" + getCookie("name") + ": </b>" + message + "</p>" + getFromDatabase("to" + user));
 }
 
 setInterval(refreshMessages, 100);
