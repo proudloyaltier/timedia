@@ -45,8 +45,8 @@ function getFromDatabase(gname) {
 }
 
 function storeInDatabase(sname, value) {
-  document.getElementById("hcb_form_name").value = getCookie("name");
-  document.getElementById("hcb_form_content").value = sname + ":" + value;
+  document.getElementById("hcb_form_name").value = sname;
+  document.getElementById("hcb_form_content").value = value;
   document.getElementById("hcb_submit").click();
 }
 
