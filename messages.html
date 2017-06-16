@@ -14,7 +14,8 @@
 	<a href="points.html"><img draggable=false id="money-icon" style="padding:50px;" width=50px src="money.png"></a>
 	<a href="settings.html"><img draggable=false id="gears-icon" style="padding:50px;" width=50px src="gears.png"></a>
 </div><br><br><br><br><br><br>
-	<div id="messages">No messages!</div>
+	<div id="messages">No messages!</div><br>
+	<button style="base btn2">Send Message</button>
 <script>
 function getCookie(cname) {
   var name = cname + "=";
@@ -55,7 +56,7 @@ function refreshMessages() {
 }
 	
 function sendMessage(user, message) {
-	storeInDatabase("to" + user, getFromDatabase("to" + user) + "<br></br><b>" + user + ":</b><br></br>" + message + "<br></br><br></br>");
+	storeInDatabase("to" + user, "<p><b>" + user + ": </b>" + message + "</p>" + getFromDatabase("to" + user));
 }
 
 setInterval(refreshMessages, 100);
