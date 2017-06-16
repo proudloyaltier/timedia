@@ -53,6 +53,11 @@ function storeInDatabase(sname, value) {
 
 getFromDatabase("to" + getCookie("name"));
 document.getElementById('messages').innerHTML = localStorage."to" + getCookie("name");
+	
+function sendMessage(user, message) {
+	getFromDatabase("to" + user);
+	storeInDatabase("to" + user, localStorage."to" + user, + "<br><b>" + user + ":</b><br>" + message + "<br><br>");
+}
 </script>
  <div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
