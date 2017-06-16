@@ -41,6 +41,9 @@ function getFromDatabase(gname) {
       throw new Error("Got value from database.");
     }
     i++;
+	  if (i == 10) {
+		  document.getElementsByTagName('img')[document.getElementsByTagName('img').length - 1].click();
+	  }
   }
 
 }
