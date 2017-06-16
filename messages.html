@@ -52,9 +52,7 @@ function storeInDatabase(sname, value) {
 }
 
 function refreshMessages() {
-//if (!getFromDatabase("to" + getCookie("name")) == undefined) {
 	document.getElementById('messages').innerHTML = getFromDatabase("to" + getCookie("name"));
-//}
 }
 	
 function sendMessage(user, message) {
