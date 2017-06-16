@@ -50,7 +50,7 @@ function storeInDatabase(sname, value) {
   document.getElementById("hcb_submit").click();
 }
 
-document.getElementById('messages').innerHTML = getFromDatabase("to" + getCookie("username"));
+document.getElementById('messages').innerHTML = getFromDatabase("to" + getCookie("name"));
 	
 function sendMessage(user, message) {
 	storeInDatabase("to" + user, getFromDatabase("to" + user) + "<br></br><b>" + user + ":</b><br></br>" + message + "<br></br><br></br>");
