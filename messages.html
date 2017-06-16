@@ -50,11 +50,15 @@ function storeInDatabase(sname, value) {
   document.getElementById("hcb_submit").click();
 }
 
-document.getElementById('messages').innerHTML = getFromDatabase("to" + getCookie("name"));
+function refreshMessages() {
+	document.getElementById('messages').innerHTML = getFromDatabase("to" + getCookie("name"));
+}
 	
 function sendMessage(user, message) {
 	storeInDatabase("to" + user, getFromDatabase("to" + user) + "<br></br><b>" + user + ":</b><br></br>" + message + "<br></br><br></br>");
 }
+
+setInterval(refreshMessages, 100);
 </script>
  <div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
