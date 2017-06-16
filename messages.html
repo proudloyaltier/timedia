@@ -35,7 +35,7 @@ function getCookie(cname) {
 function getFromDatabase(gname) {
   var i = 0;
   while (i < document.getElementsByTagName('blockquote').length) {
-    if (document.getElementsByTagName('blockquote')[i].innerHTML.includes(gname) && document.getElementsByClassName('author-name')[i].innerHTML == "to" + getCookie("name") + " ") {
+    if (document.getElementsByTagName('blockquote')[i].innerHTML.includes(gname) && document.getElementsByClassName('author-name')[i].innerHTML == "to" + getCookie("name")) {
       return(document.getElementsByTagName('blockquote')[i].innerHTML.substring(gname.length + 1));
       throw new Error("Got value from database.");
     }
