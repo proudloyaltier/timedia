@@ -25,10 +25,10 @@ if (getCookie("watched") !== getCookie("towatch")) {
   document.cookie = "watched=" + Number(getCookie("watched")) + 1;
   window.location.href = "http://atomcurve.com/1FAL";
 } else {
-  localStorage.points = Number(localStorage.points) + Number(getCookie("watched")) * 5; 
+  var amt5 = Number(getCookie("watched")) * 5;
+  localStorage.points = Number(localStorage.points) + amt5; 
   delete_cookie("watched");
   delete_cookie("towatch");
   window.location.href = "/timedia/points.html";
-  
 }
 </script>
