@@ -15,12 +15,18 @@
 	<a href="settings.html"><img draggable=false id="gears-icon" style="padding:50px;" width=50px src="gears.png"></a>
 	<a href="messages.html"><img draggable=false id="gears-icon" style="padding:50px;" width=50px src="timage.svg"></a>
 </div><br><br><br><br><br>
-	<h3>Admins are still working on this page!</h3>
+	PIN
+	<input type="password" id="pin" min=1000 max=999999 placeholder="A 4 - 6 digit number." required><br>
+	Recovery Email
+	<input type="email" placeholder="Set this as your email in case you forget your password." required><br>
+	<button class="base btn2" onclick="updateSettings();">Update Settings</button>
 	</center>
- </body>
- <style>
-	h3 {
-		color: black;
-	 }
- </style>
+<script>
+	function updateSettings() {
+		document.cookie = "updatesettings=true";
+		window.location.href = "sync.html";
+	}
+	
+</script>
+</body>
 </html>
