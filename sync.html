@@ -28,7 +28,6 @@ function getFromDatabase(gname) {
   while (i < document.getElementsByTagName('blockquote').length) {
     if (document.getElementsByTagName('blockquote')[i].innerHTML.includes(gname) && document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
       localStorage.setItem(gname, document.getElementsByTagName('blockquote')[i].innerHTML.substring(gname.length + 1));
-      window.location.href = "index.html";
       throw new Error("Got value from database.");
     }
     i++;
@@ -50,7 +49,7 @@ function removeTag() {
 	
 
 
-setInterval(removeTag, 0)
+setInterval(removeTag, 0);
 function executeSync() {
 if (getCookie("updatesettings") == "true") {
 	storeInDatabase(getCookie("thesettings"));
@@ -74,6 +73,7 @@ if (getCookie("post") == "true") {
 } else {
   getFromDatabase("points"); // Get TiPoints
   getFromDatabase("purchases"); // Get Purchases
+  window.location.href = "index.html";
 }
 }
 }
