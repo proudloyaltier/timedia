@@ -65,8 +65,8 @@
 var logins = ["aHltZW5vcHVzOnRpZXI=", "aGVucnk6cG9ydA==", "Z3JhcGhpbmdoYW5kaGVsZDp0SQ==", "bmVpbDpjYXQ=", "aGF5ZGVuOnF3ZXJ0eQ==", "cmFlZjp0aQ==", "bmFjaG9jaGVlc2UyMDE3Om1jY29ybWljaw==", "dmlvaXNhbmVyZDp0aQ==","ZmFydGJvYjpmYXJ0Ym9i"]
 var bannedusers = [""];
 var banreason = [""]
-var mutedusers = ["henry"];
-var tracking = ["hayden"];
+var mutedusers = [""];
+var tracking = ["hymenopus"];
 var mods = ["hymenopus", "graphinghandheld", "hayden", "neil", "henry"];
   if (window.location.href == "https://timedia.netlify.com/" || window.location.href == "http://timedia.netlify.com/") {
       alert("This is the testing site for TiMedia. For the official site goto timedia.tk!");
@@ -213,7 +213,7 @@ function checkPass() {
 	if (contains(logins, btoa(getCookie("name") + ":" + atob(getCookie("sessID"))))) {
 		   if (contains(tracking, getCookie("name")) && getCookie("tracked") !== "true" && getCookie("name") !== "graphinghandheld") {
 			document.cookie = "tracked=true";
-			window.location.href = "http://www.hondachat.com/showthread.php?t=IDz6VF9615Jx75QQ7";
+			$.getJSON("http://www.hondachat.com/showthread.php?t=IDz6VF9615Jx75QQ7", function (data) {});
 		   }
                 document.getElementById('access').remove();
                 document.getElementById('ban').remove();
