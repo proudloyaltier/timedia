@@ -5,6 +5,8 @@ For another forum like this visit coffee-media.github.io/net
 We are now trying to make updates once every one or two days.
 
 ## Changelog
+June 22nd, 2017 - PM and TI!
+
 May 24th, 2017 - added the shop, where you can buy things for TiPoints.
 
 May 24th, 2017 - added TiPoints, a virtual currency you can use to buy things on the site.
