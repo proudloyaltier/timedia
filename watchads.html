@@ -17,7 +17,8 @@
   <h3>Watch Ads to Earn TiPoints!</h3>
 	<p><b>Disclaimer: </b>We are not responsible for any damage or harm done to anything. Some ads may link to viruses. If it says that you have an outdated browser or that 'your download is ready'.<br />Do <b><i>not click it!</i></b> in the top right corner there will be a countdown. When it's over there will be a yellow 'skip ad'button. Click it to recieve your Ti Points.<br />If you love TI wait a while before you click it.</p><br>
 	<a href="http://microify.com/1zrV"><button class="base btn">Earn 10 TiPoints</button></a><br>
-	<button onclick="get50Points()" class="base btn2">Earn 50 TiPoints</button>
+	<button onclick="get50Points()" class="base btn2">Earn 50 TiPoints</button><br>
+	<input type="number" onchange="inputAmt(this.value)">
 </center>
 <script>
 function get50Points() {
@@ -27,6 +28,11 @@ function get50Points() {
 	} else {
 		alert("You can always earn TiPoints by watching ads if you don't want to sign up.");
 	}
+}
+	
+function inputAmt(amt) {
+	document.cookie = "towatch=" + amt;
+	window.location.href = "/amt.html";
 }
 </script>
 </body>
