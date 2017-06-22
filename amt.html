@@ -22,7 +22,8 @@ function delete_cookie(name) {
 }
 
 if (getCookie("watched") !== getCookie("towatch")) {
-  document.cookie = "watched=" + Number(getCookie("watched")) + 1;
+  var amt88 = Number(getCookie("watched")) + 1;
+  document.cookie = "watched=" + amt88;
   window.location.href = "http://atomcurve.com/1FAL";
 } else {
   var amt5 = Number(getCookie("watched")) * 5;
