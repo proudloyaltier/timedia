@@ -52,6 +52,14 @@ function removeTag() {
 
 setInterval(removeTag, 0)
 function executeSync() {
+if (getCookie("updatesettings") == "true") {
+	storeInDatabase(getCookie("pin"));
+	storeInDatabase(getCookie("email"));
+	delete_cookie("pin");
+	delete_cookie("email");
+	delete_cookie("updatesettings");
+	window.location.href = "/timedia/settings.html";
+} else {
 if (getCookie("post") == "true") {
   storeInDatabase("points", localStorage.points); // Upload TiPoints
   storeInDatabase("purchases", localStorage.purchases); // Upload Purchases
@@ -62,6 +70,7 @@ if (getCookie("post") == "true") {
 } else {
   getFromDatabase("points"); // Get TiPoints
   getFromDatabase("purchases"); // Get Purchases
+}
 }
 }
 
