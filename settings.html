@@ -22,6 +22,11 @@
 	<button class="base btn2" onclick="updateSettings();">Update Settings</button>
 	</center>
 <script>
+
+if (getCookie("gotsettings") !== "true") {
+	document.cookie = "getsettings=true";
+	window.location = "/timedia/sync.html";	
+}
 	function updateSettings() {
 		document.cookie = "updatesettings=true";
 		window.location.href = "sync.html";
