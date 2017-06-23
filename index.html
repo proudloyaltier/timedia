@@ -14,7 +14,8 @@
  <input placeholder="Password" id="password" type="password"><br>
  <button class="base btn" onclick="checkPass()">Login!</button>
  <p id="bottomlogin">Don't have a login? Request one <a href="https://docs.google.com/forms/d/e/1FAIpQLScCiyFtn6ODD7rIsL6HBJXHttwk89F8dirYY4vvw8q3DpA9HA/viewform"><b>here.</b></a><br> Not sure you want to sign up? This <a href="check-out-ti-home.html">informational page</a> will show you TiMedia's functions, and the benefits of becoming a user!</p>
-</div>
+	<p onclick="forgotPassword();">I forgot my password.</p>
+	</div>
 <div style="visibility:hidden;" id="ban">
  <h3>You are banned from TiMedia</h3>
  <p>You may not appeal for this ban.<p>
@@ -72,6 +73,13 @@ var mods = ["hymenopus", "graphinghandheld", "hayden", "neil", "henry"];
       alert("This is the testing site for TiMedia. For the official site goto timedia.tk!");
   }
   
+	
+function forgotPassword() {
+	var remail = prompt("Enter your recovery email");
+	document.cookie = "forgotp=true";
+	window.location.href = "/timedia/sync.html";
+}
+	
  function checkAdmin() {
   if (contains(mods, getCookie("name"))) {
             document.getElementById('modpanelnotice').innerHTML = "<a href='mod.html'>Click here to access the moderator panel!</a>";
