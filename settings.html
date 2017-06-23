@@ -42,6 +42,7 @@ if (getCookie("gotsettings") !== "true") {
 		document.cookie = "getsettings=true";
 		window.location = "/timedia/sync.html";	
 } else {
+	localStorage.settings = "PIN:Recovery Email" + getCookie('thesettings')
 	alert(localStorage.settings);
 }
 	function updateSettings() {
