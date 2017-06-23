@@ -144,6 +144,7 @@ if (contains(mutedusers, getCookie("name")) || getCookie("mute") == "true") {
 }
 function logOut() {
  delete_cookie("login");
+ delete_cookie("gotsettings");
  document.cookie = "post=true";
  window.location.href = "sync.html";
 }
