@@ -17,8 +17,8 @@
 </div><br><br><br><br><br><br>
 	PIN
 	<input type="number" id="pin" min=1000 max=999999 placeholder="A 4 - 6 digit number." required><br>
-	Recovery Email
-	<input type="text" id="remail" placeholder="In case you forget your password." required><br>
+	Recovery Password
+	<input type="text" id="rpass" placeholder="In case you forget your password." required><br>
 	<button class="base btn2" onclick="updateSettings();">Update Settings</button>
 	</center>
 <script>
@@ -43,10 +43,10 @@ if (getCookie("gotsettings") !== "true") {
 		window.location = "/timedia/sync.html";	
 } else {
 	document.getElementById('pin').value = localStorage.settings.split(":")[0];
-	document.getElementById('remail').value = localStorage.settings.split(":")[1];
+	document.getElementById('rpass').value = localStorage.settings.split(":")[1];
 }
 	function updateSettings() {
-		document.cookie = "thesettings=" + document.getElementById('pin').value + ":" + document.getElementById('remail').value;
+		document.cookie = "thesettings=" + document.getElementById('pin').value + ":" + document.getElementById('rpass').value;
 		localStorage.settings = getCookie('thesettings')
 		document.cookie = "updatesettings=true";
 		window.location.href = "sync.html";
