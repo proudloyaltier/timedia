@@ -46,6 +46,7 @@ if (getCookie("gotsettings") !== "true") {
 }
 	function updateSettings() {
 		document.cookie = "thesettings=" + document.getElementById('pin').value + ":" + document.getElementById('remail').value;
+		localStorage.settings = "PIN:Recovery Email" + getCookie('thesettings')
 		document.cookie = "updatesettings=true";
 		window.location.href = "sync.html";
 	}
