@@ -29,6 +29,7 @@ function getFromDatabase(gname) {
     if (document.getElementsByTagName('blockquote')[i].innerHTML.includes(gname) && document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
       localStorage.setItem(gname, document.getElementsByTagName('blockquote')[i].innerHTML.substring(gname.length + 1));
       throw new Error("Got value from database.");
+	    window.location.href = "index.html"
     }
     i++;
   }
