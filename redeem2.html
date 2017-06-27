@@ -45,8 +45,10 @@ function checkIfGiftcode(giftcodenum) {
 	if (Number(giftcodenum.charAt(0)) + Number(giftcodenum.charAt(1)) + Number(giftcodenum.charAt(2)) + Number(giftcodenum.charAt(3)) + Number(giftcodenum.charAt(4)) + Number(giftcodenum.charAt(5)) + Number(giftcodenum.charAt(6)) + Number(giftcodenum.charAt(7)) + Number(giftcodenum.charAt(8)) + Number(giftcodenum.charAt(9)) == Number(giftcodenum.charAt(3)) * Number(giftcodenum.charAt(4))) {
 			if (giftcodenum.charAt(9) == "4") {
 					alert("Success! $25 has been credited to your balance.");
+				localStorage.points = Number(localStorage.points) + 25;
 			} else {
 					alert("Success! $10 has been credited to your balance.")
+				localStorage.points = Number(localStorage.points) + 10;
 			}
 } else {
 if (Number(getCookie("attempts")) > 3) {
