@@ -46,11 +46,11 @@ function checkIfGiftcode(giftcodenum) {
 			if (giftcodenum.charAt(9) == "4") {
 					alert("Success! $25 has been credited to your balance.");
 				localStorage.points = Number(localStorage.points) + 25;
-				window.localtion.href = "/timedia/points.html"
+				window.location.href = "/timedia/points.html"
 			} else {
 					alert("Success! $10 has been credited to your balance.")
 				localStorage.points = Number(localStorage.points) + 10;
-				window.localtion.href = "/timedia/points.html"
+				window.location.href = "/timedia/points.html"
 			}
 } else {
 if (Number(getCookie("attempts")) > 3) {
