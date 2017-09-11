@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"
 <meta name="viewport" content="width=device-width">
 <title>TiMedia</title>
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -9,11 +11,15 @@
 <div class="top">
  <h2 style="color:white;">TiMedia</h2>
  </div>
-<br><br>
-<script>
-var notetitle = prompt("Please enter a note title")
-var note = prompt("Please enter your note's main body")
-localStorage.notetitile = notetitle
-localStorage.note = note
+ <div class="doc">
+      <div class="doc__background-ribbon"></div>
+      <div class="doc__text-editor hidden"></div>
+    </div>
+  </body>
+</html>
+ <script>
+  var doc = document.getElementById('doc');
+doc.contentEditable = true;
+doc.focus();
  </script>
 </html>
