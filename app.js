@@ -1,8 +1,4 @@
-      var doc = document.getElementById('doc');
-doc.contentEditable = true;
-doc.focus();
- 
-       // a unique random key generator
+  // a unique random key generator
   function getUniqueId () {
     return 'private-' + Math.random().toString(36).substr(2, 9);
   }
