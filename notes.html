@@ -23,5 +23,27 @@
     </div>
     <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
     <script src="https://collaborative-text-editor.herokuapp.com/js/app.js"></script>
+    <script>
+ 
+       // a unique random key generator
+  function getUniqueId () {
+    return 'private-' + Math.random().toString(36).substr(2, 9);
+  }
+
+  // function to get a query param's value
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+      
+             var id = getUrlParameter('id');
+  if (!id) {
+    location.search = location.search
+      ? '&id=' + getUniqueId() : 'id=' + getUniqueId();
+    return;
+  }
+    </script>
   </body>
 </html>
