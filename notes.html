@@ -44,6 +44,26 @@
       ? '&id=' + getUniqueId() : 'id=' + getUniqueId();
     return;
   }
+         
     </script>
+      <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+    <script>
+      var pusher = new Pusher(<titext>);
+                              
+                              // subscribe to the changes via Pusher
+var channel = pusher.subscribe(id);
+channel.bind('some-fun-event', function(data) {
+  // do something meaningful with the data here
+});
+      
+      channel.bind('client-text-edit', function(html) {
+  doc.innerHTML = html;
+});
+      
+function triggerChange (e) {
+  channel.trigger('client-text-edit', e.target.innerHTML);
+}
+
+doc.addEventListener('input', triggerChange);
   </body>
 </html>
