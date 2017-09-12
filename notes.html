@@ -5,17 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ti text editor</title>
-    <center>
-    <h3>Welcome to TiMedia Documents!<h3> 
-    <h4>This text editor features advanced sharing, just Private Message the document specific URL to another user to share!<h4>
-      </center>
+    <title>Collaborative Text Editor</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://collaborative-text-editor.herokuapp.com/css/app.css" rel="stylesheet"></link>
   </head>
   <body>
     <header class="header">
-      <h1 class="header__h1">TiMedia Documents</h1>
+      <h1 class="header__h1">Online Collab Edit</h1>
     </header>
     <div class="doc">
       <div class="doc__background-ribbon"></div>
@@ -24,46 +20,13 @@
     <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
     <script src="https://collaborative-text-editor.herokuapp.com/js/app.js"></script>
     <script>
- 
-       // a unique random key generator
-  function getUniqueId () {
-    return 'private-' + Math.random().toString(36).substr(2, 9);
-  }
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  // function to get a query param's value
-  function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  };
-      
-             var id = getUrlParameter('id');
-  if (!id) {
-    location.search = location.search
-      ? '&id=' + getUniqueId() : 'id=' + getUniqueId();
-    return;
-  }
-         
-    </script>
-      <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
-    <script>
-      var pusher = new Pusher(<titext>);
-                              
-                              // subscribe to the changes via Pusher
-var channel = pusher.subscribe(id);
-channel.bind('some-fun-event', function(data) {
-  // do something meaningful with the data here
-});
-      
-      channel.bind('client-text-edit', function(html) {
-  doc.innerHTML = html;
-});
-      
-function triggerChange (e) {
-  channel.trigger('client-text-edit', e.target.innerHTML);
-}
-
-doc.addEventListener('input', triggerChange);
+      ga('create', 'UA-61474244-2', 'auto');
+      ga('send', 'pageview');
+  </script>
   </body>
 </html>
