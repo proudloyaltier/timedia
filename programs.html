@@ -10,7 +10,6 @@
 <br><br>
 <h2 id="admin">Checking if you have permission...</h1>
 <div id="hidden" style="visibility:hidden;">
- <h1>What kind of calculator do you have?</h1>
  <a href="https://education.ti.com/">TI 84/83 plus</a>
  <a href="https://education.ti.com/">TI 84 plus CE</a>
 </div>
@@ -42,10 +41,10 @@ function getCookie(cname) {
     return "";
 }
 if (contains(admins, getCookie("name"))) {
-   document.getElementById('admin').innerHTML = "Welcome to the program page!";
+   document.getElementById('admin').innerHTML = "What kind of calculaator do you have?";
    document.getElementById('hidden').style = "visibility:block;";
 } else {
-  document.getElementById('admin').innerHTML = "To access this page get in the Ti store";
+  document.getElementById('admin').innerHTML = "To access this page get in the TiPoints store";
 }
  </script>
 </html>
