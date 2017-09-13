@@ -8,7 +8,7 @@
  <h2 style="color:white;">TiMedia</h2>
  </div>
 <br><br>
-<h2 id="permission">Checking if you have permission . . .</h1>
+<h2 id="admin">Checking if you have permission...</h1>
 <div id="hidden" style="visibility:hidden;">
  <!-- begin comment box -->
  <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
@@ -18,7 +18,7 @@
 </div>
 </center>
 <script>
-var permission = ["hymenopus", "graphinghandheld", "neil"];
+var admins = ["hymenopus", "graphinghandheld", "neil"];
  
 function contains(a, obj) {
   for (var i = 0; i < a.length; i++) {
@@ -43,11 +43,11 @@ function getCookie(cname) {
     }
     return "";
 }
-if (contains(permission, getCookie("name"))) {
-   document.getElementById('admin').innerHTML = "Welcome to the programs page!";
+if (contains(admins, getCookie("name"))) {
+   document.getElementById('admin').innerHTML = "Welcome to the program page!";
    document.getElementById('hidden').style = "visibility:block;";
 } else {
-  document.getElementById('permission').innerHTML = "You don't have permission";
+  document.getElementById('admin').innerHTML = "To access this page get in the Ti store";
 }
  </script>
 </html>
