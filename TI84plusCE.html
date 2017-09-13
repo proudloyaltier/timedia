@@ -1,1 +1,52 @@
 
+<!DOCTYPE html>
+<title>TiMedia</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<center>
+<div class="top">
+ <h2 style="color:white;">TiMedia</h2>
+ </div>
+<br><br>
+<h2 id="admin">Checking if you have permission...</h1>
+<div id="hidden" style="visibility:hidden;">
+ <a href="TI84plusCE">Mario</a>
+ <br />
+ <a href="TI84plusCE.html">Pacman</a>
+</div>
+</center>
+<script>
+var admins = ["hymenopus", "graphinghandheld", "neil"];
+ 
+function contains(a, obj) {
+  for (var i = 0; i < a.length; i++) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+if (contains(admins, getCookie("name"))) {
+   document.getElementById('admin').innerHTML = "Arcade";
+   document.getElementById('hidden').style = "visibility:block;";
+} else {
+  document.getElementById('admin').innerHTML = "To access this page get in the TiPoints store";
+}
+ </script>
+</html>
