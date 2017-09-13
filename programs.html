@@ -43,7 +43,7 @@ function getCookie(cname) {
     }
     return "";
 }
-if (contains(admins, getCookie("name"))) {
+if (contains(permission, getCookie("name"))) {
    document.getElementById('admin').innerHTML = "Welcome to the programs page!";
    document.getElementById('hidden').style = "visibility:block;";
 } else {
