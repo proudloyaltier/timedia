@@ -122,7 +122,8 @@ input:focus {
 
 input[type=text],
 input[type=password],
-input[type=number] {
+input[type=number],
+textarea {
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -138,7 +139,8 @@ input[type=password]:hover,
 input[type=password]:focus,
 input[type=number]:hover,
 input[type=number]:focus,
-textarea:focus {
+textarea:focus,
+textarea:hover {
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
