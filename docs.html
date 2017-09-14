@@ -18,16 +18,18 @@
 	<a href="messages.html"><img draggable=false id="messaging-icon" style="padding:50px;" width=50px src="timage.svg"></a>
 	<a href="https://proudloyaltier.github.io/tidocs/"><img draggable=false id="docs-icon" style="padding:50px;" width=50px src="pen.png"></a>
 	<a href="programs.html"><img draggable=false id="archives-icon" style="padding:50px;" width=50px src="if_downloads_309074.png"></a>
-</div><br><br><br><br><br>
+</div><br><br><br><br><br><br>
 <p id="view"></p>
 <div id="edit">
 	<textarea rows="20" cols="100" id="tid-text-area"></textarea><br><br>
 
 	Security<br>
-		<input onchange="proccessSecurity(this);" type="radio" name="security" value="none" checked> No security.</input><br>
-		<input onchange="proccessSecurity(this);" type="radio" name="security" value="password"> Allow only users with a password.</input><br>
-		<input onchange="proccessSecurity(this);" type="radio" name="security" value="specific"> Allow only specified users.</input><br><br>
-
+		<select>
+		  <option onchange="proccessSecurity(this);" value="none">No Security</option>
+		  <option onchange="proccessSecurity(this);" value="password">Require a Password</option>
+		  <option onchange="proccessSecurity(this);" value="specific">Limit to Specific Users</option>
+		</select>
+	
 		<input placeholder="Password" style="display: none;" type="password" id="tid-password">
 		<input placeholder="Confirm Password" style="display: none;" type="password" id="tid-confirm-password">
 		<textarea rows="10" cols="40" placeholder="Usernames (separate with space)" style="display: none;" id="tid-users-allowed"></textarea><br>
