@@ -88,9 +88,22 @@ if (getCookie("post") == "true") {
   window.location.href = "index.html";
 
 } else {
+if (getCookie("remail") !== undefined) {
+  var i = 0;
+  while (i < document.getElementsByTagName('blockquote').length) {
+    if (document.getElementsByTagName('blockquote')[i].innerHTML.includes("settings").split(":")[0] == getCookie("remail")) {
+	document.cookie = "showPassword=true";
+	delete_cookie("remail");
+	window.location.href = "index.html";
+	throw new Error("Got value from database.");
+    }
+    i++;
+  }
+} else {
   getFromDatabase("points"); // Get TiPoints
   getFromDatabase("purchases"); // Get Purchases
   window.location.href = "index.html";
+}
 }
 }
 }
