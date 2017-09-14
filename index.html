@@ -80,6 +80,7 @@ var mods = ["hymenopus", "graphinghandheld", "hayden", "neil", "henry"];
 function forgotPassword() {
 	var remail = prompt("Enter your recovery password");
 	document.cookie = "forgotp=true";
+	document.cookie = "remail=" + remail;
 	window.location.href = "/timedia/sync.html";
 }
 	
