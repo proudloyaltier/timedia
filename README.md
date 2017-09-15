@@ -5,6 +5,8 @@ For another forum like this visit coffee-media.github.io/net
 We are now trying to make updates once every one or two days.
 
 ## Changelog
+September 15th - Ti documents and programs library
+
 June 22nd, 2017 - PM and TI!
 
 May 24th, 2017 - added the shop, where you can buy things for TiPoints.
