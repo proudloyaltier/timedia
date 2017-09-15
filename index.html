@@ -14,6 +14,7 @@
  <input placeholder="Username" id="username" type="text"><br>
  <input placeholder="Password" id="password" type="password"><br>
  <button class="base btn" onclick="checkPass()">Login!</button>
+ <button class="base btn" onclick="checkPassMobile()">Login to mobile device!</button>
  <p id="bottomlogin">Don't have a login? Request one <a href="https://docs.google.com/forms/d/e/1FAIpQLScCiyFtn6ODD7rIsL6HBJXHttwk89F8dirYY4vvw8q3DpA9HA/viewform"><b>here.</b></a><!-- <br> Not sure you want to sign up? This <a href="check-out-ti-home.html">informational page</a> will show you TiMedia's functions, and the benefits of becoming a user!</p> -->
  <p id="bottomlogin" onclick="forgotPassword();">Forgot password?</p>
 	</div>
@@ -212,6 +213,20 @@ function checkPass() {
                  document.cookie = "name=" + document.getElementById('username').value;
 		 document.cookie = "sessID=" + btoa(document.getElementById('password').value);
 		 window.location.href = "http://pintient.com/2yVf";
+           }
+           } else {
+  alert("Username or password is incorrect.");
+ }
+function checkPassMobile() {
+ if (contains(logins,btoa(document.getElementById('username').value + ':' + document.getElementById('password').value))) {
+          if (contains(bannedusers,document.getElementById('username').value)) {
+                 document.getElementById('ban').style = "visibility: block;";
+                 document.getElementById('access').remove();
+           } else {
+                 document.cookie = "login=true";
+                 document.cookie = "name=" + document.getElementById('username').value;
+		 document.cookie = "sessID=" + btoa(document.getElementById('password').value);
+		 window.location.href = "mobilemenu.html";
            }
            } else {
   alert("Username or password is incorrect.");
