@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<title>TiMedia</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<center>
+<div class="top">
+ <h2 style="color:white;">TiMedia</h2>
+ </div>
+<br><br>
+ <div class="background" id="navbar">
+	<a href="index.html"><img draggable=false id="home-icon" style="padding:50px;" width=50px src="home.png"></a>
+	<a href="news.html"><img draggable=false id="news-icon" style="padding:50px;" width=50px src="news.png"></a>
+	<a href="points.html"><img draggable=false id="money-icon" style="padding:50px;" width=50px src="money.png"></a>
+	<a href="settings.html"><img draggable=false id="gears-icon" style="padding:50px;" width=50px src="gears.png"></a>
+	<a href="messages.html"><img draggable=false id="messaging-icon" style="padding:50px;" width=50px src="timage.svg"></a>
+	<a href="docs.html"><img draggable=false id="docs-icon" style="padding:50px;" width=50px src="pen.png"></a>
+	<a href="programs.html"><img draggable=false id="archives-icon" style="padding:50px;" width=50px src="if_downloads_309074.png"></a>
+
+</div><br><br><br><br><br><br>
+	PIN
+	<input type="number" id="pin" min=1000 max=999999 placeholder="A 4 - 6 digit number." required><br>
+	Recovery Password
+	<input type="password" id="rpass" placeholder="In case you forget your password." required><br>
+	<button class="base btn2" onclick="updateSettings();">Update Settings</button>
+	</center>
+<script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+	
+if (getCookie("gotsettings") !== "true") {
+		document.cookie = "getsettings=true";
+		window.location = "/timedia/sync.html";	
+} else {
+	document.getElementById('pin').value = localStorage.settings.split(":")[0];
+	document.getElementById('rpass').value = localStorage.settings.split(":")[1];
+}
+	function updateSettings() {
+		document.cookie = "thesettings=" + document.getElementById('pin').value + ":" + document.getElementById('rpass').value;
+		localStorage.settings = getCookie('thesettings')
+		document.cookie = "updatesettings=true";
+		window.location.href = "sync.html";
+	}
+	
+</script>
+</body>
+</html>
