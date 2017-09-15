@@ -1,6 +1,9 @@
 ## Welcome to TiMedia! 
 For another forum like this visit coffee-media.github.io/net
 
+## Your data is safe!
+Your documents are encrypted end to end, your data (like documents,messages,store purchases and more) is not visible to any admin or other user!
+
 ## News
 We are now trying to make updates once every one or two days.
 
