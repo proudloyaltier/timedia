@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width">
+<title>TiMedia</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<center>
+<div class="top">
+ <h2 style="color:white;">TiMedia</h2>
+ </div>
+<br><br>
+<div id="access" style="padding:35px;">
+ <input placeholder="Username" id="username" type="text"><br>
+ <input placeholder="Password" id="password" type="password"><br>
+ <button class="base btn" onclick="checkPass()">Login!</button>
+ </div>
+ <script>	
+var logins = ["aHltZW5vcHVzOnRpZXI=", "aGVucnk6cG9ydA==", "Z3JhcGhpbmdoYW5kaGVsZDp0SQ==", "bmVpbDpjYXQ=", "aGF5ZGVuOnF3ZXJ0eQ==", "cmFlZjp0aQ==", "bmFjaG9jaGVlc2UyMDE3Om1jY29ybWljaw==", "dmlvaXNhbmVyZDp0aQ==","ZmFydGJvYjpmYXJ0Ym9i", "cG9seXBoZW11czoxNTA4"]
+var bannedusers = [""];
+var banreason = [""]
+var mutedusers = [""];
+</script>
+function checkPass() {
+ if (contains(logins,btoa(document.getElementById('username').value + ':' + document.getElementById('password').value))) {
+          if (contains(bannedusers,document.getElementById('username').value)) {
+                 document.getElementById('ban').style = "visibility: block;";
+                 document.getElementById('access').remove();
+           } else {
+                 document.cookie = "login=true";
+                 document.cookie = "name=" + document.getElementById('username').value;
+		 document.cookie = "sessID=" + btoa(document.getElementById('password').value);
+		 window.location.href = "mobilemenu.html";
+           }
+           } else {
+  alert("Username or password is incorrect.");
+ }
+ </script>
+ 
