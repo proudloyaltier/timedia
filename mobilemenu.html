@@ -11,6 +11,15 @@
 <a href="mobilesettings.html"><img draggable=false id="gears-icon" style="padding:50px;" width=200px src="gears.png"></a>
 <a href="mobilemessages.html"><img draggable=false id="messaging-icon" style="padding:50px;" width=200px src="timage.svg"></a>
 <a href="mobiledocs.html"><img draggable=false id="docs-icon" style="padding:50px;" width=200px src="pen.png"></a>
+<button onclick="logOut()" class="base btn">Log Out</button>
+<script>
+ function logOut() {
+ delete_cookie("login");
+ delete_cookie("gotsettings");
+ document.cookie = "post=true";
+ window.location.href = "sync.html";
+}
+ </script>
   </div>
   </html>
    
