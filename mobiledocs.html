@@ -17,17 +17,12 @@
 <div id="edit">
 	<textarea rows="24" cols="100" id="tid-text-area"></textarea><br><br>
 
-	Security<br>
+	
 		<select id="security" onchange="proccessSecurity(this);">
 		  <option value="none">No Security</option>
-		  <option value="password">Require a Password</option>
-		  <option value="specific">Limit to Specific Users</option>
 		</select>
 	
-		<input placeholder="Password" style="display: none;" type="password" id="tid-password">
-		<input placeholder="Confirm Password" style="display: none;" type="password" id="tid-confirm-password">
-		<textarea rows="10" cols="40" placeholder="Usernames (separate with space)" style="display: none;" id="tid-users-allowed"></textarea><br>
-
+		
 	<button class="base btn2" onclick="saveDocument();">Save Document</button>
 </div>
 
