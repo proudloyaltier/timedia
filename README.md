@@ -1,6 +1,6 @@
-#Welcome to TiMedia!
+Welcome to TiMedia!
 
-##Your data is safe!
+Your data is safe!
 
 Your documents are encrypted end to end, your data (like documents,messages,store purchases and more) is not visible to any admin or other user!
 
