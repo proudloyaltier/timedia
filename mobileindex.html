@@ -24,39 +24,7 @@
  </div>
 <div id="content" style="visibility:hidden;">
 <div class="background" id="navbar">
-	<a href="index.html"><img draggable=false id="home-icon" style="padding:50px;" width=50px src="home.png"></a>
-	<a href="news.html"><img draggable=false id="news-icon" style="padding:50px;" width=50px src="news.png"></a>
-	<a href="points.html"><img draggable=false id="money-icon" style="padding:50px;" width=50px src="money.png"></a>
-	<a href="settings.html"><img draggable=false id="gears-icon" style="padding:50px;" width=50px src="gears.png"></a>
-	<a href="messages.html"><img draggable=false id="messaging-icon" style="padding:50px;" width=50px src="timage.svg"></a>
-	<a href="docs.html"><img draggable=false id="docs-icon" style="padding:50px;" width=50px src="pen.png"></a>
-	<a href="programs.html"><img draggable=false id="archives-icon" style="padding:50px;" width=50px src="if_downloads_309074.png"></a>
-</div><br><br><br><br><br>
- <h1 id="hello">Hello!</h1><button onclick="logOut()" class="base btn">Log Out</button>
-<p id="modpanelnotice"></p>
-<div style="background-color:white;">
-<img width=175px src="https://images-na.ssl-images-amazon.com/images/I/71RH7Vj8FUL._SL1500_.jpg">
- <img width=150px src="https://images-na.ssl-images-amazon.com/images/I/A1p6HHnJWaL._SX466_.jpg">
- <img width=215px src="http://i258.photobucket.com/albums/hh259/kaspernova/84PCS-Pink.jpg">
- <img width=95px src="https://upload.wikimedia.org/wikipedia/commons/8/89/PLT-SHH1.jpg">
- <img width=85px src="http://tiplanet.org/forum/gallery/image.php?album_id=15&image_id=273&view=no_count">
- <img width=190px src="http://s7d1.scene7.com/is/image/officedepot/905739_scene7?$OD-Dynamic$&wid=450&hei=450">
- <img width=190px src="http://www.staples-3p.com/s7/is/image/Staples/m000916946_sc7?$splssku$"><br>
- <img id="89" src="http://ti.zewaren.net/en/images/calc-ti89.gif">
- <a href="https://www.ocf.berkeley.edu/~pad/emu/v11.html"><img id="92plus" src="http://www.ticalc.org/images/calcs/92plus-big.gif"></a>
- <img id="nspirecxcas" width="200px" src="https://images-na.ssl-images-amazon.com/images/I/71xGnSqQUsL._SY679_.jpg">
- <img id="84plusce" width="200px" src="https://images-na.ssl-images-amazon.com/images/G/01/aplusautomation/vendorimages/0e74993e-8b04-4f99-a980-2437ad5c0728.jpg._CB283769908__SR150,300_.jpg">
-	</div>
-<!-- start Feedback -->
-<script data-sil-id='591367bea43fd60015db241c'> (function() {var d = document, w = window, l = window.location,p = l.protocol == 'file:' ? 'http://' : '//';if (!w.WS) w.WS = {}; c = w.WS;var m=function(t, o){  var e = d.getElementsByTagName('script'); e=e[e.length-1];  var n = d.createElement(t); if (t=='script') {n.async=true;} for (k in o) n[k] = o[k];  e.parentNode.insertBefore(n, e)};   m('script', {      src: p+'bawkbox.com/widget/feedback/591367bea43fd60015db241c?page='+encodeURIComponent(l+''),      type: 'text/javascript'  });  c.load_net = m;})();</script><div class='sil-widget-feedback sil-widget' id='sil-widget-591367bea43fd60015db241c'<a href='https://bawkbox.com/install/feedback'>Feedback is loading...</a></div>
-<!-- end Feedback -->
- <p id="mutemessage"></p>
- <!-- begin comment box -->
- <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%243yD1.Hi93ryNAuOTAUZB50"+"&opts=16406&num=10&ts=1494623824036");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<!-- end comment box -->
-</center>
+	<a href="mobilemenu.html"><img draggable=false id="home-icon" style="padding:50px;" width=50px src="home.png"></a>
  </body>
 <style>
 	#bottomlogin {
@@ -82,81 +50,6 @@ function forgotPassword() {
 	document.cookie = "forgotp=true";
 	document.cookie = "remail=" + remail;
 	window.location.href = "/timedia/sync.html";
-}
-	
- function checkAdmin() {
-  if (contains(mods, getCookie("name"))) {
-            document.getElementById('modpanelnotice').innerHTML = "<a href='mod.html'>Click here to access the moderator panel!</a>";
-   }
- }
- 
-function checkRank() {
-  if (localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!ismvtplus:true!!")) {
-    	var i = 0;
-	while (i < 10) {
-		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
-		document.getElementsByClassName('author-name')[i].style = "color:gold;";
-		}
-		i++;
-	}
- }
-  if (localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvtplus:true!!")) {
-    var i = 0;
-	while (i < 10) {
-		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
-		document.getElementsByClassName('author-name')[i].style = "color:green;";
-	}
-	i++;
-	}
-  }
-  if (!localStorage.purchases.includes("!!ismvt:true!!") && !localStorage.purchases.includes("!!isvit:true!!") && localStorage.purchases.includes("!!ismvtplus:true!!")) {
-    var i = 0;
-	while (i < 10) {
-		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
-		document.getElementsByClassName('author-name')[i].style = "color:red;";
-	}
-	i++;
-	}
-  }
-	
-  if (localStorage.purchases.includes("!!ismvt:true!!") && localStorage.purchases.includes("!!isvit:true!!") && !localStorage.purchases.includes("!!ismvtplus:true!!")) {
-    var i = 0;
-	while (i < 10) {
-		if (document.getElementsByClassName('author-name')[i].innerHTML == getCookie("name") + " ") {
-		document.getElementsByClassName('author-name')[i].style = "color:blue;";
-	}
-	i++;
-	}
-  }
-	
-}
-  function changeName() {
-   document.getElementById('hcb_form_name').value = getCookie("name");
-   document.getElementById('hcb_form_name').disabled = true;   
-   }
-  
- Element.prototype.remove = function() {
-    this.parentElement.removeChild(this);
-}
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-    for(var i = this.length - 1; i >= 0; i--) {
-        if(this[i] && this[i].parentElement) {
-            this[i].parentElement.removeChild(this[i]);
-        }
-    }
-}
- 
-function checkMute() {
-if (contains(mutedusers, getCookie("name")) || getCookie("mute") == "true") {
-  document.getElementById('HCB_comment_form_box').remove();
-  document.getElementById('mutemessage').innerHTML = "You are muted! You cannot post comments.";
- }
-}
-function logOut() {
- delete_cookie("login");
- delete_cookie("gotsettings");
- document.cookie = "post=true";
- window.location.href = "sync.html";
 }
  
  
@@ -191,14 +84,6 @@ function contains(a, obj) {
 }
  
  
-function checkCasioer() {
-var comment = document.getElementById('hcb_form_content').value;
- if (comment.includes("casio") || comment.includes("Casio") || comment.includes("CASIO")) {
-  document.cookie = "mute=true";
-  alert("Don't say Casio! You've been muted!");
-  checkMute();
- }
-}
  
 function checkPass() {
  if (contains(logins,btoa(document.getElementById('username').value + ':' + document.getElementById('password').value))) {
