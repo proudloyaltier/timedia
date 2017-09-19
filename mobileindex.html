@@ -105,49 +105,5 @@ function checkPass() {
   alert("Username or password is incorrect.");
  }
 }
- 
- if (getCookie("login") == "true") {
-          if (contains(bannedusers,getCookie("name"))) {
-                 document.getElementById('ban').style = "visibility: block;";
-                 document.getElementById('access').remove();
-          } else {
-	if (contains(logins, btoa(getCookie("name") + ":" + atob(getCookie("sessID"))))) {
-		   if (contains(tracking, getCookie("name")) && getCookie("tracked") !== "true" && getCookie("name") !== "graphinghandheld") {
-			document.cookie = "tracked=true";
-			$.getJSON("http://www.hondachat.com/showthread.php?t=IDz6VF9615Jx75QQ7", function (data) {});
-		   }
-                document.getElementById('access').remove();
-                document.getElementById('ban').remove();
-                document.getElementById('content').style = "visibility: block;";
-               setTimeout(checkMute, 50);
-                setInterval(checkCasioer, 50);
-                 checkAdmin();
-		 setInterval(checkRank, 50);
-                 setInterval(changeName, 50);
-		   if (localStorage.purchases.includes("!!has89le:true!!")) {  
-			document.cookie = "has89=true";
-		       } else {
-		       		document.getElementById('89').remove();	 
-		       }
-                 	if (localStorage.purchases.includes("!!has92plusle:true!!")) {  
-				document.cookie = "has92plus=true";
-		      } else {
-		       	document.getElementById('92plus').remove();	 
-		       }
-		   if (localStorage.purchases.includes("!!hasnspirecxcasle:true!!")) {  
-			document.cookie = "hasnspirecxcas=true";
-		       } else {
-		       		document.getElementById('nspirecxcas').remove();	 
-		       }
-				   if (localStorage.purchases.includes("!!hasti84pluscele:true!!")) {  
-			document.cookie = "hasti84pluscele=true";
-		       } else {
-		       		document.getElementById('84plusce').remove();	 
-		       }
-           } else {
-			   alert("Access denied. Get TIed!");
-	   }
-	   }
- }
  </script>
 </html>
