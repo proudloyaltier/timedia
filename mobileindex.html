@@ -23,17 +23,17 @@
   </body>
   <style>
 		#balance {
-			text-align:right;
-		};
-	</style>
+			text-align: right;
+		}
+  </style>
   <script>
-	if (localStorage.points == undefined) {
-	 localStorage.setItem("points", 0);
-	}
-	if (localStorage.purchases == undefined) {
+	  if (localStorage.points == undefined) {
+	   localStorage.setItem("points", 0);
+	  }
+	  if (localStorage.purchases == undefined) {
 			localStorage.purchases = "";
-	}
+	  }
 
-	document.getElementById('balance').innerHTML = localStorage.points + " TiPoints";
+	  document.getElementById('balance').innerHTML = localStorage.points + " TiPoints";
   </script>
 </html>
