@@ -16,7 +16,7 @@ function getCookie(cname) {
     return "";
 }
 
-if (getCookie("synced_google") !== true) {
+if (getCookie("synced_google") != true) {
   document.cookie = "synced_google=true";
   window.location.href = "https://accounts.google.com/o/oauth2/v2/auth?scope=email&client_id=16240836914-gktcsl398edvp5anuice3j6ored4dqmm.apps.googleusercontent.com&response_type=code&redirect_uri=https://proudloyaltier.github.io/timedia/sync_google.html";
 } else {
