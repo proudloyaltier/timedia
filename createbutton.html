@@ -24,7 +24,7 @@
 
 <script>
 function generate() {
-var result = '<iframe frameBorder="0" width="200px" height="115px" src="https://proudloyaltier.github.io/timedia/tipay-button.html?pd=' + document.getElementById('price') + "," + document.getElementById('code') + '"><p>Your browser does not support TiPay.</p></iframe>';
+var result = '<iframe frameBorder="0" width="200px" height="115px" src="https://proudloyaltier.github.io/timedia/tipay-button.html?pd=' + btoa(document.getElementById('price').value + "," + document.getElementById('code').value) + '"><p>Your browser does not support TiPay.</p></iframe>';
 
   prompt("Use this HTML.", result);
 }
