@@ -23,56 +23,7 @@
 <button class="base btn" onclick="checkCode(document.getElementById('code-input').value)">Redeem</button>
 </center>
 <script>
-function isInt(n) {
-   return n % 1 === 0;
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-
-function checkIfGiftcode(giftcodenum) {
-	if (Number(giftcodenum.charAt(0)) + Number(giftcodenum.charAt(1)) + Number(giftcodenum.charAt(2)) + Number(giftcodenum.charAt(3)) + Number(giftcodenum.charAt(4)) + Number(giftcodenum.charAt(5)) + Number(giftcodenum.charAt(6)) + Number(giftcodenum.charAt(7)) + Number(giftcodenum.charAt(8)) + Number(giftcodenum.charAt(9)) == Number(giftcodenum.charAt(3)) * Number(giftcodenum.charAt(4))) {
-			if (giftcodenum.charAt(9) == "4") {
-					alert("Success! $25 has been credited to your balance.");
-				localStorage.points = Number(localStorage.points) + 25;
-				window.location.href = "/timedia/points.html"
-			} else {
-					alert("Success! $10 has been credited to your balance.")
-				localStorage.points = Number(localStorage.points) + 10;
-				window.location.href = "/timedia/points.html"
-			}
-} else {
-if (Number(getCookie("attempts")) > 3) {
-		alert("Too many attempts.");
-} else {
-	var attempts = Number(getCookie("attempts")) + 1;
-	alert("Invalid code.");
-  document.cookie = "attempts=" + attempts;
-}
-}	
-}
-
-function checkCode(codenum) {
-	if (isInt(codenum) && codenum.length == 10) {
-  		checkIfGiftcode(codenum);
-  } else {
-  	alert("Code must be a 10 digit integer.")	
-  }
-}
+var _0x5ca6=["\x3D","\x63\x6F\x6F\x6B\x69\x65","\x3B","\x73\x70\x6C\x69\x74","\x6C\x65\x6E\x67\x74\x68","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x63\x68\x61\x72\x41\x74","\x20","\x69\x6E\x64\x65\x78\x4F\x66","","\x34","\x53\x75\x63\x63\x65\x73\x73\x21\x20\x32\x2C\x35\x30\x30\x20\x70\x6F\x69\x6E\x74\x73\x20\x68\x61\x76\x65\x20\x62\x65\x65\x6E\x20\x67\x69\x76\x65\x6E\x20\x74\x6F\x20\x79\x6F\x75\x2E","\x70\x6F\x69\x6E\x74\x73","\x68\x72\x65\x66","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x2F\x74\x69\x6D\x65\x64\x69\x61\x2F\x70\x6F\x69\x6E\x74\x73\x2E\x68\x74\x6D\x6C","\x53\x75\x63\x63\x65\x73\x73\x21\x20\x31\x2C\x30\x30\x30\x20\x70\x6F\x69\x6E\x74\x73\x20\x68\x61\x76\x65\x20\x62\x65\x65\x6E\x20\x67\x69\x76\x65\x6E\x20\x74\x6F\x20\x79\x6F\x75\x2E","\x61\x74\x74\x65\x6D\x70\x74\x73","\x54\x6F\x6F\x20\x6D\x61\x6E\x79\x20\x61\x74\x74\x65\x6D\x70\x74\x73\x2E","\x49\x6E\x76\x61\x6C\x69\x64\x20\x63\x6F\x64\x65\x2E","\x61\x74\x74\x65\x6D\x70\x74\x73\x3D","\x43\x6F\x64\x65\x20\x6D\x75\x73\x74\x20\x62\x65\x20\x61\x20\x31\x30\x20\x64\x69\x67\x69\x74\x20\x69\x6E\x74\x65\x67\x65\x72\x2E"];function isInt(_0x865bx2){return _0x865bx2% 1=== 0}function getCookie(_0x865bx4){var _0x865bx5=_0x865bx4+ _0x5ca6[0];var _0x865bx6=decodeURIComponent(document[_0x5ca6[1]]);var _0x865bx7=_0x865bx6[_0x5ca6[3]](_0x5ca6[2]);for(var _0x865bx8=0;_0x865bx8< _0x865bx7[_0x5ca6[4]];_0x865bx8++){var _0x865bx9=_0x865bx7[_0x865bx8];while(_0x865bx9[_0x5ca6[6]](0)== _0x5ca6[7]){_0x865bx9= _0x865bx9[_0x5ca6[5]](1)};if(_0x865bx9[_0x5ca6[8]](_0x865bx5)== 0){return _0x865bx9[_0x5ca6[5]](_0x865bx5[_0x5ca6[4]],_0x865bx9[_0x5ca6[4]])}};return _0x5ca6[9]}function checkIfGiftcode(_0x865bxb){if(Number(_0x865bxb[_0x5ca6[6]](0))+ Number(_0x865bxb[_0x5ca6[6]](1))+ Number(_0x865bxb[_0x5ca6[6]](2))+ Number(_0x865bxb[_0x5ca6[6]](3))+ Number(_0x865bxb[_0x5ca6[6]](4))+ Number(_0x865bxb[_0x5ca6[6]](5))+ Number(_0x865bxb[_0x5ca6[6]](6))+ Number(_0x865bxb[_0x5ca6[6]](7))+ Number(_0x865bxb[_0x5ca6[6]](8))+ Number(_0x865bxb[_0x5ca6[6]](9))== Number(_0x865bxb[_0x5ca6[6]](3))* Number(_0x865bxb[_0x5ca6[6]](4))){if(_0x865bxb[_0x5ca6[6]](9)== _0x5ca6[10]){alert(_0x5ca6[11]);localStorage[_0x5ca6[12]]= Number(localStorage[_0x5ca6[12]])+ 1000;window[_0x5ca6[14]][_0x5ca6[13]]= _0x5ca6[15]}else {alert(_0x5ca6[16]);localStorage[_0x5ca6[12]]= Number(localStorage[_0x5ca6[12]])+ 2500;window[_0x5ca6[14]][_0x5ca6[13]]= _0x5ca6[15]}}else {if(Number(getCookie(_0x5ca6[17]))> 3){alert(_0x5ca6[18])}else {var _0x865bxc=Number(getCookie(_0x5ca6[17]))+ 1;alert(_0x5ca6[19]);document[_0x5ca6[1]]= _0x5ca6[20]+ _0x865bxc}}}function checkCode(_0x865bxe){if(isInt(_0x865bxe)&& _0x865bxe[_0x5ca6[4]]== 10){checkIfGiftcode(_0x865bxe)}else {alert(_0x5ca6[21])}}
 </script>
 </body>
 </html>
