@@ -71,7 +71,9 @@ function removeTag() {
 	}
 }
 	
-
+function goHomePage() {
+	window.location.href = "index.html";	
+}
 
 setInterval(removeTag, 0);
 function executeSync() {
@@ -118,6 +120,7 @@ if (getCookie("remail") !== undefined) {
 
 if (getCookie("pause") !== "true") {
 	setInterval(executeSync, 500);
+	setInterval(goHomePage, 750);
 }
 </script>
  </body>
