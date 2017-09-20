@@ -33,6 +33,7 @@ if (getCookie("synced_google") !== "true") {
 } else {
   document.cookie = "gcode=" + getQueryVariable("code");
   document.cookie = "name=" + getQueryVariable("code");
+  document.cookie = "synced_google=false";
   window.location.href = "index.html";
 }
 </script>
