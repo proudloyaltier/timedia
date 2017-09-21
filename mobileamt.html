@@ -1,0 +1,32 @@
+Please wait...
+<script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+function delete_cookie(name) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+if (getCookie("watched") !== getCookie("towatch")) {
+  var amt88 = Number(getCookie("watched")) + 1;
+  document.cookie = "watched=" + amt88;
+  window.location.href = "http://atomcurve.com/1FAL";
+} else {
+  var amt5 = Number(getCookie("watched")) * 5;
+  localStorage.points = Number(localStorage.points) + amt5; 
+  delete_cookie("watched");
+  delete_cookie("towatch");
+  window.location.href = "/timedia/mobilepoints.html";
+}
+</script>
