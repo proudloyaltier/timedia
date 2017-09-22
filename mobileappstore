@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<title>TiMedia</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<center>
+<div class="top">
+ <h2 style="color:white;">TiMedia</h2>
+ </div>
+<br><br>
+ <div class="background" id="navbar">
+	<a href="mobileindex.html"><img draggable=false id="home-icon" style="padding:50px;" width=50px src="home.png"></a>
+	<a href="mobilepoints.html"><img draggable=false id="money-icon" style="padding:50px;" width=50px src="money.png"></a>
+	<a href="mobilemessages.html"><img draggable=false id="messaging-icon" style="padding:50px;" width=50px src="timage.svg"></a>
+	<a href="mobiledocs.html"><img draggable=false id="docs-icon" style="padding:50px;" width=50px src="pen.png"></a>
+</div><br><br><br><br><br><br>
+<h1>App Store</h1>
+<a href="mobileapp.html"><button class="base btn">Make you own app!</button></a>
+<br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSffR2XxWqLNtOqPgVcLJSRDt8t8MA3upmJ6xInjBH2VTDRkPQ/viewform?usp=sf_link"><button class="base btn">Submit an app to the store</button></a>
+ </center>
+ </body>
+</html>
