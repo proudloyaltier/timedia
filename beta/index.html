@@ -55,6 +55,14 @@
 
 <div style="display: none;" id="points">
     <h3>Points</h3><br>
+    <div id="ti-bank-msg" class="jumbotron">
+      <h1>Introducing TiBank</h1>
+      <p>TiBank is the most secure way to store and spend your TiPoints.</p>
+      <button onclick="dismissTiBank" class="btn btn-primary">Dismiss</button>
+</div>
+
+<h1 id="points-balance">0 TiPoints</h1>
+Final Balance<br><br>
 </div>
 
 <div style="display: none;" id="messages">
@@ -68,10 +76,10 @@
       <h1><blockquote id="content" contenteditable="true"></blockquote></h1>
 
       <!-- Trigger the modal with a button -->
-      <button onclick="saveDoc()" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">SAVE</button>
+      <button onclick="saveDoc()" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#saveModal">SAVE</button>
 
       <!-- Modal -->
-      <div id="myModal" class="modal fade" role="dialog">
+      <div id="saveModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -98,5 +106,6 @@
     <script src="home.js"></script>
     <script src="main.js"></script>
     <script src="docs.js"></script>
+    <script src="points.js"></script>
   </body>
 </html>
