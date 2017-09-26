@@ -10,21 +10,22 @@ function getQueryVariable(variable)
 }
 
 function launchApp(appname) {
-  document.getElementById('page').innerHTML = appname;
   document.getElementById('home').remove();
+
+  document.getElementById(appname).style = "visibility: block;"
 }
 
 if (localStorage.access !== undefined) {
   if (getQueryVariable("app") == 1) {
-    launchApp("Points");
+    launchApp("points");
   }
 
   if (getQueryVariable("app") == 2) {
-    launchApp("Messages");
+    launchApp("messages");
   }
 
   if (getQueryVariable("app") == 3) {
-    launchApp("TiDocs");
+    launchApp("tidocs");
   }
 } else {
   window.location.href = "login.html";
