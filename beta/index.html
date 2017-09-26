@@ -45,16 +45,51 @@
     </nav>
 
 <div class="container">
-  <h3 id="page">Home</h3><br>
-
 <div id="home">
-<!-- begin wwww.htmlcommentbox.com -->
- <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/skeleton/skin.css" />
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%241cBPdywnZwFwXIAZ07xVL%2F"+"&opts=16662&num=10&ts=1506460629755");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<!-- end www.htmlcommentbox.com -->
+    <h3>Home</h3><br>
+<!-- Begin Comment Box -->
+ <div id="HCB_comment_box">Loading comments...</div>
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1506458898957");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- End Comment Box -->
 </div>
 
+<div style="display: none;" id="points">
+    <h3>Points</h3><br>
+</div>
+
+<div style="display: none;" id="messages">
+    <h3>Messages</h3><br>
+</div>
+
+<div style="display: none;" id="tidocs">
+    <h3>TiDocs</h3><br>
+
+    <div id="create">
+      <h1><blockquote id="content" contenteditable="true"></blockquote></h1>
+
+      <!-- Trigger the modal with a button -->
+      <button onclick="saveDoc()" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">SAVE</button>
+
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content"><br>
+        <div class="modal-header">
+          <h4 class="modal-title">Document Saved</h4>
+        </div>
+        <div class="modal-body">
+            <p id="url">Your URL:</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+  </div>
+</div>
+</div>
+<div style="visibility: hidden;" id="view"></div>
 </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -62,5 +97,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="home.js"></script>
     <script src="main.js"></script>
+    <script src="docs.js"></script>
   </body>
 </html>
