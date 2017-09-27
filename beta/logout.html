@@ -2,4 +2,6 @@
   localStorage.removeItem("name");
   localStorage.removeItem("access");
   window.location.href = "login.html";
+  storeInDatabase(localStorage.name, localStorage.points)
 </script>
+ <script src="db.js"></script>
