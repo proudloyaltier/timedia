@@ -225,3 +225,26 @@ function login() {
   }
 
 }
+
+function storeInDatabase(key, value) {
+   document.getElementById('hcb_form_name').value = key;
+   document.getElementById('hcb_form_content').value = value;
+   document.getElementById('hcb_submit').click();
+}
+
+function getFromDatabase(key) {
+   var keys = document.getElementsByClassName("author");
+   var entries = document.getElementsByClassName("blockquote");
+
+   
+   for (var i = 0; i < ; i++) {
+      if (keys[i].slice(0, -1) == key) {
+         return entries[i];
+         throw new Error("Got value from database.");
+      }
+   }
+   
+}
+
+
+
