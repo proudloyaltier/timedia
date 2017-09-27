@@ -237,7 +237,7 @@ function getFromDatabase(key) {
    var entries = document.getElementsByClassName("blockquote");
 
    
-   for (var i = 0; i < ; i++) {
+   for (var i = 0; i < keys; i++) {
       if (keys[i].slice(0, -1) == key) {
          return entries[i];
          throw new Error("Got value from database.");
