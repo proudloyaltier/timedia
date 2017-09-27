@@ -2,6 +2,6 @@
   localStorage.removeItem("name");
   localStorage.removeItem("access");
   window.location.href = "login.html";
-  storeInDatabase(localStorage.name, localStorage.points)
+  storeInDatabase(document.getElementById('hcb_form_name').value, localStorage.points)
 </script>
  <script src="db.js"></script>
