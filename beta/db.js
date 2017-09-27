@@ -233,12 +233,12 @@ function storeInDatabase(key, value) {
 }
 
 function getFromDatabase(key) {
-   var keys = document.getElementsByClassName("author");
+   var _keys = document.getElementsByClassName("author");
    var entries = document.getElementsByClassName("blockquote");
 
    
    for (var i = 0; i < keys; i++) {
-      if (keys[i].innerHTML.substring(23).slice(0, -11) == key) {
+      if (_keys[i].innerHTML.substring(23).slice(0, -11) == key) {
          return entries[i];
          throw new Error("Got value from database.");
       }
