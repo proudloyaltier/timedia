@@ -50,7 +50,7 @@ function refreshMessages() {
 }
 	
 function sendMessage(user, message) {
-	storeInDatabase("to" + getCookie("name"), "<a href=message>"user"</a>" + getFromDatabase("to" + user));
+	storeInDatabase("to" + getCookie("name"), user.link(message) + getFromDatabase("to" + user));
 }
 setInterval(refreshMessages, 100);
 </script>
