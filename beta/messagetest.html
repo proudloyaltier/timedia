@@ -11,26 +11,10 @@
 	<div id="messages">No messages!</div><br>
 	<button onclick="sendMessage(prompt('Title:'), prompt('URL:'))" class="base btn2">Send Message</button>
 <script>
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-	
 function getFromDatabase(gname) {
   var i = 0;
   while (i < document.getElementsByTagName('blockquote').length) {
-    if (document.getElementsByClassName('author-name')[i].innerHTML == "to" + getCookie("name") + " ") {
+    if (document.getElementsByClassName('author-name')[i].innerHTML == "to" + localStorage.name + " ") {
       return(document.getElementsByTagName('blockquote')[i].innerHTML);
       throw new Error("Got value from database.");
     }
@@ -46,11 +30,11 @@ function storeInDatabase(sname, value) {
   document.getElementById("hcb_submit").click();
 }
 function refreshMessages() {
-	document.getElementById('messages').innerHTML = getFromDatabase("to" + getCookie("name"));
+	document.getElementById('messages').innerHTML = getFromDatabase("to" + localStorage.name));
 }
 	
 function sendMessage(user, message) {
-	storeInDatabase("to" + getCookie("name"), user.link(message) + getFromDatabase("to" + user));
+	storeInDatabase("to" +localStorage.name), user.link(message) + getFromDatabase("to" + user));
 }
 setInterval(refreshMessages, 100);
 </script>
