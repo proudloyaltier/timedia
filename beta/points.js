@@ -16,4 +16,6 @@ function refreshPoints() {
     localStorage.points = Number(localStorage.points);
 }
 
-setInterval(refreshPoints, 2000);
+if (getQueryVariable("app") == 1) {
+    setInterval(refreshPoints, 2000);
+}
