@@ -53,7 +53,7 @@
   <script>
     function changeName() {
       document.getElementById('hcb_form_name').value = localStorage.name;
-   document.getElementById('hcb_form_name').disabled = true;   
+      document.getElementById('hcb_form_name').disabled = true;   
    }
   
  Element.prototype.remove = function() {
@@ -102,6 +102,7 @@ Final Balance<br><br>
   </div><br>
   
   <button onclick="newConversation()" class="btn btn-primary">New Conversation</button>
+  <button onclick="removeConversation()" class="btn btn-danger">Remove Conversation</button>
   
  <div id="HCB_comment_box" style="display: none;">Connecting to <b>Messages</b> database.</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
