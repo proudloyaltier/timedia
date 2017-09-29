@@ -10,3 +10,9 @@ if (localStorage.tibankmd == "true") {
 if (localStorage.points !== undefined) {
   document.getElementById('points-balance').innerHTML = localStorage.points + " TiPoints";
 }
+
+function refreshPoints() {
+    getFromDatabase("points");
+}
+
+setInterval(refreshPoints, 2000);
