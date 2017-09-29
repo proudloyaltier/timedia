@@ -23,7 +23,7 @@ function newConversation() {
       alert("You can't make a conversation with yourself.");
   } else {
     
-  if (localStorage.includes(user)) {
+  if (localStorage.conversations.includes(user)) {
       alert("You've already started a conversation with this person.");
   } else {
   
