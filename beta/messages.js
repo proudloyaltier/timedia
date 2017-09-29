@@ -8,14 +8,14 @@ if (localStorage.conversations !== undefined) {
     
   for (var i = 0; i < conversations_split.length; i++) {
     document.getElementById('tabs').innerHTML = document.getElementById('tabs').innerHTML + '<li><a data-toggle="pill" href="#chat' + conversations + '">' + conversations_split[i] + '</a></li>';
-    document.getElementById('msgs').innerHTML = document.getElementById('msgs').innerHTML + '    <div id="chat' + conversation + '" class="tab-pane fade in active"><h3>' + conversations_split[i] + '</h3><p></p></div>';
+    document.getElementById('msgs').innerHTML = document.getElementById('msgs').innerHTML + '    <div id="chat' + conversations + '" class="tab-pane fade in active"><h3>' + conversations_split[i] + '</h3><p></p></div>';
     
-    conversation++;
+    conversations++;
   }
 }
 
 function newConversation() {
-  conversation++;
+  conversations++;
   
   var user = prompt("Username");
   
