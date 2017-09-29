@@ -17,6 +17,10 @@ if (!localStorage.conversations == undefined || localStorage.conversations == ""
 }
 
 function newConversation() {
+  if (localStorage.conversations == undefined) {
+    localStorage.conversations = "";
+  }
+  
   conversations++;
   
   var user = prompt("Username");
