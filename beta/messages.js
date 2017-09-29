@@ -26,6 +26,16 @@ function newConversation() {
   
   var user = prompt("Username");
   
+  var users = [];
+
+  for (var i = 0; i < logins.length; i++) {
+  	users.push(logins[i].split(",")[0]);
+  }
+  
+  if (!users.includes(user)) {
+    alert("User does not exist.");
+  } else {
+  
   if (user == localStorage.name) {
       alert("You can't make a conversation with yourself.");
   } else {
@@ -43,6 +53,7 @@ function newConversation() {
   } else {
     localStorage.conversations = user;
     storeInDatabase("conversations", user);
+  }
   }
   }
   }
