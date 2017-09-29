@@ -1,7 +1,7 @@
 getFromDatabase("conversations");
 var conversations = 0;
 
-if (localStorage.conversations !== undefined) {
+if (localStorage.conversations !== undefined || localStorage.conversations !== "") {
   var conversations_split = localStorage.conversations.split(",");
   
     document.getElementById('no-conversations').remove();
