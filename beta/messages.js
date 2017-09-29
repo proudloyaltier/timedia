@@ -12,6 +12,8 @@ if (localStorage.conversations !== undefined) {
     
     conversations++;
   }
+} else {
+  localStorage.conversations = [];
 }
 
 function newConversation() {
