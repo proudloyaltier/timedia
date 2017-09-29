@@ -18,8 +18,8 @@ if (!localStorage.conversations == undefined || !localStorage.conversations == "
 
 function newConversation() {
   if (localStorage.conversations == undefined) {
-    localStorage.conversations = "";
     document.getElementById('no-conversations').remove();
+    localStorage.conversations = "";
   }
   
   conversations++;
