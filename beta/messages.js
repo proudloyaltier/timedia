@@ -13,7 +13,7 @@ if (localStorage.conversations !== undefined || localStorage.conversations !== "
     conversations++;
   }
 } else {
-  localStorage.conversations = [];
+  localStorage.conversations = "";
 }
 
 function newConversation() {
