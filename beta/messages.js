@@ -1,7 +1,22 @@
 getFromDatabase("conversations");
-var conversations = 3;
+var conversations = 0;
+
+if (localStorage.conversations !== undefined) {
+  var conversations_split = localStorage.conversations.split(",");
+  
+    document.getElementById('no-conversations').remove();
+    
+  for (var i = 0; i < conversations_split.length; i++) {
+    document.getElementById('tabs').innerHTML = document.getElementById('tabs').innerHTML + '<li><a data-toggle="pill" href="#chat' + conversations + '">' + conversations_split[i] + '</a></li>';
+    document.getElementById('msgs').innerHTML = document.getElementById('msgs').innerHTML + '    <div id="chat' + conversation + '" class="tab-pane fade in active"><h3>' + conversations_split[i] + '</h3><p></p></div>';
+    
+    conversation++;
+  }
+}
 
 function newConversation() {
+  conversation++;
+  
   var user = prompt("Username");
   
   if (user == localStorage.name) {
