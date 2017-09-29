@@ -13,7 +13,7 @@ if (localStorage.points !== undefined) {
 
 function refreshPoints() {
     getFromDatabase("points");
-    localStorage.points = Number(getFromDatabase("points"))
+    localStorage.points = Number(getFromDatabase("points"));
 }
 
 if (getQueryVariable("app") == 1) {
