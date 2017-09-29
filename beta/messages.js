@@ -1,3 +1,5 @@
+var conversations = 3;
+
 function newConversation() {
   var user = prompt("Username");
   
