@@ -226,25 +226,4 @@ function login() {
 
 }
 
-function storeInDatabase(key, value) {
-   document.getElementById('hcb_form_name').value = key;
-   document.getElementById('hcb_form_content').value = value;
-   document.getElementById('hcb_submit').click();
-}
-
-function getFromDatabase(key) {
-   var _keys = document.getElementsByClassName("author");
-   var entries = document.getElementsByClassName("blockquote");
-
-   
-   for (var i = 0; i < keys; i++) {
-      if (_keys[i].innerHTML.substring(23).slice(0, -11) == key) {
-         return entries[i];
-         throw new Error("Got value from database.");
-      }
-   }
-   
-}
-
-
-
+var _0x1b7f=["\x69\x6E\x63\x6C\x75\x64\x65\x73","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x62\x6C\x6F\x63\x6B\x71\x75\x6F\x74\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65","\x61\x75\x74\x68\x6F\x72\x2D\x6E\x61\x6D\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x43\x6C\x61\x73\x73\x4E\x61\x6D\x65","\x6E\x61\x6D\x65","\x20","\x6C\x65\x6E\x67\x74\x68","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x73\x65\x74\x49\x74\x65\x6D","\x47\x6F\x74\x20\x76\x61\x6C\x75\x65\x20\x66\x72\x6F\x6D\x20\x64\x61\x74\x61\x62\x61\x73\x65\x2E","\x76\x61\x6C\x75\x65","\x68\x63\x62\x5F\x66\x6F\x72\x6D\x5F\x6E\x61\x6D\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x68\x63\x62\x5F\x66\x6F\x72\x6D\x5F\x63\x6F\x6E\x74\x65\x6E\x74","\x3A","\x63\x6C\x69\x63\x6B","\x68\x63\x62\x5F\x73\x75\x62\x6D\x69\x74"];function getFromDatabase(_0x252ax2){var _0x252ax3=0;while(_0x252ax3< document[_0x1b7f[3]](_0x1b7f[2])[_0x1b7f[8]]){if(document[_0x1b7f[3]](_0x1b7f[2])[_0x252ax3][_0x1b7f[1]][_0x1b7f[0]](_0x252ax2)&& document[_0x1b7f[5]](_0x1b7f[4])[_0x252ax3][_0x1b7f[1]]== localStorage[_0x1b7f[6]]+ _0x1b7f[7]){localStorage[_0x1b7f[10]](_0x252ax2,document[_0x1b7f[3]](_0x1b7f[2])[_0x252ax3][_0x1b7f[1]][_0x1b7f[9]](_0x252ax2[_0x1b7f[8]]+ 1));throw  new Error(_0x1b7f[11])};_0x252ax3++}}function storeInDatabase(_0x252ax5,_0x252ax6){document[_0x1b7f[14]](_0x1b7f[13])[_0x1b7f[12]]= localStorage[_0x1b7f[6]];document[_0x1b7f[14]](_0x1b7f[15])[_0x1b7f[12]]= _0x252ax5+ _0x1b7f[16]+ _0x252ax6;document[_0x1b7f[14]](_0x1b7f[18])[_0x1b7f[17]]()}
