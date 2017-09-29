@@ -79,6 +79,8 @@ function removeConversation() {
     conversations_array.remove(user_to_remove);
     
     localStorage.conversations = conversations_array;
+      
+    location.reload();
   } else {
     alert("You have not started a conversation with this user.");
   }
