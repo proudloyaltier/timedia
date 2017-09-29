@@ -33,8 +33,10 @@ function newConversation() {
   document.getElementById('msgs').innerHTML = document.getElementById('msgs').innerHTML + '    <div id="chat' + conversations + '" class="tab-pane fade in active"><h3>' + user + '</h3><p></p></div>';
 
   if (localStorage.conversations !== "") {
+    localStorage.conversations = localStorage.conversations + "," + user;
     storeInDatabase("conversations", localStorage.conversations + "," + user);
   } else {
+    localStorage.conversations = user;
     storeInDatabase("conversations", user);
   }
   }
