@@ -74,12 +74,12 @@ function removeConversation() {
   var user_to_remove = prompt("Username");
   
   if (localStorage.conversations.includes(user_to_remove)) {
-    alert("You have not started a conversation with this user.");
-  } else {
     var conversations_array = localStorage.conversations.split(",");
     
     conversations_array.remove(user_to_remove);
     
     localStorage.conversations = conversations_array;
+  } else {
+    alert("You have not started a conversation with this user.");
   }
 }
