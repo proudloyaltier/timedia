@@ -18,7 +18,6 @@ if (!localStorage.conversations == undefined || !localStorage.conversations == "
 
 function newConversation() {
   if (localStorage.conversations == undefined) {
-    document.getElementById('no-conversations').remove();
     localStorage.conversations = "";
   }
   
@@ -54,6 +53,7 @@ function newConversation() {
     localStorage.conversations = user;
     storeInDatabase("conversations", user);
   }
+    location.reload();
   }
   }
   }
