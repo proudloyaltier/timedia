@@ -13,6 +13,7 @@ if (localStorage.points !== undefined) {
 
 function refreshPoints() {
     getFromDatabase("points");
+    localStorage.points = Number(localStorage.points);
 }
 
 setInterval(refreshPoints, 2000);
