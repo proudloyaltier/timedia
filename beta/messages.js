@@ -1,3 +1,14 @@
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
+
 getFromDatabase("conversations");
 var conversations = 0;
 
@@ -56,5 +67,19 @@ function newConversation() {
     location.reload();
   }
   }
+  }
+}
+
+function removeConversation() {
+  var user_to_remove = prompt("Username");
+  
+  if (localStorage.conversations.includes(user_to_remove)) {
+    alert("You have not started a conversation with this user.");
+  } else {
+    var conversations_array = localStorage.conversations.split(",");
+    
+    conversations_array.remove(user_to_remove);
+    
+    localStorage.conversations = conversations_array;
   }
 }
