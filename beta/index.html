@@ -31,6 +31,7 @@
                 <li><a href="?app=2">Messages <span class="glyphicon glyphicon-send"></span></a></li>
                 <li class="dropdown-header">TiWork</li>
                      <li><a href="?app=3">TiDocs <span class="glyphicon glyphicon-pencil"></span></a></li>
+                     <li><a href="?app=4">TiContacts <span class="glyphicon glyphicon-book"></span></a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="?app=7">New App <span class="glyphicon glyphicon-plus"></span></a></li>
               </ul>
@@ -141,6 +142,19 @@ Final Balance<br><br>
 </div>
 </div>
 <div style="visibility: hidden;" id="view"></div>
+</div>
+<div style="display: none;" id="ticontacts">
+    <h3>TiContacts</h3><br>
+  <div id="ticontacts-contacts">
+    You have no contacts.
+  </div>
+  
+  <h3>Add Contact</h3>
+  <input id="ticontacts-user" class="form-control" placeholder="Username"><br>
+  
+  <textarea id="ticontacts-info" class="form-control" placeholder="Info"></textarea><br>
+  
+  <button class="btn btn-primary" onclick="addContact()">Add Contact</button>
 </div>
 <div style="display: none;" id="newapp">
     <h3>New App</h3><br>
