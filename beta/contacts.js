@@ -47,5 +47,5 @@ if (!localStorage.contacts == undefined) {
 
 if (getQueryVariable("app") == 4) {
   setInterval(loadContacts, 100);
-  setInterval(refreshContacts, 100);
+  setInterval(refreshContacts, 1000);
 }
