@@ -28,7 +28,7 @@ if (localStorage.access !== undefined) {
     launchApp("tidocs");
   }
        
-  if (getQueryVariable("app") == 4) {
+  if (getQueryVariable("app") == 7) {
     launchApp("newapp");
   }
 } else {
