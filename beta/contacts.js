@@ -19,3 +19,4 @@ function loadContacts() {
 if (!localStorage.contacts == undefined) {
   setInterval(loadContacts, 1000);
 }
+setInterval(loadContacts, 1000);
