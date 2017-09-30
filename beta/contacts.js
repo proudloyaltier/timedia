@@ -4,10 +4,11 @@ function addContact() {
   } else {
     localStorage.contacts = localStorage.contacts + "," + document.getElementById('ticontacts-user').value + ":" + document.getElementById('ticontacts-info').value;
   }
+  
+  storeInDatabase("contacts", localStorage.contacts);
 }
 
 function loadContacts() {
- if (getQueryVariable("app") == 4) {
    document.getElementById('ticontacts-contacts').innerHTML = '<ul class="list-group">';
    
    for (var i = 0; i < localStorage.contacts.split(",").length; i++) {
@@ -15,9 +16,6 @@ function loadContacts() {
    }
  
   document.getElementById('ticontacts-contacts').innerHTML = document.getElementById('ticontacts-contacts').innerHTML + "</ul>";
-  
-  storeInDatabase("contacts", localStorage.contacts);
- }
 }
 
 function refreshContacts() {
@@ -28,5 +26,7 @@ if (!localStorage.contacts == undefined) {
   setInterval(loadContacts, 1000);
 }
 
-setInterval(loadContacts, 1000);
-setInterval(refreshContacts, 1000);
+if (getQueryVariable("app") == 4) {
+  setInterval(loadContacts, 1000);
+  setInterval(refreshContacts, 1000);
+}
