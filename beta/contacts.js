@@ -25,5 +25,6 @@ function refreshContacts() {
 if (!localStorage.contacts == undefined) {
   setInterval(loadContacts, 1000);
 }
+
 setInterval(loadContacts, 1000);
 setInterval(refreshContacts, 1000);
