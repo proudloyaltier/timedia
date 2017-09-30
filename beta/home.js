@@ -46,10 +46,3 @@ if (localStorage.access !== undefined) {
 } else {
   window.location.href = "login.html";
 }
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="#">More options</a>
-    <ul class="dropdown-menu">
-      ...
-    </ul>
-  </li>
