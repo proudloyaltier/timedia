@@ -19,7 +19,7 @@ if (!localStorage.conversations == undefined || !localStorage.conversations == "
     
   for (var i = 0; i < conversations_split.length; i++) {
     document.getElementById('tabs').innerHTML = document.getElementById('tabs').innerHTML + '<li><a data-toggle="pill" href="#chat' + conversations + '">' + conversations_split[i] + '</a></li>';
-    document.getElementById('msgs').innerHTML = document.getElementById('msgs').innerHTML + '    <div id="chat' + conversations + '" class="tab-pane fade in"><h3>' + conversations_split[i] + '</h3><div id="div-chat-' + conversations + '">You have not sent any messages to this user.</div><br><input type="text" id="input-chat-' + conversations + '" class="form-control" placeholder="Send a message..."><br><button onclick="sendMessage(&quot;' + conversations_split[i] + '&quot;, document.getElementById(&quot;input-chat-' + conversations + '&quot;).value)" class="btn btn-primary">Send Message</button></div>';
+    document.getElementById('msgs').innerHTML = document.getElementById('msgs').innerHTML + '<div id="chat' + conversations + '" class="tab-pane fade in"><h3>' + conversations_split[i] + '</h3><div id="div-chat-' + conversations + '">You have not sent any messages to this user.</div><br><input type="text" id="input-chat-' + conversations + '" class="form-control" placeholder="Send a message..."><br><button onclick="sendMessage(&quot;' + conversations_split[i] + '&quot;, document.getElementById(&quot;input-chat-' + conversations + '&quot;).value)" class="btn btn-primary">Send Message</button></div>';
     
     conversations++;
   }
