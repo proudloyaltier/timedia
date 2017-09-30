@@ -28,9 +28,28 @@ if (localStorage.access !== undefined) {
     launchApp("tidocs");
   }
        
+  if (getQueryVariable("app") == 4) {
+    launchApp("tislides");
+  }
+       
+  if (getQueryVariable("app") == 5) {
+    launchApp("tisheets");
+  }
+       
+  if (getQueryVariable("app") == 6) {
+    launchApp("tidrive");
+  }
+       
   if (getQueryVariable("app") == 7) {
     launchApp("newapp");
   }
 } else {
   window.location.href = "login.html";
 }
+
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">More options</a>
+    <ul class="dropdown-menu">
+      ...
+    </ul>
+  </li>
