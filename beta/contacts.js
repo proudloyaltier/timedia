@@ -14,6 +14,8 @@ function loadContacts() {
  }
  
  document.getElementById('ticontacts-contacts').innerHTML = document.getElementById('ticontacts-contacts').innerHTML + "</ul>";
+  
+ storeInDatabase("contacts", localStorage.contacts);
 }
 
 if (!localStorage.contacts == undefined) {
