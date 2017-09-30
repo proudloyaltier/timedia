@@ -6,6 +6,7 @@ function addContact() {
   }
   
   storeInDatabase("contacts", localStorage.contacts);
+  location.reload();
 }
 
 function loadContacts() {
