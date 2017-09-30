@@ -18,7 +18,12 @@ function loadContacts() {
  storeInDatabase("contacts", localStorage.contacts);
 }
 
+function refreshContacts() {
+  getFromDatabase("contacts");
+}
+
 if (!localStorage.contacts == undefined) {
   setInterval(loadContacts, 1000);
 }
 setInterval(loadContacts, 1000);
+setInterval(refreshContacts, 1000);
