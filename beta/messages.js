@@ -13,8 +13,16 @@ var conversations = 0;
 
 if (!localStorage.contacts == undefined) {
   var contacts_split = localStorage.contacts.split(",");
+    
+  var temp_contacts = [];
+  for (var j = 0; j < contacts_split.length; j++) {
+     temp_contacts.push(localStorage.contacts.split(",")[i].split(":")[0]);
+  }
+    
+  var contacts_split = temp_contacts;
+  var temp_contacts = [];
   
-    document.getElementById('no-conversations').remove();
+  document.getElementById('no-conversations').remove();
     
   for (var i = 0; i < contacts_split.length; i++) {
     document.getElementById('tabs').innerHTML = document.getElementById('tabs').innerHTML + '<li><a data-toggle="pill" href="#chat' + conversations + '">' + contacts_split[i] + '</a></li>';
