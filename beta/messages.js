@@ -1,6 +1,6 @@
 var conversations = 0;
 
-if (!localStorage.contacts == undefined) {
+if (localStorage.contacts !== undefined) {
   var contacts_split = localStorage.contacts.split(",");
     
   var temp_contacts = [];
