@@ -11,7 +11,7 @@ Array.prototype.remove = function() {
 
 var conversations = 0;
 
-if (!localStorage.conversations == undefined || !localStorage.conversations == "") {
+if (!localStorage.contacts == undefined) {
   var contacts_split = localStorage.contacts.split(",");
   
     document.getElementById('no-conversations').remove();
