@@ -32,13 +32,6 @@ if (localStorage.access !== undefined) {
     launchApp("ticontacts");
   }
        
-  if (getQueryVariable("app") == 5) {
-    launchApp("tisheets");
-  }
-       
-  if (getQueryVariable("app") == 6) {
-    launchApp("tidrive");
-  }
        
   if (getQueryVariable("app") == 7) {
     launchApp("newapp");
