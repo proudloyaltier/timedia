@@ -29,7 +29,7 @@ if (localStorage.access !== undefined) {
   }
        
   if (getQueryVariable("app") == 4) {
-    launchApp("tislides");
+    launchApp("ticontacts");
   }
        
   if (getQueryVariable("app") == 5) {
