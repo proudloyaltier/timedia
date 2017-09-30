@@ -87,7 +87,6 @@ setInterval(changeName, 50)
 
 <h1 id="points-balance">0 TiPoints</h1>
 Final Balance<br><br>
-<a href="http://microify.com/1zrV"><button class="btn btn-primary">Watch ads to earn 10 TiPoints</button></a><br>
    
  <div id="HCB_comment_box" style="display: none;">Connecting to <b>Points</b> database.</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
@@ -144,6 +143,19 @@ Final Balance<br><br>
 </div>
 <div style="visibility: hidden;" id="view"></div>
 </div>
+<div style="display: none;" id="ticontacts">
+    <h3>TiContacts</h3><br>
+  <div id="ticontacts-contacts">
+    You have no contacts.
+  </div><br>
+  
+  <h3>Add Contact</h3>
+  <input id="ticontacts-user" class="form-control" placeholder="Username"><br>
+  
+  <textarea id="ticontacts-info" class="form-control" placeholder="Info"></textarea><br>
+  
+  <button class="btn btn-primary" onclick="addContact()">Add Contact</button>
+</div>
 <div style="display: none;" id="newapp">
     <h3>New App</h3><br>
   <input id="newapp-name" class="form-control" placeholder="App Name"><br>
@@ -165,6 +177,7 @@ Final Balance<br><br>
     <script src="db.js"></script>
     <script src="messages.js"></script>
     <script src="new.js"></script>
+    <script src="contacts.js"></script>
     </div>
   </body>
 </html>
