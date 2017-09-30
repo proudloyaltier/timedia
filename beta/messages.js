@@ -5,7 +5,7 @@ if (!localStorage.contacts == undefined) {
     
   var temp_contacts = [];
   for (var j = 0; j < contacts_split.length; j++) {
-     temp_contacts.push(localStorage.contacts.split(",")[i].split(":")[0]);
+     temp_contacts.push(localStorage.contacts.split(",")[j].split(":")[0]);
   }
     
   var contacts_split = temp_contacts;
