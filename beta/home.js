@@ -27,6 +27,10 @@ if (localStorage.access !== undefined) {
   if (getQueryVariable("app") == 3) {
     launchApp("tidocs");
   }
+       
+  if (getQueryVariable("app") == 4) {
+    launchApp("newapp");
+  }
 } else {
   window.location.href = "login.html";
 }
