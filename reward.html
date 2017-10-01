@@ -8,9 +8,11 @@
     <h1>Points Loading . . .</h1>
   </body>
   <script>
-    var points = localStorage.points;
-    var points = Number(points) + 10
-    localStorage.points = points;
-    window.location.href = "https://proudloyaltier.github.io/timedia/beta/";
+    if (document.cookie("rewardCheck") == "1038492020") {
+      var points = localStorage.points;
+      var points = Number(points) + 10
+      localStorage.points = points;
+      window.location.href = "https://proudloyaltier.github.io/timedia/beta/";
+    }
   </script>
 </html>
