@@ -113,11 +113,11 @@ Final Balance<br><br>
     <h3>TiDocs</h3><br>
 
     <div id="create">
-      <h5 onkeyup="updateDoc()" style="outline: none;" id="content" contenteditable="true"></h5><br>
+      <h5 style="outline: none;" id="content" contenteditable="true"></h5><br>
 
       <!-- Trigger the modal with a button -->
       <button onclick="saveDoc()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#saveModal">SAVE</button>
-
+      <button id="tidocs-edit" style="display: none;" onclick="editDoc()" class="btn btn-primary">EDIT</button>
       <!-- Modal -->
       <div id="saveModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
