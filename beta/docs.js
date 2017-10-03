@@ -6,7 +6,7 @@ function saveDoc() {
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
-    document.getElementsByClassName('h5')[0].innerHTML = localStorage.edit;
+    document.getElementsByTagName('h5')[0].innerHTML = localStorage.edit;
     localStorage.removeItem('edit');
   }
   
