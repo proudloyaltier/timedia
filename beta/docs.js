@@ -19,5 +19,5 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 
 function editDoc() {
   localStorage.edit = atob(getQueryVariable("p"));
-  location.reload();
+  window.location.href = "index.html?app=3";
 }
