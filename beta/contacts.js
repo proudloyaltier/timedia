@@ -62,5 +62,5 @@ function loadingBar() {
  document.getElementById('ticontacts-contacts').innerHTML = "";
  document.getElementById('progress-parent').style = "";
  document.getElementById('progress-bar').style = "width: 0%;";
- setTimeout(fullBar, 900);
+ setTimeout(fullBar, 100);
 }
