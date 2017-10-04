@@ -45,6 +45,7 @@ function refreshContacts() {
 if (localStorage.contacts !== undefined && localStorage.contacts !== "no-content") {
    loadingBar();
    setInterval(loadContacts, 1000);
+    setInterval(refreshContacts, 500);
 }
 
 function resetContacts() {
