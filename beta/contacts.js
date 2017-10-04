@@ -28,7 +28,6 @@ function addContact() {
 }
 
 function loadContacts() {
-    setInterval(refreshContacts, 500);
    document.getElementById('progress-parent').style = "display: none;";
    document.getElementById('ticontacts-contacts').innerHTML = '<ul class="list-group">';
    
@@ -46,7 +45,6 @@ function refreshContacts() {
 if (localStorage.contacts !== undefined && localStorage.contacts !== "no-content") {
    loadingBar();
    setInterval(loadContacts, 1000);
-    setInterval(refreshContacts, 500);
 }
 
 function resetContacts() {
