@@ -14,7 +14,7 @@ function addContact() {
   
   if (users.contains(document.getElementById('ticontacts-user').value)) {
   
-     if (!localStorage.contacts == undefined) {
+     if (localStorage.contacts == undefined || localStorage.contacts == "no-content") {
        localStorage.contacts = document.getElementById('ticontacts-user').value + ":" + document.getElementById('ticontacts-info').value;
       } else {
        localStorage.contacts = localStorage.contacts + "," + document.getElementById('ticontacts-user').value + ":" + document.getElementById('ticontacts-info').value;
