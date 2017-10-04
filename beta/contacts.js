@@ -4,6 +4,7 @@ Array.prototype.contains = function ( needle ) {
    }
    return false;
 }
+setInterval(refreshContacts, 500);
 
 function addContact() {
   var users = [];
