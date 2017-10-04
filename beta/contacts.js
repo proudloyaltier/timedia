@@ -28,7 +28,7 @@ function addContact() {
 }
 
 function loadContacts() {
-   document.getElementById('loading-bar').style = "display: none;";
+   document.getElementById('progress-parent').style = "display: none;";
    document.getElementById('ticontacts-contacts').innerHTML = '<ul class="list-group">';
    
    for (var i = 0; i < localStorage.contacts.split(",").length; i++) {
@@ -55,6 +55,7 @@ function resetContacts() {
 }
 
 function loadingBar() {
- document.getElementById('loading-bar').style = "width: 0%;";
- document.getElementById('loading-bar').style = "width: 100%;";
+ document.getElementById('progress-parent').style = "";
+ document.getElementById('progress-bar').style = "width: 0%;";
+ document.getElementById('progress-bar').style = "width: 100%;";
 }
