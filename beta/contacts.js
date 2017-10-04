@@ -28,6 +28,7 @@ function addContact() {
 }
 
 function loadContacts() {
+   document.getElementById('loading-bar').style = "display: none;";
    document.getElementById('ticontacts-contacts').innerHTML = '<ul class="list-group">';
    
    for (var i = 0; i < localStorage.contacts.split(",").length; i++) {
@@ -42,11 +43,17 @@ function refreshContacts() {
 }
 
 if (localStorage.contacts !== undefined && localStorage.contacts !== "no-content") {
-  setInterval(loadContacts, 1000);
+   loadingBar();
+   setInterval(loadContacts, 1000);
 }
 
 function resetContacts() {
    localStorage.removeItem('contacts');
    storeInDatabase("contacts", "no-content");
    window.location.reload();
+}
+
+function loadingBar() {
+ document.getElementById('loading-bar').style = "width: 0%;"
+ document.getElementById('loading-bar').style = "width: 100%;"
 }
