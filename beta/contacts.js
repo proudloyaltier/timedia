@@ -54,8 +54,13 @@ function resetContacts() {
    window.location.reload();
 }
 
+function fullBar() {
+    document.getElementById('progress-bar').style = "width: 100%;";
+}
+
 function loadingBar() {
+ document.getElementById('ticontacts-contacts').innerHTML = "";
  document.getElementById('progress-parent').style = "";
  document.getElementById('progress-bar').style = "width: 0%;";
- document.getElementById('progress-bar').style = "width: 100%;";
+ setTimeout(fullBar, 900);
 }
