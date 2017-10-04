@@ -18,23 +18,28 @@ function launchApp(appname) {
 if (localStorage.access !== undefined) {
   if (getQueryVariable("app") == 1) {
     launchApp("points");
+    document.title = "Points - TiMedia";
   }
 
   if (getQueryVariable("app") == 2) {
     launchApp("messages");
+    document.title = "Messages - TiMedia";
   }
 
   if (getQueryVariable("app") == 3) {
     launchApp("tidocs");
+    document.title = "TiDocs - TiMedia";
   }
        
   if (getQueryVariable("app") == 4) {
     launchApp("ticontacts");
+    document.title = "TiContacts - TiMedia";
   }
        
        
   if (getQueryVariable("app") == 7) {
     launchApp("newapp");
+    document.title = "New App - TiMedia";
   }
 } else {
   window.location.href = "login.html";
