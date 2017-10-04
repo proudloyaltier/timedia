@@ -13,7 +13,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   
   document.getElementById('create').remove();
   document.getElementById('view').style = "visibility: block;";
-  document.getElementById('view').innerHTML = atob(getQueryVariable("p"));
+  document.getElementById('view').innerHTML = decodeURI(atob(getQueryVariable("p")));
   document.getElementById('tidocs-edit').style = "visibility: block;";
 }
 
