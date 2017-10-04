@@ -54,6 +54,6 @@ function resetContacts() {
 }
 
 function loadingBar() {
- document.getElementById('loading-bar').style = "width: 0%;"
- document.getElementById('loading-bar').style = "width: 100%;"
+ document.getElementById('loading-bar').style = "width: 0%;";
+ document.getElementById('loading-bar').style = "width: 100%;";
 }
