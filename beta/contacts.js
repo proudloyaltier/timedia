@@ -28,6 +28,7 @@ function addContact() {
 }
 
 function loadContacts() {
+    setInterval(refreshContacts, 500);
    document.getElementById('progress-parent').style = "display: none;";
    document.getElementById('ticontacts-contacts').innerHTML = '<ul class="list-group">';
    
