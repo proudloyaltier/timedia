@@ -18,6 +18,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
-  localStorage.edit = decodeURI(atob(getQueryVariable("p")));
+  localStorage.edit = encodeURI(atob(getQueryVariable("p")));
   window.location.href = "index.html?app=3";
 }
