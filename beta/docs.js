@@ -1,12 +1,12 @@
 function saveDoc() {
-  var url = window.location.href + '&p=' + btoa(document.getElementsByTagName('h5')[0].innerHTML);
+  var url = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
   
   window.location.href = url;
 }
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
-    document.getElementsByTagName('h5')[0].innerHTML = localStorage.edit;
+    document.getElementsByTagName('h5')[0].innerHTML = decodeURI(localStorage.edit);
     localStorage.removeItem('edit');
     throw new Error("Opened edit.");
   }
@@ -18,6 +18,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
-  localStorage.edit = atob(getQueryVariable("p"));
+  localStorage.edit = decodeURI(atob(getQueryVariable("p")));
   window.location.href = "index.html?app=3";
 }
