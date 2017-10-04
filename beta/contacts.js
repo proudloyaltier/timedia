@@ -41,13 +41,8 @@ function refreshContacts() {
   getFromDatabase("contacts");
 }
 
-if (!localStorage.contacts == undefined) {
+if (localStorage.contacts !== undefined && localStorage.contacts !== "no-content") {
   setInterval(loadContacts, 1000);
-}
-
-if (getQueryVariable("app") == 4) {
-  setTimeout(loadContacts, 500);
-  setTimeout(refreshContacts, 500);
 }
 
 function resetContacts() {
