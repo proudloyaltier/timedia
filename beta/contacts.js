@@ -49,3 +49,9 @@ if (getQueryVariable("app") == 4) {
   setTimeout(loadContacts, 500);
   setTimeout(refreshContacts, 500);
 }
+
+function resetContacts() {
+   localStorage.removeItem('contacts');
+   storeInDatabase("contacts", "no-content");
+   window.location.reload();
+}
