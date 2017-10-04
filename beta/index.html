@@ -115,12 +115,6 @@ Final Balance<br><br>
     You have no contacts.
   </div><br>
     <button class="btn btn-primary" onclick="resetContacts()">Reset Contacts</button>
-  <script>
-    function resetContacts() {
-  localStorage.removeItem('contacts'); storeInDatabase("contacts",localStorage.contacts)
-      window.location.reload();
-    }
-  </script>
   <h3>Add Contact</h3>
   <input id="ticontacts-user" class="form-control" placeholder="Username"><br>
   
