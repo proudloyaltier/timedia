@@ -43,7 +43,6 @@ function refreshContacts() {
 }
 
 if (localStorage.contacts !== undefined && localStorage.contacts !== "no-content") {
-   setInterval(refreshContacts, 500);
    loadingBar();
    setInterval(loadContacts, 1000);
 }
