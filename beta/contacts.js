@@ -41,7 +41,6 @@ function loadContacts() {
 
 function refreshContacts() {
   getFromDatabase("contacts");
-   location.reload();
 }
 
 if (localStorage.contacts !== undefined && localStorage.contacts !== "no-content") {
