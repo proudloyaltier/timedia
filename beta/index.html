@@ -28,7 +28,7 @@
               <ul class="dropdown-menu">
                 <li><a href="index.html">Home <span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="?app=1">Points <span class="glyphicon glyphicon-usd"></span></a></li>
-                <li><a href="?app=2">Messages <span class="glyphicon glyphicon-send"></span></a></li>
+                <li><a href="?app=2">TiChat <span class="glyphicon glyphicon-send"></span></a></li>
                 <li class="dropdown-header">TiWork</li>
                      <li><a href="?app=3">TiDocs <span class="glyphicon glyphicon-pencil"></span></a></li>
                      <li><a href="?app=4">TiContacts <span class="glyphicon glyphicon-book"></span></a></li>
@@ -100,18 +100,12 @@ function alertAds() {
 </div>
 
 <div style="display: none;" id="messages">
-    <h3>Messages</h3><br>
-  
-  <p id="no-conversations">Add people to your <a href="index.html?app=4">TiContacts</a> to message them.</p>
-    
- <ul id="tabs" class="nav nav-pills"></ul> 
- <div id="msgs" class="tab-content"></div><br><br>
-  
- <div id="HCB_comment_box" style="display: none;">Connecting to <b>Messages</b> database.</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1506539939724");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+    <h3>TiChat</h3><br>
+  Chat Password<br>
+  <input id="chat" class="form-control">
+  <button onclick="joinChat()" class="btn btn-primary">Create/Join Chat</button>
 </div>
-
+ 
 <div style="display: none;" id="ticontacts">
     <h3>TiContacts</h3><br>
  <div id="progress-parent" class="progress" style="display:none;">
