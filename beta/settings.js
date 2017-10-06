@@ -1,4 +1,4 @@
-function updateBackgroundImg() {
+function updateSettings() {
   localStorage.bgImg = document.getElementById('backgroundImg').value;
   localStorage.barColor = document.getElementById('barColor').value;
   location.reload();
