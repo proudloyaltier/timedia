@@ -5,7 +5,7 @@ function searchFiles() {
 
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
     if (localStorage.files.split(",")[i].split(":")[0] == search) {
-      location.href = localStorage.files.split(",")[i].split(":")[1];
+      window.location.href = localStorage.files.split(",")[i].split(":")[1];
     }
   }
 }
