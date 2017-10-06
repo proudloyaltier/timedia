@@ -41,6 +41,11 @@ if (localStorage.access !== undefined) {
     document.title = "Settings - TiMedia";
   }
        
+  if (getQueryVariable("app") == 6) {
+    launchApp("tiles");
+    document.title = "Tiles - TiMedia";
+  }
+       
   if (getQueryVariable("app") == 7) {
     launchApp("newapp");
     document.title = "New App - TiMedia";
