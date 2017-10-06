@@ -6,10 +6,8 @@ function updateBackgroundImg() {
 
 if (localStorage.bgImg !== undefined) {
   document.getElementById('body').background = localStorage.bgImg;
-  document.getElementById('backgroundImage').value = localStorage.bgImg;
 }
 
 if (localStorage.barColor !== undefined) {
   document.getElementById('navbar').style = "background-color: " + localStorage.barColor + ";";
-  document.getElementById('barColor').value = localStorage.barColor;
 }
