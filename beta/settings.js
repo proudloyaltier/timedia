@@ -13,5 +13,5 @@ if (localStorage.barColor !== undefined) {
 }
 
 function updateInput() {
-  document.getElementById('barColor').style = "color: #" + document.getElementById('barColor').style + ";";
+  document.getElementById('barColor').style = "color: #" + document.getElementById('barColor').value + ";";
 }
