@@ -11,9 +11,3 @@ if (localStorage.bgImg !== undefined) {
 if (localStorage.barColor !== undefined) {
   document.getElementById('navbar').style = "background-color: #" + localStorage.barColor + ";";
 }
-
-function updateInput() {
-  document.getElementById('barColor').style = "background-color: #" + document.getElementById('barColor').value + "; color: #" + document.getElementById('barColor').value + ";";
-}
-
-setInterval(updateInput, 0);
