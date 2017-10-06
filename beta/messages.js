@@ -4,5 +4,5 @@ if (getQueryVariable("app") == 2) {
 }
 
 function joinChat() {
-  window.open("https://proudloyaltier.github.io/timedia/index.html?app=" + document.getElementById("chat").value);
+  location.replace("https:/proudloyaltier.github.io/timedia/index.html?app=" + document.getElemntById("chat") + "/" )
 }
