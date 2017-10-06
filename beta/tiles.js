@@ -27,4 +27,4 @@ function loadTiles() {
   document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
 }
 
-setInterval(loadTiles, 1000);
+loadTiles();
