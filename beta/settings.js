@@ -11,3 +11,7 @@ if (localStorage.bgImg !== undefined) {
 if (localStorage.barColor !== undefined) {
   document.getElementById('navbar').style = "background-color: #" + localStorage.barColor + ";";
 }
+
+function updateInput() {
+  document.getElementById('barColor').style = "color: #" document.getElementById('barColor').style + ";";
+}
