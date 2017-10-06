@@ -18,3 +18,11 @@ function addFile() {
     localStorage.files = title + "!!" + upload;
   }
 }
+
+function loadTiles() {   
+   for (var i = 0; i < localStorage.tiles.split(",").length; i++) {
+      document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li class="list-group-item"><b>' + localStorage.tiles.split(",")[i].split("!!")[0] +  '</b> <span style="color: gray;">' + localStorage.tiles.split(",")[i].split("!!")[1] + '</span></li>';
+   }
+ 
+  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
+}
