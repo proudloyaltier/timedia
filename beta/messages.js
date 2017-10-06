@@ -3,5 +3,6 @@ function joinChat() {
 }
 
 if (getQueryVariable("app") == 2) {
-   document.getElementById("chat").style = "";  
+   document.getElementById("chat").style = "";
+   document.getElementById("joinChatBtn").style = "";
 }
