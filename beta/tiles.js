@@ -1,3 +1,7 @@
+function resetTiles() {
+  localStorage.removeItem("files");
+location.reload();
+}
 function searchFiles() {
   var search = document.getElementById("TiFilesSearch").value + '';
 
