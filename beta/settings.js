@@ -16,4 +16,4 @@ function updateInput() {
   document.getElementById('barColor').style = "background-color: #" + document.getElementById('barColor').value + "; color: #" + document.getElementById('barColor').value + ";";
 }
 
-setInterval(updateInput, 50);
+setInterval(updateInput, 0);
