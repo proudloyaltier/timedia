@@ -36,6 +36,10 @@ if (localStorage.access !== undefined) {
     document.title = "TiContacts - TiMedia";
   }
        
+  if (getQueryVariable("app") == 5) {
+    launchApp("settings");
+    document.title = "Settings - TiMedia";
+  }
        
   if (getQueryVariable("app") == 7) {
     launchApp("newapp");
