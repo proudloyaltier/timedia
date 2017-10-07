@@ -28,18 +28,20 @@ function addFile() {
 
 function loadTiles() {
   document.getElementById('tiles-tiles').innerHTML = "";
+  document.getElementById('tiles-listdiv').innerHTML = '<datalist id="TilesList">';
   
    for (var i = 0; i < localStorage.files.split(",").length; i++) {
       document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li class="list-group-item"><b>' + localStorage.files.split(",")[i].split("!!")[0] +  '</b> <span style="color: gray;">' + localStorage.files.split(",")[i].split("!!")[1] + '</span></li>';
    }
  
-  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<datalist id="TilesList">';
+  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<datalist id="tiles-listdiv">';
 
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    document.getElementById('TilesList').innerHTML + document.getElementById('TilesList').innerHTML + '<option value="' + localStorage.files.split(",")[i].split("!!")[0] + '">';
+    document.getElementById('tiles-listdiv').innerHTML + document.getElementById('tiles-listdiv').innerHTML + '<option value="' + localStorage.files.split(",")[i].split("!!")[0] + '">';
   }
  
   document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
+  document.getElementById('tiles-listdiv').innerHTML = document.getElementById('tiles-listdiv').innerHTML + '</datalist>';
 }
 
 if (localStorage.files !== undefined) {
