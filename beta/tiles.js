@@ -38,8 +38,7 @@ function loadTiles() {
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
     document.getElementById('TilesList').innerHTML + document.getElementById('TilesList').innerHTML + '<option value="' + localStorage.files.split(",")[i].split("!!")[0] + '">';
   }
-  
-  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</datalist>";
+ 
   document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
 }
 
