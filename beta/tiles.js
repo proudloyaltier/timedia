@@ -22,6 +22,8 @@ function addFile() {
   } else {
     localStorage.files = title + "!!" + upload;
   }
+  
+  location.reload();
 }
 
 function loadTiles() {
