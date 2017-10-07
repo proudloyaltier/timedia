@@ -34,5 +34,7 @@ function loadTiles() {
   document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
 }
 
-loadTiles();
-setInterval(loadTiles, 1000);
+if (localStorage.files !== undefined) {
+  loadTiles();
+  setInterval(loadTiles, 1000);
+}
