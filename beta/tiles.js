@@ -33,6 +33,13 @@ function loadTiles() {
       document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li class="list-group-item"><b>' + localStorage.files.split(",")[i].split("!!")[0] +  '</b> <span style="color: gray;">' + localStorage.files.split(",")[i].split("!!")[1] + '</span></li>';
    }
  
+  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<datalist id="TilesList">';
+
+  for (var i = 0; i < localStorage.files.split(",").length; i++) {
+    document.getElementById('<option value="' + localStorage.files.split(",")[i].split("!!")[0] + '">
+  }
+  
+  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</datalist>";
   document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
 }
 
