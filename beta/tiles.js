@@ -22,7 +22,7 @@ function addFile() {
   } else {
     localStorage.files = title + "!!" + upload;
   }
-   storeInDatabase("files", localStorage.files)
+  storeInDatabase("files", localStorage.files)
   location.reload();
 }
 
