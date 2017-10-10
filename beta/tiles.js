@@ -46,7 +46,6 @@ function loadTiles() {
 if (localStorage.files !== undefined) {
   loadTiles();
   setInterval(loadTiles, 1000);
-  refreshTiles();
   setInterval(refreshTiles, 500);
 }
 
