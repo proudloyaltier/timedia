@@ -47,3 +47,4 @@ if (localStorage.files !== undefined) {
   loadTiles();
   setInterval(loadTiles, 1000);
 }
+setInterval(refreshTiles, 500)
