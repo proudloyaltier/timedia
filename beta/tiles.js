@@ -22,12 +22,12 @@ function addFile() {
   } else {
     localStorage.files = title + "!!" + upload;
   }
+  storeInDatabase("files", localStorage.files)
   location.reload();
 }
 
 
 function refreshTiles() {
-  storeInDatabase("files", localStorage.files)
   getFromDatabase("files")
 }
 
