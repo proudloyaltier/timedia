@@ -1,7 +1,3 @@
-function store() {
-  storeInDatabase('files', localStorage.files)
-}
-
 function save() {
   storeInDatabase("files", localStorage.files)
 }
@@ -47,11 +43,8 @@ function loadTiles() {
 }
 
 if (localStorage.files !== undefined) {
-  refreshTiles();
-  setInterval(refreshTiles, 10000);
   loadTiles();
   setInterval(loadTiles, 1000);
-  setInterval(store, 99999999);
-  
+  setInterval(refreshTiles, 1000);
 }
 
