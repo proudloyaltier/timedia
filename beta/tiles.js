@@ -1,7 +1,7 @@
-function resetTiles() {
-  localStorage.files = ""
+
+
+function save() {
   storeInDatabase("files", localStorage.files)
-  location.reload();
 }
 
 function searchFiles() {
@@ -20,7 +20,6 @@ function addFile() {
 
   if (localStorage.files !== undefined) {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
-    storeInDatabase("files", localStorage.files)
   } else {
     localStorage.files = title + "!!" + upload;
   }
