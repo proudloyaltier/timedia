@@ -168,10 +168,13 @@ function alertAds() {
   
     <div id="tiles" style="display: none;">
        <h3>Tiles</h3><br>
+      <script>
+        setInterval(refreshTiles,500)
+      </script>
        File name<br>
       <input class="form-control" type="text" id="TiFilesSearch"><br><button onclick="searchFiles()" class="btn btn-primary">Search</button>
       <button onclick="addFile()" class="btn btn-primary">Add a Tile</button>
-      <button onclick="save()" class="btn btn-primary">Save your changes</button><br><br>
+      <!--<button onclick="save()" class="btn btn-primary">Save your changes</button><br><br>/*-->
         <div id="tiles-tiles">
        You have no Tiles.
        </div>
