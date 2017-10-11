@@ -1,3 +1,5 @@
+setInterval(refreshTiles, 1000);
+
 function save() {
   storeInDatabase("files", localStorage.files)
 }
@@ -45,6 +47,5 @@ function loadTiles() {
 if (localStorage.files !== undefined) {
   loadTiles();
   setInterval(loadTiles, 1000);
-  setInterval(refreshTiles, 1000);
 }
 
