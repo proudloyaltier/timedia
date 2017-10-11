@@ -1,5 +1,5 @@
 function resetTiles() {
-  localStorage.removeItem("files");
+  localStorage.files = ""
   storeInDatabase("files", localStorage.files)
   location.reload();
 }
