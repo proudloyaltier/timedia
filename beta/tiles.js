@@ -1,4 +1,3 @@
-setInterval(refreshTiles, 1000);
 
 function save() {
   storeInDatabase("files", localStorage.files)
@@ -28,9 +27,6 @@ function addFile() {
 }
 
 
-function refreshTiles() {
-  getFromDatabase("files")
-}
 
 function loadTiles() {
   document.getElementById('tiles-tiles').innerHTML = "";
@@ -44,8 +40,14 @@ function loadTiles() {
   document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
 }
 
+function refreshTiles() {
+  getFromDatabase("files")
+}
+
 if (localStorage.files !== undefined) {
   loadTiles();
   setInterval(loadTiles, 1000);
+  setInterval(refreshTiles, 1000);
+
 }
 
