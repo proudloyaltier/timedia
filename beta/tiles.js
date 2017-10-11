@@ -1,5 +1,6 @@
 function resetTiles() {
   localStorage.removeItem("files");
+  storeInDatabase("files", localStorage.files)
   location.reload();
 }
 
@@ -19,6 +20,7 @@ function addFile() {
 
   if (localStorage.files !== undefined) {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
+    storeInDatabase("files", localStorage.files)
   } else {
     localStorage.files = title + "!!" + upload;
   }
