@@ -1,8 +1,8 @@
+
 function saveDoc() {
-  var URL = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
-  var upload = URL
-  addFile();
-  window.location.href = "?app=6";
+  var url = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
+  
+  window.location.href = url;
 }
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
@@ -11,6 +11,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     localStorage.removeItem('edit');
     throw new Error("Opened edit.");
   }
+  
   document.getElementById('create').remove();
   document.getElementById('view').style = "visibility: block;";
   document.getElementById('view').innerHTML = decodeURI(atob(getQueryVariable("p")));
