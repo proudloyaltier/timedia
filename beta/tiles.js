@@ -14,9 +14,9 @@ function searchFiles() {
   }
 }
 
-function addFile() {
-  var title = prompt("Title");
-  var upload = prompt("Enter your document URL");
+function addFile(title, upload) {
+  //var title = prompt("Title");
+  //var upload = prompt("Enter your document URL");
 
   if (localStorage.files !== undefined) {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
