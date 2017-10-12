@@ -24,7 +24,6 @@ function addFile() {
     localStorage.files = title + "!!" + upload;
   }
   storeInDatabase("files", localStorage.files)
-  location.reload();
 }
 
 
