@@ -1,18 +1,16 @@
 function addFile(title, url) {
-  var title = title;
-  var upload = url;
 
   if (localStorage.files !== undefined) {
-    localStorage.files = localStorage.files + "," + title + "!!" + upload;
+    localStorage.files = localStorage.files + "," + title + "!!" + url;
   } else {
-    localStorage.files = title + "!!" + upload;
+    localStorage.files = title + "!!" + url;
   }
   storeInDatabase("files", localStorage.files)
 }
 
 function saveDoc() {
-  var url = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
-  addFile(prompt("Title"), url)
+  var URL = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
+  addFile(prompt("Title"), URL)
   window.location.href = "?app=6";
 }
 
