@@ -1,4 +1,4 @@
-setInterval(refreshTiles, 1000);
+<body onload="refreshTiles()">
 function save() {
   storeInDatabase("files", localStorage.files)
   alert("All changes saved in Tiles")
