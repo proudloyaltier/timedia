@@ -1,7 +1,6 @@
 setInterval(refreshTiles, 1000);
 function save() {
   storeInDatabase("files", localStorage.files)
-  location.reload();
 }
 
 function searchFiles() {
