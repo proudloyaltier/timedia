@@ -170,13 +170,15 @@ function alertAds() {
        <h3>Tiles</h3><br>
        File name<br>
       <input class="form-control" type="text" id="TiFilesSearch"><br><button onclick="searchFiles()" class="btn btn-primary">Search</button>
-      <li class="dropdown">
+      <ul class="btn btn-primary">
+        <li class="dropdown">
               <a data-toggle="dropdown" href="#">Add a Tile<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="index.html?app=3">New TiDoc <span class="glyphicon glyphicon-pencil"></span></a></li>
                 <li><a onclick="addFile()">New Bookmark <span class="glyphicon glyphicon-bookmark"></span></a></li>
               </ul>
             </li>
+      </ul>
       <button onclick="save()" class="btn btn-primary">Save your changes</button><br><br>
         <div id="tiles-tiles">
        You have no Tiles.
