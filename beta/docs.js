@@ -1,7 +1,19 @@
+function addFile(title, url) {
+  var title = title;
+  var upload = url;
+
+  if (localStorage.files !== undefined) {
+    localStorage.files = localStorage.files + "," + title + "!!" + upload;
+  } else {
+    localStorage.files = title + "!!" + upload;
+  }
+  storeInDatabase("files", localStorage.files)
+}
+
 function saveDoc() {
   var url = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
-  
-  window.location.href = url;
+  addFile(prompt("Title"), url)
+  window.location.href = "?app=6";
 }
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
