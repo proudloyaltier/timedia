@@ -15,8 +15,8 @@ function searchFiles() {
 }
 
 function addFile(title, upload) {
-  //var title = prompt("Title");
-  //var upload = prompt("Enter your document URL");
+  var title = prompt("Title");
+  var upload = prompt("Enter your URL");
 
   if (localStorage.files !== undefined) {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
