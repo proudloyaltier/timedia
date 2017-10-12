@@ -1,6 +1,7 @@
 setInterval(refreshTiles, 1000);
 function save() {
   storeInDatabase("files", localStorage.files)
+  alert("All changes saved in Tiles")
 }
 
 function searchFiles() {
