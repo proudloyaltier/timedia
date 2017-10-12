@@ -1,6 +1,7 @@
 function saveDoc() {
   var URL = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
-  addFile(prompt("title"), URL);
+  var upload = URL
+  addFile();
   window.location.href = "?app=6";
 }
 
