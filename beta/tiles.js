@@ -48,7 +48,7 @@ function store() {
 }
 
 function redirect() {
-window.replace(localStorage.url);
+window.location.replace(localStorage.url);
 }
 
 
