@@ -73,6 +73,46 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 setInterval(changeName, 50)
   </script>
   <center>
+    <style>
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+</style>
+   <div class="recentDocs">
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdRzv4BTZM3iLNQUfRdIbPM7kXgaT50QSDRm83AO_LI0nawadw" alt="Avatar" style="width:100%">
+  <div class="container">
+    <p id="recentUrl"></p>
+  </div>
+  <button class="btn btn-primary" onclick="redirect()">Open Doc Url <button>
+  </div>
+ </div>
+<script>
+function checkRecent() {
+if(document.getElementById("recentUrl").innerHTML == undefined {
+document.getElementByClassName("recentDocs").style = "display:block"
+}
+else {
+document.getElementByClassName("recentDocs").style = "display:none" 
+}
+}
+document.getElementById("recentUrl").innerHTML = localStorage.url;
+function redirect() {
+window.location.href = localStorage.url
+}
+</script>
+    </center>
+  <center>
    <div id="HCB_comment_box">Loading comments...</div>
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1506458898957");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 </div>
