@@ -1,7 +1,7 @@
 
 function saveDoc() {
   var url = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
-  
+  localStorage.recentUrl = url;
   window.location.href = url;
 }
 
