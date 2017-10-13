@@ -47,6 +47,11 @@ function store() {
   storeInDatabase("files", localStorage.files)
 }
 
+function redirect() {
+window.location.href = localStorage.url
+}
+
+
 if (localStorage.files !== undefined) {
   loadTiles();
   setInterval(loadTiles, 1000);
