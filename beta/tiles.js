@@ -1,4 +1,5 @@
 setInterval(refreshTiles, 200)
+setInterval(checkRecentDocs, 200)
 function save() {
   storeInDatabase("files", localStorage.files)
   alert("All changes saved in Tiles")
@@ -51,6 +52,9 @@ function redirect() {
 window.location.href = localStorage.url
 }
 
+function checkRecentDocs() {
+   document.getElementById("recentUrl").innerHTML = localStorage.url;
+}
 
 if (localStorage.files !== undefined) {
   loadTiles();
