@@ -31,22 +31,22 @@ if (localStorage.access !== undefined) {
     document.title = "TiDocs - TiMedia";
   }
        
-  if (getQueryVariable("app") == 4) {
+  if (getQueryVariable("app") == 5) {
     launchApp("ticontacts");
     document.title = "TiContacts - TiMedia";
   }
        
-  if (getQueryVariable("app") == 5) {
+  if (getQueryVariable("app") == 6) {
     launchApp("settings");
     document.title = "Settings - TiMedia";
   }
        
-  if (getQueryVariable("app") == 6) {
+  if (getQueryVariable("app") == 7) {
     launchApp("tiles");
     document.title = "Tiles - TiMedia";
   }
        
-  if (getQueryVariable("app") == 7) {
+  if (getQueryVariable("app") == 8) {
     launchApp("newapp");
     document.title = "New App - TiMedia";
   }
