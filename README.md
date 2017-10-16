@@ -7,7 +7,7 @@ Your documents are encrypted end to end, your data (like documents,messages,stor
 ## News
 We are now trying to make updates once every one or two days.
 
-## Changelog
+## Changelog (This may not be updated)
 October 14th- New desgin, tiles, TiContacts, App creator and more
 
 September 15th - Ti documents and programs library
