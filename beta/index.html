@@ -198,7 +198,7 @@ function alertAds() {
         border-collapse: collapse;
      }
    </style>
-<table style="width: 100%" contenteditable="true" class="table">
+<table style="width: 100%" contenteditable="true" id="tisheets-table">
   <tr>
     <th></th>
     <th></th> 
@@ -220,6 +220,8 @@ function alertAds() {
     <td></td>
   </tr>
 </table>
+   <button class="btn btn-primary" onclick="newRow()">Add Row</button>
+   <button class="btn btn-primary" onclick="newColumn()">Add Column</button>
 </div>
   <div id="HCB_comment_box" style="display: none;">Connecting to <b>Tiles</b> database.</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
@@ -237,6 +239,7 @@ function alertAds() {
     <script src="home.js"></script>
     <script src="main.js"></script>
     <script src="docs.js"></script>
+    <script src="sheets.js"></script>
     <script src="points.js"></script>
     <script src="db.js"></script>
     <script src="messages.js"></script>
