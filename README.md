@@ -2,12 +2,13 @@
 
 
 ## Your data is safe!
-Your documents are encrypted end to end, your data (like documents,messages,store purchases and more) is not visible to any admin or other user!
+Your documents are encrypted end to end, your data (like documents, tiles and more) is not visible to any admin or other user!
 
 ## News
-We are now trying to make updates once every one or two days.
-
+We are undergoing major additions to TiWork, make sure to backup all files stored in your tiles (copy paste to microsoft word or other for docs) as files may be lost in the database changes if not properly backed up.
 ## Changelog (This may not be updated)
+October 17th - removed TiContacts as it was broken and replaced with improved Tiles
+
 October 14th- New desgin, tiles, TiContacts, App creator and more
 
 September 15th - Ti documents and programs library
