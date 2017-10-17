@@ -1,4 +1,4 @@
-Array.prototype.contains = function ( needle ) {
+/*Array.prototype.contains = function ( needle ) {
    for (i in this) {
        if (this[i] == needle) return true;
    }
@@ -63,4 +63,4 @@ function loadingBar() {
  document.getElementById('progress-parent').style = "";
  document.getElementById('progress-bar').style = "width: 0%;";
  setTimeout(fullBar, 100);
-}
+}*/
