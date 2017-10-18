@@ -25,6 +25,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 	document.getElementById('tisheets-table').setAttribute("contenteditable", false);
 	
 	document.getElementById('tisheets-save').style = "display: none;";
+	document.getElementById('tisheets-add-row').style = "display: none;";
 	document.getElementById('tisheets-edit').style = "";
 }
 
