@@ -15,6 +15,21 @@ function saveSheet() {
 	window.location.href = url;
 }
 
-if (getQueryVariable("t") !== undefined) {
+if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
+	if (getQueryVariable("t") == false) {
+		document.getElementById('tisheets-table').innerHTML = localStorage.editSheet;
+	} else {
+		document.getElementById('tisheets-table').innerHTML = atob(getQueryVariable("t"));	
+	}
 	
+	document.getElementById('tisheets-table').setAttribute("contenteditable", false);
+	
+	document.getElementById('tisheets-save').style = "display: none;";
+	document.getElementById('tisheets-edit').style = "";
+}
+
+
+function editSheet() {
+	localStorage.editSheet = atob(getQueryVariable("t"));
+	window.location.href = "index.html?app=4";
 }
