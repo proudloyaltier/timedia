@@ -1,4 +1,5 @@
-setInterval(refreshTiles, 200)
+setInterval(refreshTiles, 200);
+
 function save() {
   storeInDatabase("files", localStorage.files)
   alert("All changes saved in Tiles.")
