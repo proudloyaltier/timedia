@@ -1,4 +1,4 @@
-setInterval(refreshTiles, 200);
+setInterval(refreshTiles, 50);
 
 function save() {
   storeInDatabase("files", localStorage.files)
