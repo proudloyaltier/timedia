@@ -1,7 +1,7 @@
 setInterval(refreshTiles, 200)
 function save() {
   storeInDatabase("files", localStorage.files)
-  alert("All changes saved in Tiles")
+  alert("All changes saved in Tiles.")
 }
 
 function searchFiles() {
@@ -15,7 +15,7 @@ function searchFiles() {
 }
 
 function addFile(title, upload) {
-  var title = prompt("Title");
+  var title = prompt("File Name");
   var upload = prompt("Enter your URL");
 
   if (localStorage.files !== undefined) {
