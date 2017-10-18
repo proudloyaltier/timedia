@@ -17,6 +17,7 @@ function saveSheet() {
 
 if (getQueryVariable("t") == false) {
 	document.getElementById('tisheets-table').innerHTML = localStorage.editSheet;
+	localStorage.removeItem("editSheet");
 } else {
 	document.getElementById('tisheets-table').innerHTML = atob(getQueryVariable("t"));	
 	document.getElementById('tisheets-table').setAttribute("contenteditable", false);
