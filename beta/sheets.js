@@ -9,3 +9,7 @@ function newColumn() {
 	    cell.innerHTML = "Name";
 	}
 }
+
+function saveSheet() {
+	window.location.href = "?t=" + btoa(document.getElementById('tisheets-table').innerHTML);
+}
