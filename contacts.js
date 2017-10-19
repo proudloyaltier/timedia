@@ -63,4 +63,5 @@ function loadingBar() {
  document.getElementById('progress-parent').style = "";
  document.getElementById('progress-bar').style = "width: 0%;";
  setTimeout(fullBar, 100);
+
 }*/
