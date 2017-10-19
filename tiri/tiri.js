@@ -43,6 +43,9 @@ if (annyang) {
     },
     'open sheets': function() {
       window.location.href = "/timedia/beta?app=4";
+    },
+    'open tiles': function() {
+      window.location.href = "/timedia/beta?app=7";
     }
   };
 
