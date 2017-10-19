@@ -4,7 +4,7 @@ function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all files stored in Tiles");
 if (resetTiles == true) {
   localStorage.removeItem('files');
-  storeInDatabase("files", "")
+  storeInDatabase("files", "");
   window.location.reload();
 } 
   else {
