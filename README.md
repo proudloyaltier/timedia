@@ -7,6 +7,8 @@ Your documents are encrypted end to end, your data (like documents, tiles and mo
 ## News
 We are undergoing major additions to TiWork, make sure to backup all files stored in your tiles (copy paste to microsoft word or other for docs) as files may be lost in the database changes if not properly backed up.
 ## Changelog (This may not be updated)
+October 19th - Introducing TIRI beta
+
 October 17th - removed TiContacts as it was broken and replaced with improved Tiles
 
 October 14th- New desgin, tiles, TiContacts, App creator and more
