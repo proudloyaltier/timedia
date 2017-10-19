@@ -9,10 +9,25 @@ function getQueryVariable(variable)
        return(false);
 }
 
+if (localStorage.command == undefined) {
+       localStorage.command = "hey Siri";
+}
+
 function adjustVoice() {
   document.getElementById('tiri').style = "display: none;";
   document.getElementById('settings').style = "display: none;";
-  document.getElementById('adjust-voice').style = "display: block;"
+  document.getElementById('adjust-voice').style = "display: block;";
+       
+  var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+              recognition.lang = 'en-US';
+              recognition.interimResults = false;
+              recognition.maxAlternatives = 5;
+              recognition.start();
+
+       recognition.onresult = function(event) {
+           localStorage.command = event.results[0][0].transcript;
+           window.location.href = "index.html";
+       };
 }
 
 if (getQueryVariable("app") == 2) {
