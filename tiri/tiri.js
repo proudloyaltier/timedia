@@ -39,7 +39,7 @@ if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
     'open docs': function() {
-      window.location.href = "/beta?app=3";
+      window.location.href = "/timedia/beta?app=3";
     }
   };
 
