@@ -19,3 +19,19 @@ if (getQueryVariable("app") == 2) {
   document.getElementById('tiri').style = "display: none;";
   document.getElementById('settings').style = "display: block;";
 }
+
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'open tidocs': function() {
+      window.location.href = "?app=3";
+      result("1 app opened.");
+    }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
