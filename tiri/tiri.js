@@ -40,6 +40,9 @@ if (annyang) {
   var commands = {
     'open docs': function() {
       window.location.href = "/timedia/beta?app=3";
+    },
+    'open sheets': function() {
+      window.location.href = "/timedia/beta?app=4";
     }
   };
 
