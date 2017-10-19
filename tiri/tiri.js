@@ -35,19 +35,17 @@ if (getQueryVariable("app") == 2) {
   document.getElementById('settings').style = "display: block;";
 }
 
-  var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-              recognition.lang = 'en-US';
-              recognition.interimResults = false;
-              recognition.maxAlternatives = 5;
-              recognition.start();
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'open docs': function() {
+      window.location.href = "/beta?app=3";
+    }
+  };
 
-       recognition.onresult = function(event) {
-           if (event.results[0][0].transcript.split(localStorage.command)[0] == localStorage.command) { // if user says Hey Tiri
-              var filtered = event.results[0][0].transcript.split(localStorage.command)[1];
-              var parsed = filtered.split(" ");
-                  
-              if (parsed[0] + " " + parsed[1] == "open docs") {
-                  window.location.href = "/timedia/beta?app=3";
-              }
-           }
-       };
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
