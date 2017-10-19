@@ -46,7 +46,7 @@ if (getQueryVariable("app") == 2) {
               var filtered = event.results[0][0].transcript.split(localStorage.command)[1];
               var parsed = filtered.split(" ");
                   
-              if (parsed[0] + " " + parsed[1] == "open docs" {
+              if (parsed[0] + " " + parsed[1] == "open docs") {
                   window.location.href = "/timedia/beta?app=3";
               }
            }
