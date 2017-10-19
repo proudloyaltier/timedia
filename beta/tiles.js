@@ -1,5 +1,18 @@
 setInterval(refreshTiles, 50);
 
+function resetTiles() {
+  var resetTiles = confirm("Are you sure you want to delete all files stored in Tiles");
+if (resetTiles == true) {
+  localStorage.removeItem('files');
+  storeInDatabase("files", "")
+  window.location.reload();
+} 
+  else {
+    window.location.reload();
+  }
+}
+
+
 function save() {
   storeInDatabase("files", localStorage.files)
   alert("All changes saved in Tiles.")
