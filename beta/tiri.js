@@ -13,7 +13,8 @@ if (annyang) {
     'go home': function() {
       window.location.href = "index.html";
     },
-    'open the chat *password': openChat
+    'open the chat *password': openChat,
+    'comment *text': commentText
   };
 
   // Add our commands to annyang
@@ -25,4 +26,9 @@ if (annyang) {
 
 function openChat(password) {
   window.location.href = "?app=" + password.replace(/\s/g, '');
+}
+
+function commentText(text) {
+  document.getElementById('hcb_form_content').value = text;
+  document.getElementById('hcb_submit').click();
 }
