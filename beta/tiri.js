@@ -31,4 +31,5 @@ function openChat(password) {
 function commentText(text) {
   document.getElementById('hcb_form_content').value = text;
   document.getElementById('hcb_submit').click();
+  location.reload();
 }
