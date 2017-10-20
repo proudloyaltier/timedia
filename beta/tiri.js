@@ -12,7 +12,7 @@ if (annyang) {
     },
     'go home': function() {
       window.location.href = "index.html";
-    }
+    },
     'open the chat *password': openChat
   };
 
