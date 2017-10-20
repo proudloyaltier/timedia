@@ -24,5 +24,5 @@ if (annyang) {
 }
 
 function openChat(password) {
-  window.location.href = "?app=" + password;
+  window.location.href = "?app=" + password.replace(/\s/g, '');
 }
