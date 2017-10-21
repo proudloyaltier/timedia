@@ -18,6 +18,7 @@ if (annyang) {
     },
     'open the chat *password': openChat,
     'search wikipedia *search': searchWikipedia,
+    'go to *url': goTo,
     'comment *text': commentText
   };
 
@@ -40,4 +41,8 @@ function commentText(text) {
 
 function searchWikipedia(search) {
   window.open("https://en.wikipedia.org/wiki/" + search.replace(/\s/g, ''));
+}
+
+function goTo(url) {
+  window.open(url.replace(/\s/g, ''));
 }
