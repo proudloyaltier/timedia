@@ -1,6 +1,9 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
+    'show me a TI 84 plus': function() {
+      window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
+    },
     'open docs': function() {
       window.location.href = "?app=3";
     },
