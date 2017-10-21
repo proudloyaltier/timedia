@@ -14,6 +14,7 @@ if (annyang) {
       window.location.href = "index.html";
     },
     'open the chat *password': openChat,
+    'search wikipedia *search': searchWikipedia,
     'comment *text': commentText
   };
 
@@ -32,4 +33,8 @@ function commentText(text) {
   document.getElementById('hcb_form_content').value = text;
   document.getElementById('hcb_submit').click();
   location.reload();
+}
+
+function searchWikipedia(search) {
+  window.location.href = "https://en.wikipedia.org/wiki/" + search.replace(/\s/g, '');
 }
