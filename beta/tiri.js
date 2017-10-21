@@ -36,5 +36,5 @@ function commentText(text) {
 }
 
 function searchWikipedia(search) {
-  window.location.href = "https://en.wikipedia.org/wiki/" + search.replace(/\s/g, '');
+  window.open("https://en.wikipedia.org/wiki/" + search.replace(/\s/g, ''));
 }
