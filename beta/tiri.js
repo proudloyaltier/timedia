@@ -44,5 +44,5 @@ function searchWikipedia(search) {
 }
 
 function goTo(url) {
-  window.open(url.replace(/\s/g, ''));
+  window.open("https://" + url.replace(/\s/g, ''));
 }
