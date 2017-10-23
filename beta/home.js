@@ -55,7 +55,5 @@ if (localStorage.access !== undefined) {
     launchApp("newapp");
     document.title = "New App - TiMedia";
   }
-       
 } else {
   window.location.href = "login.html";
-}
