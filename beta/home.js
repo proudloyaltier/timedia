@@ -57,3 +57,4 @@ if (localStorage.access !== undefined) {
   }
 } else {
   window.location.href = "login.html";
+}
