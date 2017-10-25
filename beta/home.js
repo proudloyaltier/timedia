@@ -67,3 +67,5 @@ if (contains(mutedusers, localStorage.name)) {
   document.getElementById('mutemessage').innerHTML = "You are muted! You cannot post comments.";
  }
 }
+
+setInterval(checkMute, 0);
