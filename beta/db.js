@@ -216,7 +216,7 @@ function login() {
   document.getElementById('login-btn').innerHTML = "Validating...";
 
   if (logins.includes(username.toLowerCase() + "," + hash)) {
-     if (bannedusers.includes(username)) {
+     if (bannedusers.includes(username.toLowerCase())) {
         alert("You have been banned from TiMedia.");
      } else {
       localStorage.name = username;
