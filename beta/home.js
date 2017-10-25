@@ -62,7 +62,7 @@ if (localStorage.access !== undefined) {
 }
 
 function checkMute() {
-if (contains(mutedusers, localStorage.name)) {
+if (includes(mutedusers, localStorage.name)) {
   document.getElementById('HCB_comment_form_box').remove();
   document.getElementById('mutemessage').innerHTML = "You are muted! You cannot post comments.";
  }
