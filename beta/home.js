@@ -1,3 +1,5 @@
+var mutedusers = ["henry"];
+
 function getQueryVariable(variable)
 {
        var query = window.location.search.substring(1);
@@ -57,4 +59,11 @@ if (localStorage.access !== undefined) {
   }
 } else {
   window.location.href = "login.html";
+}
+
+function checkMute() {
+if (contains(mutedusers, localStorage.name)) {
+  document.getElementById('HCB_comment_form_box').remove();
+  document.getElementById('mutemessage').innerHTML = "You are muted! You cannot post comments.";
+ }
 }
