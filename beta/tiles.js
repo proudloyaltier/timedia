@@ -17,7 +17,7 @@ function searchFiles() {
 
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
     if (localStorage.files.split(",")[i].split("!!")[0] == search) {
-      window.open(localStorage.files.split(",")[i].split("!!")[1]);
+      window.open(localStorage.files.split(",")[i].split("!!")[1].substring(1));
     }
   }
 }
