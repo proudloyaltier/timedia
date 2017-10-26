@@ -6,5 +6,5 @@ function addText() {
   var ctx = c.getContext("2d");
   ctx.font = "30px Arial";
   ctx.fillText(text, x, y);
-  y = y + 10;
+  y = y + 500;
 }
