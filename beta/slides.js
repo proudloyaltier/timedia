@@ -4,6 +4,6 @@ function addText() {
   var c = document.getElementById("myCanvas");
   var ctx = c.getContext("2d");
   ctx.font = "30px Arial";
-  ctx.strokeText(text,y,50);
+  ctx.fillText(text, y, 50);
   y = y + 10;
 }
