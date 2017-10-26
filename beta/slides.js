@@ -3,5 +3,5 @@ function addText() {
   var c = document.getElementById("myCanvas");
   var ctx = c.getContext("2d");
   ctx.font = "30px Arial";
-  ctx.strokeText(text,0,50);
+  ctx.strokeText(text,10,50);
 }
