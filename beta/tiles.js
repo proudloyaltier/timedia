@@ -39,6 +39,10 @@ function addFile(title, upload) {
   storeInDatabase("files", localStorage.files)
 }
 
+function saveFromTiWork() {
+  var title = prompt("File Name");
+  addFile(title, localStorage.workToSave);
+}
 
 
 function loadTiles() {
@@ -69,4 +73,9 @@ function redirect() {
 if (localStorage.files !== undefined) {
   loadTiles();
   setInterval(loadTiles, 1000);
+}
+
+if (localStorage.workToSave !== undefined) {
+  saveFromTiWork();
+  localStorage.removeItem('workToSave');
 }
