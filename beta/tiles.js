@@ -1,5 +1,3 @@
-setInterval(refreshTiles, 50);
-
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all files stored in Tiles");
   if (resetTiles == true) {
@@ -82,3 +80,5 @@ if (localStorage.files !== undefined) {
 if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
+
+refreshTiles():
