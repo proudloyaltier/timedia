@@ -79,4 +79,4 @@ if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
 
-setInterval(refreshTiles, 10000)
+refreshTiles();
