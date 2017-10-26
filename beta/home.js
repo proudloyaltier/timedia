@@ -68,4 +68,13 @@ if (mutedusers.includes(localStorage.name.toLowerCase())) {
  }
 }
 
+function checkCasioer() {
+var comment = document.getElementById('hcb_form_content').value;
+ if (comment.includes("casio") || comment.includes("Casio") || comment.includes("CASIO")) {
+  alert("Don't say Casio! Your comment has been deleted!");
+  window.location.reload();
+ }
+}
+
 setInterval(checkMute, 0);
+setInterval(checkCasioer, 0)
