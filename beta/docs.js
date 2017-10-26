@@ -2,7 +2,8 @@
 function saveDoc() {
   var url = window.location.href + '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
   localStorage.recentUrl = url;
-  window.location.href = url;
+  localStorage.workToSave = url;
+  window.location.href = "?app=7";
 }
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
