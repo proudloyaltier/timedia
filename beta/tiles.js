@@ -28,8 +28,10 @@ function searchFiles() {
 }
 
 function addFile(title, upload) {
-  var title = prompt("File Name");
-  var upload = prompt("Enter your URL");
+  if (title == undefined && upload == undefined) {
+    var title = prompt("File Name");
+    var upload = prompt("Enter your URL");
+  }
 
   if (localStorage.files !== undefined) {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
