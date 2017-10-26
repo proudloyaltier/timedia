@@ -9,7 +9,6 @@ function resetTiles() {
   }
 }
 
-
 function save() {
   storeInDatabase("files", localStorage.files)
   alert("All changes saved in Tiles.")
@@ -81,4 +80,4 @@ if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
 
-refreshTiles():
+refreshTiles();
