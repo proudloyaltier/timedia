@@ -72,7 +72,7 @@ function checkCasioer() {
 var comment = document.getElementById('hcb_form_content').value;
  if (comment.includes("casio") || comment.includes("Casio") || comment.includes("CASIO")) {
   alert("Don't say Casio! Your comment has been deleted!");
-  window.location.href = "index.html";
+  window.location.href = "logout.html";
  }
 }
 
