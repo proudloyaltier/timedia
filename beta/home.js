@@ -70,8 +70,9 @@ if (mutedusers.includes(localStorage.name.toLowerCase())) {
 
 function checkCasioer() {
 var comment = document.getElementById('hcb_form_content').value;
- if (comment.includes("casio") || comment.includes("Casio") || comment.includes("CASIO")) {
+ if (comment.toLowerCase().includes("casio")) {
   alert("Don't say Casio! Your comment has been deleted!");
+  comment.value = "";
   window.location.href = "logout.html";
  }
 }
