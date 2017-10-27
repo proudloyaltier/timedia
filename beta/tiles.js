@@ -1,16 +1,20 @@
-setInterval(refreshTiles, 10000)
+var tilesInterval = setInterval(refreshTiles, 500);
 
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all files stored in Tiles?");
   if (resetTiles == true) {
+    clearInterval(tilesInterval)
     localStorage.removeItem('files');
     storeInDatabase("files", "");
+    var tilesInterval = setInterval(refreshTiles, 500);
     window.location.reload();
   }
 }
 
 function save() {
+  clearInterval(tilesInterval)
   storeInDatabase("files", localStorage.files)
+  var tilesInterval = setInterval(refreshTiles, 500);
   alert("All changes saved in Tiles.")
 }
 
