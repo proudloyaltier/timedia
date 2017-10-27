@@ -29,8 +29,17 @@ function searchFiles() {
 }
 
 function backupTiles() {
-  window.location.replace("data:text/plain;charset=utf-8;base64," + btoa(localStorage.files));
+  window.location.href = "data:text/plain;charset=utf-8;base64," + btoa(localStorage.files);
 }
+ 
+function restoreTiles() {
+  clearInterval(tilesInterval)
+  var toRestore = prompt("Copy and paste the text from your backup");
+  localStorage.files = toRestore;
+  storeInDatabase("files", localStorage.files);
+  var tilesInterval = setInterval(refreshTiles, 5000);
+}
+  
 
 function addFile(title, upload) {
   if (title == undefined && upload == undefined) {
