@@ -30,7 +30,7 @@ function searchFiles() {
 
 function backupTiles(filename, text) {
     var pom = document.createElement('a');
-    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + text);
     pom.setAttribute('download', filename);
 
     if (document.createEvent) {
