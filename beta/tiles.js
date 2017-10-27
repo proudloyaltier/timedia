@@ -33,7 +33,7 @@ function addFile(title, upload) {
   } else {
     localStorage.files = title + "!!" + upload;
   }
-  storeInDatabase("files", localStorage.files);
+  save();
   location.reload();
 }
 
@@ -79,4 +79,4 @@ if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
 
-setInterval(refreshTiles, 10000)
+setInterval(refreshTiles, 10000);
