@@ -29,7 +29,7 @@ function searchFiles() {
 }
 
 function backupTiles() {
-  window.location.href = "data:text/plain;charset=utf-8;base64," + btoa(localStorage.files);
+  window.open("data:text/plain;charset=utf-8;base64," + btoa(localStorage.files));
 }
 
 function addFile(title, upload) {
