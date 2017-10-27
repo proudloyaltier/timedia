@@ -81,4 +81,4 @@ if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
 
-
+refreshTiles();
