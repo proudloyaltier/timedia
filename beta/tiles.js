@@ -35,6 +35,7 @@ function addFile(title, upload) {
     save();
   } else {
     localStorage.files = title + "!!" + upload;
+    save();
   }
   save();
   location.reload();
