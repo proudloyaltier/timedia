@@ -80,3 +80,4 @@ if (localStorage.workToSave !== undefined) {
 }
 
 refreshTiles();
+loadTiles();
