@@ -184,7 +184,7 @@ function alertAds() {
             </li>
       </ul>
       <button onclick="save()" class="btn btn-primary">Save Your Changes</button>
-      <button onclick="backupTiles('TilesBackup.txt', btoa(localStorage.files))" class="btn btn-success">Backup Tiles</button>
+      <button onclick="backupTiles('TilesBackup.txt', localStorage.files)" class="btn btn-success">Backup Tiles</button>
       <button onclick="restoreTiles()" class="btn btn-success">Restore Tiles</button>
       <button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br><br>
         <div id="tiles-tiles">
