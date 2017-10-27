@@ -1,4 +1,4 @@
-setInterval(refreshTiles, 1000)
+setInterval(refreshTiles, 10000)
 
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all files stored in Tiles?");
