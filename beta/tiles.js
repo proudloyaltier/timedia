@@ -41,7 +41,6 @@ function backupTiles("backupFromTiles.txt", btoa(localStorage.files)) {
     else {
         pom.click();
     }
-}
  
 function restoreTiles() {
   clearInterval(tilesInterval)
