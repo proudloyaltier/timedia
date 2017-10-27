@@ -44,6 +44,7 @@ function saveFromTiWork() {
   var tosave = localStorage.workToSave;
   localStorage.removeItem('workToSave');
   addFile(title, tosave);
+  save();
 }
 
 
