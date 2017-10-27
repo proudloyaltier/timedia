@@ -1,5 +1,5 @@
 var logins = ["hymenopus,af2e53a7f8f14624d5c96d1188ac5443", "arzi,5fb588626de91b5de67a1cdd84781b19", "henry,901555fb06e346cb065ceb9808dcfc25", "graphinghandheld,afab066a808e23cdc971201d62b4704e", "neil,d077f244def8a70e5ea758bd8352fcd8", "hayden,d8578edf8458ce06fbc5bb76a58c5ca4", "nachocheese2017,6460782dd7ded6510b76d43c0b684ffa", "vioisanerd,e00fba6fedfb8a49e13346f7099a23fc", "polyphemus,ebd6d2f5d60ff9afaeda1a81fc53e2d0", "sebastian,a6bd3593bdd9e588085fd0656cf0f98f", "name,5f4dcc3b5aa765d61d8327deb882cf99", "itsyoboy4,e10adc3949ba59abbe56e057f20f883e"];
-var bannedusers = ["hayden"];
+var bannedusers = [""];
 
 var MD5 = function (string) {
 
