@@ -28,7 +28,7 @@ function searchFiles() {
   }
 }
 
-function backupTiles("backupFromTiles.txt", btoa(localStorage.files)) {
+function backupTiles(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     pom.setAttribute('download', filename);
@@ -41,6 +41,7 @@ function backupTiles("backupFromTiles.txt", btoa(localStorage.files)) {
     else {
         pom.click();
     }
+}
  
 function restoreTiles() {
   clearInterval(tilesInterval)
