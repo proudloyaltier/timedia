@@ -159,12 +159,19 @@ function alertAds() {
   
      <div id="settings" style="display: none;">
        <h3>Settings</h3><br>
+       <h4> Personalization </h4>
        Background Image<br>
       <input class="form-control" type="text" id="backgroundImg"><br>
        
        Bar Color<br>
       <input style="width: 5%;" id="barColor" class="jscolor form-control" value="2296f3"><br>
       <button onclick="updateSettings()" class="btn btn-success">Save</button>
+       <h4> Tiles </h4>
+       <h5> Backup and Restore </h5>
+       <button onclick="backupTiles('TilesBackup.txt', localStorage.files)" class="btn btn-success">Backup Tiles</button>
+      <button onclick="restoreTiles()" class="btn btn-success">Restore Tiles</button>
+       <h5> Reset All Tiles </h5>
+      <button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br><br>
   </div>
   
     <div id="tiles" style="display: none;">
