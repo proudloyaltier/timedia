@@ -7,7 +7,7 @@ function resetTiles() {
     localStorage.removeItem('files');
     storeInDatabase("files", "");
     var tilesInterval = setInterval(refreshTiles, 500);
-    window.location.reload();
+    window.location.href = "index.html?app=7"
   }
 }
 
@@ -49,6 +49,7 @@ function restoreTiles() {
   localStorage.files = toRestore;
   storeInDatabase("files", localStorage.files);
   var tilesInterval = setInterval(refreshTiles, 5000);
+  window.location.href = "index.html?app=7"
 }
   
 
