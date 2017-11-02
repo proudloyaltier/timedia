@@ -14,9 +14,9 @@ function resetTiles() {
 function save() {
   clearInterval(tilesInterval)
   storeInDatabase("files", localStorage.files)
-  var tilesInterval = setInterval(refreshTiles, 500);
   alert("All changes saved in Tiles.")
-}
+  var tilesInterval = setInterval(refreshTiles, 500);
+ }
 
 function searchFiles() {
   var search = document.getElementById("TiFilesSearch").value + '';
