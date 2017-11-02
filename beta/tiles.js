@@ -72,8 +72,8 @@ function addFile(title, upload) {
 
 function saveFromTiWork() {
   var title = prompt("File Name");
-  localStorage.workToSave = localStorage.workToSave.replace('https:/proudloyaltier.github.io/timedia/beta/','');
-  var tosave = localStorage.workToSave
+  var workToSave = localStorage.workToSave.replace('https:/proudloyaltier.github.io/timedia/beta/','');
+  var tosave = workToSave
   localStorage.removeItem('workToSave');
   addFile(title, tosave);
   save();
