@@ -11,7 +11,7 @@ function newColumn() {
 }
 
 function saveSheet() {
-	var url = window.location.href + "&t=" + btoa(document.getElementById('tisheets-table').innerHTML);
+	var url = "index.html?app=4" + "&t=" + btoa(document.getElementById('tisheets-table').innerHTML);
 	localStorage.workToSave = url;
 	window.location.href = "?app=7";
 }
