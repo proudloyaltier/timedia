@@ -15,8 +15,17 @@ function save() {
   clearInterval(tilesInterval)
   storeInDatabase("files", localStorage.files)
   alert("All changes saved in Tiles.")
-  var tilesInterval = setInterval(refreshTiles, 500);
+  var tilesInterval = setInterval(refreshTiles, 5000);
  }
+
+function saveChat() {
+  clearInterval(tilesInterval)
+  var chatName = prompt("Enter the name of this chat");
+  var chatCode = prompt("Enter the chat password");
+  addFile(chatName, chatCode)
+  save();
+  var tilesInterval = setInterval(refreshTiles, 5000);
+}
 
 function searchFiles() {
   var search = document.getElementById("TiFilesSearch").value + '';
@@ -71,10 +80,12 @@ function addFile(title, upload) {
 }
 
 function saveFromTiWork() {
+  clearInterval(tilesInterval)
   var title = prompt("File Name");
   var tosave = localStorage.workToSave;
   localStorage.removeItem('workToSave');
   addFile(title, tosave);
+  var tilesInterval = setInterval(refreshTiles, 5000);
 }
 
 
