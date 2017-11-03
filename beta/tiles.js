@@ -24,7 +24,6 @@ function saveChat() {
   var chatPassword = prompt("Enter the chat password");
   var chatCode = "index.html?app=" + chatPassword;
   addFile(chatName, chatCode)
-  save();
   var tilesInterval = setInterval(refreshTiles, 5000);
 }
 
