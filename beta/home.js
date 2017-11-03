@@ -1,5 +1,3 @@
-responsiveVoice.speak("Hey" + localStorage.name);
-
 var mutedusers = [""];
 
 function getQueryVariable(variable)
