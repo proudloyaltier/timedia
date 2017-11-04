@@ -1,10 +1,10 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'what is your favorite website?': function() {
+    'what is your favorite website': function() {
      responsiveVoice.speak("T I media dot T-K");
     },
-    'what is your favorite food?': function() {
+    'what is your favorite food': function() {
      responsiveVoice.speak("I am a computer software. I can not eat.");
     },
     'sing me a song': function() {
