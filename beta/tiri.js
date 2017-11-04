@@ -1,9 +1,8 @@
-
+localStorage.ts = 'welcome';
+localStorage.us = '';
 
 if(window.location == 'https://proudloyaltier.github.io/timedia/beta/tiri.html') {
-  alert("test");
-  localStorage.ts = 'welcome';
-  setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("tiri").innerHTML = localStorage.us;}, 10);
+  setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("tiri").innerHTML = localStorage.us;}, 0);
 }
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
@@ -12,12 +11,15 @@ if (annyang) {
     //semi-useless easter eggs
     'what is your favorite color': function() {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
+      localStorage.ts = '26, 159, 162<br/>Turqouise';
     },
     'what is your favorite number': function() {
      responsiveVoice.speak("forty two");
+     localStorage.ts = '42';
     },
     'what is the lonliest number': function() {
      responsiveVoice.speak("one");
+      localStorage.ts = '1';
     },
     'sing me a song': function() {
      responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
