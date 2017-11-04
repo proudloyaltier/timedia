@@ -1,6 +1,31 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
+    //semi-useless easter eggs
+    'sing me a song': function() {
+     responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
+    },
+    'hey': function() {
+     responsiveVoice.speak("Hey" + "," + localStorage.name);
+    },
+    'hay': function() {
+     responsiveVoice.speak("Hey" + "," + localStorage.name);
+    },
+    'hi': function() {
+     responsiveVoice.speak("Hi" + "," + localStorage.name);
+    },
+    'hello': function() {
+     responsiveVoice.speak("Hello" + "," + localStorage.name);
+    },
+    'what is up?': function() {
+     responsiveVoice.speak("What is up" + "," + localStorage.name);
+    },
+    'show me a TI 84 plus': function() {
+      window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
+    },
+    'do you like to read': function() {
+     responsiveVoice.speak("I did, but then I red all of the existing literature in the universe.");
+    },
     'tell me a knock knock joke': function() {
      responsiveVoice.speak("Knock knock. Interupting virtual assistant, What may I help you with?");
     },
@@ -37,6 +62,8 @@ if (annyang) {
     'what is your favorite food': function() {
      responsiveVoice.speak("I am a computer software. I can not eat.");
     },
+    //end of semi-useless easter eggs
+    //Commands
     'what time is it': function() {
      var da = new Date();
      var na = da.getMinutes();
@@ -50,27 +77,6 @@ if (annyang) {
      var db = new Date();
      var nb = db.getHours();
      responsiveVoice.speak("it is" + nb + na);
-    },
-    'sing me a song': function() {
-     responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
-    },
-    'hey': function() {
-     responsiveVoice.speak("Hey" + "," + localStorage.name);
-    },
-    'hay': function() {
-     responsiveVoice.speak("Hey" + "," + localStorage.name);
-    },
-    'hi': function() {
-     responsiveVoice.speak("Hi" + "," + localStorage.name);
-    },
-    'hello': function() {
-     responsiveVoice.speak("Hello" + "," + localStorage.name);
-    },
-    'what is up?': function() {
-     responsiveVoice.speak("What is up" + "," + localStorage.name);
-    },
-    'show me a TI 84 plus': function() {
-      window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
     },
     'open settings': function() {
       window.location.href = "?app=6";
