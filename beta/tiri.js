@@ -132,5 +132,6 @@ function goTo(url) {
 }
 
 function solve(problem) {
-  responsiveVoice.speak(problem);
+  var result = eval(problem).toString();
+  responsiveVoice.speak(result);
 }
