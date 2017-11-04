@@ -3,6 +3,12 @@ if (annyang) {
   //I made some purposeful spelling, or grammar errors to get the pronunciation right
   var commands = {
     //semi-useless easter eggs
+    'what is your favorite color': function() {
+     responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
+    },
+    'what is your favorite number': function() {
+     responsiveVoice.speak("forty two");
+    },
     'solve six times seven': function() {
      responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
     },
