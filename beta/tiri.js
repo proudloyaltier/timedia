@@ -1,9 +1,14 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'Quit Chrome': function() {
-     responsiveVoice.speak("Quiting");
-     window.location.href = "chrome://quit/";
+    'tell me a knock knock joke': function() {
+     responsiveVoice.speak("Knock knock, Interupting virtual assistant, What may I help you with?");
+    },
+    'tell me a joke': function() {
+     responsiveVoice.speak("why did teary cross the road? Because I was trapped in your computer! Ha Ha Ha Ha");
+    },
+    'are you a democrat or a republican': function() {
+     responsiveVoice.speak("It does not matter. I am not an american citizen, so I can not vote.");
     },
     'Casio': function() {
      responsiveVoice.speak("Do not say that");
