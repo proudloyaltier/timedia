@@ -15,6 +15,9 @@ if (annyang) {
     'sing me a song': function() {
      responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
     },
+    'tell me a story': function() {
+     responsiveVoice.speak("Once upon a time you stopped asking me stupid questions. The End");
+    },
     'hey': function() {
      responsiveVoice.speak("Hey" + "," + localStorage.name);
     },
