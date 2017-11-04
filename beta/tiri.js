@@ -7,6 +7,9 @@ if (annyang) {
     'what is your favorite food': function() {
      responsiveVoice.speak("I am a computer software. I can not eat.");
     },
+    'what time is it': function() {
+     responsiveVoice.speak("it is" + getHours() + getMinutes());
+    },
     'sing me a song': function() {
      responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
     },
