@@ -1,6 +1,7 @@
 
 
 if(window.location == 'https://proudloyaltier.github.io/timedia/beta/tiri.html') {
+  alert("test");
   localStorage.ts = 'welcome';
   setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("tiri").innerHTML = localStorage.us;}, 10);
 }
