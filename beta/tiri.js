@@ -9,12 +9,6 @@ if (annyang) {
     'what is your favorite number': function() {
      responsiveVoice.speak("forty two");
     },
-    'solve six times seven': function() {
-     responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
-    },
-    'what is six times seven': function() {
-     responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
-    },
     'what is the lonliest number': function() {
      responsiveVoice.speak("one");
     },
@@ -149,5 +143,9 @@ function goTo(url) {
 
 function solve(problem) {
   var result = eval(problem).toString();
-  responsiveVoice.speak(result);
+  if(result = "42") {
+    responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
+  } else {
+    responsiveVoice.speak(result);
+  }
 }
