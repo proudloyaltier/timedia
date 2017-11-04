@@ -8,10 +8,10 @@ if (annyang) {
      responsiveVoice.speak("Why thank you");
     },
     'you are amazing': function() {
-     responsiveVoice.speak("That is nice");
+     responsiveVoice.speak("You are too");
     },
     'you are wonderful': function() {
-     responsiveVoice.speak("Iknow");
+     responsiveVoice.speak("I know");
     },
     'I have a problem': function() {
      window.location.href = "index.html?app=5";
