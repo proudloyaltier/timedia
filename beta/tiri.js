@@ -1,7 +1,13 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
+    'Casio': function() {
+     responsiveVoice.speak("Do not say that");
+    },
     'T I media sucks': function() {
+     responsiveVoice.speak("I can hear you!");
+    },
+    'T I media stinks': function() {
      responsiveVoice.speak("I can hear you!");
     },
     'you are awesome': function() {
