@@ -106,6 +106,15 @@ if (annyang) {
     'go home': function() {
       window.location.href = "index.html";
     },
+    'go to home': function() {
+      window.location.href = "index.html";
+    },
+    'open home': function() {
+      window.location.href = "index.html";
+    },
+    'log out': function() {
+      window.location.href = "logout.html";
+    },
     'open the chat *password': openChat,
     'search wikipedia *search': searchWikipedia,
     'search youtube *search': searchYoutube,
