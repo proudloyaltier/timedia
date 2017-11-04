@@ -107,6 +107,7 @@ if (annyang) {
      var db = new Date();
      var nb = db.getHours();
      responsiveVoice.speak("it is" + nb + na);
+      localStorage.ts = nb + ":" + na;
     },
     'what is the time': function() {
      var da = new Date();
@@ -114,6 +115,7 @@ if (annyang) {
      var db = new Date();
      var nb = db.getHours();
      responsiveVoice.speak("it is" + nb + na);
+      localStorage.ts = nb + ":" + na;
     },
     'open settings': function() {
       window.location.href = "?app=6";
@@ -181,7 +183,9 @@ function solve(problem) {
   var result = eval(problem).toString();
   if(result == "42") {
     responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
+    localStorage.ts = "42";
   } else {
     responsiveVoice.speak(result);
+    localStorage.ts = result;
   }
 }
