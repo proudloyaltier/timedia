@@ -1,6 +1,9 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
+    'I have a problem': function() {
+     window.location.href = "index.html?app=5";
+    },
     'what is your favorite website': function() {
      responsiveVoice.speak("T I media dot T-K");
     },
@@ -41,6 +44,9 @@ if (annyang) {
     },
     'show me a TI 84 plus': function() {
       window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
+    },
+    'open settings': function() {
+      window.location.href = "?app=6";
     },
     'open docs': function() {
       window.location.href = "?app=3";
