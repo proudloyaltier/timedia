@@ -2,7 +2,7 @@ if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
     'tell me a knock knock joke': function() {
-     responsiveVoice.speak("Knock knock, Interupting virtual assistant, What may I help you with?");
+     responsiveVoice.speak("Knock knock. Interupting virtual assistant, What may I help you with?");
     },
     'tell me a joke': function() {
      responsiveVoice.speak("why did teary cross the road? Because I was trapped in your computer! Ha Ha Ha Ha");
