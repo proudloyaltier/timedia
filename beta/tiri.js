@@ -99,7 +99,8 @@ if (annyang) {
     'search youtube *search': searchYoutube,
     'go to *url': goTo,
     'comment *text': commentText,
-    'solve *problem': solve
+    'solve *problem': solve,
+    'what is *problem': solve
   };
 
   // Add our commands to annyang
