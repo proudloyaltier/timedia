@@ -1,3 +1,9 @@
+
+
+if(window.location == 'https://proudloyaltier.github.io/timedia/beta/tiri.html') {
+  localStorage.ts = 'welcome';
+  setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("tiri").innerHTML = localStorage.us;}, 10);
+}
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   //I made some purposeful spelling, or grammar errors to get the pronunciation right
