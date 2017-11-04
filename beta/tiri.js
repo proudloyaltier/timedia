@@ -1,6 +1,12 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
+    'teary sucks': function() {
+     responsiveVoice.speak("I can hear you!");
+    },
+    'you are awesome': function() {
+     responsiveVoice.speak("Why thank you");
+    },
     'I have a problem': function() {
      window.location.href = "index.html?app=5";
     },
