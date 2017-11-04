@@ -3,6 +3,15 @@ if (annyang) {
   //I made some purposeful spelling, or grammar errors to get the pronunciation right
   var commands = {
     //semi-useless easter eggs
+    'solve six times seven': function() {
+     responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
+    },
+    'what is six times seven': function() {
+     responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
+    },
+    'what is the lonliest number': function() {
+     responsiveVoice.speak("one");
+    },
     'sing me a song': function() {
      responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
     },
