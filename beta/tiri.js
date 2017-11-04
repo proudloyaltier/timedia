@@ -7,6 +7,12 @@ if (annyang) {
     'you are awesome': function() {
      responsiveVoice.speak("Why thank you");
     },
+    'you are amazing': function() {
+     responsiveVoice.speak("That is nice");
+    },
+    'you are wonderful': function() {
+     responsiveVoice.speak("Iknow");
+    },
     'I have a problem': function() {
      window.location.href = "index.html?app=5";
     },
