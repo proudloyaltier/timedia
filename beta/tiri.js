@@ -1,5 +1,6 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
+  //I made some purposeful spelling, or grammar errors to get the pronunciation right
   var commands = {
     //semi-useless easter eggs
     'sing me a song': function() {
