@@ -5,6 +5,18 @@ if (annyang) {
      responsiveVoice.speak("Hey" + "," + localStorage.name);
     },
     
+    'hay': function() {
+     responsiveVoice.speak("Hey" + "," + localStorage.name);
+    },
+    'hi': function() {
+     responsiveVoice.speak("Hey" + "," + localStorage.name);
+    },
+    'hello': function() {
+     responsiveVoice.speak("Hey" + "," + localStorage.name);
+    },
+    'what is up?': function() {
+     responsiveVoice.speak("Hey" + "," + localStorage.name);
+    },
     'show me a TI 84 plus': function() {
       window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
     },
