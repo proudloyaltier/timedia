@@ -98,7 +98,8 @@ if (annyang) {
     'search wikipedia *search': searchWikipedia,
     'search youtube *search': searchYoutube,
     'go to *url': goTo,
-    'comment *text': commentText
+    'comment *text': commentText,
+    'solve *problem': solve
   };
 
   // Add our commands to annyang
@@ -128,4 +129,8 @@ function searchYoutube(search) {
 
 function goTo(url) {
   window.open("https://" + url.replace(/\s/g, ''));
+}
+
+function solve(problem) {
+  responsiveVoice.speak(problem);
 }
