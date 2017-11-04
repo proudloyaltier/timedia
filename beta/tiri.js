@@ -35,7 +35,7 @@ if (annyang) {
     'are you a democrat or a republican': function() {
      responsiveVoice.speak("It does not matter. I am not an american citizen, so I can not vote.");
     },
-    'Casio': function() {
+    'Kas eeee O': function() {
      responsiveVoice.speak("Do not say that");
     },
     'T I media sucks': function() {
