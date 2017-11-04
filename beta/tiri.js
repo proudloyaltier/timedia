@@ -14,6 +14,13 @@ if (annyang) {
      var nb = db.getHours();
      responsiveVoice.speak("it is" + nb + na);
     },
+    'what is the time': function() {
+     var da = new Date();
+     var na = da.getMinutes();
+     var db = new Date();
+     var nb = db.getHours();
+     responsiveVoice.speak("it is" + nb + na);
+    },
     'sing me a song': function() {
      responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
     },
