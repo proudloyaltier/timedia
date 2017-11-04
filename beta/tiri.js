@@ -1,10 +1,23 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
+    'what is your favorite website?': function() {
+     responsiveVoice.speak("T I media dot T-K");
+    },
+    'what is your favorite food?': function() {
+     responsiveVoice.speak("I am a computer software. I can not eat.");
+    },
+    'sing me a song': function() {
+     var rand = Math.floor(Math.random() * 10);
+     if(var rand > 6) {
+       responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
+     } else {
+       responsiveVoice.speak("twinkle, twinkle little star, how I wish that you would ask  me something else.");
+     }
+    },
     'hey': function() {
      responsiveVoice.speak("Hey" + "," + localStorage.name);
     },
-    
     'hay': function() {
      responsiveVoice.speak("Hey" + "," + localStorage.name);
     },
