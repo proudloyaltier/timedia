@@ -8,7 +8,11 @@ if (annyang) {
      responsiveVoice.speak("I am a computer software. I can not eat.");
     },
     'what time is it': function() {
-     responsiveVoice.speak("it is" + getHours() + getMinutes());
+     var da = new Date();
+     var na = da.getMinutes();
+     var db = new Date();
+     var nb = db.getHours();
+     responsiveVoice.speak("it is" + nb + na);
     },
     'sing me a song': function() {
      responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
