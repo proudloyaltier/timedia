@@ -143,7 +143,7 @@ function goTo(url) {
 
 function solve(problem) {
   var result = eval(problem).toString();
-  if(result = "42") {
+  if(result == "42") {
     responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
   } else {
     responsiveVoice.speak(result);
