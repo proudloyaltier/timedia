@@ -8,12 +8,7 @@ if (annyang) {
      responsiveVoice.speak("I am a computer software. I can not eat.");
     },
     'sing me a song': function() {
-     var rand = Math.floor(Math.random() * 10);
-     if(rand < 6) {
-       responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
-     } else {
-       responsiveVoice.speak("twinkle, twinkle little star, how I wish that you would ask  me something else.");
-     }
+     responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
     },
     'hey': function() {
      responsiveVoice.speak("Hey" + "," + localStorage.name);
