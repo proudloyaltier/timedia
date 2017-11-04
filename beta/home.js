@@ -38,10 +38,10 @@ if (localStorage.access !== undefined) {
     document.title = "TiSheets - TiMedia";
   }
        
-  /*if (getQueryVariable("app") == 5) {
-    launchApp("ticontacts");
-    document.title = "TiContacts - TiMedia";
-  }*/
+  if (getQueryVariable("app") == 5) {
+    launchApp("tisupport");
+    document.title = "TiMediaSupport - TiMedia";
+  }
        
   if (getQueryVariable("app") == 6) {
     launchApp("settings");
