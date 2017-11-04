@@ -9,13 +9,13 @@ if (annyang) {
      responsiveVoice.speak("Hey" + "," + localStorage.name);
     },
     'hi': function() {
-     responsiveVoice.speak("Hey" + "," + localStorage.name);
+     responsiveVoice.speak("Hi" + "," + localStorage.name);
     },
     'hello': function() {
-     responsiveVoice.speak("Hey" + "," + localStorage.name);
+     responsiveVoice.speak("Hello" + "," + localStorage.name);
     },
     'what is up?': function() {
-     responsiveVoice.speak("Hey" + "," + localStorage.name);
+     responsiveVoice.speak("What is up" + "," + localStorage.name);
     },
     'show me a TI 84 plus': function() {
       window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
