@@ -5,7 +5,7 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/tiri.html')
    setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("user").innerHTML = localStorage.us;}, 0);
  }
 
-tiriType() {
+function tiriType() {
    localStorage.us = prompt("Welcome to Tiri Type");
    if(localStorage.us == 'I have a problem')
       
