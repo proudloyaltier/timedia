@@ -28,6 +28,88 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="speech.js"></script>
+    <script>
+      function tiriType() {
+   localStorage.us = prompt("Welcome to Tiri Type");
+   if(localStorage.us == 'I have a problem')
+      
+   } else if(localStorage.us == 'what is your favorite color?') {
+      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
+      localStorage.us = 'What is your favorite color?';
+      localStorage.ts = 'Turqouise';
+   } else if(localStorage.us == 'what is your favorite number?') {
+      'what is your favorite number': function() {
+       responsiveVoice.speak("forty two");
+       localStorage.ts = '42';
+   } else if(localStorage.us == 'what is the lonliest number?') {
+      responsiveVoice.speak("one");
+      localStorage.ts = '1';
+   } else if(localStorage.us == 'sing me a song') {
+      responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
+      localStorage.ts = 'la la la';
+   } else if(localStorage.us == 'tell me a story') {
+      responsiveVoice.speak("Once upon a time you stopped asking me stupid questions. The End");
+      localStorage.ts = 'Once upon a time you stopped asking stupid questions';
+   } else if(localStorage.us == 'hey') {
+      responsiveVoice.speak("Hey" + "," + localStorage.name);
+      localStorage.ts = 'Hey, ' + localStorage.name;
+   } else if(localStorage.us == 'hi') {
+      responsiveVoice.speak("Hi" + "," + localStorage.name);
+      localStorage.ts = "Hi" + ", " + localStorage.name;
+   } else if(localStorage.us == 'hello') {
+      responsiveVoice.speak("Hello" + "," + localStorage.name);
+      localStorage.ts = "Hello" + ", " + localStorage.name;
+   } else if(localStorage.us == 'hey tiri') {
+      responsiveVoice.speak("Hey" + "," + localStorage.name);
+      localStorage.ts = 'Hey, ' + localStorage.name;
+   } else if(localStorage.us == 'hi tiri') {
+      responsiveVoice.speak("Hi" + "," + localStorage.name);
+      localStorage.ts = "Hi" + ", " + localStorage.name;
+   } else if(localStorage.us == 'hello tiri') {
+      responsiveVoice.speak("Hello" + "," + localStorage.name);
+      localStorage.ts = "Hello" + ", " + localStorage.name;
+   } else if(localStorage.us == 'what is up?') {
+      responsiveVoice.speak("What is up" + "," + localStorage.name);
+      localStorage.ts = "What is up" + ", " + localStorage.name + "?";
+   } else if(localStorage.us == 'what is up tiri?') {
+      responsiveVoice.speak("What is up" + "," + localStorage.name);
+      localStorage.ts = "What is up" + ", " + localStorage.name + "?";
+   } else if(localStorage.us == 'show me a TI 84 plus') {
+      window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
+   } else if(localStorage.us == 'do you like to read?') {
+      responsiveVoice.speak("I did, but then I red all of the existing literature in the universe.");
+      localStorage.ts = "I did, but then I red all of the existing literature in the universe.";
+   } else if(localStorage.us == 'tell me a knock knock joke') {
+      responsiveVoice.speak("Knock knock. Interupting virtual assistant, What may I help you with?");
+      localStorage.ts = "Knock knock";
+   } else if(localStorage.us == 'tell me a joke') {
+      responsiveVoice.speak("why did teary cross the road? Because I was trapped in your computer! Ha Ha Ha Ha");
+      localStorage.ts = "why did teary cross the road?<br/>Because I was trapped in your computer!";
+   } else if(localStorage.us == 'casio') {
+      responsiveVoice.speak("Do not say that");
+      localStorage.ts = "Do not say that";
+   } else if(localStorage.us == 'timedia sucks') {
+      responsiveVoice.speak("I can hear you!");
+      localStorage.ts = "I can hear you!";
+   } else if(localStorage.us == 'timedia stinks') {
+      responsiveVoice.speak("I can hear you!");
+      localStorage.ts = "I can hear you!";
+   } else if(localStorage.us == 'you are awesome') {
+      responsiveVoice.speak("Why thank you");
+      localStorage.ts = "Why thank you";
+   } else if(localStorage.us == 'you are amazing') {
+      responsiveVoice.speak("You are too");
+      localStorage.ts = "You are too";
+   } else if(localStorage.us == 'you are wonderful') {
+      responsiveVoice.speak("I know");
+      localStorage.ts = "I know";
+   } else if(localStorage.us == 'what is your favorite website?') {
+      window.location.href = "index.html?app=5";
+   } else if(localStorage.us == 'what is your favorite food?') {
+      responsiveVoice.speak("I am a computer software. I can not eat.");
+      localStorage.ts = "I am a computer software. I can not eat."
+   }
+    </script>
   </body>
   <style>
     #user {
