@@ -5,29 +5,6 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/tiri.html')
    setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("user").innerHTML = localStorage.us;}, 0);
  }
 
-//Let's tiri change your settings
-
-function updateSettings(bimage, bcolor) {
-  localStorage.bgImg = bimage;
-  localStorage.barColor = bcolor;
-  location.reload();
-}
-
-if (localStorage.bgImg !== undefined) {
-  document.getElementById('body').background = localStorage.bgImg;
-}
-
-if (localStorage.barColor !== undefined) {
-  document.getElementById('navbar').style = "background-color: #" + localStorage.barColor + ";";
-}
-
-if(localStorage.personalizeSettings == true) {
-   document.getElementById("backgroundImg").value = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
-   document.getElementById("barColor").value = '#1a9fa2';
-   updateSettings();
-}
-//end of settings
-
 function tt() {
         
          localStorage.us = prompt("Welcome to Tiri Type");
@@ -125,9 +102,70 @@ function tt() {
          } else if(localStorage.us == 'how are you?') {
             responsiveVoice.speak("I am good");
             localStorage.ts = 'I am good';
-         } else if(localStorage.us == 'personalize my settings') {
-            window.location.href = "index.html?app=6";
-            localStorage.personalizeSettings = true;
+         } else if(localStorage.us == 'give me a nickname') {
+            var rand1 = Math.floor((Math.random() * 10) + 1);
+            var rand2 = Math.floor((Math.random() * 10) + 1);
+            var rand3 = Math.floor((Math.random() * 10) + 1);
+            if(rand1 == 1) {
+               rand1 = 'splurty';
+            } else if (rand1 == 2) {
+               rand1 = 'blobbish';
+            } else if (rand1 == 3) {
+               rand1 = 'blue';
+            } else if (rand1 == 4) {
+               rand1 = 'craboodly';
+            } else if (rand1 == 5) {
+               rand1 = 'creepish';
+            } else if (rand1 == 6) {
+               rand1 = 'crazy';
+            }  else if (rand1 == 7) {
+               rand1 = 'floopy';
+            } else if (rand1 == 8) {
+               rand1 = 'clabblish';
+            } else if (rand1 == 9) {
+               rand1 = 'snarky';
+            } else if (rand1 == 0) {
+               rand1 = 'blibber';
+            }
+
+             if(rand2 == 1) {
+               rand2 = 'cow';
+            } else if (rand2 == 2) {
+               rand2 = 'monkey';
+            } else if (rand2 == 3) {
+               rand2 = 'fish';
+            } else if (rand2 == 4) {
+               rand2 = 'mantis';
+            } else if (rand2 == 5) {
+               rand2 = 'beetle';
+            } else if (rand2 == 6) {
+               rand2 = 'hymenopus';
+            } else if (rand2 == 7) {
+               rand2 = 'T I er';
+            } else if (rand2 == 8) {
+               rand2 = 'babboon';
+            } else if (rand2 == 9) {
+               rand2 = 'lobster';
+            } else if (rand2 == 0) {
+               rand2 = 'cat';
+            }
+
+            if(rand3 == 1 || rand3 == 2) {
+               rand3 = 'face';
+            } else if(rand3 == 3 || rand3 == 4) {
+               rand3 = 'guy';
+            } else if(rand3 == 5 || rand3 == 6) {
+               rand3 = 'nose';
+            } else if(rand3 == 7 || rand3 == 8) {
+               rand3 = 'person';
+            } else {
+               rand3 = localStorage.name;
+            }
+
+            var nickname = rand1 + ' ' + rand2 + ' ' + rand3;
+
+             responsiveVoice.speak("I will call you " + nickname);
+             localStorage.ts = nickname;
          } else if(localStorage.us == '') {
             
          } else {
@@ -145,11 +183,70 @@ if (annyang) {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
       localStorage.ts = 'Turqouise';
     },
-    'personalize my settings': function() {
-      updateSettings('', '')
-      responsiveVoice.speak("Personalizing");
-      localStorage.ts = 'personalizing . . .';
-      window.location.href = "index.html";
+    'give me a nickname': function() {
+      var rand1 = Math.floor((Math.random() * 10) + 1);
+      var rand2 = Math.floor((Math.random() * 10) + 1);
+      var rand3 = Math.floor((Math.random() * 10) + 1);
+      if(rand1 == 1) {
+         rand1 = 'splurty';
+      } else if (rand1 == 2) {
+         rand1 = 'blobbish';
+      } else if (rand1 == 3) {
+         rand1 = 'blue';
+      } else if (rand1 == 4) {
+         rand1 = 'craboodly';
+      } else if (rand1 == 5) {
+         rand1 = 'creepish';
+      } else if (rand1 == 6) {
+         rand1 = 'crazy';
+      }  else if (rand1 == 7) {
+         rand1 = 'floopy';
+      } else if (rand1 == 8) {
+         rand1 = 'clabblish';
+      } else if (rand1 == 9) {
+         rand1 = 'snarky';
+      } else if (rand1 == 0) {
+         rand1 = 'blibber';
+      }
+      
+       if(rand2 == 1) {
+         rand2 = 'cow';
+      } else if (rand2 == 2) {
+         rand2 = 'monkey';
+      } else if (rand2 == 3) {
+         rand2 = 'fish';
+      } else if (rand2 == 4) {
+         rand2 = 'mantis';
+      } else if (rand2 == 5) {
+         rand2 = 'beetle';
+      } else if (rand2 == 6) {
+         rand2 = 'hymenopus';
+      } else if (rand2 == 7) {
+         rand2 = 'T I er';
+      } else if (rand2 == 8) {
+         rand2 = 'babboon';
+      } else if (rand2 == 9) {
+         rand2 = 'lobster';
+      } else if (rand2 == 0) {
+         rand2 = 'cat';
+      }
+       
+      if(rand3 == 1 || rand3 == 2) {
+         rand3 = 'face';
+      } else if(rand3 == 3 || rand3 == 4) {
+         rand3 = 'guy';
+      } else if(rand3 == 5 || rand3 == 6) {
+         rand3 = 'nose';
+      } else if(rand3 == 7 || rand3 == 8) {
+         rand3 = 'person';
+      } else {
+         rand3 = localStorage.name;
+      }
+       
+      var nickname = rand1 + ' ' + rand2 + ' ' + rand3;
+       
+       responsiveVoice.speak("I will call you " + nickname);
+       localStorage.ts = nickname;
      },
      'how are you': function() {
       responsiveVoice.speak("I am good");
