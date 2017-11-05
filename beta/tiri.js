@@ -102,13 +102,15 @@ function tt() {
          } else if(localStorage.us == 'how are you?') {
             responsiveVoice.speak("I am good");
             localStorage.ts = 'I am good';
-         }/* else if(localStorage.us == 'personalize my settings') {
-            localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
-            localStorage.barColor = "#1a9fa2";
+         } else if(localStorage.us == 'personalize my settings') {
             responsiveVoice.speak("Personalizing");
             localStorage.ts = 'personalizing . . .';
+            localStorage.barColor = '#1a9fa2';
+            localStorage.bgImg = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
+            document.getElementById('body').background = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
+            document.getElementById('navbar').style = "background-color: #1a9fa2;";
             window.location.href = "index.html";
-         }*/ else if(localStorage.us == '') {
+         } else if(localStorage.us == '') {
             
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
