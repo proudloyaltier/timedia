@@ -126,6 +126,8 @@ function tt() {
                rand1 = 'snarky';
             } else if (rand1 == 0) {
                rand1 = 'blibber';
+            } else {
+               rand1 = '';
             }
 
              if(rand2 == 1) {
@@ -148,6 +150,8 @@ function tt() {
                rand2 = 'lobster';
             } else if (rand2 == 0) {
                rand2 = 'cat';
+            } else {
+              rand2 = ''; 
             }
 
             if(rand3 == 1 || rand3 == 2) {
