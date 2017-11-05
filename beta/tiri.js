@@ -10,7 +10,7 @@ function tt() {
          localStorage.us = prompt("Welcome to Tiri Type");
         
          if(localStorage.us == 'I have a problem') {
-            window.location.href = "index.html?app=5";
+            window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'what is your favorite color?') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
@@ -125,12 +125,12 @@ if (annyang) {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
       localStorage.ts = 'Turqouise';
     },
-    'personalize my settings': function() {
-      localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
-      localStorage.barColor = #1a9fa2;
-      responsiveVoice.speak("Personalizing");
-      localStorage.ts = 'personalizing . . .';
-      window.location.href = "index.html";
+     'personalize my settings': function() {
+        localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
+        localStorage.barColor = #1a9fa2;
+        responsiveVoice.speak("Personalizing");
+        localStorage.ts = 'personalizing . . .';
+        window.location.href = "index.html";
     },
      'how are you': function() {
       responsiveVoice.speak("I am good");
@@ -212,7 +212,7 @@ if (annyang) {
       localStorage.ts = "I know";
     },
     'I have a problem': function() {
-     window.location.href = "index.html?app=5";
+   window.location.href = "mailto:timediamail@gmail.com";
     },
     'what is your favorite website': function() {
      responsiveVoice.speak("T I media dot T-K");
