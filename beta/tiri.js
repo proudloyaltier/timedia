@@ -119,10 +119,10 @@ function tt() {
             responsiveVoice.speak("I am good");
             localStorage.ts = 'I am good';
          } else if(localStorage.us == 'personalize my settings') {
-            updateSettings('https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif', '#1a9fa2')
-            responsiveVoice.speak("Personalizing");
-            localStorage.ts = 'personalizing . . .';
-            window.location.href = "index.html";
+            window.location.href = "index.html?app=6";
+            document.getElementById("backgroundImg").value = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
+            document.getElementById("barColor").value = '#1a9fa2';
+            updateSettings();
          } else if(localStorage.us == '') {
             
          } else {
@@ -141,7 +141,7 @@ if (annyang) {
       localStorage.ts = 'Turqouise';
     },
     'personalize my settings': function() {
-      updateSettings('https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif', '#1a9fa2')
+      updateSettings('', '')
       responsiveVoice.speak("Personalizing");
       localStorage.ts = 'personalizing . . .';
       window.location.href = "index.html";
