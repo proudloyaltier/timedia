@@ -85,6 +85,22 @@ function tt() {
          } else if(localStorage.us == 'what is your favorite food?') {
             responsiveVoice.speak("I am a computer software. I can not eat.");
             localStorage.ts = "I am a computer software. I can not eat."
+         } else if(localStorage.us == 'what time is it?') {
+            var da = new Date();
+            var na = da.getMinutes();
+            var db = new Date();
+            var nb = db.getHours();
+            responsiveVoice.speak("it is" + nb + na);
+            localStorage.ts = nb + ":" + na;
+         } else if(localStorage.us == 'what is the time?') {
+            var da = new Date();
+            var na = da.getMinutes();
+            var db = new Date();
+            var nb = db.getHours();
+            responsiveVoice.speak("it is" + nb + na);
+            localStorage.ts = nb + ":" + na;
+         } else if(localStorage.us == '') {
+            
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
             localStorage.ts = "sorry<br/>I do not understand"
