@@ -1,4 +1,4 @@
-localStorage.ts = 'Welcome';
+localStorage.ts = 'welcome';
 localStorage.us = '';
 
 if(window.location == 'https://proudloyaltier.github.io/timedia/beta/tiri.html') {
@@ -10,7 +10,7 @@ function tt() {
          localStorage.us = prompt("Welcome to Tiri Type");
         
          if(localStorage.us == 'I have a problem') {
-            window.location.href = "mailto:timediamail@gmail.com";
+            window.location.href = "index.html?app=5";
          } else if(localStorage.us == 'what is your favorite color?') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
@@ -102,6 +102,12 @@ function tt() {
          } else if(localStorage.us == 'how are you?') {
             responsiveVoice.speak("I am good");
             localStorage.ts = 'I am good';
+         } else if(localStorage.us == 'personalize my settings') {
+            localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
+            localStorage.barColor = #1a9fa2;
+            responsiveVoice.speak("Personalizing");
+            localStorage.ts = 'personalizing . . .';
+            window.location.href = "index.html";
          } else if(localStorage.us == '') {
             
          } else {
@@ -118,6 +124,13 @@ if (annyang) {
     'what is your favorite color': function() {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
       localStorage.ts = 'Turqouise';
+    },
+     'personalize my settings': function() {
+        localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
+        localStorage.barColor = #1a9fa2;
+        responsiveVoice.speak("Personalizing");
+        localStorage.ts = 'personalizing . . .';
+        window.location.href = "index.html";
     },
      'how are you': function() {
       responsiveVoice.speak("I am good");
@@ -199,7 +212,7 @@ if (annyang) {
       localStorage.ts = "I know";
     },
     'I have a problem': function() {
-     window.location.href = "mailto:timediamail@gmail.com";
+     window.location.href = "index.html?app=5";
     },
     'what is your favorite website': function() {
      responsiveVoice.speak("T I media dot T-K");
