@@ -381,7 +381,7 @@ if (annyang) {
     'open home': function() {
       window.location.href = "index.html";
     },
-    'go to teary home': function() {
+    'open teary home': function() {
      window.location.href = "tiri.html";
     },
     'log out': function() {
