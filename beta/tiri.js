@@ -128,6 +128,8 @@ if (annyang) {
     'personalize my settings': function() {
       responsiveVoice.speak("Personalizing");
       localStorage.ts = 'personalizing . . .';
+      localStorage.barColor = '#1a9fa2';
+      localStorage.bgImg = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
       document.getElementById('body').background = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
       document.getElementById('navbar').style = "background-color: #1a9fa2;";
       window.location.href = "index.html";
