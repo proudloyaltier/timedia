@@ -30,15 +30,18 @@
     <script src="speech.js"></script>
     <script>
       function type() {
+        
+        alert("hi");
+        
          localStorage.us = prompt("Welcome to Tiri Type");
-         if(localStorage.us == 'I have a problem')
+        
+         if(localStorage.us == 'I have a problem') {
             window.location.href = "index.html?app=5";
          } else if(localStorage.us == 'what is your favorite color?') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
             localStorage.ts = 'Turqouise';
          } else if(localStorage.us == 'what is your favorite number?') {
-            'what is your favorite number': function() {
              responsiveVoice.speak("forty two");
              localStorage.ts = '42';
          } else if(localStorage.us == 'what is the lonliest number?') {
