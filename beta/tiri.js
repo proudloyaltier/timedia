@@ -99,6 +99,9 @@ function tt() {
             var nb = db.getHours();
             responsiveVoice.speak("it is" + nb + na);
             localStorage.ts = nb + ":" + na;
+         } else if(localStorage.us == 'how are you?') {
+            responsiveVoice.speak("I am good");
+            localStorage.ts = 'I am good';
          } else if(localStorage.us == '') {
             
          } else {
@@ -114,8 +117,11 @@ if (annyang) {
     //semi-useless easter eggs
     'what is your favorite color': function() {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
-      localStorage.us = 'What is your favorite color?';
       localStorage.ts = 'Turqouise';
+    },
+     'how are you': function() {
+      responsiveVoice.speak("I am good");
+      localStorage.ts = 'I am good';
     },
     'what is your favorite number': function() {
      responsiveVoice.speak("forty two");
