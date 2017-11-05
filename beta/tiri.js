@@ -131,8 +131,9 @@ if (annyang) {
       responsiveVoice.speak("Personalizing");
       localStorage.ts = 'personalizing . . .';
       window.location.href = "index.html";
-      location.reload();
-    },
+      document.getElementById('body').background = localStorage.bgImg;
+      document.getElementById('navbar').style = "background-color: #" + localStorage.barColor + ";";
+     },
      'how are you': function() {
       responsiveVoice.speak("I am good");
       localStorage.ts = 'I am good';
