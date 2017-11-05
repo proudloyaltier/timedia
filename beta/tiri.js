@@ -125,12 +125,12 @@ if (annyang) {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
       localStorage.ts = 'Turqouise';
     },
-     'personalize my settings': function() {
-        localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
-        localStorage.barColor = #1a9fa2;
-        responsiveVoice.speak("Personalizing");
-        localStorage.ts = 'personalizing . . .';
-        window.location.href = "index.html";
+    'personalize my settings': function() {
+      localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
+      localStorage.barColor = #1a9fa2;
+      responsiveVoice.speak("Personalizing");
+      localStorage.ts = 'personalizing . . .';
+      window.location.href = "index.html";
     },
      'how are you': function() {
       responsiveVoice.speak("I am good");
