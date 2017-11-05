@@ -126,11 +126,12 @@ if (annyang) {
       localStorage.ts = 'Turqouise';
     },
     'personalize my settings': function() {
-      localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
-      localStorage.barColor = "#1a9fa2";
+      localStorage.bgImg = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
+      localStorage.barColor = #1a9fa2;
       responsiveVoice.speak("Personalizing");
       localStorage.ts = 'personalizing . . .';
       window.location.href = "index.html";
+      location.reload();
     },
      'how are you': function() {
       responsiveVoice.speak("I am good");
