@@ -10,7 +10,7 @@
     <title>Tiri</title>
   </head>
   <body id="body">
-    <button onclick="window.location.href = 'index.html';" class="button"><span> Back </span></button><br/>
+    <button onclick="window.location.href = 'index.html';" class="bbutton"><span> Back </span></button><button onclick="window.location.href = 'index.html';" class="ttype"> Tiri<br/>Type</button><br/>
     <center>
       <h3 id="user"></h2>
       <h1 id="tiri"></h1>
@@ -37,7 +37,7 @@
     body {
       font-family: 'Poppins';
     }
-    .button {
+    .bbutton {
       align: left;
       border-radius: 15px;
       background-color: White;
@@ -52,14 +52,14 @@
       margin: 5px;
     }
 
-    .button span {
+    .bbutton span {
       cursor: pointer;
       display: inline-block;
       position: relative;
       transition: 0.5s;
     }
 
-    .button span:after {
+    .bbutton span:after {
       content: '\00ab';
       position: absolute;
       opacity: 0;
@@ -68,14 +68,33 @@
       transition: 0.5s;
     }
 
-    .button:hover span {
+    .bbutton:hover span {
       padding-left: 25px;
 
     }
 
-    .button:hover span:after {
+    .bbutton:hover span:after {
       opacity: 1;
       left: 0;
+    }
+    
+    .ttype {
+      align: right;
+      border-radius: 15px;
+      background-color: White;
+      border: none;
+      color: black;
+    }
+    
+    .ttype:hover {
+      box-shadow: 0 2px lightGray;
+    }
+    
+    .button span:after {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      transition: 0.5s;
     }
   </style>
 </html>
