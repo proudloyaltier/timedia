@@ -5,6 +5,22 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/tiri.html')
    setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("user").innerHTML = localStorage.us;}, 0);
  }
 
+//Let's tiri change your settings
+function updateSettings(bimage, bcolor) {
+  localStorage.bgImg = bimage;
+  localStorage.barColor = bcolor;
+  location.reload();
+}
+
+if (localStorage.bgImg !== undefined) {
+  document.getElementById('body').background = localStorage.bgImg;
+}
+
+if (localStorage.barColor !== undefined) {
+  document.getElementById('navbar').style = "background-color: #" + localStorage.barColor + ";";
+}
+//end of settings
+
 function tt() {
         
          localStorage.us = prompt("Welcome to Tiri Type");
@@ -103,12 +119,9 @@ function tt() {
             responsiveVoice.speak("I am good");
             localStorage.ts = 'I am good';
          } else if(localStorage.us == 'personalize my settings') {
+            updateSettings('https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif', '#1a9fa2')
             responsiveVoice.speak("Personalizing");
             localStorage.ts = 'personalizing . . .';
-            localStorage.barColor = '#1a9fa2';
-            localStorage.bgImg = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
-            document.getElementById('body').background = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
-            document.getElementById('navbar').style = "background-color: #1a9fa2;";
             window.location.href = "index.html";
          } else if(localStorage.us == '') {
             
