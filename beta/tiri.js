@@ -12,6 +12,7 @@ if (annyang) {
     //semi-useless easter eggs
     'what is your favorite color': function() {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
+      localStorage.us = 'What is your favorite color?';
       localStorage.ts = 'Turqouise';
     },
     'what is your favorite number': function() {
