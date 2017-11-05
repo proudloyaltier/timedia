@@ -170,6 +170,24 @@ function tt() {
 
              responsiveVoice.speak("I will call you " + nickname);
              localStorage.ts = nickname;
+         } else if(localStorage.us == 'open settings') {
+            window.location.href = "index.html?app=6";
+         } else if(localStorage.us == 'open docs') {
+            window.location.href = "index.html?app=3";
+         } else if(localStorage.us == 'open sheets') {
+            window.location.href = "index.html?app=4";
+         } else if(localStorage.us == 'open tiles') {
+            window.location.href = "index.html?app=7";
+         } else if(localStorage.us == 'open home') {
+            window.location.href = "index.html";
+         } else if(localStorage.us == 'go home') {
+            window.location.href = "index.html";
+         } else if(localStorage.us == 'go to home') {
+            window.location.href = "index.html";
+         } else if(localStorage.us == 'open points') {
+            window.location.href = "index.html?app=1";
+         } else if(localStorage.us == '') {
+            
          } else if(localStorage.us == '') {
             
          } else {
@@ -381,11 +399,14 @@ if (annyang) {
     'open home': function() {
       window.location.href = "index.html";
     },
-    'open teary home': function() {
+    'open terry home': function() {
      window.location.href = "tiri.html";
     },
     'log out': function() {
       window.location.href = "logout.html";
+    },
+    'open points': function() {
+      window.location.href = "?app=1";
     },
     'open the chat *password': openChat,
     'search wikipedia *search': searchWikipedia,
