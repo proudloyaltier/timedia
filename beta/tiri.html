@@ -11,6 +11,7 @@
   </head>
   <body id="body">
     <center>
+      <button onclick="window.location.href = 'index.html';" class="button"><span> Back </span></button><br/>
       <h3 id="user"></h2>
       <h1 id="tiri"></h1>
     </center>
@@ -35,6 +36,47 @@
     
     body {
       font-family: 'Poppins';
+    }
+    .button {
+      align: left;
+      border-radius: 15px;
+      background-color: White;
+      border: none;
+      color: black;
+      text-align: center;
+      font-size: 25px;
+      padding: 10px;
+      width: 100px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00ab';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-left: 25px;
+      box-shadow: 0 2px lightGray;
+
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      left: 0;
     }
   </style>
 </html>
