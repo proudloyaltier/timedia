@@ -85,6 +85,9 @@ function tt() {
          } else if(localStorage.us == 'what is your favorite food?') {
             responsiveVoice.speak("I am a computer software. I can not eat.");
             localStorage.ts = "I am a computer software. I can not eat."
+         } else {
+            responsiveVoice.speak("Sorry. I do not understand");
+            localStorage.ts = "sorry<br/>I do not understand"
          }
 }
 
