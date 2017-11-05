@@ -127,7 +127,7 @@ if (annyang) {
     },
     'personalize my settings': function() {
       localStorage.bgImg = 'https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif';
-      localStorage.barColor = #1a9fa2;
+      localStorage.barColor = '#1a9fa2';
       responsiveVoice.speak("Personalizing");
       localStorage.ts = 'personalizing . . .';
       window.location.href = "index.html";
