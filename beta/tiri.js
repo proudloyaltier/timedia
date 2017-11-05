@@ -81,7 +81,7 @@ function tt() {
             responsiveVoice.speak("I know");
             localStorage.ts = "I know";
          } else if(localStorage.us == 'what is your favorite website?') {
-            window.location.href = "index.html?app=5";
+            window.location.href = "index.html";
          } else if(localStorage.us == 'what is your favorite food?') {
             responsiveVoice.speak("I am a computer software. I can not eat.");
             localStorage.ts = "I am a computer software. I can not eat."
