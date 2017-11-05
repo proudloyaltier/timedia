@@ -102,17 +102,17 @@ function tt() {
          } else if(localStorage.us == 'how are you?') {
             responsiveVoice.speak("I am good");
             localStorage.ts = 'I am good';
-         }/* else if(localStorage.us == 'personalize my settings') {
+         } else if(localStorage.us == 'personalize my settings') {
             localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
             localStorage.barColor = #1a9fa2;
             responsiveVoice.speak("Personalizing");
             localStorage.ts = 'personalizing . . .';
             window.location.href = "index.html";
-         }*/ else if(localStorage.us == '') {
+         } else if(localStorage.us == '') {
             
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
-            localStorage.ts = "sorry<br/>I do not understand"
+            localStorage.ts = "sorry<br/>I do not understand";
          }
 }
 
