@@ -104,7 +104,7 @@ function tt() {
             localStorage.ts = 'I am good';
          } else if(localStorage.us == 'personalize my settings') {
             localStorage.bgImg = "https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif";
-            localStorage.barColor = #1a9fa2;
+            localStorage.barColor = "#1a9fa2";
             responsiveVoice.speak("Personalizing");
             localStorage.ts = 'personalizing . . .';
             window.location.href = "index.html";
