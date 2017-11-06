@@ -109,7 +109,76 @@ function alertAds() {
   
     <input id="chat" class="form-control" style="display: none;"><br>
     <button id="joinChatBtn" onclick="joinChat()" class="btn btn-primary" style="display: none;">Create/Join Chat</button>
- 
+
+  <div style="display: none" id="tiritype">
+   <div style="text-align: right">
+      <button onclick="tt()" class="ttype"> Tiri Type </button><br/>
+    </div>
+    <center>
+      <h3 id="user"></h2>
+      <h1 id="tiri"></h1>
+    </center>
+     <style>
+    #user {
+      color: gray;
+    }
+    
+    #tiri {
+      color: black;
+      font-size: 50px;
+    }
+    
+    body {
+      font-family: 'Poppins';
+    }
+    .bbutton {
+      align: left;
+      border-radius: 15px;
+      background-color: White;
+      border: none;
+      color: black;
+      text-align: center;
+      font-size: 20px;
+      padding: 5px;
+      width: 100px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .bbutton span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    .bbutton span:after {
+      content: '\00ab';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: -20px;
+      transition: 0.5s;
+    }
+    .bbutton:hover span {
+      padding-left: 25px;
+    }
+    .bbutton:hover span:after {
+      opacity: 1;
+      left: 0;
+    }
+    
+    .ttype {
+      width: 100px;
+      font-size: 20px;
+      align: right;
+      border-radius: 15px;
+      background-color: White;
+      border: none;
+      color: black;
+    }
+    
+  </style>
+  </div>
 <!--<div style="display: none;" id="ticontacts">
     <h3>TiContacts</h3><br>
  <div id="progress-parent" class="progress" style="display:none;">
