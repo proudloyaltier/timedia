@@ -30,10 +30,9 @@ bar.text.style.fontSize = '2rem';
 
 bar.animate(1);  // Number from 0.0 to 1.0
 
-setTimeout(reloadTiles, 5000)
-
 function reloadTiles() {
 document.getElementById("tiles").style = 'display: block;';
 document.getElementById("tiles-bar").style = 'display: none;';
 }
 
+setTimeout(reloadTiles, 5000)
