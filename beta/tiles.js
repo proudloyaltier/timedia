@@ -123,7 +123,8 @@ if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
 
-if (localStorage.tilesLoaded == true) {
+if (localStorage.tilesLoaded !== true) {
+}else {
   document.getElementById("container").style = 'display: none;';
 }
 
