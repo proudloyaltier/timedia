@@ -123,4 +123,8 @@ if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
 
+if (localStorage.tilesLoaded == true) {
+  document.getElementById("container").style = 'display: none;';
+}
+
 refreshTiles();
