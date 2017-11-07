@@ -114,7 +114,7 @@ function redirect() {
 }
 
 
-if (localStorage.files !== undefined) {
+if (localStorage.files !== undefined && getQueryVariable('app') == 7) {
   loadTiles();
   setInterval(loadTiles, 1000);
 }
