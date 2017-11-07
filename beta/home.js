@@ -49,7 +49,11 @@ if (localStorage.access !== undefined) {
   }
        
   if (getQueryVariable("app") == 7) {
-    launchApp("container");
+         if (localStorage.tilesLoaded == undefined) {
+       launchApp("container");
+         } else {
+       launchApp("tiles")
+      }
     document.title = "Tiles - TiMedia";
   }
        
