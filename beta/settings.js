@@ -11,3 +11,7 @@ if (localStorage.bgImg !== undefined) {
 if (localStorage.barColor !== undefined) {
   document.getElementById('navbar').style = "background-color: #" + localStorage.barColor + ";";
 }
+
+lastTile() {
+  window.location.href = localStorage.recentUrl;
+}
