@@ -34,8 +34,11 @@ bar.text.style.fontSize = '2rem';
 bar.animate(1.0);  // Number from 0.0 to 1.0
 
 function reloadTiles() {
+if (getQueryVariable('app') == 7) {
 document.getElementById("tiles").style = 'display: block;';
 localStorage.tilesLoaded = true;
+  }
+  
 }
 
 setTimeout(reloadTiles, 5000);
