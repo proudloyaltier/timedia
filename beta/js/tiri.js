@@ -172,6 +172,8 @@ function tt() {
              localStorage.ts = nickname;
          } else if(localStorage.us == 'open settings') {
             window.location.href = "index.html?app=6";
+         }  else if(localStorage.us == 'open tiri home') {
+            window.location.href = "index.html?app=7";
          } else if(localStorage.us == 'open docs') {
             window.location.href = "index.html?app=3";
          } else if(localStorage.us == 'open sheets') {
@@ -400,7 +402,7 @@ if (annyang) {
       window.location.href = "index.html";
     },
     'open terry home': function() {
-     window.location.href = "tiri.html";
+     window.location.href = "index.html?app=7";
     },
     'log out': function() {
       window.location.href = "logout.html";
