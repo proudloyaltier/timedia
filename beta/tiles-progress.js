@@ -34,5 +34,6 @@ setTimeout(reloadTiles, 5000)
 
 function reloadTiles() {
 document.getElementById("tiles").style = 'display: block;';
-localStorage.tiles-loaded = true;
+document.getElementById("tiles-bar").style = 'display: none;';
 }
+
