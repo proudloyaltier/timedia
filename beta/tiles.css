@@ -16,3 +16,11 @@ img {
 .container {
     padding: 2px 16px;
 }
+
+
+#tiles-bar {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
