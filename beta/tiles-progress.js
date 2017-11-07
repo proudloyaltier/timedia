@@ -1,3 +1,6 @@
+// progressbar.js@1.0.0 version is used
+// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+
 var bar = new ProgressBar.Circle(container, {
   color: '#aaa',
   // This has to be the same size as the maximum width to
@@ -28,11 +31,11 @@ var bar = new ProgressBar.Circle(container, {
 bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '2rem';
 
-bar.animate(1);  // Number from 0.0 to 1.0
+bar.animate(1.0);  // Number from 0.0 to 1.0
 
 function reloadTiles() {
 document.getElementById("tiles").style = 'display: block;';
 document.getElementById("tiles-bar").style = 'display: none;';
 }
 
-setTimeout(reloadTiles, 5000)
+setTimeout(reloadTiles, 5000);
