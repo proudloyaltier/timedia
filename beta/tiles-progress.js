@@ -35,7 +35,7 @@ bar.animate(1.0);  // Number from 0.0 to 1.0
 
 function reloadTiles() {
 document.getElementById("tiles").style = 'display: block;';
-document.getElementById("tiles-bar").style = 'display: none;';
+localStorage.tilesLoaded = true;
 }
 
 setTimeout(reloadTiles, 5000);
