@@ -39,7 +39,7 @@ function tt() {
                window.timer = localStorage.us.split(" ")[4] * 3600;               
             }
             
-            localStorage.ts = timer + ''.toHHMMSS;
+            localStorage.ts = timer + ''.toHHMMSS();
             
             window.timerInterval = setInterval(timerDown, 1000);
             
@@ -494,7 +494,7 @@ function solve(problem) {
 
 function timerDown() {
    window.timer = timer - 1;
-   localStorage.ts = timer + ''.toHHMMSS;
+   localStorage.ts = timer + ''.toHHMMSS();
 }
 
 
