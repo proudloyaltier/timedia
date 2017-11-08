@@ -22,7 +22,7 @@ function tt() {
          localStorage.us = '';
          localStorage.ts = 'welcome';
          
-         localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "");
+         localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is");
          
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
