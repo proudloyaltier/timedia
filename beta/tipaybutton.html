@@ -19,7 +19,7 @@ function getQueryVariable(variable)
 }
 
 var amount = Number(atob(getQueryVariable("code")).split("&")[0]);
-var code = Number(atob(getQueryVariable("code")).split("&")[1]);
+var code = atob(getQueryVariable("code")).split("&")[1];
 
 function pay() {
   if (localStorage.points < amount) {
