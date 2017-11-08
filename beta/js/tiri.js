@@ -7,8 +7,7 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
 
 function tt() {
         
-          var us = prompt("Welcome to Tiri Type");
-          localStorage.us = us.toLowercase();
+          localStorage.us = prompt("Welcome to Tiri Type");
          
          if(localStorage.us == 'I have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
