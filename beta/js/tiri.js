@@ -6,6 +6,8 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
  }
 
 function tt() {
+         clearInterval(window.timerInterval);
+         
          localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "");
          
          if(localStorage.us == 'i have a problem') {
@@ -13,6 +15,29 @@ function tt() {
          } else if(localStorage.us == 'ti') {
             responsiveVoice.speak("T I");
             localStorage.ts = 'TI!';
+         } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
+            if (localStorage.us.split(" ")[5] == "seconds") {
+               window.timer = localStorage.us.split(" ")[4];
+               responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
+            } else if if (localStorage.us.split(" ")[5] == "minutes") {
+               responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.");
+               window.timer = localStorage.us.split(" ")[4] * 60;
+            } else if if (localStorage.us.split(" ")[5] == "hours") {
+               responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " hours and counting.");
+               window.timer = localStorage.us.split(" ")[4] * 3600;               
+            }
+            
+            if (window.timer / 3600 < 1) {
+               localStorage.ts = floor(window.timer / 3600) + " hours, " + floor(window.timer / 60) + window.timer - floor(window.timer) + " minutes, and " + (window.timer - floor(window.timer)) + "seconds left";
+            } else if (window.timer / 60 < 60) {
+               localStorage.ts = floor(window.timer / 60) + " minutes and " + (window.timer - floor(window.timer)) + " seconds left";
+            } else {
+               localStorage.ts = window.timer + " seconds left";
+            }
+            
+            window.timerInterval = setInterval(timerDown, 1000);
+            
+            
          } else if(localStorage.us == 'what is your favorite color?') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
@@ -460,3 +485,17 @@ function solve(problem) {
     localStorage.ts = result;
   }
 }
+
+function timerDown() {
+   window.timer = timer - 1;
+   
+            if (window.timer / 3600 < 1) {
+               localStorage.ts = floor(window.timer / 3600) + " hours, " + floor(window.timer / 60) + window.timer - floor(window.timer) + " minutes, and " + (window.timer - floor(window.timer)) + "seconds left";
+            } else if (window.timer / 60 < 60) {
+               localStorage.ts = floor(window.timer / 60) + " minutes and " + (window.timer - floor(window.timer)) + " seconds left";
+            } else {
+               localStorage.ts = window.timer + " seconds left";
+            }
+}
+
+
