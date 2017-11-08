@@ -10,6 +10,9 @@ function tt() {
          
          if(localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
+         } else if(localStorage.us == 'ti') {
+            responsiveVoice.speak("TI");
+            localStorage.ts = 'TI!';
          } else if(localStorage.us == 'what is your favorite color?') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
