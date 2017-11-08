@@ -44,7 +44,7 @@ function tt() {
             window.timerInterval = setInterval(timerDown, 1000);
             
             
-         } else if(localStorage.us == 'what is your favorite color?') {
+         } else if(localStorage.us == 'what is your favorite color') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
             localStorage.ts = 'Turqouise';
@@ -341,7 +341,7 @@ if (annyang) {
      responsiveVoice.speak("Hello" + "," + localStorage.name);
       localStorage.ts = "Hello" + ", " + localStorage.name;
     },
-    'what is up?': function() {
+    'what is up': function() {
      responsiveVoice.speak("What is up" + "," + localStorage.name);
       localStorage.ts = "What is up" + ", " + localStorage.name + "?";
     },
