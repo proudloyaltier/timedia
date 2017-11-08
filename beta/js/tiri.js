@@ -31,6 +31,9 @@ function tt() {
             if (isNaN(Number(localStorage.us.split(" ")[4]))) {
                responsiveVoice.speak("Sorry. I do not understand");
                localStorage.ts = "sorry<br>I do not understand";
+            } else if (Number(localStorage.us.split(" ")[4]) < 1) {
+               responsiveVoice.speak("That would be useless");
+               localStorage.ts = "That would be useless.";
             } else if (localStorage.us.split(" ")[5] == "seconds" || localStorage.us.split(" ")[5] == "second") {
                window.timer = localStorage.us.split(" ")[4];
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
