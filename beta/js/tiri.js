@@ -19,7 +19,7 @@ function tt() {
             if (localStorage.us.split(" ")[5] == "seconds") {
                window.timer = localStorage.us.split(" ")[4];
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
-            } else if if (localStorage.us.split(" ")[5] == "minutes") {
+            } else if (localStorage.us.split(" ")[5] == "minutes") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.");
                window.timer = localStorage.us.split(" ")[4] * 60;
             } else if if (localStorage.us.split(" ")[5] == "hours") {
