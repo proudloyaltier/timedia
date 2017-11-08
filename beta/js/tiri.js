@@ -28,9 +28,9 @@ function tt() {
             }
             
             if (window.timer / 3600 < 1) {
-               localStorage.ts = floor(window.timer / 3600) + " hours, " + floor(window.timer / 60) + window.timer - floor(window.timer) + " minutes, and " + (window.timer - floor(window.timer)) + "seconds left";
+               localStorage.ts = Math.floor(window.timer / 3600) + " hours, " + Math.floor(window.timer / 60) + window.timer - Math.floor(window.timer) + " minutes, and " + (window.timer - Math.floor(window.timer)) + "seconds left";
             } else if (window.timer / 60 < 60) {
-               localStorage.ts = floor(window.timer / 60) + " minutes and " + (window.timer - floor(window.timer)) + " seconds left";
+               localStorage.ts = Math.floor(window.timer / 60) + " minutes and " + (window.timer - Math.floor(window.timer)) + " seconds left";
             } else {
                localStorage.ts = window.timer + " seconds left";
             }
