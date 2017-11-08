@@ -66,6 +66,11 @@ if (localStorage.access !== undefined) {
     launchApp("tislides");
     document.title = "TiSlides - TiMedia";
   }
+       
+  if (getQueryVariable("app") == 10) {
+    launchApp("tipay");
+    document.title = "TiPay - TiMedia";
+  }
 } else {
   window.location.href = "login.html";
 }
