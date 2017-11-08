@@ -494,9 +494,9 @@ function solve(problem) {
 
 function timerDown() {
     if (window.timer == 1) {
-        clearInterval(window.timerInterval);
-        localStorage.ts = "Time's up.";
         responsiveVoice.speak("Time's up");
+        localStorage.ts = "Time's up.";
+        clearInterval(window.timerInterval);
    }
     
    window.timer = timer - 1;
