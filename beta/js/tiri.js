@@ -499,13 +499,14 @@ function solve(problem) {
 }
 
 function timerDown() {
-    if (window.timer == 1) {
-        responsiveVoice.speak("Time's up");
-        clearInterval(window.timerInterval);
-   }
-    
    window.timer = timer - 1;
    localStorage.ts = (timer + '').toHHMMSS();
+    
+    if (window.timer == 0) {
+        responsiveVoice.speak("Time's up");
+        localStorage.ts = "Time's up.";
+        clearInterval(window.timerInterval);
+   }
 }
 
 
