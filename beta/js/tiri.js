@@ -20,7 +20,7 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
 function tt() {
          clearInterval(window.timerInterval);
          
-         localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "");
+         localStorage.us = prompt("Enter your command below").toLowerCase().replace("?", "").replace("!", "").replace(".", "");
          
          if(localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
