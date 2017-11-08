@@ -6,7 +6,7 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
  }
 
 function tt() {
-          localStorage.us = prompt().toLowerCase();
+         localStorage.us = prompt().toLowerCase().replace("?", "");
          
          if(localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
@@ -14,10 +14,10 @@ function tt() {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
             localStorage.ts = 'Turqouise';
-         } else if(localStorage.us == 'what is your favorite number?') {
+         } else if(localStorage.us == 'what is your favorite number') {
              responsiveVoice.speak("forty two");
              localStorage.ts = '42';
-         } else if(localStorage.us == 'what is the lonliest number?') {
+         } else if(localStorage.us == 'what is the lonliest number') {
             responsiveVoice.speak("one");
             localStorage.ts = '1';
          } else if(localStorage.us == 'sing me a song') {
@@ -44,15 +44,15 @@ function tt() {
          } else if(localStorage.us == 'hello tiri') {
             responsiveVoice.speak("Hello" + "," + localStorage.name);
             localStorage.ts = "Hello" + ", " + localStorage.name;
-         } else if(localStorage.us == 'what is up?') {
+         } else if(localStorage.us == 'what is up') {
             responsiveVoice.speak("What is up" + "," + localStorage.name);
             localStorage.ts = "What is up" + ", " + localStorage.name + "?";
-         } else if(localStorage.us == 'what is up tiri?') {
+         } else if(localStorage.us == 'what is up tiri') {
             responsiveVoice.speak("What is up" + "," + localStorage.name);
             localStorage.ts = "What is up" + ", " + localStorage.name + "?";
          } else if(localStorage.us == 'show me a TI 84 plus') {
             window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
-         } else if(localStorage.us == 'do you like to read?') {
+         } else if(localStorage.us == 'do you like to read') {
             responsiveVoice.speak("I did, but then I red all of the existing literature in the universe.");
             localStorage.ts = "I did, but then I red all of the existing literature in the universe.";
          } else if(localStorage.us == 'tell me a knock knock joke') {
@@ -72,35 +72,35 @@ function tt() {
             localStorage.ts = "I can hear you!";
          } else if(localStorage.us == 'you are awesome') {
             responsiveVoice.speak("Why thank you");
-            localStorage.ts = "Why thank you";
+            localStorage.ts = "Why thank you!";
          } else if(localStorage.us == 'you are amazing') {
             responsiveVoice.speak("You are too");
-            localStorage.ts = "You are too";
+            localStorage.ts = "You are too!";
          } else if(localStorage.us == 'you are wonderful') {
             responsiveVoice.speak("I know");
-            localStorage.ts = "I know";
-         } else if(localStorage.us == 'what is your favorite website?') {
+            localStorage.ts = "I know.";
+         } else if(localStorage.us == 'what is your favorite website') {
             window.location.href = "index.html";
-         } else if(localStorage.us == 'what is your favorite food?') {
+         } else if(localStorage.us == 'what is your favorite food') {
             responsiveVoice.speak("I am a computer software. I can not eat.");
             localStorage.ts = "I am a computer software. I can not eat."
-         } else if(localStorage.us == 'what time is it?') {
+         } else if(localStorage.us == 'what time is it') {
             var da = new Date();
             var na = da.getMinutes();
             var db = new Date();
             var nb = db.getHours();
             responsiveVoice.speak("it is" + nb + na);
             localStorage.ts = nb + ":" + na;
-         } else if(localStorage.us == 'what is the time?') {
+         } else if(localStorage.us == 'what is the time') {
             var da = new Date();
             var na = da.getMinutes();
             var db = new Date();
             var nb = db.getHours();
             responsiveVoice.speak("it is" + nb + na);
             localStorage.ts = nb + ":" + na;
-         } else if(localStorage.us == 'how are you?') {
+         } else if(localStorage.us == 'how are you') {
             responsiveVoice.speak("I am good");
-            localStorage.ts = 'I am good';
+            localStorage.ts = 'I am good.';
          } else if(localStorage.us == 'give me a nickname') {
             var rand1 = Math.floor((Math.random() * 10) + 1);
             var rand2 = Math.floor((Math.random() * 10) + 1);
@@ -167,7 +167,7 @@ function tt() {
 
             var nickname = rand1 + ' ' + rand2 + ' ' + rand3;
 
-             responsiveVoice.speak("I will call you " + nickname);
+             responsiveVoice.speak("I will call you " + nickname + ".");
              localStorage.ts = nickname;
          } else if(localStorage.us == 'open settings') {
             window.location.href = "index.html?app=6";
