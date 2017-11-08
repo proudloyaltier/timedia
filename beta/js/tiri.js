@@ -30,7 +30,7 @@ function tt() {
          } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
             if (!isNaN(Number(localStorage.us.split(" ")[4]))) {
                responsiveVoice.speak("Sorry. I do not understand");
-               localStorage.ts = "sorry<b>I do not understand";
+               localStorage.ts = "sorry<br>I do not understand";
             } else if (localStorage.us.split(" ")[5] == "seconds" || localStorage.us.split(" ")[5] == "second") {
                window.timer = localStorage.us.split(" ")[4];
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
@@ -42,7 +42,7 @@ function tt() {
                window.timer = localStorage.us.split(" ")[4] * 3600;               
             } else {
                responsiveVoice.speak("Sorry. I do not understand");
-               localStorage.ts = "sorry<b>I do not understand";   
+               localStorage.ts = "sorry<br>I do not understand";   
             }
             
             localStorage.ts = (timer + '').toHHMMSS();
@@ -233,7 +233,7 @@ function tt() {
             
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
-            localStorage.ts = "sorry<b>I do not understand";
+            localStorage.ts = "sorry<br>I do not understand";
          }
 }
 
