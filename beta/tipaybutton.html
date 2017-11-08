@@ -19,16 +19,22 @@ function getQueryVariable(variable)
 }
 
 var amount = Number(atob(getQueryVariable("code")).split("&")[0]);
+var code = Number(atob(getQueryVariable("code")).split("&")[1]);
 
 function pay() {
-  if (amount == 1) {
+  if (localStorage.points < amount) {
+    alert("Insufficient funds.");
+  } else if (amount == 1) {
     var paymessage = confirm("Are you sure you would like to pay 1 TiPoint?");
   } else {
     var paymessage = confirm("Are you sure you would like to pay " + amount + " TiPoints?");
   }
+  }
   
   if (paymessage) {
     localStorage.points = localStorage.points - amount;
+    alert("Purchase completed.");
+    eval(code);
   }
 }
 </script>
