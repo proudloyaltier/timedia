@@ -1,6 +1,18 @@
 localStorage.ts = 'welcome';
 localStorage.us = '';
 
+String.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes+':'+seconds;
+}
+
 if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
    setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("user").innerHTML = localStorage.us;}, 0);
  }
@@ -27,13 +39,7 @@ function tt() {
                window.timer = localStorage.us.split(" ")[4] * 3600;               
             }
             
-            if (window.timer / 3600 < 1) {
-               localStorage.ts = Math.floor(window.timer / 3600) + " hours, " + Math.floor(window.timer / 60) + window.timer - Math.floor(window.timer) + " minutes, and " + (window.timer - Math.floor(window.timer)) + "seconds left";
-            } else if (window.timer / 60 < 60) {
-               localStorage.ts = Math.floor(window.timer / 60) + " minutes and " + (window.timer - Math.floor(window.timer)) + " seconds left";
-            } else {
-               localStorage.ts = window.timer + " seconds left";
-            }
+            localStorage.ts = timer.toHHMMSS;
             
             window.timerInterval = setInterval(timerDown, 1000);
             
@@ -488,14 +494,7 @@ function solve(problem) {
 
 function timerDown() {
    window.timer = timer - 1;
-   
-            if (window.timer / 3600 < 1) {
-               localStorage.ts = Math.floor(window.timer / 3600) + " hours, " + Math.floor(window.timer / 60) + window.timer - Math.floor(window.timer) + " minutes, and " + (window.timer - Math.floor(window.timer)) + "seconds left";
-            } else if (window.timer / 60 < 60) {
-               localStorage.ts = Math.floor(window.timer / 60) + " minutes and " + (window.timer - Math.floor(window.timer)) + " seconds left";
-            } else {
-               localStorage.ts = window.timer + " seconds left";
-            }
+   localStorage.ts = timer.toHHMMSS;
 }
 
 
