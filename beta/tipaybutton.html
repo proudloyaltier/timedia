@@ -32,6 +32,7 @@ function pay() {
   
   if (paymessage) {
     localStorage.points = localStorage.points - amount;
+    storeInDatabase("points", localStorage.points)
     alert("Purchase completed.");
     eval(code);
   }
