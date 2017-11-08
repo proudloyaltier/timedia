@@ -16,13 +16,13 @@ function tt() {
             responsiveVoice.speak("T I");
             localStorage.ts = 'TI!';
          } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
-            if (localStorage.us.split(" ")[5] == "seconds") {
+            if (localStorage.us.split(" ")[5] == "seconds" || localStorage.us.split(" ")[5] == "second") {
                window.timer = localStorage.us.split(" ")[4];
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
-            } else if (localStorage.us.split(" ")[5] == "minutes") {
+            } else if (localStorage.us.split(" ")[5] == "minutes" || localStorage.us.split(" ")[5] == "minute") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.");
                window.timer = localStorage.us.split(" ")[4] * 60;
-            } else if (localStorage.us.split(" ")[5] == "hours") {
+            } else if (localStorage.us.split(" ")[5] == "hours" || localStorage.us.split(" ")[5] == "hour") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " hours and counting.");
                window.timer = localStorage.us.split(" ")[4] * 3600;               
             }
