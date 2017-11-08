@@ -19,10 +19,12 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
 
 function tt() {
          clearInterval(window.timerInterval);
+         localStorage.us = "";
+         localStorage.ts = "";
          
          localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "");
          
-         if(localStorage.us == 'i have a problem') {
+         if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
             responsiveVoice.speak("T I");
