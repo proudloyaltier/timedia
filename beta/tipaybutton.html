@@ -2,12 +2,10 @@
 <html>
 <head>
   <title>Pay with TiPay</title>
+  <link rel="stylesheet" href="other resources/style.css">
+  <link rel="stylesheet" href="other resources/style2.css">
 </head>
 <body>
-<link rel="stylesheet" href="other resources/style.css">
-<link rel="stylesheet" href="other resources/style2.css">
-<button class="btn btn-primary">Pay with TiPay</button>
-
 <script>
 var amount = Number(atob(getQueryVariable("code")).split("&")[0]);
 
@@ -21,6 +19,8 @@ function pay() {
   if (paymessage) {
     localStorage.points = localStorage.points - amount;
   }
+}
 </script>
+<button class="btn btn-primary" onclick="pay()">Pay with TiPay</button>
 </body>
 </html>
