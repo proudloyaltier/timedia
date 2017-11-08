@@ -29,7 +29,6 @@ function pay() {
   } else {
     var paymessage = confirm("Are you sure you would like to pay " + amount + " TiPoints?");
   }
-  }
   
   if (paymessage) {
     localStorage.points = localStorage.points - amount;
