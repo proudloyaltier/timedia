@@ -18,7 +18,7 @@ function getQueryVariable(variable)
        return(false);
 }
 
-var amount = Number(atob(getQueryVariable("code").split("&")[0]));
+var amount = Number(atob(getQueryVariable("code").split("&"))[0]);
 
 function pay() {
   if (amount == 1) {
