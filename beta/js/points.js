@@ -23,5 +23,11 @@ if (getQueryVariable("app") == 1) {
 }
 
 if (localStorage.points !== undefined) {
-    storeInDatabase("points", localStorage.points);
+localStorage.newpoints = localStorage.points;
+getFromDatabase("points");
+    
+    if (localStorage.newpoints !== localStorage.points) {
+        storeInDatabase("points", localStorage.points);
+    }
+
 }
