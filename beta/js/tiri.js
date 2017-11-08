@@ -20,7 +20,7 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
 function tt() {
          clearInterval(window.timerInterval);
          
-         localStorage.us = prompt("Enter your command below").toLowerCase().replace("?", "").replace("!", "").replace(".", "");
+         localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "");
          
          if(localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
@@ -28,7 +28,10 @@ function tt() {
             responsiveVoice.speak("T I");
             localStorage.ts = 'TI!';
          } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
-            if (localStorage.us.split(" ")[5] == "seconds" || localStorage.us.split(" ")[5] == "second") {
+            if (!isNaN(Number(localStorage.us.split(" ")[4]))) {
+               responsiveVoice.speak("Sorry. I do not understand");
+               localStorage.ts = "sorry<b>I do not understand";
+            } else if (localStorage.us.split(" ")[5] == "seconds" || localStorage.us.split(" ")[5] == "second") {
                window.timer = localStorage.us.split(" ")[4];
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
             } else if (localStorage.us.split(" ")[5] == "minutes" || localStorage.us.split(" ")[5] == "minute") {
@@ -37,6 +40,9 @@ function tt() {
             } else if (localStorage.us.split(" ")[5] == "hours" || localStorage.us.split(" ")[5] == "hour") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " hours and counting.");
                window.timer = localStorage.us.split(" ")[4] * 3600;               
+            } else {
+               responsiveVoice.speak("Sorry. I do not understand");
+               localStorage.ts = "sorry<b>I do not understand";   
             }
             
             localStorage.ts = (timer + '').toHHMMSS();
@@ -44,7 +50,7 @@ function tt() {
             window.timerInterval = setInterval(timerDown, 1000);
             
             
-         } else if(localStorage.us == 'what is your favorite color') {
+         } else if(localStorage.us == 'what is your favorite color?') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
             localStorage.ts = 'Turqouise';
@@ -227,7 +233,7 @@ function tt() {
             
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
-            localStorage.ts = "sorry<br/>I do not understand";
+            localStorage.ts = "sorry<b>I do not understand";
          }
 }
 
@@ -341,7 +347,7 @@ if (annyang) {
      responsiveVoice.speak("Hello" + "," + localStorage.name);
       localStorage.ts = "Hello" + ", " + localStorage.name;
     },
-    'what is up': function() {
+    'what is up?': function() {
      responsiveVoice.speak("What is up" + "," + localStorage.name);
       localStorage.ts = "What is up" + ", " + localStorage.name + "?";
     },
