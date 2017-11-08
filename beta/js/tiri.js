@@ -7,9 +7,9 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
 
 function tt() {
         
-          localStorage.us = prompt("Welcome to Tiri Type");
+          localStorage.us = prompt("Welcome to Tiri Type").toLowerCase;
          
-         if(localStorage.us == 'I have a problem') {
+         if(localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'what is your favorite color?') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
