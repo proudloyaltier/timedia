@@ -22,7 +22,7 @@ function tt() {
             } else if (localStorage.us.split(" ")[5] == "minutes") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.");
                window.timer = localStorage.us.split(" ")[4] * 60;
-            } else if if (localStorage.us.split(" ")[5] == "hours") {
+            } else if (localStorage.us.split(" ")[5] == "hours") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " hours and counting.");
                window.timer = localStorage.us.split(" ")[4] * 3600;               
             }
