@@ -19,8 +19,8 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
 
 function tt() {
          clearInterval(window.timerInterval);
-         localStorage.us = "";
-         localStorage.ts = "";
+         localStorage.us = '';
+         localStorage.ts = 'welcome';
          
          localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "");
          
