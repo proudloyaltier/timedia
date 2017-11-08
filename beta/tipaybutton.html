@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pay with TiPay</title>
+</head>
+<body>
+<link rel="stylesheet" href="other resources/style.css">
+<link rel="stylesheet" href="other resources/style2.css">
+<button class="btn btn-primary">Pay with TiPay</button>
+
+<script>
+var amount = Number(atob(getQueryVariable("code")).split("&")[0]);
+
+function pay() {
+  if (amount == 1) {
+    var paymessage = confirm("Are you sure you would like to pay 1 TiPoint?");
+  } else {
+    var paymessage = confirm("Are you sure you would like to pay " + amount + " TiPoints?");
+  }
+  
+  if (paymessage) {
+    localStorage.points = localStorage.points - amount;
+  }
+</script>
+</body>
+</html>
