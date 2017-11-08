@@ -493,6 +493,12 @@ function solve(problem) {
 }
 
 function timerDown() {
+    if (window.timer == 1) {
+        clearInterval(window.timerInterval);
+        localStorage.ts = "Time's up.";
+        responsiveVoice.speak("Time's up");
+   }
+    
    window.timer = timer - 1;
    localStorage.ts = (timer + '').toHHMMSS();
 }
