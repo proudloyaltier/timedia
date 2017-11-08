@@ -238,7 +238,7 @@ function tt() {
             
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
-            localStorage.ts = "Sorry, I do not understand.<br><button class='btn btn-primary' onclick='window.open(&quot;https://www.google.com/search?q=" + encodeURI(localStorage.us) + "&quot;)&quot;>Search the Web for " + localStorage.us + "</button>";
+            localStorage.ts = "Sorry, I do not understand.";
          }
 }
 
