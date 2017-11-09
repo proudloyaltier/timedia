@@ -1,5 +1,6 @@
+if (getQueryVeriable("app") == 1 {
 setInterval(store, 5000);
-
+}
 
 function dismissTiBank() {
     localStorage.tibankmd = "true";
