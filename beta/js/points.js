@@ -1,5 +1,5 @@
 if (getQueryVeriable("app") == 1 {
-setInterval(store, 5000);
+setInterval(store, 30000);
 }
 
 function dismissTiBank() {
