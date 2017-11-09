@@ -147,14 +147,15 @@ function tt() {
          } else if(localStorage.us == 'what is the time' || localStorage.us == 'what time is it') {
             var da = new Date();
             var na = da.getMinutes();
-            var db = new Date();
-            var nb = db.getHours();
-            if (na.length == 1) {
-                na = "0" + na;
+            var nb = da.getHours();
+            nb = nb % 12;
+            
+            if (nb == 0) {
+               nb == 12;
             }
-             
-            responsiveVoice.speak("It is " + nb + " " + na);
-            localStorage.ts = nb + ":" + na;
+     
+            responsiveVoice.speak("It is" + nb + na);
+            localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
          } else if(localStorage.us == 'how are you') {
             responsiveVoice.speak("I am good");
             localStorage.ts = 'I am good.';
@@ -423,18 +424,28 @@ if (annyang) {
     'what time is it': function() {
      var da = new Date();
      var na = da.getMinutes();
-     var db = new Date();
-     var nb = db.getHours();
-     responsiveVoice.speak("it is" + nb + na);
-      localStorage.ts = nb + ":" + na;
+     var nb = da.getHours();
+     nb = nb % 12;
+     
+     if (nb == 0) {
+         nb == 12;
+     }
+     
+     responsiveVoice.speak("It is" + nb + na);
+     localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     },
     'what is the time': function() {
      var da = new Date();
      var na = da.getMinutes();
-     var db = new Date();
-     var nb = db.getHours();
-     responsiveVoice.speak("it is" + nb + na);
-      localStorage.ts = nb + ":" + na;
+     var nb = da.getHours();
+     nb = nb % 12;
+     
+     if (nb == 0) {
+         nb == 12;
+     }
+     
+     responsiveVoice.speak("It is" + nb + na);
+     localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     },
     'open settings': function() {
       window.location.href = "?app=6";
