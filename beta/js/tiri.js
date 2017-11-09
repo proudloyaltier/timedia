@@ -67,7 +67,10 @@ function tt() {
             window.timerInterval = setInterval(timerDown, 1000);
             
             
-         } else if(localStorage.us == 'what is your favorite color?') {
+         } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] == "simon says") {
+            responsiveVoice.speak(localStorage.us.split(" ")[2]);
+            localStorage.us = localStorage.us.split(" ")[2];
+         } else if(localStorage.us == 'what is your favorite color') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
             localStorage.ts = 'Turqouise';
