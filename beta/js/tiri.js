@@ -522,11 +522,17 @@ function solve(problem) {
 function setTimer(time) {
     if (time.split(" ")[1] == "seconds" || time.split(" ")[1] == "second") {
         window.timer = time.split(" ")[0]
+        responsiveVoice.speak("Alright. " + time.split(" ")[0] + " seconds and counting.");
     } else if (time.split(" ")[1] == "minutes" || time.split(" ")[1] == "minute") {
         window.timer = time.split(" ")[0] * 60;
+        responsiveVoice.speak("Alright. " + time.split(" ")[0] + " minutes and counting.");
     } else if (time.split(" ")[1] == "hours" || time.split(" ")[1] == "hour") {
+        responsiveVoice.speak("Alright. " + time.split(" ")[0] + " hours and counting.");
         window.timer = time.split(" ")[0] * 3600;
     }
+    
+    localStorage.ts = (timer + '').toHHMMSS();
+    responsiveVoice.speak("Alright" + result);
     
     setInterval(timerDown, 1000);
 }
