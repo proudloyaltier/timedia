@@ -20,9 +20,11 @@ function refreshPoints() {
 
 if (getQueryVariable("app") == 1) {
     setInterval(refreshPoints, 1000);
+    setInterval(checkPointChanges, 1000);
 }
 
-if (localStorage.points !== undefined) {
+
+function checkPointChanges() {
 localStorage.newpoints = localStorage.points;
 getFromDatabase("points");
     
