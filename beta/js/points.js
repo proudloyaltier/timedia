@@ -28,8 +28,8 @@ function checkPointChanges() {
 localStorage.newpoints = localStorage.points;
 getFromDatabase("points");
     
-    if (localStorage.newpoints !== localStorage.points) {
+    if (Number(localStorage.newpoints) !== Number(localStorage.points)) {
         storeInDatabase("points", localStorage.points);
     }
-
+localStorage.removeItem('newpoints');
 }
