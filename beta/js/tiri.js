@@ -532,7 +532,6 @@ function setTimer(time) {
     }
     
     localStorage.ts = (timer + '').toHHMMSS();
-    responsiveVoice.speak("Alright" + result);
     
     setInterval(timerDown, 1000);
 }
