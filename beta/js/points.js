@@ -1,4 +1,4 @@
-setInterval(store, 500);
+setInterval(store, 5000);
 
 
 function dismissTiBank() {
