@@ -34,7 +34,7 @@ function tt() {
          localStorage.us = '';
          localStorage.ts = 'welcome';
          
-         localStorage.us = prompt().toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
+         localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
          
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
