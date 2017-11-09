@@ -1,6 +1,20 @@
 localStorage.ts = 'welcome';
 localStorage.us = '';
 
+//This allows tiri to play sound -----------------------------------------------------------------------------
+
+function loadSound(file, ID) {
+  createjs.Sound.registerSound(file, ID);
+}
+//Now I'll load a sound
+loadSound("sound (3).m4a", "alarm");
+
+function playSound(soundID) {
+  createjs.Sound.play(soundID);
+}
+
+//End of sound code -------------------------------------------------------------------------------------------
+
 String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10); // don't forget the second param
     var hours   = Math.floor(sec_num / 3600);
@@ -136,6 +150,8 @@ function tt() {
          } else if(localStorage.us == 'what is your favorite food') {
             responsiveVoice.speak("I am a computer software. I can not eat.");
             localStorage.ts = "I am a computer software. I can not eat."
+         } else if(localStorage.us == 'play music') {
+            playSound("alarm");
          } else if(localStorage.us == 'what is the time' || localStorage.us == 'what time is it') {
             var da = new Date();
             var na = da.getMinutes();
@@ -415,6 +431,9 @@ if (annyang) {
     'what is your favorite food': function() {
      responsiveVoice.speak("I am a computer software. I can not eat.");
       localStorage.ts = "I am a computer software. I can not eat.";
+    },
+    'play music': function() {
+       playSound("alarm"); 
     },
     //end of semi-useless easter eggs
     //Commands
