@@ -321,6 +321,11 @@ if (annyang) {
        responsiveVoice.speak("I will call you " + nickname);
        localStorage.ts = nickname;
      },
+    'hey teary': function() {
+      responsiveVoice.speak("Yes?");
+      localStorage.ts = 'Yes?';
+      window.location.href = "index.html?app=5";
+    },
      'how are you': function() {
       responsiveVoice.speak("I am good");
       localStorage.ts = 'I am good';
