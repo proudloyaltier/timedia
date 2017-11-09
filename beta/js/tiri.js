@@ -149,7 +149,11 @@ function tt() {
             var na = da.getMinutes();
             var db = new Date();
             var nb = db.getHours();
-            responsiveVoice.speak("It is" + nb + " " + na);
+            if (na.length == 1) {
+                na = "0" + na;
+            }
+             
+            responsiveVoice.speak("It is " + nb + " " + na);
             localStorage.ts = nb + ":" + na;
          } else if(localStorage.us == 'how are you') {
             responsiveVoice.speak("I am good");
