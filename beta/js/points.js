@@ -30,5 +30,6 @@ if (localStorage.newpoints !== undefined) {
 
 function saveFromOtherApps() {
     localStorage.points = localStorage.newpoints;
-    storeInDatabase("points", localStorage.points);
+    storeInDatabase("points", localStorage.newpoints);
+    localStorage.removeItem('newpoints')
 }
