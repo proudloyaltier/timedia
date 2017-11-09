@@ -29,7 +29,6 @@
               <a data-toggle="dropdown" href="#">Apps<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="index.html">Home <span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="?app=1">Points <span class="glyphicon glyphicon-usd"></span></a></li>
                 <li><a href="?app=2">TiChat <span class="glyphicon glyphicon-send"></span></a></li>
                 <li><a href="?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
                  <!--<li><a href="?app=5">TiContacts <span class="glyphicon glyphicon-book"></span></a></li>-->
@@ -83,28 +82,6 @@ setInterval(changeName, 50)
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1506458898957");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 </div>
   </center>
- <div style="display: none;" id="points">
-    <h3>Points</h3><br>
-    <div id="ti-bank-msg" class="jumbotron">
-      <h1>Introducing TiBank</h1>
-      <p>TiBank is the most secure way to store and spend your TiPoints.</p>
-      <button onclick="dismissTiBank()" class="btn btn-primary">Dismiss</button>
-</div>
-
-<h1 id="points-balance">0 TiPoints</h1>
-Final Balance<br><br>
-   <a href="http://microify.com/1zrV"><button onclick="alertAds()"class="btn btn-primary">Watch Ads to Earn TiPoints</button></a><br>
-<script>
-function alertAds() {
-  alert("We are not responsible for any damage to your device. Some ads may link to viruses.\n\nIf it says that you have an outdated browser or that YOUR DOWNLOAD IS READY, DO NOT CLICK IT!\n\nIn the top right corner there will be a countdown. When it's over there will be a yellow Skip Ad button. Click it to recieve your TiPoints.")
-}
-   </script>
-   
- <div id="HCB_comment_box" style="display: none;">Connecting to <b>Points</b> database.</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1506539939724");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-</div>
-
 <div style="display: none;" id="messages">
     <h3>TiChat</h3><br>
   Chat Password<br>
@@ -177,30 +154,6 @@ function alertAds() {
     
   </style>
   </div>
-<!--<div style="display: none;" id="ticontacts">
-    <h3>TiContacts</h3><br>
- <div id="progress-parent" class="progress" style="display:none;">
-  <div id="progress-bar" class="progress-bar active" role="progressbar"
-  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
-  </div>
-</div>
- <div id="ticontacts-contacts">
-    You have no contacts.
-  </div><br>
-    <button class="btn btn-primary" onclick="resetContacts()">Reset Contacts</button><br><br>
-  <h3>Add Contact</h3>
-  <input id="ticontacts-user" class="form-control" placeholder="Username"><br>
-  
-  <textarea id="ticontacts-info" class="form-control" placeholder="Info"></textarea>
-  
-  <p id="ticontacts-error" style="color: red;"></p>
-  
-  <button class="btn btn-primary" onclick="addContact()">Add Contact</button>
-  </div>
-  
-   <div id="HCB_comment_box" style="display: none;">Connecting to <b>TiContacts</b> database.</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1506539939724");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*--><!--</script></div>-->
   <div style="display: none;" id="newapp">
     <h3>New App</h3><br>
   <input id="newapp-name" class="form-control" placeholder="App Name"><br>
@@ -310,10 +263,6 @@ function alertAds() {
   <div id="HCB_comment_box" style="display: none;">Connecting to <b>Tiles</b> database.</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1506539939724");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<div id="tipay" style="display: none;">
-  <h3>TiPay</h3>
-  <button class="btn btn-primary" onclick="tiPayButton()">Create a TiPay Button</button>
-</div>
 </div>
 </div>
 <h5 style="display: none;" id="view"></h5><br>
