@@ -13,7 +13,7 @@ String.prototype.toHHMMSS = function () {
     return hours+':'+minutes+':'+seconds;
 }
 
-if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
+if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
    setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts;}, 0);
  }
 
@@ -474,6 +474,7 @@ if (annyang) {
     'open points': function() {
       window.location.href = "?app=1";
     },
+    'set a timer for *time': setTimer,
     'open the chat *password': openChat,
     'search wikipedia *search': searchWikipedia,
     'search youtube *search': searchYoutube,
@@ -518,6 +519,18 @@ function solve(problem) {
   localStorage.ts = result;
 }
 
+function setTimer(time) {
+    if (time.split(" ")[1] == "seconds" || time.split(" ")[1] == "second") {
+        window.timer = time.split(" ")[0]
+    } else if (time.split(" ")[1] == "minutes" || time.split(" ")[1] == "minute") {
+        window.timer = time.split(" ")[0] * 60;
+    } else if (time.split(" ")[1] == "hours" || time.split(" ")[1] == "hour") {
+        window.timer = time.split(" ")[0] * 3600;
+    }
+    
+    setInterval(timerDown, 1000);
+}
+
 function timerDown() {
    window.timer = timer - 1;
    localStorage.ts = (timer + '').toHHMMSS();
@@ -528,5 +541,3 @@ function timerDown() {
         clearInterval(window.timerInterval);
    }
 }
-
-
