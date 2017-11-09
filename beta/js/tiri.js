@@ -116,8 +116,8 @@ function tt() {
             responsiveVoice.speak("Knock knock. Interupting virtual assistant, What may I help you with?");
             localStorage.ts = "Knock knock";
          } else if(localStorage.us == 'tell me a joke') {
-            responsiveVoice.speak("why did teary cross the road? Because I was trapped in your computer! Ha Ha Ha Ha");
-            localStorage.ts = "why did teary cross the road?<br/>Because I was trapped in your computer!";
+            responsiveVoice.speak("Why did teary cross the road? Because I was trapped in your computer! Ha Ha Ha Ha");
+            localStorage.ts = "Why did Tiri cross the road?<br>Because I was trapped in your computer!";
          } else if(localStorage.us == 'casio') {
             responsiveVoice.speak("Do not say that");
             localStorage.ts = "Do not say that";
