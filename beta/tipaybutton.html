@@ -32,7 +32,6 @@ function pay() {
   
   if (paymessage) {
     localStorage.points = localStorage.points - amount;
-    localStorage.savePoints = true;
     alert("Purchase completed.");
     eval(code);
     window.location.href = "index.html?app=1";
