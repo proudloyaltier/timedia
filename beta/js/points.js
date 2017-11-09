@@ -21,7 +21,3 @@ function refreshPoints() {
 if (getQueryVariable("app") == 1) {
     setInterval(refreshPoints, 1000);
 }
-
-function save() {
-    storeInDatabase("points", localStorage.points)
-}
