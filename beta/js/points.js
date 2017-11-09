@@ -27,9 +27,13 @@ if (localStorage.newpoints !== undefined) {
     saveFromOtherApps();
 }
 
+function store() {
+    storeInDatabase('points', localStorage.points)
+}
 
 function saveFromOtherApps() {
     localStorage.points = localStorage.newpoints;
     storeInDatabase("points", localStorage.newpoints);
-    localStorage.removeItem('newpoints')
+    localStorage.removeItem('newpoints');
+    store();
 }
