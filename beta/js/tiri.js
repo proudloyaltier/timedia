@@ -13,6 +13,18 @@ String.prototype.toHHMMSS = function () {
     return hours+':'+minutes+':'+seconds;
 }
 
+//This allows tiri to play music
+var soundID = "Music";
+
+      function loadSound() {
+        createjs.Sound.registerSound("assets/thunder.ogg", soundID);
+      }
+
+      function playMusic() {
+        createjs.Sound.play(soundID);
+      }
+//End of music code
+
 if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
    setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts; document.getElementById("user").innerHTML = localStorage.us;}, 0);
  }
