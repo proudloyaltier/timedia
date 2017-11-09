@@ -154,7 +154,7 @@ function tt() {
                nb == 12;
             }
      
-            responsiveVoice.speak("It is" + nb + na);
+            responsiveVoice.speak("It is " + nb + " " + na);
             localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
          } else if(localStorage.us == 'how are you') {
             responsiveVoice.speak("I am good");
@@ -431,7 +431,7 @@ if (annyang) {
          nb == 12;
      }
      
-     responsiveVoice.speak("It is" + nb + na);
+     responsiveVoice.speak("It is " + nb + " " + na);
      localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     },
     'what is the time': function() {
@@ -444,7 +444,7 @@ if (annyang) {
          nb == 12;
      }
      
-     responsiveVoice.speak("It is" + nb + na);
+     responsiveVoice.speak("It is " + nb + " " + na);
      localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     },
     'open settings': function() {
