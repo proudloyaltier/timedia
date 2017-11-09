@@ -115,13 +115,10 @@ function alertAds() {
     <button id="joinChatBtn" onclick="joinChat()" class="btn btn-primary" style="display: none;">Create/Join Chat</button>
 
   <div style="display: none" id="tiritype">
-   <div style="text-align: right">
-      <button onclick="tt()" class="ttype"> Tiri Type </button><br/>
-    </div>
     <center>
       <h3 id="user"></h2>
       <h1 id="tiri"></h1><br>
-      <input class="form-control input-lg" id="inputlg" type="text">
+      <input class="form-control input-lg" id="inputlg" type="text" onchange="tt()">
     </center>
      <style>
     #user {
