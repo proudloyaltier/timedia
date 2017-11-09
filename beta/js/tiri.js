@@ -31,6 +31,7 @@ if(window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?
 
 function tt() {
          clearInterval(window.timerInterval);
+         window.timer = "";
          localStorage.us = '';
          localStorage.ts = 'welcome';
          
