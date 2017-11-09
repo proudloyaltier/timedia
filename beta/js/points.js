@@ -1,3 +1,6 @@
+setInterval(store, 500);
+
+
 function dismissTiBank() {
     localStorage.tibankmd = "true";
     document.getElementById('ti-bank-msg').remove();
