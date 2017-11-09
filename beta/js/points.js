@@ -22,17 +22,3 @@ if (getQueryVariable("app") == 1) {
     setInterval(refreshPoints, 1000);
     
 }
-
-if (localStorage.points !== undefined) {
-    setInterval(checkPointChanges, 50);
-}
-
-function checkPointChanges() {
-localStorage.newpoints = localStorage.points;
-getFromDatabase("points");
-    
-    if (Number(localStorage.newpoints) !== Number(localStorage.points)) {
-        storeInDatabase("points", localStorage.points);
-    }
-localStorage.removeItem('newpoints');
-}
