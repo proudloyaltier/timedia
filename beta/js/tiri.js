@@ -68,8 +68,8 @@ function tt() {
             
             
          } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] == "simon says") {
-            responsiveVoice.speak(localStorage.us.split(" ")[2]);
-            localStorage.us = localStorage.us.split(" ")[2];
+            responsiveVoice.speak(localStorage.us.split("simon says ")[1]);
+            localStorage.ts = localStorage.us.split("simon says ")[1];
          } else if(localStorage.us == 'what is your favorite color') {
             responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
             localStorage.us = 'What is your favorite color?';
