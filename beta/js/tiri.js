@@ -30,6 +30,9 @@ function tt() {
          } else if(localStorage.us == 'ti') {
             responsiveVoice.speak("T I");
             localStorage.ts = 'TI!';
+         } else if(localStorage.us.split(" ")[0] == 'solve') {
+            responsiveVoice.speak(localStorage.us.split(" ")[1] + " equals " + math.eval(localStorage.us.split(" ")[1]));
+            localStorage.ts = math.eval(localStorage.us.split(" ")[1]);           
          } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
             if (isNaN(Number(localStorage.us.split(" ")[4]))) {
                responsiveVoice.speak("Sorry. I do not understand");
@@ -505,14 +508,9 @@ function goTo(url) {
 }
 
 function solve(problem) {
-  var result = eval(problem).toString();
-  if(result == "42") {
-    responsiveVoice.speak("The answer is forty two, which is also the answer to life, the universe and everything");
-    localStorage.ts = "42";
-  } else {
-    responsiveVoice.speak(result);
-    localStorage.ts = result;
-  }
+  var result = math.eval(problem).toString();
+  responsiveVoice.speak(result);
+  localStorage.ts = result;
 }
 
 function timerDown() {
