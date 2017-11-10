@@ -37,7 +37,7 @@ function reloadTiles() {
 if (getQueryVariable('app') == 7) {
 document.getElementById("tiles").style = 'display: block;';
 localStorage.tilesLoaded = true;
-//window.location.reload();
+window.location.reload();
   }
 }
 
