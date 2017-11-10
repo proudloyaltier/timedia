@@ -272,7 +272,6 @@ if (annyang) {
     'play good music': function() {
        window.location.href = 'https://proudloyaltier.github.io/timedia/beta/other%20resources/203%20measures.m4a';
     },
-    
     //semi-useless easter eggs
     'what is your favorite color': function() {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
