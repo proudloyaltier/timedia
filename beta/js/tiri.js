@@ -7,8 +7,8 @@ function loadSound(file, ID) {
   createjs.Sound.registerSound(file, ID);
 }
 //Now I'll load a sound
-//loadSound("sound (3).m4a", "alarm");
-loadSound("beta/other resources/203 measures.m4a", "music");
+loadSound("sound (3).m4a", "alarm");
+loadSound("203 measures.m4a", "music");
 
 function playSound(soundID) {
   createjs.Sound.play(soundID);
