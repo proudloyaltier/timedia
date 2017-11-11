@@ -8,6 +8,7 @@ function loadSound(file, ID) {
 }
 //Now I'll load a sound
 loadSound("sound (3).m4a", "alarm");
+loadSound("beta/other resources/203 measures.m4a", "music");
 
 function playSound(soundID) {
   createjs.Sound.play(soundID);
@@ -151,7 +152,7 @@ function tt() {
             responsiveVoice.speak("I am a computer software. I can not eat.");
             localStorage.ts = "I am a computer software. I can not eat."
          } else if(localStorage.us == 'play music') {
-            playSound("alarm");
+            playSound("music");
          } else if(localStorage.us == 'play good music') {
            window.location.href = 'https://proudloyaltier.github.io/timedia/beta/other%20resources/203%20measures.m4a';
          } else if(localStorage.us == 'what is the time' || localStorage.us == 'what time is it') {
@@ -438,7 +439,7 @@ if (annyang) {
       localStorage.ts = "I am a computer software. I can not eat.";
     },
     'play music': function() {
-       playSound("alarm"); 
+       playSound("music"); 
     },
     //end of semi-useless easter eggs
     //Commands
