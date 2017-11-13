@@ -1,6 +1,10 @@
 localStorage.ts = 'welcome';
 localStorage.us = '';
 
+if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
+     setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts;}, 0);
+   }
+
 //This allows tiri to play sound -----------------------------------------------------------------------------
 
 function loadSound(file, ID) {
