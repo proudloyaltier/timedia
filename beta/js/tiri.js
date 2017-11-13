@@ -153,8 +153,6 @@ function tt() {
             localStorage.ts = "I am a computer software. I can not eat."
          } else if(localStorage.us == 'play music') {
             playSound("music");
-         } else if(localStorage.us == 'play good music') {
-           window.location.href = 'https://proudloyaltier.github.io/timedia/beta/other%20resources/203%20measures.m4a';
          } else if(localStorage.us == 'what is the time' || localStorage.us == 'what time is it') {
             var da = new Date();
             var na = da.getMinutes();
@@ -270,10 +268,7 @@ if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   //I made some purposeful spelling, or grammar errors to get the pronunciation right
   var commands = {
-    'play good music': function() {
-       window.location.href = 'https://proudloyaltier.github.io/timedia/beta/other%20resources/203%20measures.m4a';
-    },
-    //semi-useless easter eggs
+     //semi-useless easter eggs
     'what is your favorite color': function() {
      responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
       localStorage.ts = 'Turqouise';
