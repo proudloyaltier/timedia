@@ -41,4 +41,6 @@ window.location.reload();
   }
 }
 
-setTimeout(reloadTiles, 5000);
+if(localStorage.name !== "programmer") {
+ setTimeout(reloadTiles, 5000);
+}
