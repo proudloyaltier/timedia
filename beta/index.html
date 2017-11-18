@@ -153,6 +153,18 @@ setInterval(changeName, 50)
     
   </style>
   </div>
+   <div style="display: none;" id="tibookmarks">
+    <h3>TiBookmarks</h3><br>
+
+    <div id="createBookmark">
+      <h5 style="outline: none;" id="content" contenteditable="true"></h5><br>
+
+      <button onclick="saveBookmark()" class="btn btn-primary">Save</button>
+  </div>
+<h5 style="display: none;" id="view"></h5><br>
+<button id="tibookmarks-edit" style="display: none;" onclick="editBookmark()" class="btn btn-primary">Edit</button>
+</div>
+
   <div style="display: none;" id="newapp">
     <h3>New App</h3><br>
   <input id="newapp-name" class="form-control" placeholder="App Name"><br>
