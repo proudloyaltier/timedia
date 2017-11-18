@@ -62,6 +62,10 @@ if (localStorage.access !== undefined) {
     document.title = "TiSlides - TiMedia";
   }
        
+ if (getQueryVariable("app") == 10) {
+    launchApp("tibookmarks");
+    document.title = "TiBookmarks - TiMedia";
+  }      
 } else {
   window.location.href = "login.html";
 }
