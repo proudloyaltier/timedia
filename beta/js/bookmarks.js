@@ -7,8 +7,8 @@ function saveBookmark() {
 }
 
 if (getQueryVariable("l") !== false || localStorage.editBookmark !== undefined) {
-  if (localStorage.edit !== undefined) {
-    document.getElementsByTagName('h4')[0].innerHTML = decodeURI(localStorage.edit);
+  if (localStorage.editBookmark !== undefined) {
+    document.getElementsByTagName('h4')[0].innerHTML = decodeURI(localStorage.editBookmark);
     localStorage.removeItem('editBookmark');
     throw new Error("Opened edit.");
   }
@@ -20,6 +20,10 @@ if (getQueryVariable("l") !== false || localStorage.editBookmark !== undefined) 
 }
 
 function editBookmark() {
-  localStorage.edit = atob(getQueryVariable("l"));
-  window.location.href = "index.html?app=3";
+  localStorage.editBookmark = atob(getQueryVariable("l"));
+  window.location.href = "index.html?app=10";
+}
+
+function openBookmark() {
+  window.location.href = decodeURI(atob(getQueryVariable("l")));
 }
