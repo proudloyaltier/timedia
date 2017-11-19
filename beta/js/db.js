@@ -242,11 +242,11 @@ firebase.initializeApp(config);
 window.dbRef = firebase.database().ref();
 
 function storeInDatabase(name, value) {
-   dbRef.child(name).child(localStorage.name).set(value);
+   window.dbRef.child(name).child(localStorage.name).set(value);
 }
 
 function getFromDatabase(name) {
-   dbRef.child(name).child(localStorage.name).on("value", snapValue, errorLoading);
+   window.dbRef.child(name).child(localStorage.name).on("value", snapValue, errorLoading);
 }
 
 function snapValue(value) {
