@@ -78,15 +78,18 @@ function saveFromTiWork() {
 
 
 function loadTiles() {
+  
   document.getElementById('tiles-tiles').innerHTML = "";
-
-  for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #32F39C;" class="glyphicon glyphicon-th-large"></span></center></h3></span></li>';
+  
+  if (localStorage.files !== "") {
+    for (var i = 0; i < localStorage.files.split(",").length; i++) {
+      document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #32F39C;" class="glyphicon glyphicon-th-large"></span></center></h3></span></li>';
+    }
+  
+    document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<datalist id="tiles-listdiv">';
+  
+    document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
   }
-
-  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<datalist id="tiles-listdiv">';
-
-  document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
 }
 
 function refreshTiles() {
