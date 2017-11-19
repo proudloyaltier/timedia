@@ -17,6 +17,7 @@ if (getQueryVariable("l") !== false || localStorage.editBookmark !== undefined) 
   document.getElementById('viewBookmark').style = "visibility: block;";
   document.getElementById('viewBookmark').innerHTML = decodeURI(atob(getQueryVariable("l")));
   document.getElementById('tibookmarks-edit').style = "visibility: block;";
+  document.getElementById('tibookmarks-open').style = "visibility: block;";
 }
 
 function editBookmark() {
