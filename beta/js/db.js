@@ -251,7 +251,7 @@ function getFromDatabase(name) {
 }
 
 function snapValue(value) {
-   localStorage.setItem(window.gfdName, value);
+   localStorage.setItem(window.gfdName, value.val());
    window.gfdName = null;
 }
 
