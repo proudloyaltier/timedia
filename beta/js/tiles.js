@@ -1,30 +1,22 @@
-var tilesInterval = setInterval(refreshTiles, 0);
-
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all files stored in Tiles?");
   if (resetTiles == true) {
-    clearInterval(tilesInterval)
     localStorage.removeItem('files');
     storeInDatabase("files", "");
-    var tilesInterval = setInterval(refreshTiles, 500);
     window.location.href = "index.html?app=7"
   }
 }
 
 function save() {
-  clearInterval(tilesInterval)
   storeInDatabase("files", localStorage.files)
   alert("All changes saved in Tiles.")
-  var tilesInterval = setInterval(refreshTiles, 5000);
  }
 
 function saveChat() {
-  clearInterval(tilesInterval)
   var chatName = prompt("Enter the name of this chat");
   var chatPassword = prompt("Enter the chat password");
   var chatCode = "index.html?app=" + chatPassword;
   addFile(chatName, chatCode)
-  var tilesInterval = setInterval(refreshTiles, 5000);
 }
 
 function searchFiles() {
@@ -53,11 +45,9 @@ function backupTiles(filename, text) {
 }
  
 function restoreTiles() {
-  clearInterval(tilesInterval)
   var toRestore = prompt("Copy and paste the text from your backup");
   localStorage.files = toRestore;
   storeInDatabase("files", localStorage.files);
-  var tilesInterval = setInterval(refreshTiles, 5000);
   window.location.href = "index.html?app=7"
 }
   
@@ -80,12 +70,10 @@ function addFile(title, upload) {
 }
 
 function saveFromTiWork() {
-  clearInterval(tilesInterval)
   var title = prompt("File Name");
   var tosave = localStorage.workToSave;
   localStorage.removeItem('workToSave');
   addFile(title, tosave);
-  var tilesInterval = setInterval(refreshTiles, 5000);
 }
 
 
@@ -102,11 +90,11 @@ function loadTiles() {
 }
 
 function refreshTiles() {
-  getFromDatabase("files")
+  getFromDatabase("files");
 }
 
 function store() {
-  storeInDatabase("files", localStorage.files)
+  storeInDatabase("files", localStorage.files);
 }
 
 function redirect() {
