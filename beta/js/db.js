@@ -207,7 +207,6 @@ function error(error) {
   document.getElementById('login-btn').innerHTML = "Login";
 }
 
-
 function login() {
   var username = document.getElementById('login-username').value;
   var password = document.getElementById('login-password').value;
@@ -229,4 +228,31 @@ function login() {
 
 }
 
-var _0x46bc=["\x69\x6E\x63\x6C\x75\x64\x65\x73","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x62\x6C\x6F\x63\x6B\x71\x75\x6F\x74\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65","\x61\x75\x74\x68\x6F\x72\x2D\x6E\x61\x6D\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x43\x6C\x61\x73\x73\x4E\x61\x6D\x65","\x6E\x61\x6D\x65","\x20","\x73\x6C\x69\x63\x65","\x6C\x65\x6E\x67\x74\x68","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x73\x65\x74\x49\x74\x65\x6D","\x47\x6F\x74\x20\x76\x61\x6C\x75\x65\x20\x66\x72\x6F\x6D\x20\x64\x61\x74\x61\x62\x61\x73\x65\x2E","\x76\x61\x6C\x75\x65","\x68\x63\x62\x5F\x66\x6F\x72\x6D\x5F\x6E\x61\x6D\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x68\x63\x62\x5F\x66\x6F\x72\x6D\x5F\x63\x6F\x6E\x74\x65\x6E\x74","\x3A","\x63\x6C\x69\x63\x6B","\x68\x63\x62\x5F\x73\x75\x62\x6D\x69\x74","\x61\x75\x74\x68\x6F\x72","\x47\x6F\x74\x20\x6D\x65\x73\x73\x61\x67\x65\x73\x2E","\x73\x6F\x72\x74","\x3E","\x3C\x62\x72\x3E\x3C\x62\x3E","\x3C\x2F\x62\x3E\x20","\x2C","\x73\x70\x6C\x69\x74","\x63\x6F\x6E\x76\x65\x72\x73\x61\x74\x69\x6F\x6E\x73","\x64\x69\x76\x2D\x63\x68\x61\x74\x2D","\x26\x67\x74\x3B","\x70"];function getFromDatabase(_0xbe1ex2){var _0xbe1ex3=0;while(_0xbe1ex3< document[_0x46bc[3]](_0x46bc[2])[_0x46bc[9]]){if(document[_0x46bc[3]](_0x46bc[2])[_0xbe1ex3][_0x46bc[1]][_0x46bc[0]](_0xbe1ex2)&& document[_0x46bc[5]](_0x46bc[4])[_0xbe1ex3][_0x46bc[1]]== localStorage[_0x46bc[6]]+ _0x46bc[7]){localStorage[_0x46bc[11]](_0xbe1ex2,document[_0x46bc[3]](_0x46bc[2])[_0xbe1ex3][_0x46bc[1]][_0x46bc[10]](_0xbe1ex2[_0x46bc[9]]+ 1)[_0x46bc[8]](0,-1));throw  new Error(_0x46bc[12])};_0xbe1ex3++}}function storeInDatabase(_0xbe1ex5,_0xbe1ex6){document[_0x46bc[15]](_0x46bc[14])[_0x46bc[13]]= localStorage[_0x46bc[6]];document[_0x46bc[15]](_0x46bc[16])[_0x46bc[13]]= _0xbe1ex5+ _0x46bc[17]+ _0xbe1ex6;document[_0x46bc[15]](_0x46bc[19])[_0x46bc[18]]()}function getMessages(_0xbe1ex8){var _0xbe1ex3=0;while(_0xbe1ex3< document[_0x46bc[3]](_0x46bc[2])[_0x46bc[9]]){if(document[_0x46bc[5]](_0x46bc[20])[_0xbe1ex3][_0x46bc[1]][_0x46bc[0]](_0xbe1ex8)){return document[_0x46bc[3]](_0x46bc[2])[_0xbe1ex3][_0x46bc[1]][_0x46bc[10]](_0xbe1ex8[_0x46bc[9]]+ 1)[_0x46bc[8]](0,-1);throw  new Error(_0x46bc[21])};_0xbe1ex3++}}function sendMessage(_0xbe1exa,_0xbe1exb){var _0xbe1exc=[localStorage[_0x46bc[6]],_0xbe1exa];var _0xbe1exd=getMessages(_0xbe1exc[_0x46bc[22]]()[0]+ _0x46bc[23]+ _0xbe1exc[_0x46bc[22]]()[1]);document[_0x46bc[15]](_0x46bc[14])[_0x46bc[13]]= _0xbe1exc[_0x46bc[22]]()[0]+ _0x46bc[23]+ _0xbe1exc[_0x46bc[22]]()[1];document[_0x46bc[15]](_0x46bc[16])[_0x46bc[13]]= _0xbe1exd+ _0x46bc[24]+ localStorage[_0x46bc[6]]+ _0x46bc[25]+ _0xbe1exb;document[_0x46bc[15]](_0x46bc[19])[_0x46bc[18]]()}function updateMessages(){var _0xbe1exf=localStorage[_0x46bc[28]][_0x46bc[27]](_0x46bc[26]);for(var _0xbe1ex3=0;_0xbe1ex3< _0xbe1exf[_0x46bc[9]];_0xbe1ex3++){document[_0x46bc[15]](_0x46bc[29]+ _0xbe1ex3)[_0x46bc[1]]= getMessages([localStorage[_0x46bc[6]],_0xbe1exf[_0xbe1ex3]][_0x46bc[22]]()[0]+ _0x46bc[30]+ [localStorage[_0x46bc[6]],_0xbe1exf[_0xbe1ex3]][_0x46bc[22]]()[1])}}if(getQueryVariable(_0x46bc[31])== 2){setInterval(updateMessages,1000)}
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyC4jMK0UJIEujeqMl-FcUz5QeomXekV2P4",
+  authDomain: "timedia-f129d.firebaseapp.com",
+  databaseURL: "https://timedia-f129d.firebaseio.com",
+  projectId: "timedia-f129d",
+  storageBucket: "timedia-f129d.appspot.com",
+  messagingSenderId: "180167533703"
+};
+
+firebase.initializeApp(config);
+window.dbRef = firebase.database().ref();
+
+function storeInDatabase(name, value) {
+   dbRef.child(name).child(localStorage.name).set(value);
+}
+
+function getFromDatabase(name) {
+   dbRef.child(name).child(localStorage.name).on("value", snapValue, errorLoading);
+}
+
+function snapValue(value) {
+   localStorage.setItem(name, value);
+}
+
+function errorLoading(err) {
+  alert("Errror! " + err);
+}
