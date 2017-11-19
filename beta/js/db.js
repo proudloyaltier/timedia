@@ -246,11 +246,13 @@ function storeInDatabase(name, value) {
 }
 
 function getFromDatabase(name) {
+   window.gfdName = name;
    window.dbRef.child(name).child(localStorage.name).on("value", snapValue, errorLoading);
 }
 
 function snapValue(value) {
-   localStorage.setItem(name, value);
+   localStorage.setItem(window.gfdName, value);
+   window.gfdName = null;
 }
 
 function errorLoading(err) {
