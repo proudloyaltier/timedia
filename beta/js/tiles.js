@@ -79,7 +79,7 @@ function saveFromTiWork() {
 
 function loadTiles() {
   
-  document.getElementById('tiles-tiles').innerHTML = "";
+  document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
   
   if (localStorage.files !== "") {
     for (var i = 0; i < localStorage.files.split(",").length; i++) {
