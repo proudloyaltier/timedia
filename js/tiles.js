@@ -115,4 +115,9 @@ if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
 }
 
+if (getQueryVariable("bookmarkurl") !== false) {
+  addFile(getQueryVariable("bookmarktitle"), decodeURI(getQueryVariable("bookmarkurl"));
+  save();
+}
+
 refreshTiles();
