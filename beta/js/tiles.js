@@ -19,6 +19,8 @@ function saveChat() {
 }
 
 function searchTiles(search) {
+  document.getElementById("tiles-searchbox").innerHTML = "";
+  
   if (search == "") {
       document.getElementById("tiles-tiles").style = "list-style: none;";
       document.getElementById("tiles-searchbox").style = "list-style: none; display: none;";
