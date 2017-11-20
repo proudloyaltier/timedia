@@ -17,7 +17,7 @@ function launchApp(appname) {
   document.getElementById(appname).style = "visibility: block;"
 }
 
-if (localStorage.access !== undefined) {
+if (localStorage.access == btoa(localStorage.name)) {
   if (getQueryVariable("app") == 2) {
     launchApp("messages");
     document.title = "Messages - TiMedia";
