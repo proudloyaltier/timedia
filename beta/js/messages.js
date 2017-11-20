@@ -4,5 +4,7 @@ if (getQueryVariable("app") == 2) {
 }
 
 function joinChat() {
-  window.location.href = "index.html?app=" + document.getElementById("chat").value;
+  var url = "index.html?app=" + document.getElementById("chat").value;
+  localStorage.workToSave= url;
+  window.location.href = "index.html?app=7";
 }
