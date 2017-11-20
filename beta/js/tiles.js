@@ -117,8 +117,8 @@ if (localStorage.workToSave !== undefined) {
 
 if (getQueryVariable("bookmarkurl") !== false) {
   addFile(atob(getQueryVariable("bookmarktitle")), atob(getQueryVariable("bookmarkurl")));
-  window.location.href = atob(getQueryVariable("bookmarkurl"));
   save();
+  window.location.href = atob(getQueryVariable("bookmarkurl"));
 }
 
 refreshTiles();
