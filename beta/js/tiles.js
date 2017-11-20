@@ -18,12 +18,14 @@ function saveChat() {
   addFile(chatName, chatCode)
 }
 
-function searchFiles() {
-  var search = document.getElementById("TiFilesSearch").value + '';
-
-  for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    if (localStorage.files.split(",")[i].split("!!")[0] == search) {
-      window.open(localStorage.files.split(",")[i].split("!!")[1]);
+function searchTiles(search) {
+  if (search == "") {
+      loadTiles();
+  } else {
+    for (var i = 0; i < localStorage.files.split(",").length; i++) {
+        if (localStorage.files.split(",").length[i].contains(search)) {
+          document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-th-large"></span></center></h3></span></li>';
+        }
     }
   }
 }
