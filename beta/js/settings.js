@@ -1,6 +1,11 @@
+getFromDatabase("bgImg");
+getFromDatabase("barColor");
+
 function updateSettings() {
   localStorage.bgImg = document.getElementById('backgroundImg').value;
   localStorage.barColor = document.getElementById('barColor').value;
+  storeInDatabase("bgImg", localStorage.bgImg);
+  storeInDatabase("barColor", localStorage.barColor);
   location.reload();
 }
 
