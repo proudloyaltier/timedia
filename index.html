@@ -201,7 +201,7 @@ setInterval(changeName, 50)
         <button onclick="updateSettings()" class="btn btn-success">Save</button>
        </div>
        <br><br><br>
-       <h4> Tiles </h4>
+       <h4>Tiles</h4>
        <div id="tileSettings">
         <button onclick="backupTiles('TilesBackup.txt', localStorage.files)" class="btn btn-primary">Backup Tiles</button>
         <button onclick="restoreTiles()" class="btn btn-primary">Restore Tiles</button><br><br>
@@ -229,7 +229,10 @@ setInterval(changeName, 50)
       <button onclick='getFromDatabase("files");' class="btn btn-success">Refresh Tiles</button><br>
        <div id="tiles-tiles" style="list-style: none;">
          You have no Tiles.
-       </div>
+       </div><br>
+    
+    <b>NEW!</b> You can now add a bookmark Tile just by clicking on this in your browser. Just drag this link to your browser.<br>
+    <a href="javascript:window.location.href="https://proudloyaltier.github.io/timedia?app=7&bookmarktitle="+btoa(document.title)+"&bookmarkurl="+btoa(window.location.href);">Bookmark on Tiles</a>
   </div>
  <div id="tisheets" style="display: none;">
   <h3>TiSheets</h3>
