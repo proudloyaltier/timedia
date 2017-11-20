@@ -210,7 +210,7 @@ setInterval(changeName, 50)
        <div id="tileSettings">
         <button onclick="backupTiles('TilesBackup.txt', localStorage.files)" class="btn btn-primary">Backup Tiles</button>
         <button onclick="restoreTiles()" class="btn btn-primary">Restore Tiles</button><br><br>
-         <button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button><br><br>
+        <button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button><br><br>
         <button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br>
        </div>
   </div>
@@ -218,18 +218,20 @@ setInterval(changeName, 50)
        <h3>Tiles</h3><br>
        File Name<br>
       <input class="form-control" type="text" id="tiles-search" onkeyup="searchTiles(this.value)" width="80%" autofocus><br>
-      <ul class="btn btn-primary" style="list-style: none;">
+<!--
+    <ul class="btn btn-primary" style="list-style: none;">
         <li class="dropdown">
               <a data-toggle="dropdown" href="#" style="color:white">Add a Tile <span class="caret"></span></a>
               <ul class="dropdown-menu" style="list-style: none;">
                 <li><a href="index.html?app=3">New TiDoc <span class="glyphicon glyphicon-pencil"></span></a></li>
                 <li><a href="index.html?app=4">New TiSheet <span class="glyphicon glyphicon-th-list"></span></a></li>
-                <!-- <li><a href="index.html?app=9">New TiSlide <span class="glyphicon glyphicon-blackboard"></span></a></li> -->
+                <li><a href="index.html?app=9">New TiSlide <span class="glyphicon glyphicon-blackboard"></span></a></li>
                 <li><a href="index.html?app=10">New Bookmark <span class="glyphicon glyphicon-bookmark"></span></a></li>
                 <li><a onclick="saveChat()">Save A Chat <span class="glyphicon glyphicon-send"></span></a></li>
               </ul>
             </li>
       </ul>
+-->
       <button onclick="save()" class="btn btn-primary">Save Your Changes</button>
       <button onclick='getFromDatabase("files");' class="btn btn-success">Refresh Tiles</button><br><br>
        <div id="tiles-tiles" style="list-style: none;">
