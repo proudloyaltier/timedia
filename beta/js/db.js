@@ -219,7 +219,7 @@ function login() {
         alert("You have been banned from TiMedia.");
      } else {
       localStorage.name = username;
-      localStorage.access = hash;
+      localStorage.access = btoa(username);
       window.location.href = "index.html";
      }
   } else {
