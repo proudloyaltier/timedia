@@ -211,8 +211,8 @@ setInterval(changeName, 50)
   </div>
   <div id="tiles" style="display: none;">
        <h3>Tiles</h3><br>
-       File name<br>
-      <input class="form-control" type="text" id="TiFilesSearch" width="80%"><br><button onclick="searchFiles()" class="btn btn-primary">Search</button>
+       File Name<br>
+      <input class="form-control" type="text" id="tiles-search" onkeyup="searchTiles(this.value)" width="80%"><br>
       <ul class="btn btn-primary" style="list-style: none;">
         <li class="dropdown">
               <a data-toggle="dropdown" href="#" style="color:white">Add a Tile <span class="caret"></span></a>
