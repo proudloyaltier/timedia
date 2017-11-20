@@ -69,13 +69,11 @@ function addFile(title, upload) {
 
   if (localStorage.files !== undefined) {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
-    save();
   } else {
     localStorage.files = title + "!!" + upload;
-    save();
   }
+  
   save();
-  location.reload();
 }
 
 function saveFromTiWork() {
