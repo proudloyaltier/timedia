@@ -116,7 +116,7 @@ if (localStorage.workToSave !== undefined) {
 }
 
 if (getQueryVariable("bookmarkurl") !== false) {
-  addFile(getQueryVariable("bookmarktitle"), decodeURI(getQueryVariable("bookmarkurl")));
+  addFile(atob(getQueryVariable("bookmarktitle")), atob(getQueryVariable("bookmarkurl")));
   save();
 }
 
