@@ -9,7 +9,6 @@ function resetTiles() {
 
 function save() {
   storeInDatabase("files", localStorage.files)
-  alert("All changes saved in Tiles.")
  }
 
 function saveChat() {
