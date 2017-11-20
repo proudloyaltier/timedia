@@ -1,15 +1,16 @@
 function resetTiles() {
-  var resetTiles = confirm("Are you sure you want to delete all files stored in Tiles?");
+  var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
+  
   if (resetTiles == true) {
     localStorage.removeItem('files');
     storeInDatabase("files", "");
-    window.location.href = "index.html?app=7"
+    window.location.href = "index.html?app=7";
   }
 }
 
 function save() {
-  storeInDatabase("files", localStorage.files)
- }
+  storeInDatabase("files", localStorage.files);
+}
 
 function saveChat() {
   var chatName = prompt("Enter the name of this chat");
@@ -102,10 +103,6 @@ function loadTiles() {
 
 function refreshTiles() {
   getFromDatabase("files");
-}
-
-function store() {
-  storeInDatabase("files", localStorage.files);
 }
 
 function redirect() {
