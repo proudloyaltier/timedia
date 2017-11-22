@@ -39,4 +39,6 @@ function viewImageData() {
   if (file) {
     reader.readAsDataURL(file);
   }
+ }
+
 }
