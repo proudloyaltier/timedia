@@ -7,7 +7,7 @@ function saveImage() {
 }
   
   
-  if (getQueryVariable('i') !== undefined)
+  if (getQueryVariable('i') !== undefined) {
   document.getElementById('tiphotos').remove();
   document.getElementById('tiphotos-view').style = "visibility: block;";
   setInterval(viewImageData, 0);
