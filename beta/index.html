@@ -214,6 +214,12 @@ setInterval(changeName, 50)
         <button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br>
        </div>
   </div>
+  <div id="tiphotos" style="display: none;">
+  <input type="file" onchange="saveImageTile()">
+    <div id="tiphotos-view" style="display: none;">
+    <img id="tiphotos-view-img" src="" height="200" alt="Image preview...">
+    </div>
+    </div>
   <div id="tiles" style="display: none;">
        <h3>Tiles</h3><br>
        File Name<br>
@@ -308,6 +314,7 @@ setInterval(changeName, 50)
     <script src="js/db.js"></script>
     <script src="js/tiles.js"></script>
     <script src="js/settings.js"></script>
+    <script src="js/images.js"></script>
    </div>
   </body>
 </html>
