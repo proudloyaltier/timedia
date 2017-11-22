@@ -62,12 +62,7 @@ if (localStorage.access == btoa(localStorage.name)) {
     launchApp("tibookmarks");
     document.title = "TiBookmarks - TiMedia";
   }    
-       
- if (getQueryVariable("app") == 11) {
-    launchApp("tiphotos");
-    document.title = "TiPhotos - TiMedia";
-  }   
-  
+ 
 } else {
   window.location.href = "login.html";
 }
