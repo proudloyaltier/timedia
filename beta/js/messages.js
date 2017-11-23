@@ -19,7 +19,7 @@ function randomTiChatPassword() {
 }
 
 function showChatPassword() {
-  document.getElementById('chat-password-label').style = "display: none;";
+  document.getElementById('show-chat-password-label-btn').style = "display: none;";
   document.getElementById('chat-password-label-text').style = "display: block;";
   document.getElementById('chat-password-label-text').innerHTML = "Chat Password:  " + getQueryVariable("app");
 }
