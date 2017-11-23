@@ -20,19 +20,13 @@ function randomTiChatPassword() {
 
 function showChatPassword() {
   localStorage.showChatPassword = true;
-  document.getElementById('show-chat-password').style = "display: none;";
-  document.getElementById('hide-chat-password').style = "display: block;";
 }
 
 function hideChatPassword() {
   localStorage.showChatPassword = false;
-  document.getElementById('show-chat-password').style = "display: block;";
-  document.getElementById('hide-chat-password').style = "display: none;";
-  document.getElementById('chat-password-label').style = "display: none;";
-  document.getElementById('chat-password-label').innerHTML = "";
 }
 
-if (localStorage.showChatPassword !== true) {
+if (localStorage.showChatPassword == false) {
    document.getElementById('show-chat-password').style = "display: block;";
    document.getElementById('hide-chat-password').style = "display: none;";
 } else if (localStorage.showChatPassword == true) {
