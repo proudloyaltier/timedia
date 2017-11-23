@@ -18,28 +18,9 @@ function randomTiChatPassword() {
   window.location.href = "index.html?app=7";
 }
 
-function showChatPassword() {
-  localStorage.showChatPassword = true;
-  document.getElementById('show-chat-password').style = "display: none;";
-  document.getElementById('hide-chat-password').style = "display: block;";
-  if (window.location !== "index.html" && document.title == "Home - TiMedia" && getQueryVariable("app") !== false) {
-  document.getElementById('chat-password-label').style = "display: block;";
-  document.getElementById('chat-password-label').innerHTML = "Chat Password:  " + getQueryVariable("app");
-  }
-}
-
-function hideChatPassword() {
-  localStorage.showChatPassword = false;
-  document.getElementById('chat-password-label').style = "display: none;";
-  document.getElementById('chat-password-label').innerHTML = "";
-  document.getElementById('show-chat-password').style = "display: block;";
-  document.getElementById('hide-chat-password').style = "display: none;";
-}
-
 if (window.location !== "index.html" && document.title == "Home - TiMedia" && getQueryVariable("app") !== false && localStorage.showChatPassword == true) {
   document.getElementById('chat-password-label').style = "display: block;";
   document.getElementById('chat-password-label').innerHTML = "Chat Password:  " + getQueryVariable("app");
 } else {
   document.getElementById('chat-password-label').style = "display: none;";
-  document.getElementById('chat-password-label').innerHTML = "";
 }
