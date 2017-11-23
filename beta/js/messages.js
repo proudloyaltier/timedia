@@ -36,10 +36,6 @@ function hideChatPassword() {
   document.getElementById('hide-chat-password').style = "display: none;";
 }
 
-if (localStorage.showChatPassword == undefined) {
-  hideChatPassword()
-}
-
 if (window.location !== "index.html" && document.title == "Home - TiMedia" && getQueryVariable("app") !== false && localStorage.showChatPassword == true) {
   document.getElementById('chat-password-label').style = "display: block;";
   document.getElementById('chat-password-label').innerHTML = "Chat Password:  " + getQueryVariable("app");
