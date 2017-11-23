@@ -35,7 +35,7 @@ function hideChatPassword() {
 if (localStorage.showChatPassword !== true) {
    document.getElementById('show-chat-password').style = "display: block;";
    document.getElementById('hide-chat-password').style = "display: none;";
-} else {
+} else if (localStorage.showChatPassword == true) {
   document.getElementById('show-chat-password').style = "display: none;";
   document.getElementById('hide-chat-password').style = "display: block;";
 }
