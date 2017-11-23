@@ -20,16 +20,20 @@ function randomTiChatPassword() {
 
 function showChatPassword() {
   localStorage.showChatPassword = true;
+  window.location.reload();
 }
 
 function hideChatPassword() {
   localStorage.showChatPassword = false;
+  window.location.reload();
 }
 
 if (localStorage.showChatPassword == false) {
    document.getElementById('show-chat-password').style = "display: block;";
    document.getElementById('hide-chat-password').style = "display: none;";
-} else if (localStorage.showChatPassword == true) {
+}
+
+if (localStorage.showChatPassword == true) {
   document.getElementById('show-chat-password').style = "display: none;";
   document.getElementById('hide-chat-password').style = "display: block;";
 }
