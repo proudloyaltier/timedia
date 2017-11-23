@@ -27,13 +27,13 @@ function hideChatPassword() {
 }
 
 if (localStorage.showChatPassword !== true) {
-  document.getElementById('show-chat-password').style = "display: block;"
-  document.getElementById('hide-chat-password').style = "display: none;"
+  document.getElementById('show-chat-password').style = "display: block;";
+  document.getElementById('hide-chat-password').style = "display: none;";
 } 
 
-if (localStorage.showChatPassword == true {
-  document.getElementById('show-chat-password').style = "display: none;"
-  document.getElementById('hide-chat-password').style = "display: block;"
+if (localStorage.showChatPassword == true) {
+  document.getElementById('show-chat-password').style = "display: none;";
+  document.getElementById('hide-chat-password').style = "display: block;";
 }
 
 if (window.location !== "index.html" && document.title == "Home - TiMedia" && getQueryVariable("app") !== false && localStorage.showChatPassword !== false) {
