@@ -18,3 +18,7 @@ function randomTiChatPassword() {
   window.location.href = "index.html?app=7";
 }
 
+if (getQueryVariable("app") !== undefined && document.title == "Home - TiMedia") {
+  document.getElementById('chat-password-label').style = "";
+  document.getElementById('chat-password-label').innerHTML = "Chat Password:" + getQueryVariable("app");
+}
