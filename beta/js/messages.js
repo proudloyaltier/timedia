@@ -28,6 +28,7 @@ function hideChatPassword() {
   localStorage.showChatPassword = false;
   document.getElementById('show-chat-password').style = "display: block;";
   document.getElementById('hide-chat-password').style = "display: none;";
+  document.getElementById('chat-password-label').style = "display: none;";
 }
 
 if (window.location !== "index.html" && document.title == "Home - TiMedia" && getQueryVariable("app") !== false && localStorage.showChatPassword !== false) {
