@@ -20,12 +20,20 @@ function randomTiChatPassword() {
 
 function showChatPassword() {
   localStorage.showChatPassword = true;
+  document.getElementById('show-chat-password').style = "display: none;";
+  document.getElementById('hide-chat-password').style = "display: block;";
   window.location.reload();
+  if (window.location !== "index.html" && document.title == "Home - TiMedia" && getQueryVariable("app") !== false) {
+  document.getElementById('chat-password-label').style = "display: block;";
+  document.getElementById('chat-password-label').innerHTML = "Chat Password:  " + getQueryVariable("app");
 }
 
 function hideChatPassword() {
   localStorage.showChatPassword = false;
-  window.location.reload();
+  document.getElementById('chat-password-label').style = "display: none;";
+  document.getElementById('chat-password-label').innerHTML = "";
+  document.getElementById('show-chat-password').style = "display: block;";
+  document.getElementById('hide-chat-password').style = "display: none;";
 }
 
 if (localStorage.showChatPassword == true) {
