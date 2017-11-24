@@ -2,7 +2,7 @@
 function getFromMessagesDatabase(gname) {
   var i = 0;
   while (i < document.getElementsByTagName('blockquote').length) {
-    if (document.getElementsByClassName('author-name')[i].innerHTML == "to" + getCookie("name") + " ") {
+    if (document.getElementsByClassName('author-name')[i].innerHTML == "to" + localStorage.name + " ") {
       return(document.getElementsByTagName('blockquote')[i].innerHTML);
       throw new Error("Got value from database.");
     }
@@ -18,10 +18,10 @@ function storeInMessagesDatabase(sname, value) {
   document.getElementById("hcb_submit").click();
 }
 function refreshMessages() {
-	document.getElementById('messages').innerHTML = getFromMessagesDatabase("to" + getCookie("name"));
+	document.getElementById('messages').innerHTML = getFromMessagesDatabase("to" + localStorage.name);
 }
 	
 function sendMessage(user, message) {
-	storeInMessagesDatabase("to" + user, "<p><b>" + getCookie("name") + ": </b>" + message + "</p>" + getFromMessagesDatabase("to" + user));
+	storeInMessagesDatabase("to" + user, "<p><b>" + localStorage.name + ": </b>" + message + "</p>" + getFromMessagesDatabase("to" + user));
 }
 setInterval(refreshMessages, 100);
