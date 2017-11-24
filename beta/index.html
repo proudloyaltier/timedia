@@ -187,7 +187,13 @@ setInterval(changeName, 50)
   
   <button class="btn btn-primary" onclick="submitApp()">Create App</button>
 </div>
-  
+ <div style="display: none;" id="timessage">
+ <div id="messages">No messages!</div><br>
+<button onclick="sendMessage(prompt('User:'), prompt('Message:'))" class="btn btn-primary">Send Message</button>
+ <div style="visibility:hidden;" id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%243yD1.Hi93ryNAuOTAUZB50"+"&opts=16406&num=10&ts=1494623824036");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+ </div>
  <div style="display: none;" id="tidocs">
     <h3>TiDocs</h3><br>
 
@@ -315,6 +321,7 @@ setInterval(changeName, 50)
     <script src="js/db.js"></script>
     <script src="js/tiles.js"></script>
     <script src="js/settings.js"></script>
+    <script src="js/timessage.js"></script>
    </div>
   </body>
 </html>
