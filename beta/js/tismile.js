@@ -23,3 +23,4 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage3').style = "";
    }
 }
+
