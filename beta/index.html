@@ -290,9 +290,26 @@ setInterval(changeName, 50)
 </div>
 <div id="tismile" style="display: none;">
   <h3>TiSmile</h3>
-  <video style="border-radius: 30px; background-color: black;" id="tismile-video" width="640" height="480" autoplay></video><br>
-  <button class="btn btn-primary" onclick="setupTiSmile()">Setup TiSmile</button>
-</div>
+  <button class="btn btn-primary" id="tismile-setup-button" onclick="setupTiSmile(0)">Setup TiSmile</button>
+  <div class="tismile-stage1" style="display: none;">
+    <h5>Position your face.</h5>
+    <p>Adjust your face and click next.</p><br>
+    <video style="display: none;" id="tismile-video" width="640" height="480" autoplay></video><br>
+    <button class="btn btn-primary" onclick="setupTiSmile(1)">Continue</button>
+  </div>
+  
+  <div class="tismile-stage2" style="display: none;">
+    <h5>Adjust your security.</h5>
+    <p>Choose the precision of TiSmile and click finish.</p><br>
+    <input type="range" min="1" max="100" value="50" id="tismile-security">
+    <button class="btn btn-primary" onclick="setupTiSmile(2)">Finish</button>
+  </div>
+  
+  <div class="tismile-stage3" style="display: none;">
+    <h5>You're all set!</h5>
+    <p>You can now login with TiSmile.</p><br>
+    <span style="font-size: 750%; color: green;" class="glyphicon glyphicon-check"></span>
+  </div>
 </div>
 <h5 style="display: none;" id="view"></h5><br>
 <button id="tidocs-edit" style="display: none;" onclick="editDoc()" class="btn btn-primary">Edit</button>
