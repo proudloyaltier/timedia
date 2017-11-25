@@ -9,6 +9,12 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   });
 }
 
+if (localStorage.faces !== undefined) {
+  document.getElementById('tismile-enable').style = "display: none;";
+} else {
+  document.getElementById('tismile-disable').style = "display: none;";
+}
+
 function setupTiSmile(stage) {
    if (stage == 0) {
      document.getElementById('tismile-main').style = "display: none;";
