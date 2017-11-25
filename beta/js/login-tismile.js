@@ -14,8 +14,7 @@ if (localStorage.faces !== undefined) {
   document.getElementById('login-tismile').style = "";
 }
 
-
 function loginPassword() {
-  document.getElementById('login-user').style = "";
   document.getElementById('login-tismile').style = "display: none;";
+  document.getElementById('login-user').style = "";
 }
