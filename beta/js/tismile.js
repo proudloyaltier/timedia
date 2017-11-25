@@ -17,7 +17,7 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-video').style = "display: none;";
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
-   } elseif (stage == 3) {
+   } elseif (stage == 2) {
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
    }
