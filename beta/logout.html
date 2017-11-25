@@ -1,4 +1,6 @@
 <script>
+  var localFaces = localStorage.faces;
   window.localStorage.clear();
+  localStorage.faces = localFaces;
   window.location.href = "login.html";
 </script>
