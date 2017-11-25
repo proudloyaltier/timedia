@@ -39,9 +39,13 @@
     Password<br>
     <input type="password" id="login-password" class="form-control"><br>
     <p id="error" style="color: red;"></p>
-    <button onclick="login()" id="login-btn" class="btn btn-primary">Login</button><br>
+    <button onclick="login()" id="login-btn" class="btn btn-primary">Login</button><br><br>
 
-
+    <div id="login-tismile" style="display: none;">
+      <h3>Login with TiSmile</h3>
+      <video style="border-radius: 30px; background-color: black;" id="tismile-video" width="640" height="480" autoplay></video><br>
+      <h5 id="status">Looking for face...</h5>
+    </div>
 </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -49,5 +53,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="js/db.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/login-tismile.js"
   </body>
 </html>
