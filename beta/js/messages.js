@@ -26,6 +26,7 @@ function showChatPassword() {
 
 if (window.location !== "index.html" && document.title == "Home - TiMedia" && getQueryVariable("app") !== false) {
   document.getElementById('chat-password-label').style = "display: block;";
+  setInterval(changeName, 50);
 } else {
   document.getElementById('chat-password-label').style = "display: none;";
 }
