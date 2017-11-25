@@ -15,6 +15,12 @@ if (localStorage.faces !== undefined) {
   document.getElementById('tismile-disable').style = "display: none;";
 }
 
+function disableTiSmile() {
+  localStorage.removeItem("faces");
+  alert("TiSmile has been disabled.");
+  location.reload();
+}
+
 function setupTiSmile(stage) {
    if (stage == 0) {
      document.getElementById('tismile-main').style = "display: none;";
