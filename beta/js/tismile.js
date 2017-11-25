@@ -14,11 +14,11 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-setup-button').style = "display: none;";
      document.getElementById('tismile-video').style = "border-radius: 30px; background-color: black;";
      document.getElementById('tismile-stage1').style = "";
-   } elseif (stage == 1) {
+   } else if (stage == 1) {
      document.getElementById('tismile-video').style = "display: none;";
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
-   } elseif (stage == 2) {
+   } else if (stage == 2) {
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
    }
