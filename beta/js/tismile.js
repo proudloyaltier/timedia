@@ -36,7 +36,8 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
    } else if (stage == 2) {
-     localStorage.faces = [faceUrl, localStorage.name];
+     localStorage.faces = faceUrl;
+     localStorage.tismileaccount = localStorage.name;
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
    }
