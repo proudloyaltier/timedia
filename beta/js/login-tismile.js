@@ -23,8 +23,9 @@ function loginPassword() {
 
 function checkFaces() {
   context.drawImage(video, 0, 0, 640, 480);
+  window.faceToCompare = canvas.toDataUrl();
   
-  if (localStorage.faces.includes(canvas.toDataUrl())) {
+  if (localStorage.faces.includes(faceToCompare)) {
     localStorage.name = localStorage.faces[localStorage.faces.length - 1];
     localStorage.access = btoa(localStorage.name);
     window.location.href = "index.html";
