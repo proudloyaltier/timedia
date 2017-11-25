@@ -21,4 +21,6 @@ function setupTiSmile(stage) {
    } elseif (stage == 2) {
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
+   }
+  }
 }
