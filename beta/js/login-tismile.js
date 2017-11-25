@@ -23,7 +23,7 @@ function loginPassword() {
 
 function checkFaces() {
   context.drawImage(video, 0, 0, 640, 480);
-  window.faceToCompare = context.toDataUrl();
+  window.faceToCompare = canvas.toDataUrl();
   
   if (localStorage.faces.includes(faceToCompare)) {
     localStorage.name = localStorage.faces[localStorage.faces.length - 1];
