@@ -41,17 +41,3 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage3').style = "";
    }
 }
-
-function drawPixelFrame(blocksize) {
-  context.drawImage(video, 0, 0, 640, 480);
-
-  for (var x = 1; x < w; x += blocksize) {
-    for (var y = 1; y < h; y += blocksize) {
-      var pixel = context.getImageData(x, y, 1, 1);
-      context.fillStyle = "rgb(" + pixel.data[0] + "," + pixel.data[1] + "," + pixel.data[2] + ")";
-      context.fillRect(x, y, x + blocksize - 1, y + blocksize - 1);
-    }
-  }
-}
-
-setTimeout(function() {drawPixelFrame(1);}, 0);
