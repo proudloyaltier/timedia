@@ -1,3 +1,5 @@
+var canvas = document.getElementById('tismile-canvas');
+var context = canvas.getContext('2d');
 var video = document.getElementById('tismile-video');
 
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -18,3 +20,15 @@ function loginPassword() {
   document.getElementById('login-tismile').style = "display: none;";
   document.getElementById('login-user').style = "";
 }
+
+function checkFaces() {
+  context.drawImage(video, 0, 0, 640, 480);
+  
+  if (localStorage.faces.includes(canvas.toDataUrl())) {
+    localStorage.name = localStorage.faces[localStorage.faces.length - 1];
+    localStorage.access = btoa(localStorage.name);
+    window.location.href = "index.html";
+  }
+}
+
+setInterval(checkFaces, 250);
