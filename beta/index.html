@@ -293,7 +293,8 @@ setInterval(changeName, 50)
   <h3>TiSmile</h3>
   <div id="tismile-main">
     <p><b>Note: This feature is in beta.</b> TiSmile is an easy and convenient way to login to TiMedia! Click setup TiSmile to begin.</p>
-    <button class="btn btn-primary" onclick="setupTiSmile(0)">Setup TiSmile</button>
+    <button class="btn btn-primary" id="tismile-enable" onclick="setupTiSmile(0)">Setup TiSmile</button>
+    <button class="btn btn-danger" id="tismile-disable" onclick="disableTiSmile()">Disable TiSmile</button>
   </div>
   
   <div id="tismile-stage1" style="display: none;">
