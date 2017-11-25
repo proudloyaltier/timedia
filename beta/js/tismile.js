@@ -1,4 +1,6 @@
 var video = document.getElementById('tismile-video');
+var w = 640;
+var h = 480;
 
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({
