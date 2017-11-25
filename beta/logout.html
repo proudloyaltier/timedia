@@ -1,11 +1,13 @@
 <script>
   if (localStorage.faces !== undefined) {
     var localFaces = localStorage.faces;
+    var localTiSmileAccount = localStorage.tismileaccount
   }
   
   window.localStorage.clear();
   if (localFaces !== undefined) {
     localStorage.faces = localFaces;
+    localStorage.tismileaccount = localTiSmileAccount;
   }
   window.location.href = "login.html";
 </script>
