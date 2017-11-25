@@ -12,7 +12,6 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 function setupTiSmile(stage) {
    if (stage == 0) {
      document.getElementById('tismile-main').style = "display: none;";
-     document.getElementById('tismile-video').style = "border-radius: 30px; background-color: black;";
      document.getElementById('tismile-stage1').style = "";
    } else if (stage == 1) {
      document.getElementById('tismile-video').style = "display: none;";
