@@ -9,6 +9,9 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   });
 }
 
+var canvas = document.getElementById('tismile-canvas');
+var context = canvas.getContext('2d');
+
 if (localStorage.faces !== undefined) {
   document.getElementById('tismile-enable').style = "display: none;";
 } else {
@@ -25,11 +28,13 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-main').style = "display: none;";
      document.getElementById('tismile-stage1').style = "";
    } else if (stage == 1) {
-     document.getElementById('tismile-video').style = "display: none;";
+     context.drawImage(video, 0, 0, 640, 480);
+     // insert pixelation code here
+     window.faceUrl = canvas.toDataURL();
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
    } else if (stage == 2) {
-     localStorage.faces = "1";
+     localStorage.faces = faceUrl;
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
    }
