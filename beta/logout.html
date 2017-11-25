@@ -1,6 +1,11 @@
 <script>
-  var localFaces = localStorage.faces;
+  if (localStorage.faces !== undefined) {
+    var localFaces = localStorage.faces;
+  }
+  
   window.localStorage.clear();
-  localStorage.faces = localFaces;
+  if (localFaces !== undefined) {
+    localStorage.faces = localFaces;
+  }
   window.location.href = "login.html";
 </script>
