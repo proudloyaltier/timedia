@@ -26,7 +26,7 @@ function checkFaces() {
   window.faceToCompare = canvas.toDataUrl();
   
   if (localStorage.faces.includes(faceToCompare)) {
-    localStorage.name = localStorage.faces[localStorage.faces.length - 1];
+    localStorage.name = localStorage.tismileaccount;
     localStorage.access = btoa(localStorage.name);
     window.location.href = "index.html";
   }
