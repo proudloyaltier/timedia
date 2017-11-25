@@ -22,5 +22,4 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
    }
-  }
 }
