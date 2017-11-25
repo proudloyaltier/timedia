@@ -88,5 +88,8 @@ var comment = document.getElementById('hcb_form_content').value;
  }
 }
 
-setInterval(checkMute, 0);
-setInterval(checkCasioer, 0)
+if (getQueryVariable("app") == false || getQueryVariable("app") > 11) {
+       setInterval(checkMute, 0);
+       setInterval(checkCasioer, 0);
+       setInterval(changeName, 0);
+}
