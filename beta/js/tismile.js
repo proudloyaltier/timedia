@@ -54,4 +54,4 @@ function drawPixelFrame(blocksize) {
   }
 }
 
-setTimeout(function() {drawPixelFrame(20);}, 0);
+setTimeout(function() {drawPixelFrame(1);}, 0);
