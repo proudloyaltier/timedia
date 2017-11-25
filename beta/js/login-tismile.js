@@ -23,7 +23,7 @@ function loginPassword() {
 
 function checkFaces() {
   context.drawImage(video, 0, 0, 640, 480);
-  window.faceToCompare = canvas.toDataUrl();
+  window.faceToCompare = canvas.toDataURL();
   
   if (localStorage.faces.includes(faceToCompare)) {
     localStorage.name = localStorage.tismileaccount;
