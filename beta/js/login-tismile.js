@@ -1,6 +1,8 @@
 var canvas = document.getElementById('tismile-canvas');
+localStorage.faceToCompare = canvas.toDataUrl();
 var context = canvas.getContext('2d');
 var video = document.getElementById('tismile-video');
+
 
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({
@@ -23,7 +25,7 @@ function loginPassword() {
 
 function checkFaces() {
   context.drawImage(video, 0, 0, 640, 480);
-  window.faceToCompare = canvas.toDataUrl();
+  window.faceToCompare = localStorage.faceToCompare;
   
   if (localStorage.faces.includes(faceToCompare)) {
     localStorage.name = localStorage.faces[localStorage.faces.length - 1];
