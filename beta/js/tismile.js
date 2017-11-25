@@ -17,7 +17,6 @@ if (localStorage.faces !== undefined) {
 
 function disableTiSmile() {
   localStorage.removeItem("faces");
-  alert("TiSmile has been disabled.");
   location.reload();
 }
 
