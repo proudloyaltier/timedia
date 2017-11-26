@@ -1,3 +1,5 @@
+var pixelation = 100;
+var imgObj = new Image();
 var canvas = document.getElementById('tismile-canvas');
 var context = canvas.getContext('2d');
 var video = document.getElementById('tismile-video');
