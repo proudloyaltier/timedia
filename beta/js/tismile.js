@@ -37,7 +37,8 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
    } else if (stage == 2) {
-     var pixelation = 100 - Number(document.getElementById('tismile-security').value);
+     localStorage.security = Number(document.getElementById('tismile-security').value);
+     var pixelation = 100 - localStorage.security;
      pixelate(context, 640, 480, 0, 0);
      localStorage.faces = canvas.toDataURL();
      localStorage.tismileaccount = localStorage.name;
