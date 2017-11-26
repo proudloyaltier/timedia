@@ -1,4 +1,4 @@
-var pixelation = 100;
+var pixelation = localStorage.security;
 var imgObj = new Image();
 var canvas = document.getElementById('tismile-canvas');
 var context = canvas.getContext('2d');
