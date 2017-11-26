@@ -2,15 +2,6 @@ var video = document.getElementById('tismile-video');
 var w = 640;
 var h = 480;
 
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({
-    video: true
-  }).then(function(stream) {
-    video.src = window.URL.createObjectURL(stream);
-    video.play();
-  });
-}
-
 var canvas = document.getElementById('tismile-canvas');
 var context = canvas.getContext('2d');
 
@@ -19,6 +10,15 @@ if (getQueryVariable("app") == 11) {
     document.getElementById('tismile-enable').style = "display: none;";
   } else {
     document.getElementById('tismile-disable').style = "display: none;";
+  }
+  
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({
+    video: true
+  }).then(function(stream) {
+    video.src = window.URL.createObjectURL(stream);
+    video.play();
+  });
   }
 }
 
