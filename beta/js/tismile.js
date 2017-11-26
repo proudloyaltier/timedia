@@ -14,10 +14,12 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 var canvas = document.getElementById('tismile-canvas');
 var context = canvas.getContext('2d');
 
-if (localStorage.faces !== undefined) {
-  document.getElementById('tismile-enable').style = "display: none;";
-} else {
-  document.getElementById('tismile-disable').style = "display: none;";
+if (getQueryVariable("app") == 11) {
+  if (localStorage.faces !== undefined) {
+    document.getElementById('tismile-enable').style = "display: none;";
+  } else {
+    document.getElementById('tismile-disable').style = "display: none;";
+  }
 }
 
 function disableTiSmile() {
@@ -31,7 +33,7 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage1').style = "";
    } else if (stage == 1) {
      context.drawImage(video, 0, 0, 640, 480);
-     // insert pixelation code here
+     pixelate(context, 0, 0, 640, 480);
      window.faceUrl = canvas.toDataURL();
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
@@ -64,8 +66,39 @@ var isMobile = {
     }
 };
 
-    if(isMobile.any()) {
- document.getElementById('ti-smile-app').style = "display: none;"
+if (isMobile.any()) {
+  document.getElementById('ti-smile-app').style = "display: none;";
 } else {
-document.getElementById('ti-smile-app').style = ""  
+  document.getElementById('ti-smile-app').style = "";
+}
+
+function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
+
+  var sourceX = xPos,
+    sourceY = yPos,
+    imageData = context.getImageData(sourceX, sourceY, srcWidth, srcHeight),
+    data = imageData.data;
+
+  for (var y = 0; y < srcHeight; y += pixelation) {
+    for (var x = 0; x < srcWidth; x += pixelation) {
+
+      var red = data[((srcWidth * y) + x) * 4],
+        green = data[((srcWidth * y) + x) * 4 + 1],
+        blue = data[((srcWidth * y) + x) * 4 + 2];
+
+      for (var n = 0; n < pixelation; n++) {
+        for (var m = 0; m < pixelation; m++) {
+          if (x + m < srcWidth) {
+            data[((srcWidth * (y + n)) + (x + m)) * 4] = red;
+            data[((srcWidth * (y + n)) + (x + m)) * 4 + 1] = green;
+            data[((srcWidth * (y + n)) + (x + m)) * 4 + 2] = blue;
+          }
+        }
+      }
+    }
+  }
+
+  // overwrite original image
+  context.putImageData(imageData, xPos, yPos);
+  pixelation -= 1;
 }
