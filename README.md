@@ -30,6 +30,7 @@ May 10th, 2017 - added a CAPTCHA for security.
 May 9th, 2017 - created TiMedia.
 
 ## What is TiMedia?
-TiMedia is a google, apple and microsoft replacement
+TiMedia is a Google, Apple, and Microsoft replacement.
+
 ## How do I start posting?
 Visit http://timedia.tk and request for an account.
