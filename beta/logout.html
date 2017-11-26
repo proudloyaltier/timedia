@@ -1,13 +1,17 @@
 <script>
   if (localStorage.faces !== undefined) {
     var localFaces = localStorage.faces;
-    var localTiSmileAccount = localStorage.tismileaccount
+    var localTiSmileAccount = localStorage.tismileaccount;
+    var localSecurity = localStorage.security;
   }
   
   window.localStorage.clear();
+  
   if (localFaces !== undefined) {
     localStorage.faces = localFaces;
     localStorage.tismileaccount = localTiSmileAccount;
+    localStorage.security = localSecurity;
   }
+  
   window.location.href = "login.html";
 </script>
