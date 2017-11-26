@@ -22,7 +22,7 @@ function loginPassword() {
 }
 
 function checkFaces() {
-  context.drawImage(video, 0, 0, 640, 480);
+  context.drawImage(video, 640, 480, 0, 0);
   pixelate(context, 0, 0, 640, 480);
   window.faceToCompare = canvas.toDataURL();
   
