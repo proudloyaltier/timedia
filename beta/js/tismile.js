@@ -33,7 +33,7 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage1').style = "";
    } else if (stage == 1) {
      context.drawImage(video, 0, 0, 640, 480);
-     pixelate(context, 0, 0, 640, 480);
+     pixelate(context, 640, 480, 0, 0);
      window.faceUrl = canvas.toDataURL();
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
