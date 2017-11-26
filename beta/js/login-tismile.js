@@ -28,7 +28,7 @@ function checkFaces() {
   pixelate(context, 640, 480, 0, 0);
   window.faceToCompare = canvas.toDataURL();
   
-  if (localStorage.faces.includes(faceToCompare)) {
+  if (localStorage.faces == faceToCompare) {
     console.log("Unlocked!");
     localStorage.name = localStorage.tismileaccount;
     localStorage.access = btoa(localStorage.name);
