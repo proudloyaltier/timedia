@@ -1,4 +1,3 @@
-var pixelation = 100;
 var imgObj = new Image();
 var video = document.getElementById('tismile-video');
 var w = 640;
@@ -35,12 +34,12 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage1').style = "";
    } else if (stage == 1) {
      context.drawImage(video, 0, 0, 640, 480);
-     pixelate(context, 640, 480, 0, 0);
-     window.faceUrl = canvas.toDataURL();
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
    } else if (stage == 2) {
-     localStorage.faces = faceUrl;
+     var pixelation = 100 - Number(document.getElementById('tismile-security').value);
+     pixelate(context, 640, 480, 0, 0);
+     localStorage.faces = canvas.toDataURL();
      localStorage.tismileaccount = localStorage.name;
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
