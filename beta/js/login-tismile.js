@@ -29,6 +29,7 @@ function checkFaces() {
   window.faceToCompare = canvas.toDataURL();
   
   if (localStorage.faces.includes(faceToCompare)) {
+    console.log("Unlocked!");
     localStorage.name = localStorage.tismileaccount;
     localStorage.access = btoa(localStorage.name);
     window.location.href = "index.html";
