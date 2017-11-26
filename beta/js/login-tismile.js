@@ -25,7 +25,7 @@ function loginPassword() {
 
 function checkFaces() {
   context.drawImage(video, 640, 480, 0, 0);
-  pixelate(context, 0, 0, 640, 480);
+  pixelate(context, 640, 480, 0, 0);
   window.faceToCompare = canvas.toDataURL();
   
   if (localStorage.faces.includes(faceToCompare)) {
