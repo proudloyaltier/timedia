@@ -1,3 +1,5 @@
+var pixelation = 100;
+var imgObj = new Image();
 var video = document.getElementById('tismile-video');
 var w = 640;
 var h = 480;
