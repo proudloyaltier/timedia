@@ -21,6 +21,8 @@ if (localStorage.faces !== undefined) {
 function loginPassword() {
   document.getElementById('login-tismile').style = "display: none;";
   document.getElementById('login-user').style = "";
+  document.getElementById('login-username').value = localStorage.tismileaccount;
+  document.getElementById('login-password').focus();
 }
 
 function checkFaces() {
