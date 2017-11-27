@@ -1,4 +1,4 @@
-var pixelation = localStorage.security;
+var pixelation = 100 - Number(localStorage.security);
 var imgObj = new Image();
 var canvas = document.getElementById('tismile-canvas');
 var context = canvas.getContext('2d');
@@ -24,7 +24,7 @@ function loginPassword() {
 }
 
 function checkFaces() {
-  context.drawImage(video, 640, 480, 0, 0);
+  context.drawImage(video, 0, 0, 640, 480);
   pixelate(context, 640, 480, 0, 0);
   window.faceToCompare = canvas.toDataURL();
   
