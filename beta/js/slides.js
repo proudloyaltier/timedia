@@ -15,7 +15,6 @@ ctx.getImageData(0, 0, 1000, 600);
 
 function saveSlide() {
   var url = "index.html?app=9"+ "&s=" + btoa(JSON.stringify(ctx.getImageData(0, 0, 1000, 600)));
-  localStorage.recentUrl = url;
   localStorage.workToSave = url;
   window.location.href = "?app=7";
 }
