@@ -70,8 +70,9 @@ var isMobile = {
 
 if (isMobile.any()) {
   document.getElementById('tismileSettings').style = "display: none;";
+  document.getElementById("tismile-link-settings").style = 'display: none;';
 } else {
-  document.getElementById('tismileSettings').style = "";
+  document.getElementById("tismile-link-settings").style = ''
 }
 
 function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
