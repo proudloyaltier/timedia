@@ -258,10 +258,21 @@ function tt() {
             window.location.href = "index.html";
          } else if(localStorage.us == 'open points') {
             window.location.href = "index.html?app=1";
-         } else if(localStorage.us == '') {
-            
-         } else if(localStorage.us == '') {
-            
+         } else if(localStorage.us == "what do you think of google docs" || localStorage.us == "do you like google docs") {
+            responsiveVoice.speak("It looks great, but I'm more of a TiDocs fan.");
+            localStorage.ts = "It looks great, but I'm more of a TiDocs fan.";
+         } else if(localStorage.us == "what do you think of google sheets" || localStorage.us == "do you like google sheets") {
+            responsiveVoice.speak("It looks great, but I'm more of a TiSheets fan.");
+            localStorage.ts = "It looks great, but I'm more of a TiSheets fan.";
+         } else if(localStorage.us == "what do you think of homepod" || localStorage.us == "do you like homepod") {
+            responsiveVoice.speak("HomePod looks great, but I prefer TiPod.");
+            localStorage.ts = "HomePod looks great, but I prefer TiPod.";
+         } else if(localStorage.us == "what do you think of google home" || localStorage.us == "do you like google home") {
+            responsiveVoice.speak("Google Home looks great, but I prefer TiPod.");
+            localStorage.ts = "Google Home looks great, but I prefer TiPod.";
+         } else if(localStorage.us == "what do you think of echo" || localStorage.us == "do you like echo" || localStorage.us == "what do you think of amazon echo" || localStorage.us == "do you like amazon echo") {
+            responsiveVoice.speak("Echo looks great, but I prefer TiPod.");
+            localStorage.ts = "Echo looks great, but I prefer TiPod.";
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
             localStorage.ts = "Sorry, I do not understand.";
