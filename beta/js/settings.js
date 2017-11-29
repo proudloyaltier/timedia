@@ -15,7 +15,3 @@ if (localStorage.barColor !== undefined) {
 function lastTile() {
   window.location.href = localStorage.recentUrl;
 }
-
-function openSettings(settings) {
-  document.getElementById(settings + "Settings").style = "display: block"
-}
