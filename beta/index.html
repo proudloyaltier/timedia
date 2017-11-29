@@ -201,9 +201,8 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   
      <div id="settings" style="display: none;">
        <h3>Settings</h3><br>
-       <h5 onclick="openSettings(personalization)">Personalization Settings</h5><span class="glyphicon glyphicon-arrow-down">
-       <div id="personalizationSettings" style="display: none">
-         <h4> Personalization </h4>
+       <h4> Personalization </h4>
+       <div id="personalizationSettings">
          Background Image<br>
         <input class="form-control" type="text" id="backgroundImg"><br>
          
@@ -212,17 +211,15 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
         <button onclick="updateSettings()" class="btn btn-success">Save</button>
        </div>
        <br><br><br>
-       <h5 onclick="openSettings(tile)">Personalization Settings</h5><span class="glyphicon glyphicon-arrow-down">
-       <div id="tileSettings" style="display: none">
-        <h4>Tiles</h4>
+       <h4>Tiles</h4>
+       <div id="tileSettings" style="">
         <button onclick="backupTiles('TilesBackup.txt', localStorage.files)" class="btn btn-primary">Backup Tiles</button>
         <button onclick="restoreTiles()" class="btn btn-primary">Restore Tiles</button><br><br>
         <button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button><br><br>
         <button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br>
        </div>
        <br>
-       <h5 id="tismile-link-settings" onclick="openSettings(tismile)">Personalization Settings</h5><span class="glyphicon glyphicon-arrow-down">
-       <div id="tismileSettings" style="display: none">
+       <div id="tismileSettings">
          <h4> TiSmile </h4>
          <img src="other resources/smile.png" width="100" height="100"><br>
          <h4><b>Introducing TiSmile</b> - Unlock with a smile.</h4>
