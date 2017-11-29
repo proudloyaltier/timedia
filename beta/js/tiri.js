@@ -259,19 +259,19 @@ function tt() {
          } else if(localStorage.us == 'open points') {
             window.location.href = "index.html?app=1";
          } else if(localStorage.us == "what do you think of google docs" || localStorage.us == "do you like google docs") {
-            responsiveVoice.speak("It looks great, but I'm more of a TI Docs fan.");
+            responsiveVoice.speak("It looks great, but I'm more of a T I Docs fan.");
             localStorage.ts = "It looks great, but I'm more of a TiDocs fan.";
          } else if(localStorage.us == "what do you think of google sheets" || localStorage.us == "do you like google sheets") {
-            responsiveVoice.speak("It looks great, but I'm more of a TI Sheets fan.");
+            responsiveVoice.speak("It looks great, but I'm more of a T I Sheets fan.");
             localStorage.ts = "It looks great, but I'm more of a TiSheets fan.";
          } else if(localStorage.us == "what do you think of homepod" || localStorage.us == "do you like homepod") {
-            responsiveVoice.speak("HomePod looks great, but I prefer TI Pod.");
+            responsiveVoice.speak("HomePod looks great, but I prefer T I Pod.");
             localStorage.ts = "HomePod looks great, but I prefer TiPod.";
          } else if(localStorage.us == "what do you think of google home" || localStorage.us == "do you like google home") {
-            responsiveVoice.speak("Google Home looks great, but I prefer TI Pod.");
+            responsiveVoice.speak("Google Home looks great, but I prefer T I Pod.");
             localStorage.ts = "Google Home looks great, but I prefer TiPod.";
          } else if(localStorage.us == "what do you think of echo" || localStorage.us == "do you like echo" || localStorage.us == "what do you think of amazon echo" || localStorage.us == "do you like amazon echo") {
-            responsiveVoice.speak("Echo looks great, but I prefer TI Pod.");
+            responsiveVoice.speak("Echo looks great, but I prefer T I Pod.");
             localStorage.ts = "Echo looks great, but I prefer TiPod.";
          } else {
             responsiveVoice.speak("Sorry. I do not understand");
