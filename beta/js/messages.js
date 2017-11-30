@@ -11,6 +11,7 @@ var sortAlphabets = function(text) {
 
 function joinChat() {
 var chat = document.getElementById('chat').value + localStorage.name;
+var chat = chat.toLowercase();
 localStorage.chatTitle = document.getElementById("chat").value + "  Chat";
 var chatPassword1 = sortAlphabets(chat);
 var chatPassword = MD5(chatPassword1);
