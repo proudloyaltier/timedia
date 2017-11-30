@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="other resources/style2.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="other resources/style.css" crossorigin="anonymous">
     <link rel="stylesheet" href="other resources/tiles.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="other resources/cmenu.css" crossorigin="anonymous">
     <link rel="SHORTCUT ICON" href="other resources/favicon.ico">
     <title>Home - TiMedia</title>
   </head>
@@ -315,9 +316,25 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     </center>
   </div>
 </div>
+  <!--context menu---------------------------------------------------------------------------------------------------------------->      
+  <nav id="context-menu" class="context-menu">
+    <ul class="context-menu__items">
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> View Task</a>
+      </li>
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Edit Task</a>
+      </li>
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="Delete"><i class="fa fa-times"></i> Delete Task</a>
+      </li>
+    </ul>
+  </nav>
+  <!--end of context menu -------------------------------------------------------------------------------------------------------->
 <h5 style="display: none;" id="view"></h5><br>
 <button id="tidocs-edit" style="display: none;" onclick="editDoc()" class="btn btn-primary">Edit</button>
     <script src="js/home.js"></script>
+    <script src="js/cmenu.js"></script>
     <script src="js/main.js"></script>
     <script src="js/tismile.js"></script>
     <script src="js/annyang.js"></script>
