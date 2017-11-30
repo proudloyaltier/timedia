@@ -4,10 +4,15 @@ if (getQueryVariable("app") == 2) {
 
 }
 
+var sortAlphabets = function(text) {
+    return text.split('').sort().join('');
+};
+
+
 function joinChat() {
-var chat = [document.getElementById('chat').value, localStorage.name];
-chat.sort();
-var chatPassword = MD5(chat);
+var chat = document.getElementById('chat').value + localStorage.name;
+var chatPassword1 = MD5(chat);
+var chatPassword = sortAlphabets(chatPassword1);
 window.location.href = "index.html?app=" + chatPassword;
 
 }
