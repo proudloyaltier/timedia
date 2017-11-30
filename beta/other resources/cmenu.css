@@ -17,11 +17,9 @@
 
 .context-menu__items {
   list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.context-menu__item {
+  text-decoration: none;
+  margin: 5;
+  padding: 10;
   display: block;
   margin-bottom: 4px;
 }
@@ -40,4 +38,5 @@
 .context-menu__link:hover {
   color: #fff;
   background-color: #0066aa;
+  text-decoration: none;
 }
