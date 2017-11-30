@@ -87,13 +87,12 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   </center>
 <div style="display: none;" id="messages">
     <h3>TiChat</h3><br>
-  Chat Password<br>
+ Username<br>
 
 </div>
   
-    <input id="chat" class="form-control" style="display: none;" autofocus><br>
-    <button id="joinChatBtn" onclick="joinChat()" class="btn btn-primary" style="display: none;">Create/Join Chat</button>
-  <div style="display: none" id="tiritype">
+    <input id="chat" class="form-control" style="display: none;" autofocus onchange="joinChat()">
+    <div style="display: none" id="tiritype">
     <center>
       <h1 id="tiri"></h1><br>
       <input class="form-control input-lg" type="text" id="tiri-box" onchange="tt()" placeholder="Type here or speak now." autofocus>
