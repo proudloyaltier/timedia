@@ -8,6 +8,36 @@ function resetTiles() {
   }
 }
 
+function openFolder(id) {
+  document.getElementById('tiles-tiles').style = "display: none;";
+  document.getElementById('tiles-searchbox').style = "display: none;";
+  document.getElementById('tiles-folder').style = "";
+  document.getElementById('tiles-back').style = "";
+  
+  document.getElementById('tiles-folder').innerHTML = "";
+  
+  var folderData = atob(localStorage.files.split(",")[id].split("[")[1]);
+  
+    for (var i = 0; i < folderData.split(",").length; i++) {
+      if (folderData.split(",")[i].split("!!")[0].charAt(0) == "–") {
+        document.getElementById('tiles-folder').innerHTML = document.getElementById('tiles-folder').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="openFolder(' + i + ');"><h3><center>' + folderData.split(",")[i].split("!!")[0].substr(1) + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-folder-open"></span></center></h3></span></li>';
+      } else {
+        document.getElementById('tiles-folder').innerHTML = document.getElementById('tiles-folder').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + folderData.split(",")[i].split("!!")[1] + '\');"><h3><center>' + folderData.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-th-large"></span></center></h3></span></li>';
+      }
+    }
+  
+    document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
+  }
+
+}
+
+function closeFolder() {
+  document.getElementById('tiles-tiles').style = "";
+  document.getElementById('tiles-searchbox').style = "display: none;";
+  document.getElementById('tiles-folder').style = "display: none;";
+  document.getElementById('tiles-back').style = "display: none;";
+}
+
 function save() {
   storeInDatabase("files", localStorage.files);
 }
@@ -109,8 +139,6 @@ function loadTiles() {
         document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-th-large"></span></center></h3></span></li>';
       }
     }
-  
-    document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<datalist id="tiles-listdiv">';
   
     document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
   }
