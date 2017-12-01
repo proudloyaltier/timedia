@@ -14,6 +14,7 @@ function openFolder(id) {
   document.getElementById('tiles-folder').style = "";
   document.getElementById('tiles-back').style = "";
   document.getElementById('tiles-folderbtn').style = "display: none;";
+  document.getElementById('tiles-at').style = "";
   
   document.getElementById('tiles-folder').innerHTML = "";
   
@@ -37,6 +38,7 @@ function closeFolder() {
   document.getElementById('tiles-folder').style = "display: none;";
   document.getElementById('tiles-back').style = "display: none;";
   document.getElementById('tiles-folderbtn').style = "";
+  document.getElementById('tiles-at').style = "display: none;";
 }
 
 function save() {
