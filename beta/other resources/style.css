@@ -4,6 +4,10 @@ textarea {
   outline: 0;
 }
 
+.bullet {
+  list-style: none;
+}
+
 /*!
  * bootswatch v3.3.7
  * Homepage: http://bootswatch.com
