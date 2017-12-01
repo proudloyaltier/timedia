@@ -86,8 +86,8 @@ function saveFromTiWork() {
 
 function deleteTile(tile) {
   localStorage.files.replace("!!" + localStorage.files.split("!!")[tile], "");
-  save();
   window.location.reload();
+  save();
 }
 
 function loadTiles() {
