@@ -84,12 +84,6 @@ function saveFromTiWork() {
   addFile(title, tosave);
 }
 
-function deleteTile(tile) {
-  localStorage.files.replace("!!" + localStorage.files.split("!!")[tile], "");
-  window.location.reload();
-  save();
-}
-
 function loadTiles() {
   
   document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
