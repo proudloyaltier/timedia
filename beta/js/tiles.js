@@ -81,9 +81,9 @@ function addFolder() {
   var title = prompt("Folder Name");
 
   if (localStorage.files !== undefined) {
-    localStorage.files = localStorage.files + ",–" + title + "[";
+    localStorage.files = localStorage.files + ",–" + title + "!![";
   } else {
-    localStorage.files = "–" + title + "[";
+    localStorage.files = "–" + title + "!![";
   }
   
   save();
