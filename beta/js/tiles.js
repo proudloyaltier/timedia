@@ -14,9 +14,6 @@ function openFolder(id) {
   document.getElementById('tiles-folder').style = "";
   document.getElementById('tiles-back').style = "";
   document.getElementById('tiles-folderbtn').style = "display: none;";
-  document.getElementById('tiles-at').style = "";
-  
-  window.folderId = id;
   
   document.getElementById('tiles-folder').innerHTML = "";
   
@@ -40,7 +37,6 @@ function closeFolder() {
   document.getElementById('tiles-folder').style = "display: none;";
   document.getElementById('tiles-back').style = "display: none;";
   document.getElementById('tiles-folderbtn').style = "";
-  document.getElementById('tiles-at').style = "display: none;";
 }
 
 function save() {
@@ -112,33 +108,14 @@ function addFile(title, upload) {
   save();
 }
 
-function addFileToFolder(title, upload) {
-  var id = folderId;
-  var folderData = localStorage.files.split(",")[id].split("[")[1];
-  
-  if (title == undefined && upload == undefined) {
-    var title = prompt("File Name");
-    var upload = prompt("Enter your URL");
-  }
-
-  if (folderData !== undefined) {
-    folderData = btoa(atob(folderData) + "," + title + "!!" + upload);
-  } else {
-    folderData = btoa(title + "!!" + upload);
-  }
-  
-  localStorage.files.split(",")[id].split("[")[1] = folderData;
-  
-  save();
-}
-
 function addFolder() {
   var title = prompt("Folder Name");
+  var data = prompt("Folder Data");
 
   if (localStorage.files !== undefined) {
-    localStorage.files = localStorage.files + ",–" + title + "!![";
+    localStorage.files = localStorage.files + ",–" + title + "!![" + btoa(data);
   } else {
-    localStorage.files = "–" + title + "!![";
+    localStorage.files = "–" + title + "!![" + btoa(data);
   }
   
   save();
@@ -176,6 +153,7 @@ function refreshTiles() {
 function redirect() {
   window.location.href = localStorage.recentUrl;
 }
+
 
 if (localStorage.files !== undefined && getQueryVariable('app') == 7) {
   loadTiles();
