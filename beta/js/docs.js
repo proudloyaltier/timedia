@@ -1,15 +1,9 @@
 
 function saveDoc() {
-  if (localStorage.oldUrl == undefined) {
   var url = "index.html?app=3"+ '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
   localStorage.recentUrl = url;
   localStorage.workToSave = url;
   window.location.href = "?app=7";
-  } else {
-    var url = "index.html?app=3"+ '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
-    localStorage.files.replace(localStorage.oldUrl, url);
-    localStorage.removeItem('oldUrl');
-  }
 }
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
@@ -28,5 +22,4 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 function editDoc() {
   localStorage.edit = atob(getQueryVariable("p"));
   window.location.href = "index.html?app=3";
-  localStorage.oldUrl = "index.html?app=3"+ '&p=' + getQueryVariable("p");
 }
