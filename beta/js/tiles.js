@@ -13,6 +13,7 @@ function openFolder(id) {
   document.getElementById('tiles-searchbox').style = "display: none;";
   document.getElementById('tiles-folder').style = "";
   document.getElementById('tiles-back').style = "";
+  document.getElementById('tiles-folderbtn').style = "display: none;";
   
   document.getElementById('tiles-folder').innerHTML = "";
   
@@ -35,6 +36,7 @@ function closeFolder() {
   document.getElementById('tiles-searchbox').style = "display: none;";
   document.getElementById('tiles-folder').style = "display: none;";
   document.getElementById('tiles-back').style = "display: none;";
+  document.getElementById('tiles-folderbtn').style = "";
 }
 
 function save() {
@@ -108,11 +110,12 @@ function addFile(title, upload) {
 
 function addFolder() {
   var title = prompt("Folder Name");
+  var data = prompt("Folder Data");
 
   if (localStorage.files !== undefined) {
-    localStorage.files = localStorage.files + ",–" + title + "!![";
+    localStorage.files = localStorage.files + ",–" + title + "!![" + btoa(data);
   } else {
-    localStorage.files = "–" + title + "!![";
+    localStorage.files = "–" + title + "!![" + btoa(data);
   }
   
   save();
