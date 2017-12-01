@@ -16,6 +16,8 @@ function openFolder(id) {
   document.getElementById('tiles-folderbtn').style = "display: none;";
   document.getElementById('tiles-at').style = "";
   
+  window.folderId = id;
+  
   document.getElementById('tiles-folder').innerHTML = "";
   
   var folderData = atob(localStorage.files.split(",")[id].split("[")[1]);
@@ -110,7 +112,8 @@ function addFile(title, upload) {
   save();
 }
 
-function addFileToFolder(id, title, upload) {
+function addFileToFolder(title, upload) {
+  var id = folderId;
   var folderData = localStorage.files.split(",")[id].split("[")[1];
   
   if (title == undefined && upload == undefined) {
@@ -174,7 +177,6 @@ function refreshTiles() {
 function redirect() {
   window.location.href = localStorage.recentUrl;
 }
-
 
 if (localStorage.files !== undefined && getQueryVariable('app') == 7) {
   loadTiles();
