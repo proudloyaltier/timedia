@@ -241,10 +241,12 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
       <button onclick="save()" class="btn btn-primary">Save Tiles</button>
       <button onclick='getFromDatabase("files");' class="btn btn-success">Refresh Tiles</button><br><br>
 -->
-       <div id="tiles-tiles" style="list-style: none;">
+       <div id="tiles-tiles" class="nobullet">
          You have no Tiles.
        </div>
-       <div id="tiles-searchbox" style="list-style: none; display: none;">
+       <div id="tiles-searchbox" class="nobullet" style="display: none;">
+       </div>
+       <div id="tiles-folder" class="nobullet" style="display: none;">
        </div>
   </div>
  <div id="tisheets" style="display: none;">
