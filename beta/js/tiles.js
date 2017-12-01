@@ -27,7 +27,6 @@ function openFolder(id) {
     }
   
     document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + "</ul>";
-  }
 
 }
 
