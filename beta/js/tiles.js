@@ -108,6 +108,25 @@ function addFile(title, upload) {
   save();
 }
 
+function addFileToFolder(id, title, upload) {
+  var folderData = localStorage.files.split(",")[id].split("[")[1];
+  
+  if (title == undefined && upload == undefined) {
+    var title = prompt("File Name");
+    var upload = prompt("Enter your URL");
+  }
+
+  if (folderData !== undefined) {
+    folderData = btoa(atob(folderData) + "," + title + "!!" + upload);
+  } else {
+    folderData = btoa(title + "!!" + upload);
+  }
+  
+  localStorage.files.split(",")[id].split("[")[1] = folderData;
+  
+  save();
+}
+
 function addFolder() {
   var title = prompt("Folder Name");
   var data = prompt("Folder Data");
