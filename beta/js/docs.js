@@ -8,7 +8,7 @@ function saveDoc() {
   } else {
     var url = "index.html?app=3"+ '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
     localStorage.files.replace(localStorage.oldUrl, url);
-    localStorage.removeItem('oldUrl");
+    localStorage.removeItem('oldUrl');
   }
 }
 
