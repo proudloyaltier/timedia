@@ -9,6 +9,8 @@ function resetTiles() {
 }
 
 function openFolder(id) {
+  window.folderId = id;
+  
   document.getElementById('tiles-tiles').style = "display: none;";
   document.getElementById('tiles-searchbox').style = "display: none;";
   document.getElementById('tiles-folder').style = "";
@@ -41,6 +43,30 @@ function closeFolder() {
 
 function save() {
   storeInDatabase("files", localStorage.files);
+}
+
+function moveTile() {
+  var filename = prompt("File Name");
+  
+  for (var i = 0; i < localStorage.files.split(",").length) {
+    if (filename == localStorage.files.split(",")[i][0]) {
+      var filenum = i;
+    }
+  }
+  
+  if (filenum !== undefined) {
+    var tiledata = localStorage.files.split(",")[filenum].split("!!")[1];
+    var tilessplit = localStorage.files.split(",");
+    
+    localStorage.tilessplit[folderId] = localStorage.tilessplit[folderId].split("!!")[0] + "!!" + btoa(atob(localStorage.tilessplit[folderId].split("!!")[1]) + tiledata);
+    
+    localStorage.files = tilessplit;
+    
+    save();
+    
+  } else {
+    alert("File not found.");
+  }
 }
 
 function saveChat() {
