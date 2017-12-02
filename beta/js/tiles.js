@@ -48,7 +48,7 @@ function save() {
 function moveTile() {
   var filename = prompt("File Name");
   
-  for (var i = 0; i < localStorage.files.split(",").length) {
+  for (var i = 0; i < localStorage.files.split(",").length; i++) {
     if (filename == localStorage.files.split(",")[i][0]) {
       var filenum = i;
     }
