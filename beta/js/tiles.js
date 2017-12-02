@@ -138,7 +138,7 @@ function addFile(title, upload) {
 
 function addFolder() {
   var title = prompt("Folder Name");
-  var data = prompt("Folder Data");
+  var data = "";
 
   if (localStorage.files !== undefined) {
     localStorage.files = localStorage.files + ",–" + title + "!![" + btoa(data);
