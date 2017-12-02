@@ -45,12 +45,12 @@ function save() {
   storeInDatabase("files", localStorage.files);
 }
 
-function moveTile() {
+function moveFile() {
   var filename = prompt("File Name");
   
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
     if (filename == localStorage.files.split(",")[i][0]) {
-      var filenum = i;
+      window.filenum = i;
     }
   }
   
