@@ -241,8 +241,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
       <button onclick="save()" class="btn btn-primary">Save Tiles</button>
       <button onclick='getFromDatabase("files");' class="btn btn-success">Refresh Tiles</button><br><br>
 -->
-       <button id="tiles-folderbtn" onclick="addFolder()" class="btn btn-primary">Add Folder</button>
-       <button id="tiles-back" onclick="closeFolder()" style="display: none;" class="btn btn-primary">Back</button>
+       <button id="tiles-back" onclick="closeFolder()" style="display: none;" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span></button>
        <button id="tiles-mth" onclick="moveFile()" style="display: none;" class="btn btn-primary">Move Tile Here</button>
     
        <div id="tiles-tiles" class="nobullet">
