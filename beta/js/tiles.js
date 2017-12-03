@@ -38,7 +38,6 @@ function closeFolder() {
   document.getElementById('tiles-searchbox').style = "display: none;";
   document.getElementById('tiles-folder').style = "display: none;";
   document.getElementById('tiles-back').style = "display: none;";
-  document.getElementById('tiles-folderbtn').style = "";
   document.getElementById('tiles-mth').style = "display: none;";
 }
 
