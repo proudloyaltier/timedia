@@ -1,4 +1,7 @@
-localStorage.ts = 'welcome';
+if (localStorage.ts == undefined) {
+     localStorage.ts = 'welcome';
+}
+
 localStorage.us = '';
 
 if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html') {
