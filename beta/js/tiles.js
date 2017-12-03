@@ -15,7 +15,6 @@ function openFolder(id) {
   document.getElementById('tiles-searchbox').style = "display: none;";
   document.getElementById('tiles-folder').style = "";
   document.getElementById('tiles-back').style = "";
-  document.getElementById('tiles-folderbtn').style = "display: none;";
   document.getElementById('tiles-mth').style = "";
   
   document.getElementById('tiles-folder').innerHTML = "";
