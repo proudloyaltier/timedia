@@ -15,6 +15,14 @@ img {
 
 .container {
     padding: 2px 16px;
+    
+}
+
+.fab-container {
+  bottom: 0;
+  position: fixed;
+  margin: 1em;
+  right: 0px;
 }
 
 .buttons {
