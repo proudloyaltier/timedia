@@ -49,7 +49,7 @@ function moveFile() {
   var filename = prompt("File Name");
   
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    if (filename == localStorage.files.split(",")[i][0]) {
+    if (filename == localStorage.files.split(",")[i].split("!!")[0]) {
       var filenum = i;
     }
   }
