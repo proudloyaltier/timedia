@@ -20,9 +20,9 @@ window.location.href = "index.html?app=" + chatPassword;
 }
 
 if (window.location !== "index.html" && getQueryVariable("app") !== false) {
-  var chatInterval = setInterval(changeName, 50);
+  document.getElementById('hcb_form_name').value = localStorage.name;
+  document.getElementById('hcb_form_name').disabled = true;   
 } else {
-  clearInterval('chatInterval');
   localStorage.removeItem("chatTitle")
 }
 
