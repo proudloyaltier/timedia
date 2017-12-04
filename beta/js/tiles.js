@@ -58,7 +58,7 @@ function moveFile() {
     var tiledata = localStorage.files.split(",")[filenum].split("!!")[1];
     var tilessplit = localStorage.files.split(",");
     
-    tilessplit[folderId] = tilessplit[folderId].split("!!")[0] + "!![" + tilessplit[folderId].split("!!")[1] + "!!" +  tiledata;
+    tilessplit[folderId] = tilessplit[folderId].split("!!")[0] + "!!" + btoa(atob(tilessplit[folderId].split("!!")[1]) + "," + tiledata);
     
     localStorage.files = tilessplit;
     
@@ -136,11 +136,12 @@ function addFile(title, upload) {
 
 function addFolder() {
   var title = prompt("Folder Name");
+  var data = "";
 
   if (localStorage.files !== undefined) {
-    localStorage.files = localStorage.files + ",–" + title + "!![";
+    localStorage.files = localStorage.files + ",–" + title + "!![" + btoa(data);
   } else {
-    localStorage.files = "–" + title + "!![";
+    localStorage.files = "–" + title + "!![" + btoa(data);
   }
   
   save();
