@@ -20,8 +20,9 @@ window.location.href = "index.html?app=" + chatPassword;
 }
 
 if (window.location !== "index.html" && getQueryVariable("app") !== false) {
-  setInterval(changeName, 50);
+  var chatInterval = setInterval(changeName, 50);
 } else {
+  clearInterval('chatInterval');
   localStorage.removeItem("chatTitle")
 }
 
