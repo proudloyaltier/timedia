@@ -58,7 +58,7 @@ function moveFile() {
     var tiledata = localStorage.files.split(",")[filenum].split("!!")[1];
     var tilessplit = localStorage.files.split(",");
     
-    localStorage.tilessplit[folderId] = localStorage.tilessplit[folderId].split("!!")[0] + "!!" + btoa(atob(localStorage.tilessplit[folderId].split("!!")[1]) + tiledata);
+    tilessplit[folderId] = localStorage.tilessplit[folderId].split("!!")[0] + "!!" + btoa(atob(localStorage.tilessplit[folderId].split("!!")[1]) + tiledata);
     
     localStorage.files = tilessplit;
     
