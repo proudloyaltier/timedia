@@ -16,15 +16,12 @@ localStorage.chatTitle = chat + "  Chat";
 var chatPassword1 = sortAlphabets(chat);
 var chatPassword = MD5(chatPassword1);
 window.location.href = "index.html?app=" + chatPassword;
+document.title = localStorage.chatTitle;
+localStorage.removeItem("chatTitle");
 
 }
 
 if (window.location !== "index.html" && getQueryVariable("app") !== false) {
   setInterval(changeName, 50);
 } else {
-  localStorage.removeItem("chatTitle")
-}
-
-if (localStorage.chatTitle !== undefined) {
-  document.title = localStorage.chatTitle;
 }
