@@ -69,9 +69,9 @@ var isMobile = {
 };
 
 if (isMobile.any()) {
-  document.getElementById('tismileSettings').style = "display: none;";
+  document.getElementById('ti-smile-settings-text').style = "display: none;";
 } else {
-  document.getElementById('tismileSettings').style = "";
+  document.getElementById('ti-smile-settings-text').style = "";
 }
 
 function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
