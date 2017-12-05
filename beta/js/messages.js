@@ -15,10 +15,10 @@ var chat = chat.toLowerCase();
 var chatPassword1 = sortAlphabets(chat);
 var chatPassword = MD5(chatPassword1);
 window.location.href = "index.html?app=" + chatPassword;
-document.title = "TiChat - TiMedia"
 }
 
 if (window.location !== "index.html" && getQueryVariable("app") !== false) {
   setInterval(changeName, 50);
+  document.title = "TiChat - TiMedia"
 } else {
 }
