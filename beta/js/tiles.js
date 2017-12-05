@@ -1,3 +1,33 @@
+//Deletion Test -------------------------------
+var tnorm = localStorage.files;
+
+var tarr = tnorm.split(","); 
+
+function findTile(tid) {
+  return tarr[tid];
+}
+
+function delteTile2(ttd) {
+  var tLen = tarr.length;
+  var newtiles = "";
+  
+  for (i = 0; i < tLen; i++) {
+    if(i == ttd) {
+      
+    } else {
+      if(i > 1) {
+        newtiles = newtiles + "," + findTile(i);
+      } else {
+        newtiles = newtiles + findTile(i);
+      }
+    }
+  }
+  localStorage.files = newtiles;
+  save();
+}
+
+//Deletion Test -------------------------------
+
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
   
@@ -55,7 +85,7 @@ function backupTiles(filename, text) {
 }
 
 function deleteTile(tileid) {
-  localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
+  localStorage.files.replace(localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
 }
  
 function restoreTiles() {
@@ -95,7 +125,7 @@ function loadTiles() {
   if (localStorage.files !== "") {
     document.getElementById('tiles-tiles').innerHTML = "";
     for (var i = 0; i < localStorage.files.split(",").length; i++) {
-      document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-th-large"></span><br></center></h3></span></li>';
+      document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-th-large"><br></span><br><span style="font-size: 100%; class="glyphicon glyphicon-trash" onclick="deleteTile(' + i + ');"></span></center></h3></span></li>';
     }
   
     document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<datalist id="tiles-listdiv">';
