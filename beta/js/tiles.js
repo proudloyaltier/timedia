@@ -7,7 +7,7 @@ function findTile(tid) {
   return tarr[tid];
 }
 
-function delteTile2(ttd) {
+function deleteTile2(ttd) {
   var tLen = tarr.length;
   var newtiles = "";
   
@@ -82,10 +82,6 @@ function backupTiles(filename, text) {
     else {
         pom.click();
     }
-}
-
-function deleteTile(tileid) {
-  localStorage.files.replace(localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
 }
  
 function restoreTiles() {
