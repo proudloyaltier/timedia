@@ -17,7 +17,7 @@ var chatPassword = MD5(chatPassword1);
 window.location.href = "index.html?app=" + chatPassword;
 }
 
-if (window.location !== "index.html" && getQueryVariable("app") !== false) {
+if (window.location !== "index.html" && getQueryVariable("app") !== false && getQueryVariable("app").length > 7) {
   setInterval(changeName, 50);
   document.title = "TiChat - TiMedia"
 } else {
