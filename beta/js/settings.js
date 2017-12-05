@@ -17,20 +17,24 @@ function lastTile() {
 window.location.href = localStorage.recentUrl; 
 } 
 
-function sstismile() { 
-document.getElementById("tismileSettings").style = "display: block"; 
+document.getElementById("tismileSettings").style = "display: none"; 
 document.getElementById("personalizationSettings").style = "display: none"; 
 document.getElementById("tileSettings").style = "display: none"; 
+
+function sstismile() { 
+  document.getElementById("tismileSettings").style = "display: block"; 
+  document.getElementById("personalizationSettings").style = "display: none"; 
+  document.getElementById("tileSettings").style = "display: none"; 
 } 
 
 function sstiles() { 
-document.getElementById("tismileSettings").style = "display: none"; 
-document.getElementById("personalizationSettings").style = "display: none"; 
-document.getElementById("tileSettings").style = "display: block"; 
+  document.getElementById("tismileSettings").style = "display: none"; 
+  document.getElementById("personalizationSettings").style = "display: none"; 
+  document.getElementById("tileSettings").style = "display: block"; 
 } 
 
-function sspersonal() { 
-document.getElementById("tismileSettings").style = "display: none"; 
-document.getElementById("personalizationSettings").style = "display: block"; 
-document.getElementById("tileSettings").style = "display: none"; 
+function sspersonal() {
+  document.getElementById("tismileSettings").style = "display: none"; 
+  document.getElementById("personalizationSettings").style = "display: block"; 
+  document.getElementById("tileSettings").style = "display: none"; 
 }
