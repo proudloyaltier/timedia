@@ -12,13 +12,10 @@ var sortAlphabets = function(text) {
 function joinChat() {
 var chat = document.getElementById('chat').value + localStorage.name;
 var chat = chat.toLowerCase();
-localStorage.chatTitle = chat + "  Chat";
 var chatPassword1 = sortAlphabets(chat);
 var chatPassword = MD5(chatPassword1);
 window.location.href = "index.html?app=" + chatPassword;
-document.title = localStorage.chatTitle;
-localStorage.removeItem("chatTitle");
-
+document.title = "TiChat - TiMedia"
 }
 
 if (window.location !== "index.html" && getQueryVariable("app") !== false) {
