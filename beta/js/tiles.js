@@ -55,7 +55,7 @@ function backupTiles(filename, text) {
 }
 
 function deleteTile(tileid) {
-  localStorage.files.replace(localStorage.split(",")[tileid].split("!!")[0] + "!!" + localStorage.split(",")[tileid].split("!!")[1], "");
+  localStorage.files.replace(localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
 }
  
 function restoreTiles() {
