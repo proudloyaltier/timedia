@@ -53,6 +53,10 @@ function backupTiles(filename, text) {
         pom.click();
     }
 }
+
+function deleteTile(tileid) {
+  localStorage.files.replace(localStorage.split(",")[tileid].split("!!")[0] + "!!" + localStorage.split(",")[tileid].split("!!")[1], "");
+}
  
 function restoreTiles() {
   var toRestore = prompt("Copy and paste the text from your backup");
