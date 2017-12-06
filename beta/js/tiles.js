@@ -10,9 +10,9 @@ function deleteTile(ttd) {
       
     } else {
       if(i > 1) {
-        nt = nt + "," + [' + i + '];
+        nt = nt + "," + [i];
       } else {
-        nt = nt + [' + i + '];
+        nt = nt + [i];
       }
     }
   }
