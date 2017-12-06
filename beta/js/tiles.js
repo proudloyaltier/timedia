@@ -2,7 +2,7 @@
 
 function findTile(tid) {
   var tnorm = localStorage.files;
-  var tarr = tnorm.split(","); 
+  window.tarr = tnorm.split(","); 
   return tarr[tid];
 }
 
