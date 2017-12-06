@@ -1,13 +1,7 @@
 //Deletion Test -------------------------------
-var tnorm = localStorage.files;
-
-var tarr = tnorm.split(","); 
-
-function findTile(tid) {
-  return tarr[tid];
-}
-
 function deleteTile(ttd) {
+  var tnorm = localStorage.files;
+  var tarr = tnorm.split(","); 
   var tLen = tarr.length;
   var nt = "";
   
