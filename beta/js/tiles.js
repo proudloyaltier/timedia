@@ -27,6 +27,7 @@ function deleteTile(ttd) {
   }
   localStorage.files = nt;
   save();
+  window.location.href = "index.html?app=7";
 }
 //Deletion Test -------------------------------
 
