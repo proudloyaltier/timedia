@@ -70,8 +70,10 @@ var isMobile = {
 
 if (isMobile.any()) {
   document.getElementById('ti-smile-settings-text').style = "display: none;";
+  document.getElementById("delete-single-tile").style = "display: none;";
 } else {
   document.getElementById('ti-smile-settings-text').style = "";
+  document.getElementById("delete-single-tile").style = "";
 }
 
 function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
