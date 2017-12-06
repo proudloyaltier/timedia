@@ -1,4 +1,5 @@
 //Deletion Test -------------------------------
+/*
 var tnorm = localStorage.files;
 
 var tarr = tnorm.split(","); 
@@ -25,7 +26,7 @@ function deleteTile(ttd) {
   localStorage.files = newtiles;
   save();
 }
-
+*/
 //Deletion Test -------------------------------
 
 function resetTiles() {
