@@ -1,5 +1,4 @@
 //Deletion Test -------------------------------
-/*
 var tnorm = localStorage.files;
 
 var tarr = tnorm.split(","); 
@@ -10,23 +9,22 @@ function findTile(tid) {
 
 function deleteTile(ttd) {
   var tLen = tarr.length;
-  var newtiles = "";
+  var nt = "";
   
   for (i = 0; i < tLen; i++) {
     if(i == ttd) {
       
     } else {
       if(i > 1) {
-        newtiles = newtiles + "," + findTile(i);
+        nt = nt + "," + findTile(i);
       } else {
-        newtiles = newtiles + findTile(i);
+        nt = nt + findTile(i);
       }
     }
   }
-  localStorage.files = newtiles;
+  localStorage.files = nt;
   save();
 }
-*/
 //Deletion Test -------------------------------
 
 function resetTiles() {
