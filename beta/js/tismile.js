@@ -70,7 +70,6 @@ var isMobile = {
 
 if (isMobile.any()) {
   document.getElementById('ti-smile-settings-text').style = "display: none;";
-  document.getElementById("delete-single-tile").remove();
 } else {
   document.getElementById('ti-smile-settings-text').style = "";
 
