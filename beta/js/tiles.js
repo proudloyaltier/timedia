@@ -1,12 +1,16 @@
 //Deletion Test -------------------------------
 
-function findTile(tid) {
+function splitTilesForDeletion() {
   var tnorm = localStorage.files;
   window.tarr = tnorm.split(","); 
+}
+
+function findTile(tid) {
   return tarr[tid];
 }
 
 function deleteTile(ttd) {
+  splitTilesForDeletion();
   var tLen = tarr.length;
   var nt = "";
   
