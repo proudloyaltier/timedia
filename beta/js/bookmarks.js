@@ -3,6 +3,7 @@ function saveBookmark() {
   var url = "index.html?app=10"+ '&l=' + btoa(encodeURI(document.getElementsByTagName('h4')[0].innerHTML));
   localStorage.recentUrl = url;
   localStorage.workToSave = url;
+  localStorage.workToSaveTitle = document.getElementById('tibookmarksTitle').value;
   window.location.href = "?app=7";
 }
 
