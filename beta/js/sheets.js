@@ -20,7 +20,7 @@ function saveSheet() {
 
 if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 	if (getQueryVariable("t") == false) {
-		document.getElementById('tisheetsTitle').style = "display: none;";
+		document.getElementById('sheetsTitle').style = "display: none;";
 		document.getElementById('tisheets-table').innerHTML = localStorage.editSheet;
 		localStorage.removeItem("editSheet");
 	} else {
@@ -30,7 +30,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		document.getElementById('tisheets-save').style = "display: none;";
 		document.getElementById('tisheets-add-row').style = "display: none;";
 		document.getElementById('tisheets-edit').style = "";
-		document.getElementById('tisheetsTitle').style = "";
+		document.getElementById('sheetsTitle').style = "";
 	}
 }
 
