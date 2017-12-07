@@ -23,15 +23,14 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 	if (getQueryVariable("t") == false) {
 		document.getElementById('tisheets-table').innerHTML = localStorage.editSheet;
 		localStorage.removeItem("editSheet");
-		document.getElementById('sheetsTitle').style = "display: none;";
 	} else {
+	        document.getElementById('sheetsTitle').style = "display: none;";
 		document.getElementById('tisheets-table').innerHTML = atob(getQueryVariable("t"));	
 		document.getElementById('tisheets-table').setAttribute("contenteditable", false);
 		
 		document.getElementById('tisheets-save').style = "display: none;";
 		document.getElementById('tisheets-add-row').style = "display: none;";
 		document.getElementById('tisheets-edit').style = "";
-	        document.getElementById('sheetsTitle').style = "display: none;";
 	}
 }
 
