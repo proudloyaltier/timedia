@@ -2,6 +2,7 @@
 function saveDoc() {
   var url = "index.html?app=3"+ '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
   localStorage.recentUrl = url;
+  localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
   window.location.href = "?app=7";
 }
