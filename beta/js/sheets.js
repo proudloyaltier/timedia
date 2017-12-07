@@ -23,6 +23,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 	if (getQueryVariable("t") == false) {
 		document.getElementById('tisheets-table').innerHTML = localStorage.editSheet;
 		localStorage.removeItem("editSheet");
+		document.getElementById('sheetsTitle').style = "display: none;";
 	} else {
 		document.getElementById('tisheets-table').innerHTML = atob(getQueryVariable("t"));	
 		document.getElementById('tisheets-table').setAttribute("contenteditable", false);
