@@ -14,6 +14,7 @@ function saveSheet() {
 	var url = "index.html?app=4" + "&t=" + btoa(document.getElementById('tisheets-table').innerHTML);
 	localStorage.workToSave = url;
 	localStorage.recentUrl = url;
+	localStorage.workToSaveTitle = document.getElementById('sheetsTitle').value;
 	window.location.href = "?app=7";
 }
 
