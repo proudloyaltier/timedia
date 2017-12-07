@@ -111,9 +111,10 @@ function addFile(title, upload) {
 }
 
 function saveFromTiWork() {
-  var title = prompt("File Name");
+  var title = localStorage.workToSaveTitle;
   var tosave = localStorage.workToSave;
   localStorage.removeItem('workToSave');
+  localStorage.removeItem('workToSaveTitle');
   addFile(title, tosave);
 }
 
