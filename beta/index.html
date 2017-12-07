@@ -159,7 +159,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   </div>
    <div style="display: none;" id="tibookmarks">
     <h3>TiBookmarks</h3><br>
-
+     <input id="tibookmarksTitle" class="form-control lg" value="Untitled Spreadsheet"><br>
     <div id="createBookmark">
       <h4 style="outline: none;" id="content" contenteditable="true"></h4><br>
 
@@ -183,8 +183,9 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   
  <div style="display: none;" id="tidocs">
     <h3>TiDocs</h3><br>
-
+    
     <div id="create">
+      <input id="docsTitle" class="form-control lg" value="Untitled Document"><br>
       <h5 style="outline: none;" id="content" contenteditable="true"></h5><br>
 
       <button onclick="saveDoc()" class="btn btn-primary">Save</button>
@@ -243,6 +244,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   </div>
  <div id="tisheets" style="display: none;">
   <h3>TiSheets</h3>
+   <input id="docsTitle" class="form-control lg" value="Untitled Spreadsheet"><br>
    <style>
      table, th, td {
         border: 1px solid gray;
