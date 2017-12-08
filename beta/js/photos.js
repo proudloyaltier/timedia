@@ -5,7 +5,7 @@ function refreshPhotos() {
 function loadPhotos() {
   document.getElementById("photos").innerHTML = "";
   
-  for (var i = 0; i < localStorage.photos.length) {
+  for (var i = 0; i < localStorage.photos.length; i++) {
     document.getElementById("photos").innerHTML = document.getElementById("photos").innerHTML + '<img width="500px" src="' + localStorage.photos.split("!!&&")[i] + '">'
   }
 }
