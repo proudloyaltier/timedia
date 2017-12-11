@@ -52,7 +52,7 @@ if (getQueryVariable("id") == false) {
   var qr = window.qr = new QRious({
     element: document.getElementById("qrcode"),
     size: 250,
-    value: "https://proudloyaltier.github.io/timedia/tishare/?id=" + code
+    value: "https://proudloyaltier.github.io/timedia/beta/tishare/?id=" + code
   });
 }
 
