@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TiShare</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://proudloyaltier.github.io/timedia/beta/other resources/style.css" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+
+<center>
+  <h1>TiShare</h1><br>
+  <img id="qrcode"><br>
+  <img id="image" width="500px">
+  <video id="video" style="display: none;" controls></video>
+  <audio id="audio" style="display: none;" controls></audio><br>
+  <button style="width: 300px; height: 150px;" id="upload" class="btn btn-primary" onclick="chooseFile()">Upload</button>
+  <span id="success" style="display: none;" class="glyphicon glyphicon-check"></span><br>
+</center>
+  
+<script src="qrious.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
