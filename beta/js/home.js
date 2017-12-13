@@ -1,4 +1,4 @@
-var mutedusers = ["john_cena"];
+var mutedusers = [];
 
 function getQueryVariable(variable)
 {
