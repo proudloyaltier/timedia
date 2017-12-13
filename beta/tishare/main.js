@@ -44,6 +44,13 @@ function convertFile() {
   }
 }
 
+function shareLink(link) {
+  window.dbRef.child("transfer").child(getQueryVariable("id")).set(link);
+  document.getElementById("upload").remove();
+  document.getElementById("success").style = "font-size: 1500%; color: #00a87b;";
+}
+  
+
 if (getQueryVariable("id") == false) {
   var code = Math.floor((Math.random() * 1000000000000) + 1);
   document.getElementById("upload").remove();
