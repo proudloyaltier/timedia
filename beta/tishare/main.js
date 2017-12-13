@@ -70,6 +70,8 @@ function snapValue(data) {
       document.getElementById("video").remove();
       document.getElementById("audio").style = "";
       document.getElementById("audio").src = data.val();
+    } else {
+      window.location.href = data.val();
     }
     window.dbRef.child("transfer").child(code).set(null);
   }
