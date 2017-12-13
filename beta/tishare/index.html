@@ -15,7 +15,9 @@
   <img id="image" width="500px">
   <video id="video" style="display: none;" controls></video>
   <audio id="audio" style="display: none;" controls></audio><br>
-  <button style="width: 300px; height: 150px;" id="upload" class="btn btn-primary" onclick="chooseFile()">Upload</button>
+  <div id="upload">
+    <button style="width: 300px; height: 150px;" class="btn btn-primary" onclick="chooseFile()">Upload</button><br>
+    <input type="text" class="form-control lg" onchange="shareLink(this.value)">
   <span id="success" style="display: none;" class="glyphicon glyphicon-check"></span><br>
 </center>
   
