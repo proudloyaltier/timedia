@@ -88,3 +88,9 @@ function snapValue(data) {
 function errorLoading(err) {
   alert(err);
 }
+
+function enterCode(code) {
+  if (code.length == 6) {
+    window.location.href = "index.html?id=" + code;
+  }
+}
