@@ -52,7 +52,7 @@ function shareLink(link) {
   
 
 if (getQueryVariable("id") == false) {
-  var code = Math.floor((Math.random() * 1000000000000) + 1);
+  var code = Math.floor((Math.random() * 1000000) + 1);
   document.getElementById("code").innerHTML = code;
   document.getElementById("upload").remove();
   window.dbRef.child("transfer").child(code).on("value", snapValue, errorLoading);
