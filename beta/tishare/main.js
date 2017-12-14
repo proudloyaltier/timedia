@@ -67,6 +67,7 @@ if (getQueryVariable("id") == false) {
 function snapValue(data) {
   if (data.val() !== null) {
     document.getElementById("qrcode").remove();
+    document.getElementById("code").remove();
     if (data.val().includes("data:image")) {
       document.getElementById("image").src = data.val();
     } else if (data.val().includes("data:video")) {
