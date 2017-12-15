@@ -97,3 +97,6 @@ function enterCode(code) {
   }
 }
 
+if (getQueryVariable("id") !== false) {
+  document.getElementById('receive').remove();
+}
