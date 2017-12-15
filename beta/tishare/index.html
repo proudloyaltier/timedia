@@ -33,12 +33,15 @@
   <video id="video" style="display: none;" controls></video>
   <audio id="audio" style="display: none;" controls></audio><br>
   <div id="upload" class="container">
+    <button onclick="document.getElementById('receive').style = '';" class="btn btn-primary">Enter TiShare Code</button><br>
     <button style="width: 300px; height: 150px;" class="btn btn-primary" onclick="chooseFile()">Upload</button><br>
     <input type="text" class="form-control lg" onchange="shareLink(this.value)" placeholder="Share A Link">
   </div>
   <span id="success" style="display: none;" class="glyphicon glyphicon-check"></span><br>
 </center>
-  
+<div id="receive" style="display: none;" class="container">
+    <input type="tel" class="form-control" onkeyup="enterCode(this.value)" autofocus>
+</div> 
 <script src="qrious.min.js"></script>
 <script src="main.js"></script>
 
