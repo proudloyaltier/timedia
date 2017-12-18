@@ -1,4 +1,4 @@
-var commands = ["Hello", "Hey", "Hello there", "Set a timer for 5 minutes", "Set a timer for 2 minutes", "Give me a nickname", "What is your name?"];
+var commands = ["TI!", "What is your favorite color?", "What is your favorite number?", "What is the lonliest number?", "Sing me a song", "Tell me a story", "Do you like to read?", "Tell me a knock knock joke", "Tell me a joke", "You are awesome", "You are amazing", "You are wonderful", "What is your favorite website?", "What is your favorite food?", "What time is it?", "Hello", "Hey", "Hello there", "Set a timer for 5 minutes", "Set a timer for 2 minutes", "Give me a nickname", "What is your name?"];
 var suggested = [];
 var possible = [];
 var length;
