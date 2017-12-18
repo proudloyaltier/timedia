@@ -39,7 +39,7 @@ function predict(letters) {
 }
 
 function typeNum(el) {
-  switch (Number(el.value)) {
+  switch (Number(el.value)[el.value.length - 1]) {
     case 7:
       predict(" ");
       break;
@@ -67,6 +67,14 @@ function typeNum(el) {
     case 3:
       predict("WXYZ");
   }
-
-  el.value = "";
 }
+
+execTiri() {
+  localStorage.us = suggested[0].toLowerCase().replace("?", "");
+  tt();
+}
+
+
+
+
+
