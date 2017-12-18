@@ -73,3 +73,9 @@ function execTiri() {
   localStorage.us = suggested[0].toLowerCase().replace("?", "");
   tt();
 }
+
+function askTiri() {
+  localStorage.us = document.getElementById("possible").value;
+  tt();
+}
+
