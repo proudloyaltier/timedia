@@ -69,12 +69,7 @@ function typeNum(el) {
   }
 }
 
-execTiri() {
+function execTiri() {
   localStorage.us = suggested[0].toLowerCase().replace("?", "");
   tt();
 }
-
-
-
-
-
