@@ -41,13 +41,13 @@ if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html
 
 function tt() {
      if (window.location.href !== "https://proudloyaltier.github.io/timedia/beta/tiritouch/") {
+         localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
+     }   
          clearInterval(window.timerInterval);
          window.timer = "";
          localStorage.us = '';
          localStorage.ts = 'welcome';
-         
-         localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
-     }         
+ 
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
