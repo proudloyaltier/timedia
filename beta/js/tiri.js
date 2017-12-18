@@ -11,7 +11,7 @@ if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html
 //This allows tiri to play sound -----------------------------------------------------------------------------
 
 function loadSound(file, ID) {
-  createjs.Sound.registerSound(file, ID);
+  //createjs.Sound.registerSound(file, ID);
 }
 //Now I'll load a sound
 loadSound("sound (3).m4a", "alarm");
