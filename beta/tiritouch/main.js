@@ -70,12 +70,6 @@ function typeNum(el) {
 }
 
 function execTiri() {
-  localStorage.us = suggested[0].toLowerCase().replace("?", "");
+  localStorage.us = document.getElementById('possible')[0].toLowerCase().replace("?", "");
   tt();
 }
-
-function askTiri() {
-  localStorage.us = document.getElementById("possible").innerHTML.toLowerCase();
-  tt();
-}
-
