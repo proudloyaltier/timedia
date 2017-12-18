@@ -35,9 +35,9 @@ String.prototype.toHHMMSS = function () {
     return hours+':'+minutes+':'+seconds;
 }
 
-if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
+if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location.href == "https://proudloyaltier.github.io/timedia/beta/tiritouch/") {
    setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts;}, 0);
- }
+}
 
 function tt() {
          clearInterval(window.timerInterval);
