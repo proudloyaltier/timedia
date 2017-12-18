@@ -75,7 +75,7 @@ function execTiri() {
 }
 
 function askTiri() {
-  localStorage.us = document.getElementById("possible").innerHTML;
+  localStorage.us = document.getElementById("possible").innerHTML.toLowerCase();;
   tt();
 }
 
