@@ -10,8 +10,8 @@ function findTile(tid) {
 }
 
 function deleteTile(ttd) {
-  var deleteTiles = confirm("Are your sure you want to delete this tile? This action can not be undone.");
-  if (deleteTiles == true) {
+  document.getElementById('openConfirmationButton').click();
+  if (localStorage.deleteTiles == true) {
   splitTilesForDeletion();
   var tLen = tarr.length;
   var nt = "";
@@ -33,6 +33,7 @@ function deleteTile(ttd) {
   } else {
     window.location.reload();
   }
+  loclStorage.removeItem('deleteTiles');
 }
 
 function resetTiles() {
