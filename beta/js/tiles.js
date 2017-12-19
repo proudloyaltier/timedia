@@ -21,11 +21,11 @@ function deleteTile(ttd) {
         }
     },
     callback: function (result) {
-       window.deleteTiles = result;
+       localStorage.deleteTiles = result;
     }
 });
   document.getElementById('delete-single-tile').remove();
-  if (deleteTiles == true) {
+  if (localStorage.deleteTiles == true) {
   splitTilesForDeletion();
   var tLen = tarr.length;
   var nt = "";
@@ -47,6 +47,7 @@ function deleteTile(ttd) {
   } else {
     window.location.reload();
   }
+  localStorage.removeItem('deleteTiles');
 }
 
 function resetTiles() {
