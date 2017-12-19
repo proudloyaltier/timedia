@@ -1,5 +1,3 @@
-//Deletion Test -------------------------------
-
 function splitTilesForDeletion() {
   var tnorm = localStorage.files;
   window.tarr = tnorm.split(","); 
@@ -10,8 +8,9 @@ function findTile(tid) {
 }
 
 function deleteTile(ttd) {
-  document.getElementById('openConfirmationButton').click();
-  if (localStorage.deleteTiles == true) {
+  var deleteTiles = confirm("Are your sure you want to delete this tile? This action can not be undone.");
+  document.getElementById('delete-single-tile').remove();
+  if (deleteTiles == true) {
   splitTilesForDeletion();
   var tLen = tarr.length;
   var nt = "";
@@ -33,7 +32,6 @@ function deleteTile(ttd) {
   } else {
     window.location.reload();
   }
-  loclStorage.removeItem('deleteTiles');
 }
 
 function resetTiles() {
