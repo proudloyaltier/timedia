@@ -9,15 +9,15 @@ function findTile(tid) {
 
 function deleteTile(ttd) {
   bootbox.confirm({
-    message: "This is a confirm with custom button text and color! Do you like it?",
+    message: "Are you sure you want to delete this tile? This action cannot be undone.",
     buttons: {
         confirm: {
             label: 'Yes',
-            className: 'btn-success'
+            className: 'btn btn-success'
         },
         cancel: {
             label: 'No',
-            className: 'btn-danger'
+            className: 'btn btn-danger'
         }
     },
     callback: function (result) {
