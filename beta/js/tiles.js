@@ -10,6 +10,8 @@ function findTile(tid) {
 }
 
 function deleteTile(ttd) {
+  var deleteTiles = confirm("Are your sure you want to delete this tile? This action can not ne undone");
+  if (deleteTiles == true) {
   splitTilesForDeletion();
   var tLen = tarr.length;
   var nt = "";
@@ -28,8 +30,10 @@ function deleteTile(ttd) {
   localStorage.files = nt;
   save();
   window.location.href = "index.html?app=7";
+  } else {
+    window.location.reload();
+  }
 }
-//Deletion Test -------------------------------
 
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
