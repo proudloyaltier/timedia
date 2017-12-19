@@ -8,7 +8,22 @@ function findTile(tid) {
 }
 
 function deleteTile(ttd) {
-  var deleteTiles = confirm("Are your sure you want to delete this tile? This action can not be undone.");
+  bootbox.confirm({
+    message: "This is a confirm with custom button text and color! Do you like it?",
+    buttons: {
+        confirm: {
+            label: 'Yes',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'No',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+       var deleteTiles = result;
+    }
+});
   document.getElementById('delete-single-tile').remove();
   if (deleteTiles == true) {
   splitTilesForDeletion();
