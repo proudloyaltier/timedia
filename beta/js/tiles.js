@@ -1,3 +1,5 @@
+//Deletion Test -------------------------------
+
 function splitTilesForDeletion() {
   var tnorm = localStorage.files;
   window.tarr = tnorm.split(","); 
@@ -8,24 +10,8 @@ function findTile(tid) {
 }
 
 function deleteTile(ttd) {
-  bootbox.confirm({
-    message: "Are you sure you want to delete this tile? This action cannot be undone.",
-    buttons: {
-        confirm: {
-            label: 'Yes',
-            className: 'btn btn-success'
-        },
-        cancel: {
-            label: 'No',
-            className: 'btn btn-danger'
-        }
-    },
-    callback: function (result) {
-       localStorage.deleteTiles = result;
-    }
-});
-  document.getElementById('delete-single-tile').remove();
-  if (localStorage.deleteTiles == true) {
+  var deleteTiles = confirm("Are your sure you want to delete this tile? This action can not be undone.");
+  if (deleteTiles == true) {
   splitTilesForDeletion();
   var tLen = tarr.length;
   var nt = "";
@@ -47,7 +33,6 @@ function deleteTile(ttd) {
   } else {
     window.location.reload();
   }
-  localStorage.removeItem('deleteTiles');
 }
 
 function resetTiles() {
