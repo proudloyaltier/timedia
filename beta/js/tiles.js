@@ -21,7 +21,7 @@ function deleteTile(ttd) {
         }
     },
     callback: function (result) {
-       var deleteTiles = result;
+       window.deleteTiles = result;
     }
 });
   document.getElementById('delete-single-tile').remove();
