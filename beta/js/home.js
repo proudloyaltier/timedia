@@ -63,6 +63,12 @@ if (localStorage.access == btoa(localStorage.name)) {
     document.title = "TiSmile - TiMedia";
   }
  
+ if (getQueryVariable("app") == 12) {
+    launchApp("multitasking");
+    localStorage.multitasking = true;
+    document.title = "Multitasking - TiMedia";
+  }      
+       
 } else {
   window.location.href = "login.html";
 }
@@ -83,8 +89,16 @@ var comment = document.getElementById('hcb_form_content').value;
  }
 }
 
-if (getQueryVariable("app") == false || getQueryVariable("app") > 11) {
+if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
        setInterval(checkMute, 0);
        setInterval(checkCasioer, 0);
        setInterval(changeName, 0);
+}
+
+if (getQueryVariable("app") !== 12 && localStorage.multitasking !== undefined) {
+       localStorage.removeItem("multitasking")
+}
+
+if (getQueryVariable("app") == 12 && localStorage.multitasking !== undefined && document.getElementById("app-multi-1").src !== document.getElementById('app-multi-2').src) {
+       document.getElementById('timedia-nav-bar').remove();
 }
