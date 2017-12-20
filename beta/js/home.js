@@ -95,10 +95,6 @@ if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
        setInterval(changeName, 0);
 }
 
-if (getQueryVariable("app") !== 12 && localStorage.multitasking !== undefined) {
-       localStorage.removeItem("multitasking")
-}
-
-if (getQueryVariable("app") == 12 && localStorage.multitasking !== undefined) {
-       document.getElementById('timedia-nav-bar').remove();
+if (getQueryVariable("multitasking") !== false) {
+       document.getElementById("timedia-nav-bar").remove();
 }
