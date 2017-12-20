@@ -97,4 +97,5 @@ if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
 
 if (getQueryVariable("multitasking") !== false) {
        document.getElementById("timedia-nav-bar").remove();
+       document.getElementById("tiles-add-button").remove();
 }
