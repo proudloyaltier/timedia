@@ -99,3 +99,7 @@ if (getQueryVariable("multitasking") !== false) {
        document.getElementById("timedia-nav-bar").remove();
        document.getElementById("tiles-add-button").remove();
 }
+
+function selectMultiApp(queryvar, appspace) {
+       document.getElementById("app-multi-" + appspace).src = queryvar;
+}
