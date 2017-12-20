@@ -99,6 +99,6 @@ if (getQueryVariable("app") !== 12 && localStorage.multitasking !== undefined) {
        localStorage.removeItem("multitasking")
 }
 
-if (getQueryVariable("app") == 12 && localStorage.multitasking !== undefined && document.getElementById("app-multi-1").src !== document.getElementById('app-multi-2').src) {
+if (getQueryVariable("app") == 12 && localStorage.multitasking !== undefined) {
        document.getElementById('timedia-nav-bar').remove();
 }
