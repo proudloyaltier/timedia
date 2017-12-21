@@ -281,7 +281,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   </nav>
   </div>
  <div id="tisheets" style="display: none;">
-  <h3>TiSheets</h3>
+  <h3 id="tisheets-header" >TiSheets</h3>
    <input id="sheetsTitle" class="form-control lg" value="Untitled Spreadsheet"><br>
    <style>
      table, th, td {
@@ -314,6 +314,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
    <button class="btn btn-primary" id="tisheets-add-row" onclick="newRow()">Add Row</button>
    <button class="btn btn-primary" id="tisheets-save" onclick="saveSheet()">Save</button>
    <button class="btn btn-primary" id="tisheets-edit" onclick="editSheet()" style="display: none;">Edit</button>
+   <button class="btn btn-primary" id="tisheets-reader" onclick="sheetReader()" style="display: none;">Reader View</button>
  <!-- <button class="btn btn-primary" onclick="newColumn()">Add Column</button>-->
 </div>
 <div id="tismile" style="display: none;">
