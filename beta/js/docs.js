@@ -18,9 +18,15 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   document.getElementById('view').style = "visibility: block;";
   document.getElementById('view').innerHTML = decodeURI(atob(getQueryVariable("p")));
   document.getElementById('tidocs-edit').style = "visibility: block;";
+  document.getElementById('tidocs-reader').style = "visibility: block;";
 }
 
 function editDoc() {
   localStorage.edit = atob(getQueryVariable("p"));
   window.location.href = "index.html?app=3";
+}
+
+function docReader() {
+  document.getElementById('timedia-nav-bar').remove();
+  document.getElementById('tidocs-edit').remove();
 }
