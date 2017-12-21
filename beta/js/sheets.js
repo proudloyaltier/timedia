@@ -30,6 +30,8 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		document.getElementById('tisheets-save').style = "display: none;";
 		document.getElementById('tisheets-add-row').style = "display: none;";
 		document.getElementById('tisheets-edit').style = "";
+		document.getElementById('tisheets-reader').style = "";
+
 	}
 }
 
@@ -37,4 +39,11 @@ function editSheet() {
 	localStorage.editSheet = atob(getQueryVariable("t"));
 	window.location.href = "index.html?app=4";
 	document.getElementById('sheetsTitle').style = "";
+}
+
+function sheetReader() {
+  document.getElementById('timedia-nav-bar').remove();
+  document.getElementById('tisheets-edit').remove();
+  document.getElementById('tisheets-reader').remove();
+  document.getElementById('tisheets-header').remove();
 }
