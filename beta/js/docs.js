@@ -29,4 +29,5 @@ function editDoc() {
 function docReader() {
   document.getElementById('timedia-nav-bar').remove();
   document.getElementById('tidocs-edit').remove();
+  document.getElementById('tidocs-reader').remove();
 }
