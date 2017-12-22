@@ -70,6 +70,8 @@ var isMobile = {
 
 if (isMobile.any()) {
   document.getElementById('ti-smile-settings-text').style = "display: none;";
+  document.getElementById('multitasking-link').remove();
+  document.getElementById('multitasking').remove();
 } else {
   document.getElementById('ti-smile-settings-text').style = "";
 
