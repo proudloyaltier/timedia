@@ -80,13 +80,14 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
         }
     }
 }
-
-document.getElementById('welcome-to-timedia').innerHTML = "Hello, " + localStorage.name;
   </script>
   <center>
     <div class="jumbotron">
       <h1 id="welcome-to-timedia"></h1>
     </div>
+    <script>
+      document.getElementById('welcome-to-timedia').innerHTML = "Hello, " + localStorage.name
+    </script>
     <h3>Tiri</h3>
     <img onclick="window.location.href = 'index.html?app=5'" src="other resources/microphone.png" alt="Microphone - Tiri" height="100" width="100">
     <h5 id="mutemessage"></h5>
