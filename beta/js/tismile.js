@@ -74,7 +74,11 @@ if (isMobile.any()) {
   document.getElementById('multitasking').remove();
 } else {
   document.getElementById('ti-smile-settings-text').style = "";
+}
 
+if (navigator.appVersion.indexOf("Win")!=-1) {
+    document.getElementById('multitasking-link').remove();
+    document.getElementById('multitasking').remove();
 }
 
 function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
