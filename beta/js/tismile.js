@@ -77,7 +77,6 @@ if (isMobile.any()) {
 }
 
 if (navigator.appVersion.indexOf("Win")!=-1) {
-    document.getElementById('context-menu-multitask').remove();
     document.getElementById('multitasking-link').remove();
     document.getElementById('multitasking').remove();
 }
