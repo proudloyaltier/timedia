@@ -1,5 +1,5 @@
 .message-send {
-  width: 100px;
+  width: 200px;
   float: right;
   font-size: 175%;
   padding-left: 15px;
@@ -13,7 +13,7 @@
 }
 
 .message-return {
-  width: 100px;
+  width: 200px;
   float: left;
   font-size: 175%;
   padding-left: 15px;
