@@ -1,18 +1,21 @@
 .message-send {
   width: 100px;
   float: right;
+  font-size: 175%;
   padding-left: 15px;
   padding-right: 15px;
   background-color: #4286f4;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  color: white;
   white-space: no wrap;
 }
 
 .message-return {
   width: 100px;
   float: left;
+  font-size: 175%;
   padding-left: 15px;
   padding-right: 15px;
   background-color: #a13fcc;
