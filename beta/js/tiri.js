@@ -1,11 +1,17 @@
 if (localStorage.ts == undefined) {
      localStorage.ts = 'welcome';
+     document.getElementById('you-say').style = "display: none;"
 }
 
-localStorage.us = '';
+ localStorage.us = '';
+
+if (localStorage.us == undefined || localStorage.us == '' || localStorage.us == null) {
+     document.getElementById('you-say').style = "display: none;"
+     document.getElementById('tiri-says').style = "margin-top: 0"
+}
 
 if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html') {
-     setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts;}, 0);
+     setInterval(function() {document.getElementById("tiri-says").innerHTML = localStorage.ts;}, 0);
 }
 
 //This allows tiri to play sound -----------------------------------------------------------------------------
@@ -36,7 +42,7 @@ String.prototype.toHHMMSS = function () {
 }
 
 if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
-   setInterval(function() {document.getElementById("tiri").innerHTML = localStorage.ts;}, 0);
+   setInterval(function() {document.getElementById("tiri-says").innerHTML = localStorage.ts;}, 0);
  }
 
 function tt() {
