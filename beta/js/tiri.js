@@ -1,6 +1,5 @@
 if (localStorage.ts == undefined) {
      localStorage.ts = 'welcome';
-     document.getElementById('you-say').style = "display: none;"
 }
 
  localStorage.us = '';
@@ -52,7 +51,6 @@ function tt() {
          localStorage.ts = 'welcome';
          
          localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
-         document.getElementById('you-say').style = ""
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
