@@ -46,6 +46,7 @@ function tt() {
          localStorage.ts = 'welcome';
          
          localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
+         document.getElementById("you-say").innerHTML = localStorage.us;
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
