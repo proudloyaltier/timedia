@@ -1,12 +1,13 @@
-if (localStorage.ts == undefined) {
-     localStorage.ts = 'welcome';
-}
-
  localStorage.us = '';
 
 if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html') {
      setInterval(function() {document.getElementById("tiri-says").innerHTML = localStorage.ts;}, 0);
 }
+
+if (localStorage.ts == undefined) {
+     localStorage.ts = 'Welcome,' + localStorage.name;
+}
+
 
 //This allows tiri to play sound -----------------------------------------------------------------------------
 
