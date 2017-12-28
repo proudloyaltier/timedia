@@ -1,6 +1,6 @@
 .message-send {
+  width: 100px;
   float: right;
-  font-size: 300%;
   padding-left: 15px;
   padding-right: 15px;
   background-color: #4286f4;
@@ -10,8 +10,8 @@
 }
 
 .message-return {
+  width: 100px;
   float: left;
-  font-size: 300%;
   padding-left: 15px;
   padding-right: 15px;
   background-color: #a13fcc;
