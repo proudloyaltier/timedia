@@ -85,7 +85,7 @@ if (localStorage.access == btoa(localStorage.name)) {
     launchApp("multitasking");
     localStorage.multitasking = true;
     document.title = "Multitasking - TiMedia";
-  } else if (Number(getQueryVariable("app")) == "NaN") {
+  } else if (!Number(getQueryVariable("app")) > 0) {
     launchMessages();
     document.getElementById("HCB_comment_box").style.display = "none";
   }
