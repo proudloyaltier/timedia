@@ -1,5 +1,5 @@
 .message-send {
-  width: 200px;
+  width: 250px;
   float: right;
   font-size: 175%;
   padding-left: 15px;
@@ -10,11 +10,10 @@
   border-bottom-left-radius: 20px;
   color: white;
   white-space: no wrap;
-  overflow-wrap: break-word;
 }
 
 .message-return {
-  width: 200px;
+  width: 250px;
   float: left;
   font-size: 175%;
   padding-left: 15px;
@@ -26,5 +25,4 @@
   margin-top: 100px;
   color: white;
   white-space: no wrap;
-  overflow-wrap: break-word;
 }
