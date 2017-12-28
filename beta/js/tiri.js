@@ -5,9 +5,10 @@ if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html
 }
 
 if (localStorage.ts == undefined) {
-     localStorage.ts = 'Welcome,' + localStorage.name;
+     localStorage.ts = 'Welcome, ' + localStorage.name;
 }
 
+document.getElementById('you-say').style = "display: none;"
 
 //This allows tiri to play sound -----------------------------------------------------------------------------
 
@@ -48,6 +49,7 @@ function tt() {
          
          localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
          document.getElementById("you-say").innerHTML = localStorage.us;
+         document.getElementById('you-say').style = "display: block;"
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
