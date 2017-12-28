@@ -9,6 +9,7 @@ if (localStorage.ts == undefined) {
 }
 
 document.getElementById('you-say').style = "display: none;"
+document.getElementById('tiri-says').style = "margin-top: 0px;"
 
 //This allows tiri to play sound -----------------------------------------------------------------------------
 
@@ -50,6 +51,7 @@ function tt() {
          localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
          document.getElementById("you-say").innerHTML = localStorage.us;
          document.getElementById('you-say').style = "display: block;"
+         document.getElementById('tiri-says').style = "  margin-top: 100px;"
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
