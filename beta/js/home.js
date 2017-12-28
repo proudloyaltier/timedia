@@ -11,24 +11,6 @@ function getQueryVariable(variable)
        return(false);
 }
 
-function launchMessages() {
-       var base = '<span class="you">';
-       var end = '</span><br>';
-       
-       var base2 = '<span class="recipient">';
-       var end2 = '</span><br>';
-       
-       var el = document.getElementById("messages");
-       
-       for (var i = 0; i < comments.length; i++) {
-       	if (comments[i].author == localStorage.name) {
-       		el.innerHTML += base + comments[i].comment + end;
-         } else {
-       		el.innerHTML += base2 + comments[i].comment + end2;
-         }
-       }
-}
-
 function launchApp(appname) {
   document.getElementById('home').remove();
 
@@ -85,10 +67,7 @@ if (localStorage.access == btoa(localStorage.name)) {
     launchApp("multitasking");
     localStorage.multitasking = true;
     document.title = "Multitasking - TiMedia";
-  } else if (!Number(getQueryVariable("app")) > 0) {
-    launchMessages();
-    document.getElementById("HCB_comment_box").style.display = "none";
-  }
+  }      
        
 } else {
   window.location.href = "login.html";
