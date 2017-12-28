@@ -10,6 +10,7 @@
   border-bottom-left-radius: 20px;
   color: white;
   white-space: no wrap;
+  overflow-wrap: break-word;
 }
 
 .message-return {
@@ -25,4 +26,5 @@
   margin-top: 100px;
   color: white;
   white-space: no wrap;
+  overflow-wrap: break-word;
 }
