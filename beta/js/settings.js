@@ -22,12 +22,13 @@ document.getElementById("personalizationSettings").style = "display: none";
 document.getElementById("tileSettings").style = "display: none"; 
 
 function sstismile() { 
-  document.getElementById("tismileSettings").style = "display: block"; 
-  document.getElementById("personalizationSettings").style = "display: none"; 
-  document.getElementById("tileSettings").style = "display: none"; 
-  document.getElementById("sspersonal-icon").className = "glyphicon glyphicon-menu-down";
-  document.getElementById("sstiles-icon").className = "glyphicon glyphicon-menu-down";
-  document.getElementById("sstismile-icon").className = "glyphicon glyphicon-menu-up";
+  if(document.getElementById("tismileSettings").style == "display: block") {
+    document.getElementById("tismileSettings").style = "display: none";
+    document.getElementById("sstismile-icon").className =  "glyphicon glyphicon-menu-down";
+  } else {
+    document.getElementById("tismileSettings").style = "display: block";
+    document.getElementById("sstismile-icon").className = "glyphicon glyphicon-menu-up";
+  } 
 } 
 
 function sstiles() { 
