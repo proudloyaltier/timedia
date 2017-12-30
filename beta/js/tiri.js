@@ -11,7 +11,7 @@ if (localStorage.ts == undefined) {
 document.getElementById('you-say').style = "display: none;"
 document.getElementById('tiri-says').style = "margin-top: 0px;"
 
-//This allows tiri to play sound -----------------------------------------------------------------------------
+//This allows tiri to play sound 
 
 function loadSound(file, ID) {
   createjs.Sound.registerSound(file, ID);
@@ -24,7 +24,7 @@ function playSound(soundID) {
   createjs.Sound.play(soundID);
 }
 
-//End of sound code -------------------------------------------------------------------------------------------
+//End of sound code 
 
 String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10); // don't forget the second param
