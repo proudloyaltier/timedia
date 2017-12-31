@@ -1,7 +1,7 @@
  localStorage.us = '';
 
 function respondBubble(response) {
-  document.getElementById("bubbles").innerHTML += '<span class="tiri-bubble">' + response + '</span>';
+  document.getElementById("bubbles").innerHTML += '<span class="message-return">' + response + '</span>';
   window.scrollTo(0, document.body.scrollHeight);
 }
 
