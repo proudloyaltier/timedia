@@ -1,8 +1,14 @@
  localStorage.us = '';
 
-if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html') {
-     setInterval(function() {document.getElementById("tiri-says").innerHTML = localStorage.ts;}, 0);
+function respondBubble(response) {
+  document.getElementById("bubbles").innerHTML += '<span class="tiri-bubble">' + response + '</span>';
+  window.scrollTo(0, document.body.scrollHeight);
 }
+
+if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html') {
+     setInterval(function() {respondBubble(localStorage.ts;}, 0);
+}
+
 
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
@@ -49,9 +55,8 @@ function tt() {
          localStorage.ts = 'welcome';
          
          localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
-         document.getElementById("you-say").innerHTML = localStorage.us;
+         document.getElementById("bubbles").innerHTML += '<br><br><span class="message-send">' + localStorage.us + '</span><br><br><br>';
          document.getElementById('you-say').style = "display: block;"
-         document.getElementById('tiri-says').style = "  margin-top: 100px;"
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
