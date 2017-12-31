@@ -4,6 +4,10 @@ if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
 
+if (localStorage.history !== undefined) {
+ document.getElementById('bubbles').innerHTML = localStorage.history;
+}
+
 //This allows tiri to play sound 
 
 function loadSound(file, ID) {
