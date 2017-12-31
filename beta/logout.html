@@ -5,6 +5,10 @@
     var localSecurity = localStorage.security;
   }
   
+  if (localStorage.history !== undefined) {
+    var tiriHistory = localStorage.history;
+  }
+  
   window.localStorage.clear();
   
   if (localFaces !== undefined) {
@@ -12,6 +16,10 @@
     localStorage.tismileaccount = localTiSmileAccount;
     localStorage.security = localSecurity;
   }
+  
+  if (tiriHistory !== undefined) {
+    localStorage.history = tiriHistory
+ }
   
   window.location.href = "login.html";
 </script>
