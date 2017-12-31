@@ -10,8 +10,12 @@
 <body>
 <center>
   <div class="container">
-    <h3 id="tiri"></h3><br>
-    <input class="form-control input-lg" type="text" id="tiri-box" onchange="tt()" placeholder="Type here or speak now." autofocus>
+    <div id="tiri-bubbles">
+  <span id="you-say" class="message-send">Nothing Yet</span>
+  <span id="tiri-says" class="message-return"></span>
+  </div>
+  <div id="send">
+    <input id="tiri-box" class="form-control input-lg" type="text" placeholder="Type here or speak now." onchange="tt()" autofocus>
   </div>
 </center>
   <script src="js/speech.js"></script>
