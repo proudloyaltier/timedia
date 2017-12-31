@@ -14,7 +14,6 @@ if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
 
-document.getElementById('you-say').style = "display: none;"
 document.getElementById('tiri-says').style = "margin-top: 0px;"
 
 //This allows tiri to play sound 
