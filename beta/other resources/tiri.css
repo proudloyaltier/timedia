@@ -1,27 +1,31 @@
 .message-send {
-  width: 250px;
+  min-width: 100px;
   float: right;
-  font-size: 175%;
-  padding-left: 15px;
-  padding-right: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #4286f4;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  font-size: 200%;
   color: white;
-  white-space: no wrap;
 }
 
 .message-return {
-  width: 250px;
-  float: left;
-  font-size: 175%;
-  padding-left: 15px;
-  padding-right: 15px;
+  min-width: 100px;
+  float: right;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #a13fcc;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  font-size: 200%;
   color: white;
-  white-space: no wrap;
 }
