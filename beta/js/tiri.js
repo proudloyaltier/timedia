@@ -8,6 +8,11 @@ if (localStorage.history !== undefined) {
  document.getElementById('bubbles').innerHTML = localStorage.history;
 }
 
+
+function clearTiriHistory() {
+ localStorage.removeItem('history');
+ location.reload();
+}
 //This allows tiri to play sound 
 
 function loadSound(file, ID) {
