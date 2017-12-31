@@ -51,7 +51,7 @@ function tt() {
          localStorage.ts = 'welcome';
          
          localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
-         document.getElementById("bubbles").innerHTML += '<br><br><span class="message-send">' + localStorage.us + '</span><br><br><br>';
+         document.getElementById("bubbles").innerHTML += '<br><br><div class="message-send">' + localStorage.us + '</div><br><br><br>';
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
@@ -285,7 +285,7 @@ function tt() {
             responsiveVoice.speak("Sorry. I do not understand");
             localStorage.ts = "Sorry, I do not understand.";
          }
-   document.getElementById("bubbles").innerHTML += '<span class="message-return">' + localStorage.ts + '</span>';
+   document.getElementById("bubbles").innerHTML += '<div class="message-return">' + localStorage.ts + '</div>';
    localStorage.history = document.getElementById('bubbles').innerHTML
    window.scrollTo(0, document.body.scrollHeight);
 }
