@@ -40,10 +40,6 @@ String.prototype.toHHMMSS = function () {
     return hours+':'+minutes+':'+seconds;
 }
 
-if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5') {
-   setInterval(function() {document.getElementById("tiri-says").innerHTML = localStorage.ts;}, 0);
- }
-
 function tt() {
          clearInterval(window.timerInterval);
          window.timer = "";
