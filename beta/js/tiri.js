@@ -6,7 +6,7 @@ function respondBubble(response) {
 }
 
 if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html') {
-     setInterval(function() {respondBubble(localStorage.ts;}, 0);
+     setInterval(respondBubble(localStorage.ts), 0);
 }
 
 
