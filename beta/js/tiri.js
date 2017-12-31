@@ -277,6 +277,7 @@ function tt() {
             localStorage.ts = "Sorry, I do not understand.";
          }
    document.getElementById("bubbles").innerHTML += '<span class="message-return">' + localStorage.ts + '</span>';
+   localStorage.history = document.getElementById('bubbles').innerHTML
    window.scrollTo(0, document.body.scrollHeight);
 }
 
