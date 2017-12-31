@@ -1,15 +1,5 @@
  localStorage.us = '';
 
-function respondBubble(response) {
-  document.getElementById("bubbles").innerHTML += '<span class="message-return">' + response + '</span>';
-  window.scrollTo(0, document.body.scrollHeight);
-}
-
-if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html') {
-     setInterval(respondBubble(localStorage.ts), 0);
-}
-
-
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
@@ -286,6 +276,8 @@ function tt() {
             responsiveVoice.speak("Sorry. I do not understand");
             localStorage.ts = "Sorry, I do not understand.";
          }
+   document.getElementById("bubbles").innerHTML += '<span class="message-return">' + localStorage.ts + '</span>';
+   window.scrollTo(0, document.body.scrollHeight);
 }
 
 if (annyang) {
