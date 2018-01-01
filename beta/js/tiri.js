@@ -10,6 +10,7 @@ if (localStorage.ts == undefined) {
 
 if (localStorage.history !== undefined) {
  document.getElementById('bubbles').innerHTML = localStorage.history;
+ document.getElementById('tiri-timer').style = "display: none;";
 }
 
 
