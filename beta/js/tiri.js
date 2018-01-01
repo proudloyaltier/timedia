@@ -1,5 +1,9 @@
  localStorage.us = '';
 
+if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html'){
+     setInterval(function() {document.getElementById("tiri-timer").innerHTML = localStorage.ts;}, 0);
+
+
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
@@ -41,6 +45,7 @@ String.prototype.toHHMMSS = function () {
 }
 
 function tt() {
+         document.getElementById("tiri-bubbles-timer").style = "display: none;";
          clearInterval(window.timerInterval);
          window.timer = "";
          localStorage.us = '';
@@ -585,6 +590,8 @@ function timerDown() {
     if (window.timer == 0) {
         responsiveVoice.speak("Time's up");
         localStorage.ts = "Time's up.";
+        document.getElementById("bubbles").innerHTML += '<div class="message-send">"Time is up."</div>';
         clearInterval(window.timerInterval);
+        document.getElementById('tiri-bubbles-timer').style = "display: none;";
    }
 }
