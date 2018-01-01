@@ -8,6 +8,10 @@ if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
 
+if (document.getElementById('tiri-timer').innerHTML == "NaN:NaN:NaN") {
+ document.getElementById("tiri-bubbles-timer").style = "display: none;";
+}
+
 if (localStorage.history !== undefined) {
  document.getElementById('bubbles').innerHTML = localStorage.history;
 }
