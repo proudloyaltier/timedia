@@ -72,17 +72,19 @@ function tt() {
             } else if (localStorage.us.split(" ")[5] == "seconds" || localStorage.us.split(" ")[5] == "second") {
                window.timer = localStorage.us.split(" ")[4];
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
+               localStorage.ts = "Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.";
             } else if (localStorage.us.split(" ")[5] == "minutes" || localStorage.us.split(" ")[5] == "minute") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.");
+               localStorage.ts = "Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.";
                window.timer = localStorage.us.split(" ")[4] * 60;
             } else if (localStorage.us.split(" ")[5] == "hours" || localStorage.us.split(" ")[5] == "hour") {
                responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " hours and counting.");
+               localStorage.ts = "Alright. " + localStorage.us.split(" ")[4] + " hours and counting.";
                window.timer = localStorage.us.split(" ")[4] * 3600;               
             } else {
                responsiveVoice.speak("Sorry. I do not understand");
                localStorage.ts = "Sorry. I do not understand";   
             }
-            
             window.timerInterval = setInterval(timerDown, 1000);
             
             
