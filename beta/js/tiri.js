@@ -2,7 +2,7 @@
 
 if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html'){
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = localStorage.ts;}, 0);
-
+}
 
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
@@ -62,6 +62,7 @@ function tt() {
             responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split(" ")[1]));
             localStorage.ts = math.eval(localStorage.us.split(" ")[1]).toLocaleString();           
          } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
+            document.getElementById("tiri-bubbles-timer").style = "display: block;";
             if (isNaN(Number(localStorage.us.split(" ")[4]))) {
                responsiveVoice.speak("Sorry. I do not understand");
                localStorage.ts = "Sorry. I do not understand";
