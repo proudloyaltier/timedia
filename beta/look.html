@@ -10,14 +10,19 @@
 </head>
 <body>
 <center>
-  <div class="container">
-    <div id="tiri-bubbles">
-  <span id="you-say" class="message-send">Nothing Yet</span>
-  <span id="tiri-says" class="message-return"></span>
-  </div>
+    <div class="container">
+<div id="bubbles">
+  <span class="message-return">Welcome</span>
+</div>
+<div id="tiri-bubbles-timer" style="display: none;">
+  <div id="tiri-timer" class="message-return"></div>
+</div>
   <div id="send">
     <input id="tiri-box" class="form-control input-lg" type="text" placeholder="Type here or speak now." onchange="tt()" autofocus>
+    <center>
+      <button onclick="clearTiriHistory()" class="btn btn-primary">Clear Tiri Conversation</button>
   </div>
+</div>
 </center>
   <script src="js/speech.js"></script>
   <script src="js/annyang.js"></script>
