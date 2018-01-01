@@ -10,7 +10,6 @@ if (localStorage.ts == undefined) {
 
 if (localStorage.history !== undefined) {
  document.getElementById('bubbles').innerHTML = localStorage.history;
- document.getElementById('tiri-timer').style = "display: none;";
 }
 
 
@@ -46,6 +45,7 @@ String.prototype.toHHMMSS = function () {
 }
 
 function tt() {
+ if (document.getElementByI
          document.getElementById("tiri-bubbles-timer").style = "display: none;";
          clearInterval(window.timerInterval);
          window.timer = "";
@@ -595,5 +595,6 @@ function timerDown() {
         document.getElementById("bubbles").innerHTML += '<div class="message-return">Time is up.</div>';
         clearInterval(window.timerInterval);
         document.getElementById('tiri-bubbles-timer').style = "display: none;";
+       localStorage.history = document.getElementById('bubbles').innerHTML;
    }
 }
