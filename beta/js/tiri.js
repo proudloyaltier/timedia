@@ -16,7 +16,7 @@ if (localStorage.history !== undefined) {
  document.getElementById('bubbles').innerHTML = localStorage.history;
 }
 
-if (window.timer == undefined || window.timer = "") {
+if (window.timer == undefined || window.timer == "") {
  document.getElementById("tiri-bubbles-timer").style = "display: none";
 } else {
   document.getElementById("tiri-bubbles-timer").style = "display: block";
