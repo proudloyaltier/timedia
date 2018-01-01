@@ -1,7 +1,7 @@
  localStorage.us = '';
 
 if (window.location == 'https://proudloyaltier.github.io/timedia/beta/index.html?app=5' || window.location == 'https://proudloyaltier.github.io/timedia/beta/look.html'){
-     setInterval(function() {document.getElementById("tiri-timer").innerHTML = localStorage.ts;}, 0);
+     setInterval(function() {document.getElementById("tiri-timer").innerHTML = (timer + '').toHHMMSS();}, 0);
 }
 
 if (localStorage.ts == undefined) {
