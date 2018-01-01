@@ -45,7 +45,6 @@ String.prototype.toHHMMSS = function () {
 }
 
 function tt() {
- if (document.getElementByI
          document.getElementById("tiri-bubbles-timer").style = "display: none;";
          clearInterval(window.timerInterval);
          window.timer = "";
