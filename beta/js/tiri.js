@@ -9,7 +9,7 @@ if (localStorage.ts == undefined) {
 }
 
 if (document.getElementById('tiri-timer').innerHTML == "NaN:NaN:NaN") {
- document.getElementById("tiri-bubbles-timer").style = "display: none;";
+ document.getElementById("tiri-bubbles-timer").remove();
 }
 
 if (localStorage.history !== undefined) {
