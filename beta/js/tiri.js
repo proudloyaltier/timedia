@@ -1,7 +1,7 @@
  localStorage.us = '';
 
 if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
-     setInterval(function() {document.getElementById("tiri-timer").innerHTML = (timer + '').toHHMMSS();}, 0);
+     setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
 }
 
 if (localStorage.ts == undefined) {
