@@ -17,9 +17,9 @@ if (localStorage.history !== undefined) {
 }
 
 if (window.timer == undefined || window.timer == "") {
- document.getElementById("tiri-bubbles-timer").style = "display: none";
+ document.getElementById("tiri-bubbles-timer").style = 'display: none;';
 } else {
-  document.getElementById("tiri-bubbles-timer").style = "display: block";
+  document.getElementById("tiri-bubbles-timer").style = 'display: block;';
 }
 
 function clearTiriHistory() {
