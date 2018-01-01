@@ -4,18 +4,16 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
 }
 
+function hideTimer() {
+   document.getElementById("tiri-bubbles-timer").style = 'display: none;';
+}
+
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
 
 if (localStorage.history !== undefined) {
  document.getElementById('bubbles').innerHTML = localStorage.history;
-}
-
-if (window.timer == undefined || window.timer == "") {
- document.getElementById("tiri-bubbles-timer").style = 'display: none;';
-} else {
-  document.getElementById("tiri-bubbles-timer").style = 'display: block;';
 }
 
 function clearTiriHistory() {
@@ -67,6 +65,7 @@ function tt() {
             responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split(" ")[1]));
             localStorage.ts = math.eval(localStorage.us.split(" ")[1]).toLocaleString();           
          } else if(localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
+             document.getElementById("tiri-bubbles-timer").style = 'display: block;';
             if (isNaN(Number(localStorage.us.split(" ")[4]))) {
                responsiveVoice.speak("Sorry. I do not understand");
                localStorage.ts = "Sorry. I do not understand";
