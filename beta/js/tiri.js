@@ -83,8 +83,6 @@ function tt() {
                localStorage.ts = "Sorry. I do not understand";   
             }
             
-            localStorage.ts = (timer + '').toHHMMSS();
-            
             window.timerInterval = setInterval(timerDown, 1000);
             
             
@@ -591,7 +589,7 @@ function timerDown() {
     if (window.timer == 0) {
         responsiveVoice.speak("Time's up");
         localStorage.ts = "Time's up.";
-        document.getElementById("bubbles").innerHTML += '<div class="message-send">Time is up.</div>';
+        document.getElementById("bubbles").innerHTML += '<div class="message-return">Time is up.</div>';
         clearInterval(window.timerInterval);
         document.getElementById('tiri-bubbles-timer').style = "display: none;";
    }
