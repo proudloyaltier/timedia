@@ -4,6 +4,7 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
 }
 
+function checkLegacy() {
 if (localStorage.legacytiri == "true") {
  document.getElementById("bubbles").remove();
  document.getElementById("clear-tiri-history").remove();
@@ -13,8 +14,11 @@ if (localStorage.legacytiri == "true") {
  document.getElementById("tiri").remove();
 }
 
+}
+
 function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
+   checkLegacy();
 }
 
 if (localStorage.ts == undefined) {
