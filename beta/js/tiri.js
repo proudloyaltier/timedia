@@ -4,6 +4,17 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
 }
 
+if (localStorage.legacytiri == "true") {
+ document.getElementById("bubbles").remove();
+ document.getElementById("clear-tiri-history").remove();
+ location.reload();
+ var tiriInterval = setInterval(function() {document.getElementById('tiri').innerHTML = localStorage.ts;}, 0);
+} else {
+ clearInterval('tiriInterval');
+ document.getElementById("tiri").remove();
+ location.reload();
+}
+
 function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
 }
