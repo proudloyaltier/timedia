@@ -2,19 +2,6 @@
 
 if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
-}
-
-function checkLegacy() {
-if (localStorage.legacytiri == "true") {
- document.getElementById("bubbles").remove();
- document.getElementById("clear-tiri-history").remove();
- var tiriInterval = setInterval(function() {document.getElementById('tiri').innerHTML = localStorage.ts;}, 0);
-} else {
- clearInterval('tiriInterval');
- document.getElementById("tiri").remove();
-}
-
-}
 
 function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
