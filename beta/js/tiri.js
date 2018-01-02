@@ -1,4 +1,4 @@
- localStorage.us = '';
+  localStorage.us = '';
 
 if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
@@ -7,7 +7,7 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
 function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
 }
- 
+
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
@@ -20,7 +20,6 @@ function clearTiriHistory() {
  localStorage.removeItem('history');
  location.reload();
 }
-
 //This allows tiri to play sound 
 
 function loadSound(file, ID) {
