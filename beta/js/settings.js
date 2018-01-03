@@ -55,7 +55,7 @@ function darkMode() {
 
 
 function darkModeOff() {
-  localStorage.darkmode = "false";
+  localStorage.darkmode = false;
   document.getElementById('toggle-dark-mode').onclick = "setDarkMode()";
   window.location.reload();
 }
