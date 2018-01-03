@@ -62,13 +62,7 @@ if (localStorage.access == btoa(localStorage.name)) {
     launchApp("tismile");
     document.title = "TiSmile - TiMedia";
   }
- 
- if (getQueryVariable("app") == 12) {
-    launchApp("multitasking");
-    localStorage.multitasking = true;
-    document.title = "Multitasking - TiMedia";
-  }      
-       
+  
 } else {
   window.location.href = "login.html";
 }
