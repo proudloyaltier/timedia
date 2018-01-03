@@ -214,7 +214,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
          Bar Color<br>
         <input style="width: 5%;" id="barColor" class="jscolor form-control" value="2296f3"><br>
         <button onclick="updateSettings()" class="btn btn-success">Save</button><br><br>
-        <button onclick="function() {localStorage.darkmode = 'true'}" class="btn btn-primary">Toggle Dark Mode</button>
+        <button onclick="function() {localStorage.darkmode = 'true'; window.location.reload();}" class="btn btn-primary">Toggle Dark Mode</button>
          <br><br>
        </div>
        <br>
