@@ -29,3 +29,9 @@
   font-size: 200%;
   color: white;
 }
+
+.dark-mode {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  background-color: black;
+}
