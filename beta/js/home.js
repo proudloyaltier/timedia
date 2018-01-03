@@ -94,12 +94,3 @@ if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
        setInterval(checkCasioer, 0);
        setInterval(changeName, 0);
 }
-
-if (getQueryVariable("multitasking") !== false) {
-       document.getElementById("timedia-nav-bar").remove();
-       document.getElementById("tiles-add-button").remove();
-}
-
-function selectMultiApp(queryvar, appspace) {
-       document.getElementById("app-multi-" + appspace).src = queryvar;
-}
