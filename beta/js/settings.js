@@ -52,3 +52,7 @@ function sspersonal() {
 function setPin() {
   localStorage.pin = MD5(document.getElementById('set-pin').value) + "jdksfhjsdhhfjsdfhjhhfhfjehcjenfjdmdncndnvbdmfjskfhenrhshgmnnmnsnfndndnfndnfnengnsnfnshfndnfjsjvjndjd" + ":" + localStorage.name;
 }
+
+function darkMode() {
+  body.className = "dark-mode";
+}
