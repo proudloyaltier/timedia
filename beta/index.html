@@ -55,7 +55,6 @@
                 <li><a href="?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
                 <li><a href="?app=7">Tiles <span class="glyphicon glyphicon-cloud"></span></a></li>
                 <li><a href="https://proudloyaltier.github.io/timedia/beta/tishare/">TiShare <span class="glyphicon glyphicon-share"></span></a></li>
-                <li id="multitasking-link"><a href="?app=12">Multitasking <span class="glyphicon glyphicon-tasks"></span></a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="?app=3">TiDocs <span class="glyphicon glyphicon-pencil"></span></a></li>
                 <li><a href="?app=4">TiSheets <span class="glyphicon glyphicon-th-list"></span></a></li>
@@ -155,41 +154,6 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   
   <button class="btn btn-primary" onclick="submitApp()">Create App</button>
 </div>
-<div id="multitasking" style="display: none;">
-  <iframe src="index.html?app=7&multitasking=true" id="app-multi-1" style="width:100%; height: 50vh;"></iframe>
-  <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Switch Apps in top space
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a onclick='selectMultiApp("?app=3&multitasking=true", 1)'>TiDocs <span class="glyphicon glyphicon-pencil"></span></a></li>
-    <li><a onclick='selectMultiApp("?app=4&multitasking=true", 1)'>TiSheets <span class="glyphicon glyphicon-th-list"></span></a></li>
-    <li><a onclick='selectMultiApp("?app=10&multitasking=true", 1)'>TiBookmarks <span class="glyphicon glyphicon-bookmark"></a></li>
-    <li><a onclick='selectMultiApp("?app=7&multitasking=true", 1)'>Tiles <span class="glyphicon glyphicon-cloud"></span></a></li>
-    <li><a onclick='selectMultiApp("?app=2&multitasking=true", 1)'>TiChat <span class="glyphicon glyphicon-send"></span></a></li>
-    <li><a onclick='selectMultiApp("?app=6&multitasking=true", 1)'>Settings <span class="glyphicon glyphicon-cog"></a></li>
-    <li><a onclick='selectMultiApp("https://proudloyaltier.github.io/timedia/beta/tishare/", 1)'>TiShare <span class="glyphicon glyphicon-share"></a></li>
-    <li role="separator" class="divider"></li>
-    <li><a onclick='selectMultiApp("?app=8&multitasking=true", 1)'>New App <span class="glyphicon glyphicon-plus"></span></a></li>
-  </ul>
-</div>
-  <br>
-  <iframe src="index.html?app=3&multitasking=true" id="app-multi-2" style="width:100%; height: 50vh;"></iframe><br>
-  <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Switch Apps in bottom space
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a onclick='selectMultiApp("?app=3&multitasking=true", 2)'>TiDocs <span class="glyphicon glyphicon-pencil"></span></a></li>
-    <li><a onclick='selectMultiApp("?app=4&multitasking=true", 2)'>TiSheets <span class="glyphicon glyphicon-th-list"></span></a></li>
-    <li><a onclick='selectMultiApp("?app=10&multitasking=true", 2)'>TiBookmarks <span class="glyphicon glyphicon-bookmark"></a></li>
-    <li><a onclick='selectMultiApp("?app=7&multitasking=true", 2)'>Tiles <span class="glyphicon glyphicon-cloud"></span></a></li>
-    <li><a onclick='selectMultiApp("?app=2&multitasking=true", 2)'>TiChat <span class="glyphicon glyphicon-send"></a></li>
-    <li><a onclick='selectMultiApp("?app=6&multitasking=true", 2)'>Settings <span class="glyphicon glyphicon-cog"></a></li>
-    <li><a onclick='selectMultiApp("https://proudloyaltier.github.io/timedia/beta/tishare/", 2)'>TiShare <span class="glyphicon glyphicon-share"></a></li>
-    <li role="separator" class="divider"></li>
-    <li><a onclick='selectMultiApp("?app=8&multitasking=true", 2)'>New App <span class="glyphicon glyphicon-plus"></span></a></li>
-  </ul>
-</div>
-  </div>
  <div style="display: none;" id="tidocs">
     <h3 id="tidocs-header">TiDocs</h3><br>
     
