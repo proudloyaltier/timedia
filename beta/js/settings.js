@@ -52,3 +52,7 @@ function sspersonal() {
 function darkMode() {
   body.className = "dark-mode";
 }
+
+if (localStorage.darkmode == "true") {
+  darkMode();
+}
