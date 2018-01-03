@@ -9,6 +9,10 @@
     var tiriHistory = localStorage.history;
   }
   
+  if (localStorage.pin !== undefined) {
+    var pin = localStorage.pin;
+  }
+  
   window.localStorage.clear();
   
   if (localFaces !== undefined) {
@@ -20,6 +24,10 @@
   if (tiriHistory !== undefined) {
     localStorage.history = tiriHistory
  }
+  
+  if (pin !== undefined) {
+    localStorage.pin = pin;
+  }
   
   window.location.href = "login.html";
 </script>
