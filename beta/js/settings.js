@@ -68,5 +68,5 @@ if (localStorage.darkmode == "true") {
   darkMode();
   document.getElementById('dark-mode-on').remove();
 } else {
-  document.getElementById('dark-mode-off').remove);
+  document.getElementById('dark-mode-off').remove();
 }
