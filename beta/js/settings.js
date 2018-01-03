@@ -56,16 +56,17 @@ function darkMode() {
 
 function darkModeOff() {
   localStorage.darkmode = false;
-  document.getElementById('toggle-dark-mode').onclick = "setDarkMode()";
   window.location.reload();
 }
 
 function setDarkMode() {
   localStorage.darkmode = true;
   window.location.reload();
-  document.getElementById('toggle-dark-mode').onclick = "darkModeOff()";
 }
+
 if (localStorage.darkmode == "true") {
   darkMode();
+  document.getElementById('dark-mode-on').remove();
 } else {
+  document.getElementById('dark-mode-off').remove);
 }
