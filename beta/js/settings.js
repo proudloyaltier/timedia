@@ -49,10 +49,6 @@ function sspersonal() {
   document.getElementById("sstismile-icon").className = "glyphicon glyphicon-menu-down";
 }
 
-function setPin() {
-  localStorage.pin = MD5(document.getElementById('set-pin').value) + "jdksfhjsdhhfjsdfhjhhfhfjehcjenfjdmdncndnvbdmfjskfhenrhshgmnnmnsnfndndnfndnfnengnsnfnshfndnfjsjvjndjd" + ":" + localStorage.name;
-}
-
 function darkMode() {
   body.className = "dark-mode";
 }
