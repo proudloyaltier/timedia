@@ -6,7 +6,6 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
 
 function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
-   darkMode();
 }
 
 if (localStorage.ts == undefined) {
