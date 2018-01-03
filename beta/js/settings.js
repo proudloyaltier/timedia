@@ -56,7 +56,13 @@ function darkMode() {
 function setDarkMode() {
   localStorage.darkmode = true;
   window.location.reload();
+  document.getElementById('toggle-dark-mode').onclick = "darkModeOff()";
 }
 if (localStorage.darkmode == "true") {
   darkMode();
+}
+
+function darkModeOff() {
+  localStorage.removeItem('darkmode');
+  document.getElementById('toggle-dark-mode').onclick = "setDarkMode()";
 }
