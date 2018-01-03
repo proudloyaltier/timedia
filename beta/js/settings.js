@@ -53,6 +53,10 @@ function darkMode() {
   body.className = "dark-mode";
 }
 
+function setDarkMode() {
+  localStorage.darkmode = true;
+  window.location.reload();
+}
 if (localStorage.darkmode == "true") {
   darkMode();
 }
