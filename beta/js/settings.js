@@ -48,3 +48,7 @@ function sspersonal() {
   document.getElementById("sstiles-icon").className = "glyphicon glyphicon-menu-down";
   document.getElementById("sstismile-icon").className = "glyphicon glyphicon-menu-down";
 }
+
+function setPin() {
+  localStorage.pin = MD5(document.getElementById('set-time').value) + "jdksfhjsdhhfjsdfhjhhfhfjehcjenfjdmdncndnvbdmfjskfhenrhshgmnnmnsnfndndnfndnfnengnsnfnshfndnfjsjvjndjd"
+}
