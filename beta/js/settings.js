@@ -53,6 +53,13 @@ function darkMode() {
   body.className = "dark-mode";
 }
 
+
+function darkModeOff() {
+  localStorage.removeItem('darkmode');
+  document.getElementById('toggle-dark-mode').onclick = "setDarkMode()";
+  window.location.reload();
+}
+
 function setDarkMode() {
   localStorage.darkmode = true;
   window.location.reload();
@@ -60,9 +67,5 @@ function setDarkMode() {
 }
 if (localStorage.darkmode == "true") {
   darkMode();
-}
-
-function darkModeOff() {
-  localStorage.removeItem('darkmode');
-  document.getElementById('toggle-dark-mode').onclick = "setDarkMode()";
+} else {
 }
