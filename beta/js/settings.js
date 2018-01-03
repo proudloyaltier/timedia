@@ -50,5 +50,5 @@ function sspersonal() {
 }
 
 function setPin() {
-  localStorage.pin = MD5(document.getElementById('set-time').value) + "jdksfhjsdhhfjsdfhjhhfhfjehcjenfjdmdncndnvbdmfjskfhenrhshgmnnmnsnfndndnfndnfnengnsnfnshfndnfjsjvjndjd"
+  localStorage.pin = MD5(document.getElementById('set-pin').value) + "jdksfhjsdhhfjsdfhjhhfhfjehcjenfjdmdncndnvbdmfjskfhenrhshgmnnmnsnfndndnfndnfnengnsnfnshfndnfjsjvjndjd" + ":" + localStorage.name + ":" + document.getElementById('set-pin-password').value;
 }
