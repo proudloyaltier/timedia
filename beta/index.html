@@ -82,6 +82,10 @@
 <div class="container">
 <div id="home">
   <script>
+       $(".hcb-comment-tb").removeClass('hcb-comment-tb');
+       $('.inputfile').removeClass('inputfile');
+       $( "label[for='hcb_file']" ).text( "Insert Image" ).addClass('btn').addClass('btn-primary');
+    
     function changeName() {
       document.getElementById('hcb_form_name').value = localStorage.name;
       document.getElementById('hcb_form_name').disabled = true;   
