@@ -88,3 +88,9 @@ if (getQueryVariable("app") == false || getQueryVariable("app") > 11) {
        setInterval(checkCasioer, 0);
        setInterval(changeName, 0);
 }
+
+function customImageUpload() {
+     $(".hcb-comment-tb").removeClass('hcb-comment-tb');
+       $('.inputfile').removeClass('inputfile');
+       $( "label[for='hcb_file']" ).text( "Insert Image" ).addClass('btn').addClass('btn-primary');
+}
