@@ -70,16 +70,8 @@ var isMobile = {
 
 if (isMobile.any()) {
   document.getElementById('ti-smile-settings-text').style = "display: none;";
-  document.getElementById('multitasking-link').remove();
-  document.getElementById('multitasking').remove();
 } else {
   document.getElementById('ti-smile-settings-text').style = "";
-}
-
-if (navigator.appVersion.indexOf("Win")!=-1) {
-    document.getElementById('context-menu-multitask').remove();
-    document.getElementById('multitasking-link').remove();
-    document.getElementById('multitasking').remove();
 }
 
 function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
