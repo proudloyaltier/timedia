@@ -69,4 +69,8 @@ function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
   pixelation -= 1;
 }
 
+function preventHacking() {
+  var hkwjhahjkjhkjadshkadskhjasjkhkadshjkhjkasdhjkasdhjkhjadsjhkhjkadshjkadshjkasdhkjasdhkjasdh = logins;
+}
+  
 setInterval(checkFaces, 250);
