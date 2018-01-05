@@ -94,7 +94,3 @@ function customImageUpload() {
        $('.inputfile').removeClass('inputfile');
        $( "label[for='hcb_file']" ).text( "Insert Image" ).addClass('btn').addClass('btn-primary');
 }
-
-if (sessionStorage.hkwjhahjkjhkjadshkadskhjasjkhkadshjkhjkasdhjkasdhjkhjadsjhkhjkadshjkadshjkasdhkjasdhkjasdh !== logins) {
-       window.location.href = "logout.html"
-}
