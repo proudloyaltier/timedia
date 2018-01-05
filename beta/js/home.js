@@ -93,5 +93,4 @@ function customImageUpload() {
      $(".hcb-comment-tb").removeClass('hcb-comment-tb');
        $('.inputfile').removeClass('inputfile');
        $( "label[for='hcb_file']" ).text( "Insert Image" ).addClass('btn').addClass('btn-primary');
-       setInterval(function() {document.getElementsByClassName('hcb-icon').style = "display: none;";}, 0);
 }
