@@ -70,7 +70,7 @@ function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
 }
 
 function preventHacking() {
-  var hkwjhahjkjhkjadshkadskhjasjkhkadshjkhjkasdhjkasdhjkhjadsjhkhjkadshjkadshjkasdhkjasdhkjasdh = logins;
+  sessionStorage.sehkwjhahjkjhkjadshkadskhjasjkhkadshjkhjkasdhjkasdhjkhjadsjhkhjkadshjkadshjkasdhkjasdhkjasdh = logins;
 }
   
 setInterval(checkFaces, 250);
