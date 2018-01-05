@@ -1,6 +1,6 @@
  localStorage.us = '';
 
-if (document.getElementById('tiri-bubbles-timer').style.display = "block" && window.timer !== undefined) {
+if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
 }
 
