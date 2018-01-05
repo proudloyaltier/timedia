@@ -67,10 +67,6 @@ function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
   // overwrite original image
   context.putImageData(imageData, xPos, yPos);
   pixelation -= 1;
-}
+}  
 
-function preventHacking() {
-  sessionStorage.sehkwjhahjkjhkjadshkadskhjasjkhkadshjkhjkasdhjkasdhjkhjadsjhkhjkadshjkadshjkasdhkjasdhkjasdh = logins;
-}
-  
 setInterval(checkFaces, 250);
