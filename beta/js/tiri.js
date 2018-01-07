@@ -268,8 +268,6 @@ function tt() {
             window.location.href = "index.html";
          } else if(localStorage.us == 'go to home') {
             window.location.href = "index.html";
-         } else if(localStorage.us == 'open points') {
-            window.location.href = "index.html?app=1";
          } else if(localStorage.us == "what do you think of google docs" || localStorage.us == "do you like google docs") {
             responsiveVoice.speak("It looks great, but I'm more of a T I Docs fan.");
             localStorage.ts = "It looks great, but I'm more of a TiDocs fan.";
@@ -521,11 +519,7 @@ if (annyang) {
     'log out': function() {
       window.location.href = "logout.html";
     },
-    'open points': function() {
-      window.location.href = "?app=1";
-    },
     'set a timer for *time': setTimer,
-    'open the chat *password': openChat,
     'search wikipedia *search': searchWikipedia,
     'search youtube *search': searchYoutube,
     'go to *url': goTo,
@@ -539,10 +533,6 @@ if (annyang) {
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
-}
-
-function openChat(password) {
-  window.location.href = "?app=" + password.replace(/\s/g, '');
 }
 
 function commentText(text) {
