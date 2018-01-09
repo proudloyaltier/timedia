@@ -1,3 +1,8 @@
+function newDeleteTile(tileid) {
+  localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
+save();
+}
+
 function splitTilesForDeletion() {
   var tnorm = localStorage.files;
   window.tarr = tnorm.split(","); 
