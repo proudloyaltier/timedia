@@ -69,7 +69,7 @@ function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
   pixelation -= 1;
 }
 
-if (window.devtools.open == true) {
+if (window.devtools.open == "true") {
   window.location.href = "about:blank";
 }
 
