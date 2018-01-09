@@ -68,11 +68,5 @@ function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
   context.putImageData(imageData, xPos, yPos);
   pixelation -= 1;
 }
-function checkDevtools() {
-if (window.devtools.open == "true") {
-  window.location.href = "about:blank";
-  }
-}
 
-setInterval(checkDevtools, 0);
 setInterval(checkFaces, 250);
