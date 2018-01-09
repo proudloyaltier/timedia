@@ -69,4 +69,6 @@ function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
   pixelation -= 1;
 }
 
+alert(window.devtools.open);
+
 setInterval(checkFaces, 250);
