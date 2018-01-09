@@ -6,10 +6,6 @@ MIT License*/(function(){'use strict';var devtools={open:false,orientation:null}
 devtools.open=true;devtools.orientation=orientation;}else{if(devtools.open){emitEvent(false,null);}
 devtools.open=false;devtools.orientation=null;}},500);if(typeof module!=='undefined'&&module.exports){module.exports=devtools;}else{window.devtools=devtools;}})();
 
-function checkDevtools() {
-if (window.devtools.open == "true") {
+if (devtools.open == "true") {
   window.location.href = "about:blank";
   }
-}
-
-setInterval(checkDevtools, 0);
