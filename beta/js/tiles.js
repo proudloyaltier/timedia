@@ -1,41 +1,10 @@
-function newDeleteTile(tileid) {
+function deleteTile(tileid) {
+  var shouldDelete = confirm("Are you sure you want to delete this tile? This action cannot be undone");
+  if (shouldDelete == true) {
   localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
-save();
-}
-
-function splitTilesForDeletion() {
-  var tnorm = localStorage.files;
-  window.tarr = tnorm.split(","); 
-}
-
-function findTile(tid) {
-  return tarr[tid];
-}
-
-function deleteTile(ttd) {
-  var deleteTiles = confirm("Are your sure you want to delete this tile? This action can not be undone.");
-  document.getElementById('delete-single-tile').remove();
-  if (deleteTiles == true) {
-  splitTilesForDeletion();
-  var tLen = tarr.length;
-  var nt = "";
-  
-  for (i = 0; i < tLen; i++) {
-    if(i == ttd) {
-      
-    } else {
-      if(i > 1) {
-        nt = nt + "," + findTile(i);
-      } else {
-        nt = nt + findTile(i);
-      }
-    }
-  }
-  localStorage.files = nt;
   save();
-  window.location.href = "index.html?app=7";
   } else {
-    window.location.reload();
+  location.reload();
   }
 }
 
