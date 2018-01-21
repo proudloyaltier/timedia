@@ -525,7 +525,8 @@ if (annyang) {
     'go to *url': goTo,
     'comment *text': commentText,
     'solve *problem': solve,
-    'what is *problem': solve
+    'what is *problem': solve,
+    'open the tile *tile': openTile
   };
 
   // Add our commands to annyang
@@ -539,6 +540,14 @@ function commentText(text) {
   document.getElementById('hcb_form_content').value = text;
   document.getElementById('hcb_submit').click();
   location.reload();
+}
+
+function openTile(tile) {
+   for (var i = 0; i < localStorage.files.split(",").length; i++) {
+        if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
+          window.location.href = localStorage.files.split(",")[i].split("!!")[1];
+        }
+    }                          
 }
 
 function searchWikipedia(search) {
