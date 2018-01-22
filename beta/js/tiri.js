@@ -556,11 +556,11 @@ function openTile(tile) {
 function joinChatTiri(name) {
      for (var i = 0; i < logins.length; i++) {
         if (logins[i].toLowerCase().includes(name.toLowerCase())) {
-		      var chat = logins[i].split(",")[0] + localStorage.name;
-		      var chat = chat.toLowerCase();
-		      var chatPassword1 = sortAlphabets(chat);
-		      var chatPassword = MD5(chatPassword1);
-        window.location.href = "index.html?app=" + chatPassword;
+      	        var chat = logins[i].split(",")[0] + localStorage.name;
+	        var chat = chat.toLowerCase();
+ 	        var chatPassword1 = sortAlphabets(chat);
+                var chatPassword = MD5(chatPassword1);
+        	window.location.href = "index.html?app=" + chatPassword;
         }
      }
     
