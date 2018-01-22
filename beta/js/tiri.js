@@ -526,7 +526,10 @@ if (annyang) {
     'comment *text': commentText,
     'solve *problem': solve,
     'what is *problem': solve,
-    'open the tile *tile': openTile
+    'open the tile *tile': openTile,
+    'open the chat *name': joinChatTiri,
+    'open the chat with *name': joinChatTiri,
+    'open my chat with *name': joinChatTiri
   };
 
   // Add our commands to annyang
@@ -548,6 +551,19 @@ function openTile(tile) {
           window.location.href = localStorage.files.split(",")[i].split("!!")[1];
         }
     }                          
+}
+
+function joinChatTiri(name) {
+     for (var i = 0; i < logins.length; i++) {
+        if (logins[i].toLowerCase().includes(name.toLowerCase())) {
+		      var chat = logins[i].split(",")[0] + localStorage.name;
+		      var chat = chat.toLowerCase();
+		      var chatPassword1 = sortAlphabets(chat);
+		      var chatPassword = MD5(chatPassword1);
+        window.location.href = "index.html?app=" + chatPassword;
+        }
+     }
+    
 }
 
 function searchWikipedia(search) {
