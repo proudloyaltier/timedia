@@ -8,11 +8,6 @@ function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
 }
 
-function tiriMini(whatToAskTiriMini) {
-	localStorage.us = whatToAskTiriMini.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
-	tt()
-}
-
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
@@ -60,7 +55,11 @@ function tt() {
 	 localStorage.us = '';
          localStorage.us = document.getElementById('tiri-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
 	}
-         document.getElementById("bubbles").innerHTML += '<br><br><br><br><br><div class="message-send">' + localStorage.us + '</div><br><br><br><br><br>';
+	if (getQueryVariable("app") !== 5) {
+	 localStorage.us = '';
+         localStorage.us = document.getElementById('tiri-mini-box').value.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
+	}
+	document.getElementById("bubbles").innerHTML += '<br><br><br><br><br><div class="message-send">' + localStorage.us + '</div><br><br><br><br><br>';
          if (localStorage.us == 'i have a problem') {
             window.location.href = "mailto:timediamail@gmail.com";
          } else if(localStorage.us == 'ti') {
