@@ -4,6 +4,10 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
      setInterval(function() {document.getElementById("tiri-timer").innerHTML = (window.timer + '').toHHMMSS();}, 0);
 }
 
+if (getQueryVariable("app") == 5) {
+	document.getElementById('tiri-mini-box').style = "display: none;";
+}
+
 function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
 }
