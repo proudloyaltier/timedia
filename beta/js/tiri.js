@@ -8,6 +8,11 @@ function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
 }
 
+function tiriMini(whatToAskTiriMini) {
+	localStorage.us = whatToAskTiriMini.toLowerCase().replace("?", "").replace("!", "").replace(".", "").replace("what's", "what is").replace("whats", "what is");
+	tt()
+}
+
 if (localStorage.ts == undefined) {
      localStorage.ts = 'Welcome, ' + localStorage.name;
 }
