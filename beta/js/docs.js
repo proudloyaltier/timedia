@@ -25,7 +25,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   document.getElementById('create').remove();
   document.getElementById('view').style = "visibility: block;";
   window.gfdName = name;
-  window.dbRef.child(name).child(localStorage.name).on("value", svapValDoc, errorLoading);
+  window.dbRef.child(getQueryVariable("p")).child(localStorage.name).on("value", svapValDoc, errorLoading);
   function snapValDoc(value) {
   docvalue = window.gfdName, value.val();
   window.gfdName = null;
