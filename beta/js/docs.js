@@ -5,7 +5,6 @@ if (localStorage.tidocssave == undefined) {
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
 } else {
   storeInDatabase(localStorage.tidocssave, content)
-}
   var tidocssave = localStorage.tidocssave
   localStorage.removeItem("tidocssave")
 }
