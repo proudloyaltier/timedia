@@ -14,6 +14,7 @@ if (localStorage.tidocssave == undefined) {
   localStorage.workToSave = url;
   } else {
     localStorage.removeItem('tidocssave');
+  }
   window.location.href = "?app=7";
 }
 
