@@ -24,11 +24,12 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   
   document.getElementById('create').remove();
   document.getElementById('view').style = "visibility: block;";
-  window.gfdName = getQueryVariable("p");
-  window.dbRef.child(getQueryVariable("p")).child(localStorage.name).on("value", snapValDoc, errorLoading);
-  function snapValDoc(value) {
-  docvalue = window.gfdName, value.val();
-  window.gfdName = null;
+  var urlRef = window.dbRef.child(getQueryVariable("p"));
+  urlRef.once("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+    docvalue = child.val();
+  });
+});
   }
   document.getElementById('view').innerHTML = decodeURI(atob(docvalue));
   document.getElementById('tidocs-edit').style = "visibility: block;";
