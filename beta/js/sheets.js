@@ -13,7 +13,7 @@ function newColumn() {
 function saveSheet() {
 	if (localStorage.tisheetssave == undefined) {
   	var tisheetssave = Math.floor(Math.random() * 1000000000);
-  	storeInDatabase(tidocssave, document.getElementById('tisheets-table').innerHTML)
+  	storeInDatabase(tisheetssave, document.getElementById('tisheets-table').innerHTML)
 	} else {
   	storeInDatabase(localStorage.tisheetssave, document.getElementById('tisheets-table').innerHTML)
  	 var tisheetssave = localStorage.tisheetssave
