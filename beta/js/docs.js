@@ -27,8 +27,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   document.getElementById('view').style = "visibility: block;";
   document.getElementById('tidocs-edit').style = "visibility: block;";
   document.getElementById('tidocs-reader').style = "visibility: block;";
-  if (window.dbRef.child(getQueryVariable("p") !== undefined)) {
-  alert(1)
+  if (window.dbRef !== undefined) {
   var urlRef = window.dbRef.child(getQueryVariable("p"));
   urlRef.on("value", function(snapshot) {
   snapshot.forEach(function(child) {
@@ -36,9 +35,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     window.edit =  document.getElementById('view').innerHTML
     });
   });
- } else {
-   alert(0)
- }
+ } 
 }
 
 function editDoc() {
