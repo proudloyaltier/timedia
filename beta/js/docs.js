@@ -1,6 +1,14 @@
 
 function saveDoc() {
-  var url = "index.html?app=3"+ '&p=' + btoa(encodeURI(document.getElementsByTagName('h5')[0].innerHTML));
+if (localStorage.tidocssave == undefined) {
+  var tidocsave = Math.floor(Math.random() * 1000000000);
+  storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML))
+} else {
+  storeInDatabase(localStorage.tidocssave, content)
+  var tidocssave = localStorage.tidocssave
+  localStorage.removeItem("tidocssave")
+}
+  var url = "index.html?app=3"+ '&p=' + tidocssave;
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
@@ -16,14 +24,15 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   
   document.getElementById('create').remove();
   document.getElementById('view').style = "visibility: block;";
-  document.getElementById('view').innerHTML = decodeURI(atob(getQueryVariable("p")));
+  document.getElementById('view').innerHTML = decodeURI(atob(getFromDatabase(getQueryVariable("p"))));
   document.getElementById('tidocs-edit').style = "visibility: block;";
   document.getElementById('tidocs-reader').style = "visibility: block;";
 }
 
 function editDoc() {
-  localStorage.edit = atob(getQueryVariable("p"));
+  localStorage.edit = atob(getFromDatabase(getQueryVariable("p")));
   window.location.href = "index.html?app=3";
+  localStorage.tidocssave = getQueryVariable("p");
 }
 
 function docReader() {
