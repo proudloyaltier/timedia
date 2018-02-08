@@ -11,10 +11,21 @@ function newColumn() {
 }
 
 function saveSheet() {
-	var url = "index.html?app=4" + "&t=" + btoa(document.getElementById('tisheets-table').innerHTML);
+	if (localStorage.tisheetssave == undefined) {
+  	var tisheetssave = Math.floor(Math.random() * 1000000000);
+  	storeInDatabase(tidocssave, document.getElementById('tisheets-table').innerHTML)
+	} else {
+  	storeInDatabase(localStorage.tisheetssave, document.getElementById('tisheets-table').innerHTML)
+ 	 var tisheetssave = localStorage.tisheetssave
+	}
+	var url = "index.html?app=4" + "&t=" + tisheetssave;
+	if (localStorage.tisheetssave == undefined) {
 	localStorage.workToSave = url;
 	localStorage.recentUrl = url;
 	localStorage.workToSaveTitle = document.getElementById('sheetsTitle').value;
+	} else {
+	localStorage.removeItem('tisheetssave')
+	}
 	window.location.href = "?app=7";
 }
 
@@ -25,20 +36,26 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		localStorage.removeItem("editSheet");
 	} else {
 	        document.getElementById('sheetsTitle').style = "display: none;";
-		document.getElementById('tisheets-table').innerHTML = atob(getQueryVariable("t"));	
+		  var urlRef = window.dbRef.child(getQueryVariable("t"));
+  		urlRef.on("value", function(snapshot) {
+  		snapshot.forEach(function(child) {
+    		document.getElementById('tisheets-table').innerHTML = child.val();
+   		 window.edit = document.getElementById('tisheets-table').innerHTML
+    		});
+  		});
 		document.getElementById('tisheets-table').setAttribute("contenteditable", false);
 		document.getElementById('tisheets-save').style = "display: none;";
 		document.getElementById('tisheets-add-row').style = "display: none;";
 		document.getElementById('tisheets-edit').style = "";
 		document.getElementById('tisheets-reader').style = "";
-
 	}
 }
 
 function editSheet() {
-	localStorage.editSheet = atob(getQueryVariable("t"));
+	localStorage.editSheet = window.edit
 	window.location.href = "index.html?app=4";
 	document.getElementById('sheetsTitle').style = "";
+	localStorage.tisheetssave = getQueryVariable("t")
 }
 
 function sheetReader() {
