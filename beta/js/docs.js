@@ -27,17 +27,16 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   var urlRef = window.dbRef.child(getQueryVariable("p"));
   urlRef.once("value", function(snapshot) {
   snapshot.forEach(function(child) {
-    docvalue = child.val();
+    document.getElementById('view').innerHTML = child.val();
+    window.edit = document.getElementById('view').innerHTML;
   });
 });
-  }
-  document.getElementById('view').innerHTML = decodeURI(atob(docvalue));
   document.getElementById('tidocs-edit').style = "visibility: block;";
   document.getElementById('tidocs-reader').style = "visibility: block;";
 }
 
 function editDoc() {
-  localStorage.edit = atob(getFromDatabase(getQueryVariable("p")));
+  localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
   localStorage.tidocssave = getQueryVariable("p");
 }
