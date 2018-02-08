@@ -24,7 +24,13 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   
   document.getElementById('create').remove();
   document.getElementById('view').style = "visibility: block;";
-  document.getElementById('view').innerHTML = decodeURI(atob(getFromDatabase(getQueryVariable("p"))));
+  window.gfdName = name;
+  window.dbRef.child(name).child(localStorage.name).on("value", svapValDoc, errorLoading);
+  function snapValDoc(value) {
+  docvalue = window.gfdName, value.val());
+  window.gfdName = null;
+  }
+  document.getElementById('view').innerHTML = decodeURI(atob(docvalue));
   document.getElementById('tidocs-edit').style = "visibility: block;";
   document.getElementById('tidocs-reader').style = "visibility: block;";
 }
