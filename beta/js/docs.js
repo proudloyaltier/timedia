@@ -1,7 +1,7 @@
 
 function saveDoc() {
 if (localStorage.tidocssave == undefined) {
-  var tidocsave = Math.floor(Math.random() * 1000000000);
+  var tidocssave = Math.floor(Math.random() * 1000000000);
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
 } else {
   storeInDatabase(localStorage.tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
