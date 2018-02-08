@@ -27,7 +27,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   window.gfdName = name;
   window.dbRef.child(name).child(localStorage.name).on("value", svapValDoc, errorLoading);
   function snapValDoc(value) {
-  docvalue = window.gfdName, value.val());
+  docvalue = window.gfdName, value.val();
   window.gfdName = null;
   }
   document.getElementById('view').innerHTML = decodeURI(atob(docvalue));
