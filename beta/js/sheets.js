@@ -31,6 +31,9 @@ function saveSheet() {
 
 
 if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
+	if (localStorage.editSheet !== undefined) {
+		document.getElementById('sheetsTitle').remove();
+	}
 	if (getQueryVariable("t") == false) {
 		document.getElementById('tisheets-table').innerHTML = localStorage.editSheet;
 		localStorage.removeItem("editSheet");
