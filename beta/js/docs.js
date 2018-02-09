@@ -41,7 +41,7 @@ function editDoc() {
   localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
   localStorage.tidocssave = getQueryVariable("p");
-  setInterval(function () {document.getElementById('docsTitle').style = 'display: none;'}, 0)
+  document.getElementById('docsTitle').remove()
 }
 
 function docReader() {
