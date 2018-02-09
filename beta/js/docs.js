@@ -1,4 +1,3 @@
-
 function saveDoc() {
 if (localStorage.tidocssave == undefined) {
   var tidocssave = Math.floor(Math.random() * 1000000000);
@@ -42,7 +41,7 @@ function editDoc() {
   localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
   localStorage.tidocssave = getQueryVariable("p");
-  document.getElementById('docsTitle').style = 'display: none;'
+  setInterval(function () {document.getElementById('docsTitle').style = 'display: none;'}, 0)
 }
 
 function docReader() {
