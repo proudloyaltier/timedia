@@ -42,7 +42,7 @@ function editDoc() {
   window.location.href = "index.html?app=3";
   localStorage.tidocssave = getQueryVariable("p");
   if (getQueryVariable('app') == 3 && getQueryVariable('p') == false) {
-  document.getElementById('docsTitle').remove()
+    setInterval(function() {document.getElementById('docsTitle').remove()}), 50)
   }
 }
 
