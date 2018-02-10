@@ -42,6 +42,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		  var urlRef = window.dbRef.child(getQueryVariable("t"));
   		urlRef.on("value", function(snapshot) {
   		snapshot.forEach(function(child) {
+		localStorage.owner = child.key;
     		document.getElementById('tisheets-table').innerHTML = child.val();
    		 window.edit = document.getElementById('tisheets-table').innerHTML
     		});
