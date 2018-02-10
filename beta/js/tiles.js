@@ -1,6 +1,8 @@
 function deleteTile(tileid) {
   var shouldDelete = confirm("Are you sure you want to delete this tile? This action cannot be undone");
   if (shouldDelete == true) {
+  var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19)
+  window.dbRef.child(toDelFirebase).set(null);
   localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
   save();
   } else {
