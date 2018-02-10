@@ -32,7 +32,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   var urlRef = window.dbRef.child(getQueryVariable("p"));
   urlRef.on("value", function(snapshot) {
   snapshot.forEach(function(child) {
-    
+    localStorage.owner = child.key();
     document.getElementById('view').innerHTML = child.val();
     window.edit =  document.getElementById('view').innerHTML
     });
