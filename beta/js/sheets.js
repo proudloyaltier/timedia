@@ -15,8 +15,8 @@ function saveSheet() {
   	var tisheetssave = Math.floor(Math.random() * 1000000000);
   	storeInDatabase(tisheetssave, document.getElementById('tisheets-table').innerHTML)
 	} else {
-  	storeInDatabase(localStorage.tisheetssave, document.getElementById('tisheets-table').innerHTML)
- 	 var tisheetssave = localStorage.tisheetssave
+         window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(document.getElementById('tisheets-table').innerHTML); 
+         var tisheetssave = localStorage.tisheetssave
 	}
 	var url = "index.html?app=4" + "&t=" + tisheetssave;
 	if (localStorage.tisheetssave == undefined) {
@@ -42,6 +42,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		  var urlRef = window.dbRef.child(getQueryVariable("t"));
   		urlRef.on("value", function(snapshot) {
   		snapshot.forEach(function(child) {
+		localStorage.owner = child.key;
     		document.getElementById('tisheets-table').innerHTML = child.val();
    		 window.edit = document.getElementById('tisheets-table').innerHTML
     		});

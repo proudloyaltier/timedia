@@ -3,7 +3,7 @@ if (localStorage.tidocssave == undefined) {
   var tidocssave = Math.floor(Math.random() * 1000000000);
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
 } else {
-  storeInDatabase(localStorage.tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
+  window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(document.getElementsByTagName('h5')[0].innerHTML);
   var tidocssave = localStorage.tidocssave
 }
   var url = "index.html?app=3"+ '&p=' + tidocssave;
@@ -32,6 +32,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   var urlRef = window.dbRef.child(getQueryVariable("p"));
   urlRef.on("value", function(snapshot) {
   snapshot.forEach(function(child) {
+    localStorage.owner = child.key;
     document.getElementById('view').innerHTML = child.val();
     window.edit =  document.getElementById('view').innerHTML
     });
