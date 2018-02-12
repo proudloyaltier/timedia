@@ -38,7 +38,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     });
   });
   if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
-    document.getElementById('create').remove();
     document.getElementById('view').remove()
     document.getElementById('tidocs-edit').remove()
     document.getElementById('tidocs-reader').remove()
