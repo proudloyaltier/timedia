@@ -41,6 +41,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementById('view').remove()
     document.getElementById('tidocs-edit').remove()
     document.getElementById('tidocs-reader').remove()
+    document.getElementById('no-access-doc').style = "display: block;";
   }
 }
 
