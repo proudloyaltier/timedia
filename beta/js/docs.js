@@ -35,15 +35,15 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     localStorage.owner = child.key;
     document.getElementById('view').innerHTML = child.val();
     window.edit =  document.getElementById('view').innerHTML
+    if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
+        document.getElementById('view').remove()
+        document.getElementById('tidocs-edit').remove()
+        document.getElementById('tidocs-reader').remove()
+        document.getElementById('no-access-doc').style = "display: block;";
+       }
     });
   });
   
-  if (localStorage.owner !== undefined && localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
-    document.getElementById('view').remove()
-    document.getElementById('tidocs-edit').remove()
-    document.getElementById('tidocs-reader').remove()
-    document.getElementById('no-access-doc').style = "display: block;";
-  }
 }
 
 
