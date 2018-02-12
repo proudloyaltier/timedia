@@ -53,6 +53,15 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		document.getElementById('tisheets-edit').style = "";
 		document.getElementById('tisheets-reader').style = "";
 	}
+	
+	if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
+		document.getElementById('tisheets-table').remove();
+		document.getElementById('tisheets-save').remove();
+		document.getElementById('tisheets-add-row').remove();
+		document.getElementById('tisheets-edit').remove();
+		document.getElementById('tisheets-reader').remove();
+		document.getElementById('tisheets-no-access').style = "display: block;";
+  }
 }
 
 function editSheet() {
