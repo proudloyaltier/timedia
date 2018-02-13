@@ -39,6 +39,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		localStorage.removeItem("editSheet");
 	} else {
 	        document.getElementById('sheetsTitle').style = "display: none;";
+		document.getElementById('sheets-formatting-bar').style = "display: none;";
 		  var urlRef = window.dbRef.child(getQueryVariable("t"));
   		urlRef.on("value", function(snapshot) {
   		snapshot.forEach(function(child) {
