@@ -159,6 +159,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     <h3 id="tidocs-header">TiDocs</h3><br>
     <div id="create">
       <input id="docsTitle" class="form-control lg" value="Untitled Document"><br>
+      <div class='formatting-bar'>
       <button style='float: left; border-radius: 0px;' class='btn btn-primary'  onclick="document.execCommand('bold');"><b>B</b></button>
       <button style='float: left; border-radius: 0px;' class='btn btn-primary' onclick="document.execCommand('italic');"><i>I</i></button>
       <button style='float: left; border-radius: 0px;' class='btn btn-primary' onclick="document.execCommand('underline');"><u>U</u></button>
@@ -167,6 +168,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
       <button style='float: left; border-radius: 0px;' class='btn btn-primary' onclick="document.execCommand('undo');">↰</button>
       <button style='float: left; border-radius: 0px;' class='btn btn-primary' onclick="document.execCommand('redo');">↱</button>
       <br><br><br><br>
+      </div>
       <h5 style="outline: none;" id="content" contenteditable="true"></h5><br>
 
       <button onclick="saveDoc()" class="btn btn-primary">Save</button>
@@ -229,7 +231,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
  <div id="tisheets" style="display: none;">
   <h3 id="tisheets-header" >TiSheets</h3>
    <input id="sheetsTitle" class="form-control lg" value="Untitled Spreadsheet"><br>
-   <div id="sheets-formatting-bar">
+   <div class='formatting-bar' id="sheets-formatting-bar">
    <button style='float: left; border-radius: 0px;' class='btn btn-primary'  onclick="document.execCommand('bold');"><b>B</b></button>
    <button style='float: left; border-radius: 0px;' class='btn btn-primary' onclick="document.execCommand('italic');"><i>I</i></button>
    <button style='float: left; border-radius: 0px;' class='btn btn-primary' onclick="document.execCommand('underline');"><u>U</u></button>
