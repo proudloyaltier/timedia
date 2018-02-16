@@ -1,5 +1,5 @@
 function deleteTile(tileid) {
-  var shouldDelete = confirm("Are you sure you want to delete this tile? This action cannot be undone");
+  var shouldDelete = confirm("Are you sure you want to delete this tile? This action cannot be undone.");
   if (shouldDelete == true) {
     var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19)
     window.dbRef.child(toDelFirebase).set(null);
@@ -35,12 +35,12 @@ function searchTiles(search) {
   document.getElementById("tiles-searchbox").innerHTML = "";
 
   if (search == "") {
-    document.getElementById("tiles-tiles").style = "list-style: none;";
-    document.getElementById("tiles-searchbox").style = "list-style: none; display: none;";
+    document.getElementById("tiles-tiles").style.display = "";
+    document.getElementById("tiles-searchbox").style.display = "none";
     loadTiles();
   } else {
-    document.getElementById("tiles-tiles").style = "list-style: none; display: none;";
-    document.getElementById("tiles-searchbox").style = "list-style: none;";
+    document.getElementById("tiles-tiles").style.display = "none";
+    document.getElementById("tiles-searchbox").style.display = "";
 
     for (var i = 0; i < localStorage.files.split(",").length; i++) {
       if (localStorage.files.split(",")[i].toLowerCase().includes(search.toLowerCase())) {
