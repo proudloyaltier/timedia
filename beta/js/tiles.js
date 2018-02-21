@@ -26,7 +26,9 @@ function openTileContext(tileID) {
   document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li></ul>';
 }
 
-$(".card").on("taphold", function( event ) {openTileContext(overTileid)} )
+interact('.card') .on('hold', function (event) {
+    openTileContext(overTileid);
+  });
 
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
