@@ -13,7 +13,7 @@ function deleteTile(tileid) {
 }
 
 function duplicateTile(tileID) {
- localStorage.fiels += localStorage.files.split(',')[tileID]; 
+ localStorage.files += localStorage.files.split(',')[tileID]; 
 }
 
 function openTileContext(tileID) {
