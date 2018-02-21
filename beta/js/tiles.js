@@ -15,7 +15,7 @@ function duplicateTile(tileID) {
 }
 
 function openTileContext(tileID) {
-  document.getElementsByClassName('context-menu__items').innerHTML = '<li><a href="#" onclick="deleteTile(' + tileID + ')">Delete</a></li><li><a href="#" onclick="duplicateTile(' + tileID + ')">Duplicate</a></li>';
+  document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')">Delete</a></li><li><a href="#" onclick="duplicateTile(' + tileID + ')">Duplicate</a></li></ul>';
 }
 
 function resetTiles() {
