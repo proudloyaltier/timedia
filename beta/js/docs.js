@@ -1,6 +1,6 @@
 function saveDoc() {
 if (localStorage.tidocssave == undefined) {
-  var tidocssave = Math.floor(Math.random() * 1000000000);
+  var tidocssave = generateRandString()
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
 } else {
   window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(document.getElementsByTagName('h5')[0].innerHTML);
