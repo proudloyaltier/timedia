@@ -146,11 +146,7 @@ function loadTiles() {
   }
 }
 
-if (overTile !== undefined && overTile !== false) {
-interact('.card') .on('doubletap', function (event) {
-    openTileContext(overTileid);
-  });
-}
+jQuery(".card").on("taphold", function() {openTileContext(overTileid);})
 
 function refreshTiles() {
   getFromDatabase("files");
