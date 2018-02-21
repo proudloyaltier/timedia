@@ -146,8 +146,6 @@ function loadTiles() {
   }
 }
 
-jQuery(".card").on("taphold", function() {openTileContext(overTileid);})
-
 function refreshTiles() {
   getFromDatabase("files");
 }
