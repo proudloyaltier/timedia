@@ -12,7 +12,7 @@ function newColumn() {
 
 function saveSheet() {
 	if (localStorage.tisheetssave == undefined) {
-  	var tisheetssave = Math.floor(Math.random() * 1000000000);
+  	var tisheetssave = generateRandString()
   	storeInDatabase(tisheetssave, document.getElementById('tisheets-table').innerHTML)
 	} else {
          window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(document.getElementById('tisheets-table').innerHTML); 
