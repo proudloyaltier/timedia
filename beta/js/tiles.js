@@ -147,8 +147,7 @@ function loadTiles() {
 }
 
 if (overTile !== undefined && overTile !== false) {
-interact('.card') .on('hold', function (event) {
-    alert(overTileid)
+interact('.card') .on('doubletap', function (event) {
     openTileContext(overTileid);
   });
 }
