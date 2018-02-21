@@ -1,5 +1,9 @@
 var overTile = false;
 
+function save() {
+  storeInDatabase("files", localStorage.files);
+}
+
 function generateRandString() {
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -31,20 +35,9 @@ function resetTiles() {
 
   if (resetTiles == true) {
     localStorage.removeItem('files');
-    storeInDatabase("files", "");
+    storeInDatabase("files", ",");
     window.location.href = "index.html?app=7";
   }
-}
-
-function save() {
-  storeInDatabase("files", localStorage.files);
-}
-
-function saveChat() {
-  var chatName = prompt("Enter the name of this chat");
-  var chatPassword = prompt("Enter the chat password");
-  var chatCode = "index.html?app=" + chatPassword;
-  addFile(chatName, chatCode)
 }
 
 function searchTiles(search) {
@@ -58,7 +51,7 @@ function searchTiles(search) {
     document.getElementById("tiles-tiles").style.display = "none";
     document.getElementById("tiles-searchbox").style.display = "";
 
-    for (var i = 0; i < localStorage.files.split(",").length; i++) {
+    for (var i = 1; i < localStorage.files.split(",").length; i++) {
       if (localStorage.files.split(",")[i].toLowerCase().includes(search.toLowerCase())) {
         if (localStorage.files.split(",")[i].split("!!")[1].includes('?app=3')) {
           document.getElementById('tiles-searchbox').innerHTML = document.getElementById('tiles-searchbox').innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span></center></h3></span></li>';
@@ -127,7 +120,7 @@ function loadTiles() {
 
   if (localStorage.files !== "") {
     document.getElementById('tiles-tiles').innerHTML = "";
-    for (var i = 0; i < localStorage.files.split(",").length; i++) {
+    for (var i = 1; i < localStorage.files.split(",").length; i++) {
       if (localStorage.files.split(",")[i].split("!!")[1].includes('?app=3')) {
         document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
       }
