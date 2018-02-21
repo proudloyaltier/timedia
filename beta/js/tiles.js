@@ -1,5 +1,15 @@
 var overTile = false;
 
+function generateRandString() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 90; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
+
 function deleteTile(tileid) {
   var shouldDelete = confirm("Are you sure you want to delete this tile? This action cannot be undone.");
   if (shouldDelete == true) {
