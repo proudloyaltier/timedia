@@ -22,12 +22,8 @@ function deleteTile(tileid) {
   }
 }
 
-function duplicateTile(tileID) {
- localStorage.files += localStorage.files.split(',')[tileID]; 
-}
-
 function openTileContext(tileID) {
-  document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')">Delete</a></li><li><a href="#" onclick="duplicateTile(' + tileID + ')">Duplicate</a></li></ul>';
+  document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li></ul>';
 }
 
 function resetTiles() {
