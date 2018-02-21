@@ -10,10 +10,6 @@ function deleteTile(tileid) {
   }
 }
 
-function duplicateTile(tileID) {
-  localStorage.files += "," + localStorage.files.split(',')[tileID];
-}
-
 function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
 
@@ -109,9 +105,7 @@ function saveFromTiWork() {
   addFile(title, tosave);
 }
 
-function openTileContext(tileID) {
-  document.getElementsByClassName("context-menu__items").innerHTML = '<li><a href="#" onclick="deleteTile(' + tileID + ')">Delete</a></li><li><a href="#" onclick="duplicateTile(' + tileID + ')">Duplicate</a></li>'
-}
+
 
 function loadTiles() {
 
