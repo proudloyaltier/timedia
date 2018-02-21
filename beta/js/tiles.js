@@ -146,11 +146,9 @@ function loadTiles() {
   }
 }
 
-if (overTileid !== false && overTileid !== undefined) {
 interact('.card') .on('hold', function (event) {
     openTileContext(overTileid);
   });
-}
 
 function refreshTiles() {
   getFromDatabase("files");
