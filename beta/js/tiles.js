@@ -98,7 +98,7 @@ function addFile(title, upload) {
     var upload = prompt("Enter your URL");
   }
 
-  if (localStorage.files !== undefined) {
+  if (localStorage.files !== undefined && localStorage.files !== "") {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
   } else {
     localStorage.files = title + "!!" + upload;
