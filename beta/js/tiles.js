@@ -24,7 +24,7 @@ function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
 
   if (resetTiles == true) {
-    localStorage.removeItem('files');
+    localStorage.files = ""
     save();
     window.location.href = "index.html?app=7";
   }
