@@ -104,7 +104,7 @@ function addFile(title, upload) {
     localStorage.files = title + "!!" + upload;
   }
     
-  if (localStorage.files == "") {
+  if (localStorage.files === "")
     alert(title + "!!" + upload);
     localStorage.files = title + "!!" + upload;
   }
