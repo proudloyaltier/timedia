@@ -166,6 +166,9 @@
    * Turns the custom context menu on.
    */
   function toggleMenuOn() {
+    if(overTile == false) {
+      document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="index.html">Home <span class="glyphicon glyphicon-home"></span></a></li><li><a href="?app=2">TiChat <span class="glyphicon glyphicon-send"></span></a></li><li><a href="?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li><li><a href="?app=7">Tiles <span class="glyphicon glyphicon-cloud"></span></a></li><li><a href="https://proudloyaltier.github.io/timedia/beta/tishare/">TiShare <span class="glyphicon glyphicon-share"></span></a></li><li role="separator" class="divider"></li><li><a href="?app=3">TiDocs <span class="glyphicon glyphicon-pencil"></span></a></li><li><a href="?app=4">TiSheets <span class="glyphicon glyphicon-th-list"></span></a></li><li><a href="?app=10">TiBookmarks <span class="glyphicon glyphicon-bookmark"></span></a></li><input class="form-control" style="width: 70%" id="tiri-mini-box" onchange="tt();" placeholder="Start typing or speak now..." autofocus> <!-- autofocus works more reliably and faster than .focus()--></ul>';
+    }
     if ( menuState !== 1 ) {
       menuState = 1;
       menu.classList.add( contextMenuActive );
