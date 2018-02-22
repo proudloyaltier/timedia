@@ -35,7 +35,7 @@ function resetTiles() {
 
   if (resetTiles == true) {
     localStorage.removeItem('files');
-    storeInDatabase("files", ",");
+    storeInDatabase("files", "");
     window.location.href = "index.html?app=7";
   }
 }
