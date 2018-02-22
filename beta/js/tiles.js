@@ -35,7 +35,7 @@ function resetTiles() {
   var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
 
   if (resetTiles == true) {
-    localStorage.files = null
+    localStorage.files = ""
     storeInDatabase("files", "");
     window.location.href = "index.html?app=7";
   }
@@ -104,7 +104,7 @@ function addFile(title, upload) {
     localStorage.files = title + "!!" + upload;
   }
     
-  if (localStorage.files == "null") {
+  if (localStorage.files == "") {
     alert(title + "!!" + upload);
     localStorage.files = title + "!!" + upload;
   }
