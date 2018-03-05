@@ -1,5 +1,9 @@
 var normalMenu = document.getElementById("context-menu").innerHTML;
 var specialElement = false;
+var overCmenu = false;
+
+document.getElementById("context-menu").mouseover = function() {overCmenu = true;};
+document.getElementById("context-menu").mouseout = function() {overCmenu = false;};
 
 function openCmenu(e) {
   e = e || window.event;
@@ -12,7 +16,9 @@ function openCmenu(e) {
   document.getElementById("context-menu").style.left = e.clientX + "px";
 }
 function closeCmenu() {
-  document.getElementById("context-menu").style = "display: none";
+  if(!overCmenu) {
+    document.getElementById("context-menu").style = "display: none";
+  }
 }
 window.addEventListener("contextmenu", openCmenu);
 window.addEventListener("click", closeCmenu);
