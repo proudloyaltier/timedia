@@ -1,4 +1,4 @@
-var normalMenu = document.getElementById("context-menu")innerHTML;
+var normalMenu = document.getElementById("context-menu").innerHTML;
 
 function openCmenu(e) {
   e = e || window.event;
