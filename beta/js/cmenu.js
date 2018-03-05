@@ -4,7 +4,7 @@ var specialElement = false;
 function openCmenu(e) {
   e = e || window.event;
   e.preventDefault();
-  if(!overTile) {
+  if(!overTile && !specialElement) {
     document.getElementById("context-menu").innerHTML = normalMenu;
   }
   document.getElementById("context-menu").style = "display: inline-block";
@@ -21,5 +21,3 @@ function initSpecialElement(element) {
   element.mouseover = function() {specialElement = true;};
   element.mouseout = function() {specialElement = false;};
 }
-
-initSpecialElement(document.getElementsByClassName("card"));
