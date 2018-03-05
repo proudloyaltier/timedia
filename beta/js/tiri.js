@@ -293,7 +293,7 @@ function tt() {
             responsiveVoice.speak("Echo looks great, but I prefer T I Pod.");
             localStorage.ts = "Echo looks great, but I prefer TiPod.";
          } else if(localStorage.us.replace("1", "").replace("2", "").replace("3", "").replace("4", "").replace("5", "").replace("6", "").replace(" ", "").replace("*", "").replace("-", "").replace("+", "").replace("/", "") == "") {
-		 responsiveVoice.speak(eval(localStorage.us));
+		 responsiveVoice.speak(eval(localStorage.us).toString());
             localStorage.ts = eval(localStorage.us);
 	 } else {
             responsiveVoice.speak("Sorry. I do not understand");
