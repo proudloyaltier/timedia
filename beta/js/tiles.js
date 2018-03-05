@@ -36,7 +36,7 @@ function deleteTile(tileid) {
 }
 
 function openTileContext(tileID) {
-  document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"> Rename</a></li></ul>';
+  document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li></ul>';
 }
 
 function resetTiles() {
