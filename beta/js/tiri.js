@@ -292,7 +292,10 @@ function tt() {
          } else if(localStorage.us == "what do you think of echo" || localStorage.us == "do you like echo" || localStorage.us == "what do you think of amazon echo" || localStorage.us == "do you like amazon echo") {
             responsiveVoice.speak("Echo looks great, but I prefer T I Pod.");
             localStorage.ts = "Echo looks great, but I prefer TiPod.";
-         } else {
+         } else if(localStorage.us.replace("1", "").replace("2", "").replace("3", "").replace("4", "").replace("5", "").replace("6", "").replace(" ", "").replace("*", "").replace("-", "").replace("+", "").replace("/", "") == "") {
+		 responsiveVoice.speak(eval(localStorage.us));
+            localStorage.ts = eval(localStorage.us);
+	 } else {
             responsiveVoice.speak("Sorry. I do not understand");
             localStorage.ts = "Sorry, I do not understand.";
          }
