@@ -1,4 +1,5 @@
 var normalMenu = document.getElementById("context-menu").innerHTML;
+var specialElement = false;
 
 function openCmenu(e) {
   e = e || window.event;
@@ -15,3 +16,10 @@ function closeCmenu() {
 }
 window.addEventListener("contextmenu", openCmenu);
 window.addEventListener("click", closeCmenu);
+
+function initSpecialElement(element) {
+  element.mouseover = function() {specialElement = true;};
+  element.mouseout = function() {specialElement = false;};
+}
+
+initSpecialElement(document.getElementsByClassName("card"));
