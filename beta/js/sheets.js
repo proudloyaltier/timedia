@@ -26,7 +26,7 @@ function saveSheet() {
 	} else {
 	localStorage.removeItem('tisheetssave')
 	}
-	window.location.href = "?app=7";
+	
 }
 
 
