@@ -17,11 +17,12 @@ function renameTilePrompt(tid) {
   if (result == null) {
   location.reload();
   } else {
-  localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], result)
+  localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], result);
   save();
    } 
   }    
-})
+ })
+}  
 
 function generateRandString() {
   var text = "";
