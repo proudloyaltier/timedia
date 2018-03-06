@@ -9,7 +9,20 @@ function renameTile(tid, rwith) {
 }
 
 function renameTilePrompt(tid) {
-  localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], prompt("rename", localStorage.files.split(",")[tid].split("!!")[0]) + "!!" + localStorage.files.split(",")[tid].split("!!")[1]); save();
+  bootbox.prompt({ 
+  size: "small",
+  title: "Rename To:", 
+  closeButton: false,
+  callback: function(result){
+  if (result == null) {
+  location.reload();
+  } else {
+  localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], result)
+  save();
+   }
+  
+  }
+    
 }
 
 function generateRandString() {
