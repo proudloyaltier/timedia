@@ -14,7 +14,7 @@ function openCmenu(e) {
   document.getElementById("context-menu").style = "display: inline-block";
   document.getElementById("context-menu").style.top = ( e.clientY-10) + "px";
   document.getElementById("context-menu").style.left = e.clientX + "px";
-  //document.getElementById("tiri-mini-box").focus();
+  document.getElementById("tiri-mini-box").focus();
 }
 function closeCmenu() {
   if(!overCmenu) {
