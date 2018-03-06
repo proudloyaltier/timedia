@@ -19,11 +19,9 @@ function renameTilePrompt(tid) {
   } else {
   localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], result)
   save();
-   }
-  
-  }
-    
-}
+   } 
+  }    
+})
 
 function generateRandString() {
   var text = "";
