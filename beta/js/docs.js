@@ -25,9 +25,9 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   }
   
   document.getElementById('create').remove();
-  document.getElementById('view').style = "visibility: block;";
-  document.getElementById('tidocs-edit').style = "visibility: block;";
-  document.getElementById('tidocs-reader').style = "visibility: block;";
+  document.getElementById('view').style.visibility = "block";
+  document.getElementById('tidocs-edit').style.visibility = "block";
+  document.getElementById('tidocs-reader').style.visibility = "block";
   var urlRef = window.dbRef.child(getQueryVariable("p"));
   urlRef.on("value", function(snapshot) {
   snapshot.forEach(function(child) {
