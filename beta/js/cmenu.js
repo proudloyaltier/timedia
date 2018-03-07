@@ -46,4 +46,6 @@ function mouseUp() {
 document.addEventListener("mousedown", mouseDown);
 document.addEventListener("mouseup", mouseUp);
 
+if (localStorage.edit == undefined) {
 setInterval(function() {if(!overTile) {mouseUp();}}, 0);
+}
