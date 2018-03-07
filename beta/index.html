@@ -229,6 +229,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   </nav>
   </div>
  <div id="tisheets" style="display: none;">
+   <div style="margin: 0px; width: 100%; background-color: #2196f3;">
   <h3 id="tisheets-header" >TiSheets</h3>
    <input id="sheetsTitle" class="form-control lg" value="Untitled Spreadsheet"><br>
    <div class='formatting-bar' id="sheets-formatting-bar">
@@ -240,6 +241,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('undo');">↰</button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('redo');">↱</button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="saveSheet()"><span class="glyphicon glyphicon-floppy-save"></span></button>
+     </div>
    <br><br><br><br>
    </div>
    <style>
