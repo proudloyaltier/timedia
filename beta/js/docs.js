@@ -23,6 +23,11 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
     document.getElementsByTagName('h5')[0].innerHTML = decodeURI(localStorage.edit);
     localStorage.removeItem('edit');
+    $("#tidocs-content").on("propertychange change keyup paste input", function(){
+     localStorage.autosave = 'true';
+     saveDoc();
+    });
+
     throw new Error("Opened edit.");
   }
   
