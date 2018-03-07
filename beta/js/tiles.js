@@ -9,7 +9,7 @@ function renameTile(tid, rwith) {
 }
 
 function renameTilePrompt(tid) {
-  var replacename = prompt("rename", localStorage.files.split(",")[tid].split("!!")[0]) + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
+  var replacename = prompt("New File Name", localStorage.files.split(",")[tid].split("!!")[0]) + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
   
   if (replacename != null) {
     localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], replacename); 
