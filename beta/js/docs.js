@@ -50,3 +50,7 @@ function docReader() {
   document.getElementById('tidocs-reader').remove();
   document.getElementById('tidocs-header').remove();
 }
+
+$('h5').on('input', (e) => {
+  saveDoc();
+});
