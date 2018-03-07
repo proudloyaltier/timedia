@@ -54,4 +54,3 @@ function docReader() {
  $('#tidocs-content').on('input', (e) => {
   saveDoc();
  });
-}
