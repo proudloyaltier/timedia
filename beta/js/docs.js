@@ -10,7 +10,6 @@ if (localStorage.tidocssave == undefined) {
   localStorage.recentUrl = url;
   if (localStorage.tidocssave == undefined && localStorage.autosave == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
-  }
   localStorage.workToSave = url;
   } else {
     localStorage.removeItem('tidocssave');
