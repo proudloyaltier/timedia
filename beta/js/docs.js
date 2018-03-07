@@ -51,12 +51,7 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-function autoSave() {
- $('h5').on('input', (e) => {
+ $('#tidocs-content').on('input', (e) => {
   saveDoc();
  });
-}
-
-if (getQueryVariable("app") == 3) {
-  window.onload = autoSave();
 }
