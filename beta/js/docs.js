@@ -22,6 +22,9 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementsByTagName('h5')[0].innerHTML = decodeURI(localStorage.edit);
     localStorage.removeItem('edit');
     throw new Error("Opened edit.");
+    $('h5').on('input', (e) => {
+     saveDoc();
+    });
   }
   
   document.getElementById('create').remove();
