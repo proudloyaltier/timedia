@@ -51,6 +51,6 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
- $('#tidocs-content').on('input', (e) => {
-  saveDoc();
- });
+$("#tidocs-content").on("propertychange change keyup paste input", function(){
+saveDoc();
+});
