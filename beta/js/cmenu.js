@@ -28,3 +28,22 @@ function initSpecialElement(element) {
   element.mouseover = function() {specialElement = true;};
   element.mouseout = function() {specialElement = false;};
 }
+
+//TILE CODE
+
+var timeoutHold;
+
+function mouseDown() {
+  held = false;
+  timeoutHold = setTimeout(openCmenu, 1000);
+}
+
+function mouseUp() {
+  clearTimeout(timeoutHold);
+  held = false;
+}
+
+document.addEventListener("mousedown", mouseDown);
+document.addEventListener("mouseup", mouseUp);
+
+setInterval(function() {if(!overTile) {mouseUp();}}, 0);
