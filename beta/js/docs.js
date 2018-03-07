@@ -8,12 +8,14 @@ if (localStorage.tidocssave == undefined) {
 }
   var url = "index.html?app=3"+ '&p=' + tidocssave;
   localStorage.recentUrl = url;
-  if (localStorage.tidocssave == undefined) {
+  if (localStorage.tidocssave == undefined && localStorage.autosave == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
+  }
   localStorage.workToSave = url;
   } else {
     localStorage.removeItem('tidocssave');
   }
+ localStorage.removeItem('autosave');
 }
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
@@ -22,9 +24,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementsByTagName('h5')[0].innerHTML = decodeURI(localStorage.edit);
     localStorage.removeItem('edit');
     throw new Error("Opened edit.");
-    $("#tidocs-content").on("propertychange change keyup paste input", function(){
-    saveDoc();
-    });
   }
   
   document.getElementById('create').remove();
@@ -55,5 +54,6 @@ function docReader() {
 }
 
 $("#tidocs-content").on("propertychange change keyup paste input", function(){
+localStorage.autosave = 'true';
 saveDoc();
 });
