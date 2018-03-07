@@ -54,9 +54,3 @@ function docReader() {
 $("#tidocs-content").on("propertychange change keyup paste input", function(){
 saveDoc();
 });
-
-if (localStorage.edit !== undefined) {
-$("#tidocs-content").on("propertychange change keyup paste input", function(){
-saveDoc();
-});
-}
