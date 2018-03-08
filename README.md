@@ -34,3 +34,6 @@ TiMedia is a Google, Apple, and Microsoft replacement.
 
 ## How do I start posting?
 Visit http://timedia.tk and request for an account.
+
+# Rules For Testing
+Test only once, if it doesn't work, delete from database.
