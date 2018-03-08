@@ -14,15 +14,17 @@ if (localStorage.tidocssave == undefined) {
   }
 }
 
-$("#tidocs-content").on("propertychange change keyup paste input", function(){
-if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
-   localStorage.autosaved = true;
-   if (localStorage.editAutoSave !== undefined) {
-   localStorage.removeItem('editAutoSave');
-   }
- }
-saveDoc();
-});
+var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
+
+if ("addEventListener" in tidocsContent) {
+   tidocsContent.addEventListener("keyup", saveDoc, false);
+   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
+    localStorage.autosaved = true;
+    if (localStorage.editAutoSave !== undefined) {
+    localStorage.removeItem('editAutoSave');
+    }
+  }
+}
 
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
