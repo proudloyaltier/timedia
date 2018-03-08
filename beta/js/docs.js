@@ -3,7 +3,7 @@ if (localStorage.tidocssave == undefined) {
   var tidocssave = generateRandString()
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
   localStorage.tidocssave = tidocssave;
-  var urlRef = window.dbRef.child(getQueryVariable("p"));
+  var urlRef = window.dbRef.child(tidocssave);
   urlRef.on("value", function(snapshot) {
   snapshot.forEach(function(child) {
   localStorage.owner = child.key;
