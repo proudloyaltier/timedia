@@ -18,7 +18,6 @@ if (localStorage.tidocssave == undefined) {
   if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
-  }
 }
 
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
