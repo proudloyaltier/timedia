@@ -44,6 +44,10 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
   		urlRef.on("value", function(snapshot) {
   		snapshot.forEach(function(child) {
 		localStorage.owner = child.key;
+		if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
+                window.location.href = 'index.html?app=7';
+                alert("You do not have access to this document.")
+                }
     		document.getElementById('tisheets-table').innerHTML = child.val();
    		 window.edit = document.getElementById('tisheets-table').innerHTML
     		});
