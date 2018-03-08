@@ -1,5 +1,5 @@
 function saveDoc() {
-if (localStorage.tidocssave == undefined) {
+if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined) {
   var tidocssave = generateRandString()
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
 } else {
@@ -8,7 +8,7 @@ if (localStorage.tidocssave == undefined) {
 }
   var url = "index.html?app=3"+ '&p=' + tidocssave;
   localStorage.recentUrl = url;
-  if (localStorage.tidocssave == undefined) {
+  if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
   } 
@@ -16,7 +16,13 @@ if (localStorage.tidocssave == undefined) {
 
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
 
-if ("addEventListener" in tidocsContent) { 
+if ("addEventListener" in tidocsContent) {
+  if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
+    localStorage.autosaved = true;
+    if (localStorage.editAutoSave !== undefined) {
+    localStorage.removeItem('editAutoSave');
+    }
+  }
  tidocsContent.addEventListener("keyup", saveDoc, false); 
 }
 
@@ -25,6 +31,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
     document.getElementsByTagName('h5')[0].innerHTML = decodeURI(localStorage.edit);
+    localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem('edit');
     throw new Error("Opened edit.");
   }
