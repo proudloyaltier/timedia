@@ -46,6 +46,6 @@ function mouseUp() {
 document.addEventListener("mousedown", mouseDown);
 document.addEventListener("mouseup", mouseUp);
 
-if (localStorage.edit == undefined) {
+if (getQueryVariable("app") == 7) {
 setInterval(function() {if(!overTile) {mouseUp();}}, 0);
 }
