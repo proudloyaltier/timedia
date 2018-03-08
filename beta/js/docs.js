@@ -17,13 +17,13 @@ if (localStorage.tidocssave == undefined) {
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
 
 if ("addEventListener" in tidocsContent) {
-  if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
+   tidocsContent.addEventListener("keyup", saveDoc, false);
+   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
     if (localStorage.editAutoSave !== undefined) {
     localStorage.removeItem('editAutoSave');
     }
   }
- tidocsContent.addEventListener("keyup", saveDoc, false); 
 }
 
 
@@ -66,3 +66,5 @@ function docReader() {
   document.getElementById('tidocs-reader').remove();
   document.getElementById('tidocs-header').remove();
 }
+
+window.addEventListener('DOMContentLoaded', function() {if(localStorage.editAutoSave == undefined){localStorage.removeItem('tidocssave');}}, false);
