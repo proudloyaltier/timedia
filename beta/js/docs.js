@@ -19,7 +19,7 @@ if (localStorage.tidocssave == undefined) {
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
 
 if ("addEventListener" in tidocsContent) { 
- tidocsContent.addEventListener("DOMCharacterDataModified", saveDoc, false); 
+ tidocsContent.addEventListener("keyup", saveDoc, false); 
 } 
 
 
