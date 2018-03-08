@@ -67,8 +67,4 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-$(document).ready(function() {
-  if (localStorage.editAutoSave == undefined) {
-    localStorage.removeItem('tidocssave');
-  }
-});
+window.addEventListener('DOMContentLoaded', function() {if(localStorage.editAutoSave == undefined){localStorage.removeItem('tidocssave');}}, false);
