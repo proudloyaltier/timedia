@@ -11,16 +11,14 @@ if (localStorage.tidocssave == undefined) {
   if (localStorage.tidocssave == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
-  } else {
-    localStorage.removeItem('tidocssave');
-  }
+  } 
 }
 
-/*var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
+var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
 
 if ("addEventListener" in tidocsContent) { 
  tidocsContent.addEventListener("keyup", saveDoc, false); 
-} */
+}
 
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
@@ -61,3 +59,9 @@ function docReader() {
   document.getElementById('tidocs-reader').remove();
   document.getElementById('tidocs-header').remove();
 }
+
+function loadDocPage() {
+localStorage.removeItem('tidocssave');
+}
+
+window.addEventListener('DOMContentLoaded', loadDocPage, false);
