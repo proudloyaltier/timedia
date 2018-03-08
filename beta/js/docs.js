@@ -16,6 +16,14 @@ if (localStorage.tidocssave == undefined) {
   }
 }
 
+var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
+
+if(tidocsContent !== "") {
+  if ("addEventListener" in tidocsContent) { 
+    tidocsContent.addEventListener("DOMCharacterDataModified", saveDoc, false); 
+  } 
+}
+
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
