@@ -66,5 +66,3 @@ function docReader() {
   document.getElementById('tidocs-reader').remove();
   document.getElementById('tidocs-header').remove();
 }
-
-window.addEventListener('DOMContentLoaded', function() {if(localStorage.editAutoSave == undefined){localStorage.removeItem('tidocssave');}}, false);
