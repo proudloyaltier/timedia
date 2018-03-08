@@ -64,4 +64,6 @@ function loadDocPage() {
 localStorage.removeItem('tidocssave');
 }
 
-window.addEventListener('DOMContentLoaded', loadDocPage, false);
+$(document).ready(function() {
+    loadDocPage();
+});
