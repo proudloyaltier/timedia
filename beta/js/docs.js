@@ -3,6 +3,11 @@ if (localStorage.tidocssave == undefined) {
   var tidocssave = generateRandString()
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
   localStorage.tidocssave = tidocssave;
+  urlRef.on("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  localStorage.owner = child.key;
+  });
+ });
 } else {
   window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(document.getElementsByTagName('h5')[0].innerHTML);
   var tidocssave = localStorage.tidocssave
