@@ -15,9 +15,10 @@ if (localStorage.tidocssave == undefined) {
 }
   var url = "index.html?app=3"+ '&p=' + tidocssave;
   localStorage.recentUrl = url;
-  if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined) {
+  if (localStorage.tidocssave == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
+  }
 }
 
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
