@@ -16,11 +16,11 @@ if (localStorage.tidocssave == undefined) {
   }
 }
 
-var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
+/*var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
 
 if ("addEventListener" in tidocsContent) { 
- tidocsContent.addEventListener("keyup", saveDoc); 
-} 
+ tidocsContent.addEventListener("keyup", saveDoc, false); 
+} */
 
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
