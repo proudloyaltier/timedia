@@ -2,6 +2,7 @@ function saveDoc() {
 if (localStorage.tidocssave == undefined) {
   var tidocssave = generateRandString()
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
+  localStorage.tidocssave = tidocssave;
 } else {
   window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(document.getElementsByTagName('h5')[0].innerHTML);
   var tidocssave = localStorage.tidocssave
