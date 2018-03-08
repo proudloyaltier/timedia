@@ -33,9 +33,8 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   snapshot.forEach(function(child) {
     localStorage.owner = child.key;
     if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
-      alert("You do not have access to this document.")
-      throw new Error("Access Denied")
       window.location.href = 'index.html?app=7';
+      alert("You do not have access to this document.")
     }
     document.getElementById('view').innerHTML = child.val();
     window.edit =  document.getElementById('view').innerHTML
