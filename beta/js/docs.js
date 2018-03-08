@@ -67,12 +67,8 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-function loadDocPage() {
-localStorage.removeItem('tidocssave');
-}
-
 $(document).ready(function() {
   if (localStorage.editAutoSave == undefined) {
-    loadDocPage();
+    localStorage.removeItem('tidocssave');
   }
 });
