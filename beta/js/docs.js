@@ -11,7 +11,7 @@ if (localStorage.tidocssave == undefined) {
   if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
-  } else {
+  }
 }
 
 $("#tidocs-content").on("propertychange change keyup paste input", function(){
