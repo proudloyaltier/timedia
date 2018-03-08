@@ -9,16 +9,14 @@ if (localStorage.tidocssave == undefined) {
   localStorage.owner = child.key;
   });
  });
+  var url = "index.html?app=3"+ '&p=' + tidocssave;
+  localStorage.recentUrl = url;
+  localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
+  localStorage.workToSave = url;
 } else {
   window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(document.getElementsByTagName('h5')[0].innerHTML);
   var tidocssave = localStorage.tidocssave
-}
-  var url = "index.html?app=3"+ '&p=' + tidocssave;
-  localStorage.recentUrl = url;
-  if (localStorage.tidocssave == undefined) {
-  localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
-  localStorage.workToSave = url;
-  }
+ }
 }
 
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
