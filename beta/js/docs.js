@@ -1,5 +1,5 @@
 function saveDoc() {
-if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined) {
+if (localStorage.tidocssave == undefined) {
   var tidocssave = generateRandString()
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
 } else {
@@ -11,7 +11,7 @@ if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined)
   if (localStorage.tidocssave == undefined && localStorage.autosaved == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
-  } 
+  } else {
 }
 
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
@@ -72,5 +72,7 @@ localStorage.removeItem('tidocssave');
 }
 
 $(document).ready(function() {
+  if (localStorage.editAutoSave == undefined) {
     loadDocPage();
+  }
 });
