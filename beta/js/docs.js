@@ -18,11 +18,10 @@ if (localStorage.tidocssave == undefined) {
 
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0]; 
 
-if(tidocsContent.innerHTML !== "") {
-  if ("addEventListener" in tidocsContent) { 
-   tidocsContent.addEventListener("DOMCharacterDataModified", saveDoc, false); 
-  } 
-}
+if ("addEventListener" in tidocsContent) { 
+ tidocsContent.addEventListener("DOMCharacterDataModified", saveDoc, false); 
+} 
+
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
