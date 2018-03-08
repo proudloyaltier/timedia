@@ -32,7 +32,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   urlRef.on("value", function(snapshot) {
   snapshot.forEach(function(child) {
     localStorage.owner = child.key;
-    if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase();) {
+    if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
       alert("You do not have access to this document.")
       throw new Error("Access Denied")
       window.location.href = 'index.html?app=7';
