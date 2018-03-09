@@ -14,21 +14,35 @@ function saveSheet() {
 	if (localStorage.tisheetssave == undefined) {
   	var tisheetssave = generateRandString()
   	storeInDatabase(tisheetssave, document.getElementById('tisheets-table').innerHTML)
-	} else {
-         window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(document.getElementById('tisheets-table').innerHTML); 
-         var tisheetssave = localStorage.tisheetssave
-	}
+	localStorage.tisheetssave = tisheetssave;
+        localStorage.tidocssave = tidocssave;
+        var urlRef = window.dbRef.child(tidocssave);
+        urlRef.on("value", function(snapshot) {
+        snapshot.forEach(function(child) {
+        localStorage.owner = child.key;
+          });
+        });
 	var url = "index.html?app=4" + "&t=" + tisheetssave;
-	if (localStorage.tisheetssave == undefined) {
 	localStorage.workToSave = url;
 	localStorage.recentUrl = url;
 	localStorage.workToSaveTitle = document.getElementById('sheetsTitle').value;
 	} else {
-	localStorage.removeItem('tisheetssave')
+         window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(document.getElementById('tisheets-table').innerHTML); 
+         var tisheetssave = localStorage.tisheetssave
+	 }
 	}
-	
-}
 
+var tisheetsContent = document.getElementsByClassName("tisheetsContent")[0]; 
+
+if ("addEventListener" in tisheetsContent) {
+   tidocsContent.addEventListener("keyup", saveSheet, false);
+   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
+    localStorage.autosaved = true;
+    if (localStorage.editAutoSave !== undefined) {
+    localStorage.removeItem('editAutoSave');
+    }
+  }
+}
 
 if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 	if (localStorage.editSheet !== undefined) {
@@ -36,6 +50,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 	}
 	if (getQueryVariable("t") == false) {
 		document.getElementById('tisheets-table').innerHTML = localStorage.editSheet;
+		localStorage.editAutoSave = localStorage.editSheet;
 		localStorage.removeItem("editSheet");
 	} else {
 	        document.getElementById('sheetsTitle').style = "display: none;";
@@ -73,3 +88,5 @@ function sheetReader() {
   document.getElementById('tisheets-reader').remove();
   document.getElementById('tisheets-header').remove();
 }
+
+window.addEventListener('DOMContentLoaded', function() {if(localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined){localStorage.removeItem('tisheetssave');}}, false);
