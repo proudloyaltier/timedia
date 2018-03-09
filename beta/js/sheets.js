@@ -15,8 +15,7 @@ function saveSheet() {
   	var tisheetssave = generateRandString()
   	storeInDatabase(tisheetssave, document.getElementById('tisheets-table').innerHTML)
 	localStorage.tisheetssave = tisheetssave;
-        localStorage.tidocssave = tidocssave;
-        var urlRef = window.dbRef.child(tidocssave);
+        var urlRef = window.dbRef.child(tisheetssave);
         urlRef.on("value", function(snapshot) {
         snapshot.forEach(function(child) {
         localStorage.owner = child.key;
@@ -35,7 +34,7 @@ function saveSheet() {
 var tisheetsContent = document.getElementsByClassName("tisheetsContent")[0]; 
 
 if ("addEventListener" in tisheetsContent) {
-   tidocsContent.addEventListener("keyup", saveSheet, false);
+   tisheetsContent.addEventListener("keyup", saveSheet, false);
    if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
     if (localStorage.editAutoSave !== undefined) {
