@@ -21,10 +21,10 @@ function saveSheet() {
         localStorage.owner = child.key;
           });
         });
-	var url = "index.html?app=4" + "&t=" + tisheetssave;
+	var url = "index.html?app=4" + "&t=" + localStorage.tisheetssave;
 	localStorage.workToSave = url;
-	localStorage.recentUrl = url;
 	localStorage.workToSaveTitle = document.getElementById('sheetsTitle').value;
+	localStorage.recentUrl = url;
 	} else {
          window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(document.getElementById('tisheets-table').innerHTML); 
          var tisheetssave = localStorage.tisheetssave
