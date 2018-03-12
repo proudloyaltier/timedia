@@ -60,7 +60,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
 		localStorage.owner = child.key;
 		if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
                 window.location.href = 'index.html?app=7';
-                alert("You do not have access to this document.")
+                alert("Access Denied! Get TIed!")
                 }
     		document.getElementById('tisheets-table').innerHTML = child.val();
    		 window.edit = document.getElementById('tisheets-table').innerHTML
