@@ -51,7 +51,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     localStorage.owner = child.key;
     if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
       window.location.href = 'index.html?app=7';
-      alert("You do not have access to this document.")
+      alert("Access Denied! Get TIed!")
     }
     document.getElementById('view').innerHTML = child.val();
     window.edit =  document.getElementById('view').innerHTML
