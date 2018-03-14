@@ -9,12 +9,16 @@ function renameTile(tid, rwith) {
 }
 
 function renameTilePrompt(tid) {
-  var replacename = prompt("New File Name", localStorage.files.split(",")[tid].split("!!")[0]) + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
-  
-  if (replacename != null) {
-    localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], replacename); 
-    save();
-  }
+  alertify
+  .defaultValue(localStorage.files.split(",")[tid].split("!!")[0])
+  .prompt("Rename",
+    function (val) {
+      var replacename = val + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
+      if (replacename != null) {
+      localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], replacename); 
+      save();
+      } 
+   })
 }
 
 function generateRandString() {
