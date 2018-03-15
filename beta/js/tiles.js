@@ -6,7 +6,7 @@ function save() {
 
 function custPrompt(promptto) {
 alertify
-  .defaulValue('')
+  .defaultValue('')
   .prompt(promptto,
           function (val) {
           return val;
