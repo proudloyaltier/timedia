@@ -7,7 +7,7 @@ function save() {
 function insertImage() {
 alertify
   .defaultValue('https://')
-  .prompt("Image URL,
+  .prompt("Image URL",
           function (val) {
           document.execCommand('insertImage',false,val);
    });
