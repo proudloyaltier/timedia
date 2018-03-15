@@ -4,6 +4,16 @@ function save() {
   storeInDatabase("files", localStorage.files);
 }
 
+function custPrompt(promptto) {
+alertify
+  .defaulValue('')
+  .prompt(promptto,
+          function (val) {
+          return val;
+  });
+}
+  
+
 function renameTile(tid, rwith) {
     localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], rwith + "!!" + localStorage.files.split(",")[tid].split("!!")[1]); save();
 }
