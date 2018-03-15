@@ -4,14 +4,14 @@ function save() {
   storeInDatabase("files", localStorage.files);
 }
 
-function insertImage() {
+/*function insertImage() {
 alertify
   .defaultValue('https://')
   .prompt("Image URL",
           function (val) {
           document.execCommand('insertImage',false,val);
    });
-}
+}*/
   
 
 function renameTile(tid, rwith) {
@@ -58,13 +58,13 @@ function openTileContext(tileID) {
 }
 
 function resetTiles() {
-  var resetTiles = confirm("Are you sure you want to delete all your Tiles?");
-
-  if (resetTiles == true) {
+alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
     localStorage.files = ""
     storeInDatabase("files", "");
     window.location.href = "index.html?app=7";
-  }
+  }, function() {
+   location.reload();
+ })
 }
 
 function searchTiles(search) {
