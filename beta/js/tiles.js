@@ -4,13 +4,13 @@ function save() {
   storeInDatabase("files", localStorage.files);
 }
 
-function custPrompt(promptto) {
+function insertImage() {
 alertify
-  .defaultValue('')
-  .prompt(promptto,
+  .defaultValue('https://')
+  .prompt("Image URL,
           function (val) {
-          return val;
-  });
+          document.execCommand('insertImage',false,val);
+   });
 }
   
 
