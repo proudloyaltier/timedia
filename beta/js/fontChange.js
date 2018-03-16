@@ -160,7 +160,7 @@
   })(jQuery);
   
   $(function() {
-    $('.fontSelect').fontSelector({
+    $('#fontSelect').fontSelector({
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
