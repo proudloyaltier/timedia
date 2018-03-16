@@ -164,10 +164,10 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
-       if (getQueryVariable("app") == 3) {
+       if (getQueryVariable("app") == "3") {
         document.getElementById("tidocsContent").style.fontFamily = style;
        }
-       if (getQueryVariable('app') == 4) {
+       if (getQueryVariable('app') == "4") {
         document.getElementById("tisheets-table").style.fontFamily = style;
        }
       },
