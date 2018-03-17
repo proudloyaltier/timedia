@@ -165,7 +165,9 @@
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
         document.getElementById("tidocsContent").style.fontFamily = style;
+       if (getQueryVariable("p") !== false) {
         document.getElementById("view").style.fontFamily = style;
+       }
       },
       'fonts': [
         'Arial,Arial,Helvetica,sans-serif',
