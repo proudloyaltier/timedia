@@ -8,7 +8,7 @@ function showTiWorkColor() {
 document.getElementById('fontColorDiv').style.display = 'block';
 }
 
-function showTiWorkColor() {
+function showTiWorkColorSheets() {
 document.getElementById('fontColorDivSheets').style.display = 'block';
 }
 
