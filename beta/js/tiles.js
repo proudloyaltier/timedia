@@ -4,6 +4,18 @@ function save() {
   storeInDatabase("files", localStorage.files);
 }
 
+function showTiWorkColor() {
+document.getElementById('fontColorDiv').style.display = 'block';
+}
+
+function setColor() {
+    var color = "#" + document.getElementById('fontColor').value;
+    document.execCommand('styleWithCSS', false, true);
+    document.execCommand('foreColor', false, color);
+    document.getElementById('fontColorDiv').style.display = 'none';
+}
+
+
 /*function insertImage() {
 alertify
   .defaultValue('https://')
