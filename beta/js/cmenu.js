@@ -31,7 +31,7 @@ function initSpecialElement(element) {
 
 //TILE CODE
 
-var timeoutHold;
+/*var timeoutHold;
 
 function mouseDown() {
   held = false;
@@ -41,7 +41,7 @@ function mouseDown() {
 function mouseUp() {
   clearTimeout(timeoutHold);
   held = false;
-}
+}*/
 
 document.addEventListener("mousedown", mouseDown);
 document.addEventListener("mouseup", mouseUp);
