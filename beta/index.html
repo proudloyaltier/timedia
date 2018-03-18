@@ -168,14 +168,25 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyLeft');"><span class="glyphicon glyphicon-align-left"></span></button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyCenter');"><span class="glyphicon glyphicon-align-center"></span></button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyRight');"><span class="glyphicon glyphicon-align-right"></span></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="showTiWorkColor()"><span class='glyphicon glyphicon-tint'></span</button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="insertImage();"><span class="glyphicon glyphicon-picture"></span></button>-->
-      <button id='fontSelect' class="btn btn-primary" style='border-radius: 0px; box-shadow: none;'>
+      <button id='fontSelect' class="btn btn-primary" style='float: left; border-radius: 0px; box-shadow: none;'>
       <div class="arrow-down"></div>
       </button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('undo');">↰</button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('redo');">↱</button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="saveDoc()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
-      <br><br><br><br>
+      <br><br>
+      <div style="display: none;"class='jumbotron container' id='fontColorDiv'>
+      <p style='font-size: 30px;'>
+      Change Text Color
+      </p>
+      <input style="width: 5%;" id="fontColor" class="jscolor form-control" value="000000"><br>
+      <button onclick='setColor();' class='btn btn-primary'>
+      Set Color
+      </button>
+      </div>
+        <br><br>
       </div>
       <h5 class="tidocsContent" style="outline: none;" id="tidocsContent" contenteditable="true" autofocus></h5><br>
 
@@ -247,14 +258,25 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyLeft');"><span class="glyphicon glyphicon-align-left"></span></button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyCenter');"><span class="glyphicon glyphicon-align-center"></span></button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyRight');"><span class="glyphicon glyphicon-align-right"></span></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="showTiWorkColor()"><span class='glyphicon glyphicon-tint'></span></button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="insertImage();"><span class="glyphicon glyphicon-picture"></span></button>-->
-      <button id='fontSelectSheets' class="btn btn-success">
+      <button id='fontSelectSheets' class="btn btn-success" style='float: left; border-radius: 0px; box-shadow: none;'>
       <div class="arrow-down"></div>
       </button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('undo');">↰</button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('redo');">↱</button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="saveSheet()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
-   <br><br><br><br>
+   <br><br>
+   <div style="display: none;"class='jumbotron container' id='fontColorDiv'>
+      <p style='font-size: 30px;'>
+      Change Text Color
+      </p>
+      <input style="width: 5%;" id="fontColor" class="jscolor form-control" value="000000"><br>
+      <button onclick='setColor();' class='btn btn-primary'>
+      Set Color
+      </button>
+      </div>
+   <br><br>
    </div>
    <style>
      table, th, td {
