@@ -20,6 +20,14 @@ function setColor() {
     document.getElementById('fontColorDiv').style.display = 'none';
 }
 
+function setColorSheets() {
+    var color = "#" + document.getElementById('fontColorSheets').value;
+    document.execCommand('styleWithCSS', false, true);
+    document.execCommand('foreColor', false, color);
+    document.getElementById('fontColorDivSheets').style.display = 'none';
+}
+
+
 
 /*function insertImage() {
 alertify
