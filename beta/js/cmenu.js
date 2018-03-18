@@ -31,7 +31,7 @@ function initSpecialElement(element) {
 
 //TILE CODE
 
-/*var timeoutHold;
+var timeoutHold;
 
 function mouseDown() {
   held = false;
@@ -41,10 +41,12 @@ function mouseDown() {
 function mouseUp() {
   clearTimeout(timeoutHold);
   held = false;
-}*/
+}
 
+if (getQueryVariable("app") !== 4) {
 document.addEventListener("mousedown", mouseDown);
 document.addEventListener("mouseup", mouseUp);
+}
 
 if (getQueryVariable("app") == 7) {
 setInterval(function() {if(!overTile) {mouseUp();}}, 0);
