@@ -211,5 +211,3 @@
       ]
     });
   });
-
-document.getElementById("view").style.fontFamily = 'Courier New,Courier New,Courier,monospace';
