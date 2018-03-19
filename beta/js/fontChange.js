@@ -164,7 +164,8 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
-        document.getElementById("tidocsContent").style.fontFamily = style;
+       document.execCommand('styleWithCss',false,true);
+       document.execCommand('fontName',false,style)
       },
       'fonts': [
         'Arial,Arial,Helvetica,sans-serif',
@@ -187,7 +188,8 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
-       document.getElementById("tisheets-table").style.fontFamily = style;
+       document.execCommand('styleWithCss',false,true);
+       document.execCommand('fontName',false,style)
       },
       'fonts': [
         'Arial,Arial,Helvetica,sans-serif',
