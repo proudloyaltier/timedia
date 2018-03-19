@@ -189,7 +189,7 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
-       document.getElementById('tisheets-table').click();
+       $('#tisheets-table').focus()
        document.execCommand('styleWithCSS',false,true);
        document.execCommand('fontName',false,style);
       },
