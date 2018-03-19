@@ -166,7 +166,7 @@
       'selected': function(style) {
        document.getElementById('tidocsContent').click();
        document.execCommand('styleWithCss',false,true);
-       document.execCommand('fontName',false,style)
+       document.execCommand('fontName',false,style);
       },
       'fonts': [
         'Arial,Arial,Helvetica,sans-serif',
@@ -191,7 +191,7 @@
       'selected': function(style) {
        document.getElementById('tisheets-table').click();
        document.execCommand('styleWithCss',false,true);
-       document.execCommand('fontName',false,style)
+       document.execCommand('fontName',false,style);
       },
       'fonts': [
         'Arial,Arial,Helvetica,sans-serif',
