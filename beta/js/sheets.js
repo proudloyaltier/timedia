@@ -16,6 +16,32 @@ function newColumn() {
   }
 }
 
+function getCellData(column, row) {
+  return document.getElementsByTagName('table')[0].getElementsByTagName('tr')[row].getElementsByTagName('th')[column].innerHTML;
+}
+
+function getColumnMean(column) {
+  var sum = 0;
+  for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
+    sum = eval(document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + "+" + sum.toString());
+  }
+  return sum/document.getElementsByTagName('table')[0].getElementsByTagName('tr').length;
+}
+
+function getColumnRange(column) {
+  var highest = document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[column].innerHTML;
+  var lowest = document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[column].innerHTML;
+  for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
+    eval('if(' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ' > ' + highest + ') {highest = ' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ';}');
+    eval('if(' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ' < ' + lowest + ') {lowest = ' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ';}');
+  }
+  return (highest - lowest);
+}
+
+function pickRandomFromColumn(column) {
+  return document.getElementsByTagName('table')[0].getElementsByTagName('tr')[Math.floor(Math.random() * document.getElementsByTagName('table')[0].getElementsByTagName('tr').length)].getElementsByTagName('th')[column].innerHTML
+}
+
 function saveSheet() {
 	if (localStorage.tisheetssave == undefined) {
   	var tisheetssave = generateRandString()
