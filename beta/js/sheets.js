@@ -4,7 +4,7 @@ function newTd(place) {
   newTd.innerHTML = 'Value';
 }
 
-function addRow() {
+function newRow() {
   var newTr = document.createElement('tr');
   document.getElementsByTagName('table')[0].appendChild(newTr);
   for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('td').length; i++) {
@@ -12,7 +12,7 @@ function addRow() {
   }
 }
 
-function addColumn() {
+function newColumn() {
   for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
     newTd(document.getElementsByTagName('tr')[i]);
   }
