@@ -164,7 +164,7 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
-       document.getElementById('tidocsContent').click();
+       $('#tidocsContent').focus()
        document.execCommand('styleWithCSS',false,true);
        document.execCommand('fontName',false,style);
       },
