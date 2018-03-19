@@ -100,6 +100,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
   		});
 		document.getElementById('tisheets-table').setAttribute("contenteditable", false);
 		document.getElementById('tisheets-add-row').style = "display: none;";
+		document.getElementById('tisheets-add-column').style = "display: none;";
 		document.getElementById('tisheets-edit').style.display = ''
 		document.getElementById('tisheets-reader').style.display = "";
 	}
