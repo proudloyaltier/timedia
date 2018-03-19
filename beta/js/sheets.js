@@ -1,20 +1,18 @@
-function newTd(place) {
-  var newTd = document.createElement('td');
-  place.appendChild(newTd);
-  newTd.innerHTML = 'Value';
+function newTh(place) {
+  var newTh = document.createElement('th');
+  place.appendChild(newTh);
+  newTh.innerHTML = 'value';
 }
-
-function newRow() {
+function addRow() {
   var newTr = document.createElement('tr');
   document.getElementsByTagName('table')[0].appendChild(newTr);
-  for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('td').length; i++) {
-    newTd(newTr);
+  for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('th').length; i++) {
+    newTh(newTr);
   }
 }
-
-function newColumn() {
+function addColumn() {
   for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
-    newTd(document.getElementsByTagName('tr')[i]);
+    newTh(document.getElementsByTagName('tr')[i]);
   }
 }
 
