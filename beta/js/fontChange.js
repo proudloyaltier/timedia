@@ -164,6 +164,7 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
+       document.getElementById('tidocsContent').click();
        document.execCommand('styleWithCss',false,true);
        document.execCommand('fontName',false,style)
       },
@@ -188,6 +189,7 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
+       document.getElementById('tisheets-table').click();
        document.execCommand('styleWithCss',false,true);
        document.execCommand('fontName',false,style)
       },
