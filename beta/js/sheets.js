@@ -3,14 +3,14 @@ function newTh(place) {
   place.appendChild(newTh);
   newTh.innerHTML = 'value';
 }
-function addRow() {
+function newRow() {
   var newTr = document.createElement('tr');
   document.getElementsByTagName('table')[0].appendChild(newTr);
   for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('th').length; i++) {
     newTh(newTr);
   }
 }
-function addColumn() {
+function newColumn() {
   for(var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
     newTh(document.getElementsByTagName('tr')[i]);
   }
