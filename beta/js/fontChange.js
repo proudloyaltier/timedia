@@ -189,9 +189,7 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
-       $('#tisheets-table').focus()
-       document.execCommand('styleWithCSS',false,true);
-       document.execCommand('fontName',false,style);
+       document.getElementById(window.tisheetsrid).style.fontFamily = style;
       },
       'fonts': [
         'Arial,Arial,Helvetica,sans-serif',
@@ -211,3 +209,7 @@
       ]
     });
   });
+
+$("#tisheets-table tr").click(function(){
+      window.tisheetsrid = this.id;
+});
