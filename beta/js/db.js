@@ -255,18 +255,15 @@ function login() {
  		
    document.getElementById('login-btn').innerHTML = "Validating...";		
    loginGet("logins")
-       if (logins.includes(username.toLowerCase() + "," + hash)) {		
-       if (bannedusers.includes(username.toLowerCase())) {		
-         alert("You have been banned from TiMedia.");		
-       } else {		
-       localStorage.name = username;		
-       localStorage.access = btoa(username);		
-       window.location.href = "index.html";		
-      }		
-      } else {		
+   if (logins.includes(username.toLowerCase() + "," + hash)) {		
+     if (bannedusers.includes(username.toLowerCase())) {		
+      alert("You have been banned from TiMedia.");		
+     } else {		
+     localStorage.name = username;		
+     localStorage.access = btoa(username);		
+     window.location.href = "index.html";		
+    }		
+  } else {		
       error("Username or password is incorrect.");		
-        }	
-       }
-      });
-     });			
-    }
+  }
+}
