@@ -230,7 +230,7 @@ function error(error) {
       } else {		
       error("Username or password is incorrect.");		
       }	
-     });
+     };
    });			
   }	
  }
