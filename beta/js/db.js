@@ -236,11 +236,13 @@ function snapValue(value) {
 function errorLoading(err) {
   alert("Errror! " + err);
 }
-
-function firebaseAuthLog(email, password) {
-firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-errorLogin("Username or password is incorrect.");	
-});
+                     
+function login() {
+   var uname = document.getElementById('login-username').value + '@timediatied.com';
+   var pword = document.getElementById('login-password').value;
+   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+   errorLogin("Username or password is incorrect.");	
+   });
    var user = firebase.auth().currentUser;
    if (user) {
       user.providerData.forEach(function (profile) {
@@ -249,10 +251,4 @@ errorLogin("Username or password is incorrect.");
       location.href = 'index.html';
      });
    }
-}
-                     
-function login() {
-   var uname = document.getElementById('login-username').value + '@timediatied.com';
-   var pword = document.getElementById('login-password').value;
-   firebaseAuthLog(uname, pword)
 }
