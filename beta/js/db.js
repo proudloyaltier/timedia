@@ -246,17 +246,8 @@ function loginGet(name) {
 function snapValueLogin(value) {
    var logins = value.val()
    window.gfdName = null;
-}
-
-function login() {	
-   var username = document.getElementById('login-username').value;		
-   var password = document.getElementById('login-password').value;		
-   var hash = MD5(password);		
- 		
-   document.getElementById('login-btn').innerHTML = "Validating...";		
-   loginGet("logins")
-   if (logins.includes(username.toLowerCase() + "," + hash)) {		
-     if (bannedusers.includes(username.toLowerCase())) {		
+  if (logins.includes(username.toLowerCase() + "," + hash)) {		
+   if (bannedusers.includes(username.toLowerCase())) {		
       alert("You have been banned from TiMedia.");		
      } else {		
      localStorage.name = username;		
@@ -266,4 +257,13 @@ function login() {
   } else {		
       error("Username or password is incorrect.");		
   }
+}
+
+function login() {	
+   var username = document.getElementById('login-username').value;		
+   var password = document.getElementById('login-password').value;		
+   var hash = MD5(password);		
+ 		
+   document.getElementById('login-btn').innerHTML = "Validating...";		
+   loginGet("logins")
 }
