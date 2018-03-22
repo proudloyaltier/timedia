@@ -248,11 +248,13 @@ var _0x416c=['child','value','val','getElementById','login-username','login-pass
 
 function firebaseAuthLog(email, password) {
 firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-error
+error("Username or password is incorrect.");	
 });
-localStorage.setItem("name",firebase.auth().currentUser.displayName.replace("@timediatied.com",""))
-localStorage.setItem("access",btoa(localStorage.name))
-location.href = 'index.html';
+   if (firebase.auth.currentUser.displayName !== undefined) {
+      localStorage.setItem("name",firebase.auth().currentUser.displayName.replace("@timediatied.com",""))
+      localStorage.setItem("access",btoa(localStorage.name))
+      location.href = 'index.html';
+   }
 }
                      
 function login() {
