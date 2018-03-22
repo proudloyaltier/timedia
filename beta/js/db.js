@@ -216,21 +216,23 @@ function error(error) {
     var urlRef = window.dbRef.child("logins");
      urlRef.on("value", function(snapshot) {
      snapshot.forEach(function(child) {
-       var logins = child.val();
-     });
-   });		
-   if (logins.includes(username.toLowerCase() + "," + hash)) {		
-      if (bannedusers.includes(username.toLowerCase())) {		
+       var amount = child.length - 1;
+       for (var i=0; i < amount; i++) {
+       urlRef.child("logins").child(i).val();
+       if (logins.includes(username.toLowerCase() + "," + hash)) {		
+       if (bannedusers.includes(username.toLowerCase())) {		
          alert("You have been banned from TiMedia.");		
-      } else {		
+       } else {		
        localStorage.name = username;		
        localStorage.access = btoa(username);		
        window.location.href = "index.html";		
       }		
-   } else {		
-     error("Username or password is incorrect.");		
-   }		
- 		
+      } else {		
+      error("Username or password is incorrect.");		
+      }	
+     });
+   });			
+  }	
  }
 
 // Initialize Firebase
