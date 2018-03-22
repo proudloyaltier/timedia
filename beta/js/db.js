@@ -201,7 +201,7 @@ var MD5 = function (string) {
    	return temp.toLowerCase();
 }
 
-function error(error) {
+function errorLogin(error) {
   document.getElementById('error').innerHTML = error;
   document.getElementById('login-btn').innerHTML = "Login";
 }
@@ -239,7 +239,7 @@ function errorLoading(err) {
 
 function firebaseAuthLog(email, password) {
 firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-error("Username or password is incorrect.");	
+errorLogin("Username or password is incorrect.");	
 });
    var user = firebase.auth().currentUser;
    if (user) {
