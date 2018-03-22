@@ -225,7 +225,7 @@ function storeInDatabase(name, value) {
 
 function getFromDatabase(name) {
    window.gfdName = name;
-   window.dbRef.child(name).child(localStorage.name).on("value", snapValue, errorLoading);
+   window.dbRef.child(name).child(localStorage.name.ignoreCase();).on("value", snapValue, errorLoading);
 }
 
 function snapValue(value) {
