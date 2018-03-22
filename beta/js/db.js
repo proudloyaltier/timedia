@@ -252,9 +252,11 @@ error("Username or password is incorrect.");
 });
    var user = firebase.auth().currentUser;
    if (user) {
-      localStorage.setItem("name",firebase.auth().currentUser.displayName.replace("@timediatied.com",""))
+      user.providerData.forEach(function (profile) {
+      localStorage.setItem("name",profile.displayName.replace("@timediatied.com",""))
       localStorage.setItem("access",btoa(localStorage.name))
       location.href = 'index.html';
+     });
    }
 }
                      
