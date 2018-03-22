@@ -237,15 +237,6 @@ function errorLoading(err) {
   alert("Errror! " + err);
 }
 
-
-/*function loginGet(name) {
-   window.gfdName = name;
-   window.dbRef.child(name).on("value", snapValueLogin, errorLoading);
-}
-
-var _0x416c=['child','value','val','getElementById','login-username','login-password','toLowerCase','includes','You\x20have\x20been\x20banned\x20from\x20TiMedia.','access','location','href','index.html','innerHTML','Validating...','logins','gfdName','dbRef'];(function(_0x2dd01a,_0x30ccee){var _0x555e59=function(_0x22857c){while(--_0x22857c){_0x2dd01a['push'](_0x2dd01a['shift']());}};_0x555e59(++_0x30ccee);}(_0x416c,0x11e));var _0x4e00=function(_0x29080e,_0x56a5a2){_0x29080e=_0x29080e-0x0;var _0x4ba35f=_0x416c[_0x29080e];return _0x4ba35f;};function loginGet(_0x4715c0){window[_0x4e00('0x0')]=_0x4715c0;window[_0x4e00('0x1')][_0x4e00('0x2')](_0x4715c0)['on'](_0x4e00('0x3'),snapValueLogin,errorLoading);}function snapValueLogin(_0x2dfd21){var _0x1f34f0=_0x2dfd21[_0x4e00('0x4')]();window['gfdName']=null;var _0x199c6e=document[_0x4e00('0x5')](_0x4e00('0x6'))[_0x4e00('0x3')];var _0x2af0f2=document['getElementById'](_0x4e00('0x7'))[_0x4e00('0x3')];var _0x53872c=MD5(_0x2af0f2);if(_0x1f34f0['includes'](_0x199c6e[_0x4e00('0x8')]()+','+_0x53872c)){if(bannedusers[_0x4e00('0x9')](_0x199c6e[_0x4e00('0x8')]())){alert(_0x4e00('0xa'));}else{localStorage['name']=_0x199c6e;localStorage[_0x4e00('0xb')]=btoa(_0x199c6e);window[_0x4e00('0xc')][_0x4e00('0xd')]=_0x4e00('0xe');}}else{error('Username\x20or\x20password\x20is\x20incorrect.');}}function login(){document[_0x4e00('0x5')]('login-btn')[_0x4e00('0xf')]=_0x4e00('0x10');loginGet(_0x4e00('0x11'));}
-*/
-
 function firebaseAuthLog(email, password) {
 firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
 error("Username or password is incorrect.");	
