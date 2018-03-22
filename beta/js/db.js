@@ -240,7 +240,7 @@ function errorLoading(err) {
 function login() {
    var uname = document.getElementById('login-username').value + '@timediatied.com';
    var pword = document.getElementById('login-password').value;
-   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+   firebase.auth().signInWithEmailAndPassword(uname, pword).catch(function(error) {
    errorLogin("Username or password is incorrect.");	
    });
    var user = firebase.auth().currentUser;
