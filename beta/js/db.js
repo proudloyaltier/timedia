@@ -1,6 +1,3 @@
-   window.onerror = function(msg) {
-      alert(msg);
-   }
 var bannedusers = [""];
 
 var MD5 = function (string) {
