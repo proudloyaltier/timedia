@@ -250,7 +250,8 @@ function firebaseAuthLog(email, password) {
 firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
 error("Username or password is incorrect.");	
 });
-   if (firebase.auth.currentUser.displayName !== undefined) {
+   var user = firebase.auth().currentUser;
+   if (user) {
       localStorage.setItem("name",firebase.auth().currentUser.displayName.replace("@timediatied.com",""))
       localStorage.setItem("access",btoa(localStorage.name))
       location.href = 'index.html';
