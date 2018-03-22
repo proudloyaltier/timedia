@@ -218,7 +218,8 @@ function error(error) {
      snapshot.forEach(function(child) {
        var amount = child.length - 1;
        for (var i=0; i < amount; i++) {
-       urlRef.child("logins").child(i).val();
+       urlRef.child("logins").child(i)
+       var logins = child.val();
        if (logins.includes(username.toLowerCase() + "," + hash)) {		
        if (bannedusers.includes(username.toLowerCase())) {		
          alert("You have been banned from TiMedia.");		
