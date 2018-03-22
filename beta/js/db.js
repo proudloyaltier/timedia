@@ -206,35 +206,6 @@ function error(error) {
   document.getElementById('login-btn').innerHTML = "Login";
 }
 
-		  
- function login() {	
-   var username = document.getElementById('login-username').value;		
-   var password = document.getElementById('login-password').value;		
-   var hash = MD5(password);		
- 		
-   document.getElementById('login-btn').innerHTML = "Validating...";		
-    var urlRef = window.dbRef
-     urlRef.child('logins').on("value", function(data) {
-     data.forEach(function(child) {
-       var amount = child.length - 1;
-       for (var i=0; i < amount; i++) {
-       urlRef.child("logins").child(i)
-       var logins = child.val();
-       if (logins.includes(username.toLowerCase() + "," + hash)) {		
-       if (bannedusers.includes(username.toLowerCase())) {		
-         alert("You have been banned from TiMedia.");		
-       } else {		
-       localStorage.name = username;		
-       localStorage.access = btoa(username);		
-       window.location.href = "index.html";		
-      }		
-      } else {		
-      error("Username or password is incorrect.");		
-       }	
-      });
-     });			
-    }
-
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyC4jMK0UJIEujeqMl-FcUz5QeomXekV2P4",
@@ -265,3 +236,31 @@ function snapValue(value) {
 function errorLoading(err) {
   alert("Errror! " + err);
 }
+
+function login() {	
+   var username = document.getElementById('login-username').value;		
+   var password = document.getElementById('login-password').value;		
+   var hash = MD5(password);		
+ 		
+   document.getElementById('login-btn').innerHTML = "Validating...";		
+    var urlRef = window.dbRef
+     urlRef.child('logins').on("value", function(data) {
+     data.forEach(function(child) {
+       var amount = child.length - 1;
+       for (var i=0; i < amount; i++) {
+       urlRef.child("logins").child(i)
+       var logins = child.val();
+       if (logins.includes(username.toLowerCase() + "," + hash)) {		
+       if (bannedusers.includes(username.toLowerCase())) {		
+         alert("You have been banned from TiMedia.");		
+       } else {		
+       localStorage.name = username;		
+       localStorage.access = btoa(username);		
+       window.location.href = "index.html";		
+      }		
+      } else {		
+      error("Username or password is incorrect.");		
+       }	
+      });
+     });			
+    }
