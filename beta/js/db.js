@@ -263,7 +263,8 @@ function login() {
       }		
       } else {		
       error("Username or password is incorrect.");		
-       }	
+        }	
+       }
       });
      });			
     }
