@@ -256,7 +256,7 @@ location.href = 'index.html';
 }
                      
 function login() {
-   var uname = document.getElementById('login.username').value;
+   var uname = document.getElementById('login.username').value + '@timediatied.com';
    var pword = document.getElementById('login-password').value;
    firebaseAuthLog(uname, pword)
-   
+}
