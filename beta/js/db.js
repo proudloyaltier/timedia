@@ -1,5 +1,5 @@
-   window.onerror = function(error) {
-      alert('error');
+   window.onerror = function(msg) {
+      alert(msg);
    }
 var bannedusers = [""];
 
