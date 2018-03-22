@@ -213,9 +213,9 @@ function error(error) {
    var hash = MD5(password);		
  		
    document.getElementById('login-btn').innerHTML = "Validating...";		
-    var urlRef = window.dbRef.child("logins");
-     urlRef.on("value", function(snapshot) {
-     snapshot.forEach(function(child) {
+    var urlRef = window.dbRef
+     urlRef.child('logins').on("value", function(data) {
+     data.forEach(function(child) {
        var amount = child.length - 1;
        for (var i=0; i < amount; i++) {
        urlRef.child("logins").child(i)
@@ -230,8 +230,9 @@ function error(error) {
       }		
       } else {		
       error("Username or password is incorrect.");		
-      }	
-     };
+       }	
+      });
+     }     
    });			
   }	
  }
