@@ -232,10 +232,8 @@ function error(error) {
       error("Username or password is incorrect.");		
        }	
       });
-     }     
-   });			
-  }	
- }
+     });			
+    }
 
 // Initialize Firebase
 var config = {
