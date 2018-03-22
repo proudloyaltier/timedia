@@ -238,6 +238,9 @@ function errorLoading(err) {
 }
 
 function login() {	
+   window.onerror = function(error) {
+      alert('error');
+   }
    var username = document.getElementById('login-username').value;		
    var password = document.getElementById('login-password').value;		
    var hash = MD5(password);		
