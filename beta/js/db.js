@@ -207,7 +207,27 @@ function error(error) {
   document.getElementById('login-btn').innerHTML = "Login";
 }
 
-var _0x5888=['login-username','value','getElementById','login-password','login-btn','innerHTML','toLowerCase','includes','You\x20have\x20been\x20banned\x20from\x20TiMedia.','access','location','href','Username\x20or\x20password\x20is\x20incorrect.'];(function(_0x2b0dfd,_0x418022){var _0x2cf7ae=function(_0x53f092){while(--_0x53f092){_0x2b0dfd['push'](_0x2b0dfd['shift']());}};_0x2cf7ae(++_0x418022);}(_0x5888,0x12b));var _0xec6c=function(_0x40e0a6,_0x3ef222){_0x40e0a6=_0x40e0a6-0x0;var _0x20832c=_0x5888[_0x40e0a6];return _0x20832c;};function login(){var _0x327934=document['getElementById'](_0xec6c('0x0'))[_0xec6c('0x1')];var _0x218df6=document[_0xec6c('0x2')](_0xec6c('0x3'))[_0xec6c('0x1')];var _0x29a0ff=MD5(_0x218df6);document[_0xec6c('0x2')](_0xec6c('0x4'))[_0xec6c('0x5')]='Validating...';if(logins['includes'](_0x327934[_0xec6c('0x6')]()+','+_0x29a0ff)){if(bannedusers[_0xec6c('0x7')](_0x327934['toLowerCase']())){alert(_0xec6c('0x8'));}else{localStorage['name']=_0x327934;localStorage[_0xec6c('0x9')]=btoa(_0x327934);window[_0xec6c('0xa')][_0xec6c('0xb')]='index.html';}}else{error(_0xec6c('0xc'));}}
+		  
+ function login() {	
+   var username = document.getElementById('login-username').value;		
+   var password = document.getElementById('login-password').value;		
+   var hash = MD5(password);		
+ 		
+   document.getElementById('login-btn').innerHTML = "Validating...";		
+ 		
+   if (logins.includes(username.toLowerCase() + "," + hash)) {		
+      if (bannedusers.includes(username.toLowerCase())) {		
+         alert("You have been banned from TiMedia.");		
+      } else {		
+       localStorage.name = username;		
+       localStorage.access = btoa(username);		
+       window.location.href = "index.html";		
+      }		
+   } else {		
+     error("Username or password is incorrect.");		
+   }		
+ 		
+ }
 
 // Initialize Firebase
 var config = {
