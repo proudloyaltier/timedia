@@ -244,7 +244,7 @@ function login() {
    errorLogin("Username or password is incorrect.");	
    });
 }
-
+if (localStorage.name == undefined) {
 firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
@@ -253,4 +253,5 @@ firebase.auth().onAuthStateChanged(function (user) {
          location.href = 'index.html';
       });
    }
-});
+ });
+}
