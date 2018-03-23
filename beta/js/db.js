@@ -245,7 +245,7 @@ function login() {
    });
 }
 
-firebase.auth().onAuthStateChanged = function (user) {
+firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
          localStorage.setItem("name",profile.email.replace("@timediatied.com",""))
@@ -253,4 +253,4 @@ firebase.auth().onAuthStateChanged = function (user) {
          location.href = 'index.html';
       });
    }
-}
+});
