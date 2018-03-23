@@ -56,10 +56,10 @@
     <h3>Login</h3><br>
   
       Username<br>
-      <input type="text" id="login-username" class="form-control"><br>
+      <input type="text" id="login-username" class="form-control" onchange="document.getElementById('login-password').focus();"><br>
   
       Password<br>
-      <input type="password" id="login-password" class="form-control"><br>
+      <input type="password" id="login-password" class="form-control" onchange="login()"><br>
       <p id="error" style="color: red;"></p>
       <button onclick="login()" id="login-btn" class="btn btn-primary">Login</button><br><br>
     </div>
