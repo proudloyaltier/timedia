@@ -12,7 +12,7 @@
   if (localStorage.pin !== undefined) {
     var pin = localStorage.pin;
   }
-  
+  firebase.auth().signOut()
   window.localStorage.clear();
   
   if (localFaces !== undefined) {
