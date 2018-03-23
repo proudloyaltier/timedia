@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <a class="navbar-brand" href="#">TiMedia <b>2</b></a>
           <ul class="nav navbar-nav navbar-right">
-            <li><a onclick="function() {document.getElementById('signup').style.display = 'block'; document.getElementById('login-user').remove(); }"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a onclick="signupShow()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           </ul>
         </div>
       </div>
@@ -72,6 +72,9 @@
     </div>
 </div>
     <script>
+      function signupShow(){
+       document.getElementById('signup').style.display = 'block'; document.getElementById('login-user').remove();
+      }
   function signup() {
  if (document.getElementById('username') !== "" && document.getElementById('password').value) {
   firebase.auth().createUserWithEmailAndPassword(document.getElementById('username').value + "@timediatied.com", document.getElementById('password').value).catch(function(error) {
