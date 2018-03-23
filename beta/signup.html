@@ -1,7 +1,7 @@
 <script src="js/nohacking.js"></script>
-<script src="js/db.js"></script>
 <link rel="stylesheet" href="other resources/style.css" crossorigin="anonymous">
 <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<script src="js/db.js"></script>
 <script>
   function signup() {
  if (document.getElementById('username') !== "" && document.getElementById('password').value) {
@@ -16,7 +16,7 @@
 }
 </script>
 <center>
-<input class='form control-lg' id='username' placeholder='Username'>
-<input class='form control-lg' id='password' placeholder='Password'>
+<input class='form control' id='username' placeholder='Username'>
+<input class='form control' id='password' placeholder='Password'>
 <button class='btn btn-primary' onclick='signup()'>Sign Up</button>
 </center>
