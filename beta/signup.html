@@ -1,4 +1,13 @@
 <script src="js/nohacking.js"></script>
+<script>
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log(errorCode + " " + errorMessage);
+});
+</script>
 <center>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeVpLfZV5nGrtlHwFBRyJ14vfPakwSMhxEG_AxYuMbA4FTCBA/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<input class='form control-lg' id='username' placeholder='Username'>
+<input class='form control-lg' id='password' placeholder='Password'>
+<button class='btn btn-primary' onclick='signup()'>Sign Up</button>
 </center>
