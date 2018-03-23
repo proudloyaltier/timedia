@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <a class="navbar-brand" href="#">TiMedia <b>2</b></a>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a onclick="function() {document.getElementById('signup').style.display = 'block'; document.getElementById('login').remove(); }"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           </ul>
         </div>
       </div>
@@ -70,6 +70,27 @@
       <a href="#" onclick="loginPassword()">Login with password instead.</a>
       <canvas id="tismile-canvas" style="display: none;"></canvas>
     </div>
+</div>
+    <script>
+  function signup() {
+ if (document.getElementById('username') !== "" && document.getElementById('password').value) {
+  firebase.auth().createUserWithEmailAndPassword(document.getElementById('username').value + "@timediatied.com", document.getElementById('password').value).catch(function(error) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log(errorCode + " " + errorMessage);
+   });
+  } else {
+    alert('Please enter a username and password!')
+  }
+}
+</script>
+<div id='signup' style='display: none;' class='container'>
+<center>
+<h3> Sign Up For TiMedia </h3>
+<input class='form-control' id='username' placeholder='Username'>
+<input class='form-control' id='password' placeholder='Password'>
+<button class='btn btn-primary' onclick='signup()'>Sign Up</button>
+</center>
 </div>
     <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
