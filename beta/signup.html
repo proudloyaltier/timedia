@@ -1,10 +1,16 @@
 <script src="js/nohacking.js"></script>
 <script>
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  function signup() {
+ if (document.getElementById('username') !== "" && document.getElementById('password').value) {
+  firebase.auth().createUserWithEmailAndPassword(document.getElementById('username').value, document.getElementById('password').value).catch(function(error) {
   var errorCode = error.code;
   var errorMessage = error.message;
   console.log(errorCode + " " + errorMessage);
-});
+   });
+  } else {
+    alert('Please enter a username and password!')
+  }
+}
 </script>
 <center>
 <input class='form control-lg' id='username' placeholder='Username'>
