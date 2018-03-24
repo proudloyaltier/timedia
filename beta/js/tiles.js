@@ -84,8 +84,8 @@ function openTileContext(tileID) {
 
 function resetTiles() {
 alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
-    localStorage.files = null;
-    storeInDatabase("files", localStorage.files);
+    localStorage.files = ""
+    storeInDatabase("files", "");
     window.location.href = "index.html?app=7";
   }, function() {
    location.reload();
@@ -164,9 +164,13 @@ function addFile(title, upload) {
     var upload = prompt("Enter your URL");
   }
 
-  if (localStorage.files !== undefined && localStorage.files !== "" && localStorage.files !== "null") {
+  if (localStorage.files !== undefined && localStorage.files !== "") {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
   } else {
+    localStorage.files = title + "!!" + upload;
+  }
+    
+  if (localStorage.files === "") {
     localStorage.files = title + "!!" + upload;
   }
 
