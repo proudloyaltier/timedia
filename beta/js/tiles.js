@@ -38,6 +38,10 @@ alertify
    });
 }*/
   
+if (localStorage.files == "null") {
+  localStorage.files = "";
+  save();
+}
 
 function renameTile(tid, rwith) {
     localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], rwith + "!!" + localStorage.files.split(",")[tid].split("!!")[1]); save();
