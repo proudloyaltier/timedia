@@ -84,8 +84,8 @@ function openTileContext(tileID) {
 
 function resetTiles() {
 alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
-    localStorage.files = ""
-    storeInDatabase("files", "");
+    localStorage.files = null;
+    storeInDatabase("files", localStorage.files);
     window.location.href = "index.html?app=7";
   }, function() {
    location.reload();
