@@ -164,17 +164,9 @@ function addFile(title, upload) {
     var upload = prompt("Enter your URL");
   }
 
-  if (localStorage.files !== undefined && localStorage.files !== "" && localStorage.files !== null) {
+  if (localStorage.files !== undefined && localStorage.files !== "" && localStorage.files !== "null") {
     localStorage.files = localStorage.files + "," + title + "!!" + upload;
   } else {
-    localStorage.files = title + "!!" + upload;
-  }
-    
-  if (localStorage.files === "") {
-    localStorage.files = title + "!!" + upload;
-  }
-  
-  if (localStorage.files == null) {
     localStorage.files = title + "!!" + upload;
   }
 
