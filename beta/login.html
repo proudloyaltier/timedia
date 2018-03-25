@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <a class="navbar-brand" href="#">TiMedia <b>2</b></a>
           <ul class="nav navbar-nav navbar-right">
-            <li><a onclick="function() {document.getElementById('signup').style.display = 'block'; document.getElementById('login').remove(); }"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a onclick="signupShow()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           </ul>
         </div>
       </div>
@@ -56,7 +56,7 @@
     <h3>Login</h3><br>
   
       Username<br>
-      <input type="text" id="login-username" class="form-control" onchange="document.getElementById('login-password').focus();"><br>
+      <input type="text" id="login-username" class="form-control" onchange="document.getElementById('login-password').focus();" autofocus><br>
   
       Password<br>
       <input type="password" id="login-password" class="form-control" onchange="login()"><br>
@@ -72,12 +72,16 @@
     </div>
 </div>
     <script>
+      function signupShow(){
+       document.getElementById('signup').style.display = 'block'; document.getElementById('login-user').remove();
+      }
   function signup() {
  if (document.getElementById('username') !== "" && document.getElementById('password').value) {
   firebase.auth().createUserWithEmailAndPassword(document.getElementById('username').value + "@timediatied.com", document.getElementById('password').value).catch(function(error) {
   var errorCode = error.code;
   var errorMessage = error.message;
   console.log(errorCode + " " + errorMessage);
+  alert("There has been an error! " + errorMessage)
    });
   } else {
     alert('Please enter a username and password!')
@@ -88,7 +92,7 @@
 <center>
 <h3> Sign Up For TiMedia </h3>
 <input class='form-control' id='username' placeholder='Username'>
-<input class='form-control' id='password' placeholder='Password'>
+<input class='form-control' id='password' placeholder='Password'><br>
 <button class='btn btn-primary' onclick='signup()'>Sign Up</button>
 </center>
 </div>

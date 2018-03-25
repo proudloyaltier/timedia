@@ -18,6 +18,7 @@ function setColor() {
     document.execCommand('styleWithCSS', false, true);
     document.execCommand('foreColor', false, color);
     document.getElementById('fontColorDiv').style.display = 'none';
+    saveDoc();
 }
 
 function setColorSheets() {
@@ -25,6 +26,7 @@ function setColorSheets() {
     document.execCommand('styleWithCSS', false, true);
     document.execCommand('foreColor', false, color);
     document.getElementById('fontColorDivSheets').style.display = 'none';
+    saveSheet();
 }
 
 
@@ -38,6 +40,10 @@ alertify
    });
 }*/
   
+if (localStorage.files == "null") {
+  localStorage.files = "";
+  save();
+}
 
 function renameTile(tid, rwith) {
     localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], rwith + "!!" + localStorage.files.split(",")[tid].split("!!")[1]); save();

@@ -243,12 +243,15 @@ function login() {
    firebase.auth().signInWithEmailAndPassword(uname, pword).catch(function(error) {
    errorLogin("Username or password is incorrect.");	
    });
-   var user = firebase.auth().currentUser;
+}
+if (localStorage.name == undefined) {
+firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
-      localStorage.setItem("name",profile.email.replace("@timediatied.com",""))
-      localStorage.setItem("access",btoa(localStorage.name))
-      location.href = 'index.html';
-     });
+         localStorage.setItem("name",profile.email.replace("@timediatied.com",""))
+         localStorage.setItem("access",btoa(localStorage.name))
+         location.href = 'index.html';
+      });
    }
+ });
 }
