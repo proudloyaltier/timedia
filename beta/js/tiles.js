@@ -18,6 +18,7 @@ function setColor() {
     document.execCommand('styleWithCSS', false, true);
     document.execCommand('foreColor', false, color);
     document.getElementById('fontColorDiv').style.display = 'none';
+    saveDoc();
 }
 
 function setColorSheets() {
@@ -25,6 +26,7 @@ function setColorSheets() {
     document.execCommand('styleWithCSS', false, true);
     document.execCommand('foreColor', false, color);
     document.getElementById('fontColorDivSheets').style.display = 'none';
+    saveSheet();
 }
 
 
