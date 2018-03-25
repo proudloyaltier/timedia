@@ -161,21 +161,21 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     <div id="create">
       <input id="docsTitle" class="form-control lg" value="Untitled Document"><br>
       <div class='formatting-bar'>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary'  onclick="document.execCommand('bold');"><b>B</b></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('italic');"><i>I</i></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('underline');"><u>U</u></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('superscript');">xⁱ</button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('subscript');">xₐ</button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyLeft');"><span class="glyphicon glyphicon-align-left"></span></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyCenter');"><span class="glyphicon glyphicon-align-center"></span></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyRight');"><span class="glyphicon glyphicon-align-right"></span></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary'  onclick="document.execCommand('bold'); saveDoc();"><b>B</b></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('italic'); saveDoc();"><i>I</i></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('underline'); saveDoc();"><u>U</u></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('superscript'); saveDoc();">xⁱ</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('subscript'); saveDoc();">xₐ</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyLeft'); saveDoc();"><span class="glyphicon glyphicon-align-left"></span></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyCenter'); saveDoc();"><span class="glyphicon glyphicon-align-center"></span></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('justifyRight'); saveDoc();"><span class="glyphicon glyphicon-align-right"></span></button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="showTiWorkColor()"><span class='glyphicon glyphicon-tint'></span</button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="insertImage();"><span class="glyphicon glyphicon-picture"></span></button>-->
       <button id='fontSelect' class="btn btn-primary" style='float: left; border-radius: 0px; box-shadow: none;'>
       <div class="arrow-down"></div>
       </button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('undo');">↰</button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('redo');">↱</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('undo'); saveDoc();">↰</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('redo'); saveDoc();">↱</button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="saveDoc()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
       <br><br>
       <div style="display: none;"class='jumbotron container' id='fontColorDiv'>
@@ -251,21 +251,21 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   <h3 id="tisheets-header" >TiSheets</h3>
    <input id="sheetsTitle" class="form-control lg" value="Untitled Spreadsheet"><br>
    <div class='formatting-bar' id="sheets-formatting-bar">
-   <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success'  onclick="document.execCommand('bold');"><b>B</b></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('italic');"><i>I</i></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('underline');"><u>U</u></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('superscript');">xⁱ</button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;'class='btn btn-success' onclick="document.execCommand('subscript');">xₐ</button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyLeft');"><span class="glyphicon glyphicon-align-left"></span></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyCenter');"><span class="glyphicon glyphicon-align-center"></span></button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyRight');"><span class="glyphicon glyphicon-align-right"></span></button>
+   <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success'  onclick="document.execCommand('bold'); saveSheet();"><b>B</b></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('italic'); saveSheet();"><i>I</i></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('underline'); saveSheet();"><u>U</u></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('superscript'); saveSheet();">xⁱ</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;'class='btn btn-success' onclick="document.execCommand('subscript'); saveSheet();">xₐ</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyLeft'); saveSheet();"><span class="glyphicon glyphicon-align-left"></span></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyCenter'); saveSheet();"><span class="glyphicon glyphicon-align-center"></span></button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('justifyRight'); saveSheet();"><span class="glyphicon glyphicon-align-right"></span></button>
       <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="showTiWorkColorSheets()"><span class='glyphicon glyphicon-tint'></span></button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="insertImage();"><span class="glyphicon glyphicon-picture"></span></button>-->
       <button id='fontSelectSheets' class="btn btn-success" style='float: left; border-radius: 0px; box-shadow: none;'>
       <div class="arrow-down"></div>
       </button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('undo');">↰</button>
-      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('redo');">↱</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('undo'); saveSheet();">↰</button>
+      <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('redo'); saveSheet();">↱</button>
       <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="saveSheet()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
    <br><br>
       <div style="display: none;"class='jumbotron container' id='fontColorDivSheets'>
