@@ -17,10 +17,6 @@ function launchApp(appname) {
   document.getElementById(appname).style = "visibility: block;"
 }
 
-if (localStorage.name !== firebase.auth().currentUser.email.replace("@timediatied.com", "") && localStorage.name !== undefined) {
-       window.location.href = "logout.html"
-}
-
 if (localStorage.access == btoa(localStorage.name)) {
   if (getQueryVariable("app") == 2) {
     launchApp("messages");
