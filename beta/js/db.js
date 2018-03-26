@@ -256,7 +256,7 @@ firebase.auth().onAuthStateChanged(function (user) {
  });
 }
 
-if (localStorage.name !== undefined && localStorage.access !== undefined) {
+if (localStorage.name !== undefined && localStorage.access !== undefined && firebase.auth().currentUser.email.replace("@timediatied.com","") !== undefined) {
    if (localStorage.name !== firebase.auth().currentUser.email.replace("@timediatied.com","")) {
       window.location.href == 'logout.html';
  }
