@@ -83,23 +83,6 @@
    </div>
 <div class="container">
 <div id="home">
-  <script>
-    function changeName() {
-      document.getElementById('hcb_form_name').value = localStorage.name;
-      document.getElementById('hcb_form_name').disabled = true;   
-   }
-  
- Element.prototype.remove = function() {
-    this.parentElement.removeChild(this);
-}
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-    for(var i = this.length - 1; i >= 0; i--) {
-        if(this[i] && this[i].parentElement) {
-            this[i].parentElement.removeChild(this[i]);
-        }
-    }
-}
-  </script>
   <center>
     <h3>Tiri</h3>
     <img onclick="window.location.href = 'index.html?app=5'" src="other resources/microphone.png" alt="Microphone - Tiri" height="100" width="100">
