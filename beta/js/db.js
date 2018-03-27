@@ -255,3 +255,13 @@ firebase.auth().onAuthStateChanged(function (user) {
    }
  });
 }
+
+var user = firebase.auth().currentUser;
+var email;
+
+if (user != null) {
+  email = user.email;
+  if (localStorage.name !== email.replace("@timediatied.com","") {
+      window.location.href = 'logout.html';
+  }
+}
