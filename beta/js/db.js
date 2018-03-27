@@ -261,7 +261,7 @@ var email;
 
 if (user != null) {
   email = user.email;
-  if (localStorage.name !== email.replace("@timediatied.com","") {
+  if (localStorage.name !== email.replace("@timediatied.com","")) {
       window.location.href = 'logout.html';
   }
 }
