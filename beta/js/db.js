@@ -236,7 +236,17 @@ function snapValue(value) {
 function errorLoading(err) {
   alert("Errror! " + err);
 }
-                     
+
+function changePassword(newpassword) {
+ var user = firebase.auth().currentUser;  
+   
+ user.updatePassword(newPassword).then(function() { 
+ location.reload();
+ }).catch(function(error) { 
+ alertify.alert("There has been an error! " + errorMessage)
+ });
+}
+
 function login() {
    var uname = document.getElementById('login-username').value + '@timediatied.com';
    var pword = document.getElementById('login-password').value;
