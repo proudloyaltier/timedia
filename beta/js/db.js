@@ -241,7 +241,7 @@ function changePassword(newpassword) {
  var user = firebase.auth().currentUser;  
    
  user.updatePassword(newPassword).then(function() { 
- location.reload();
+ alertify.log("Password Changed Successfully!")
  }).catch(function(error) { 
  alertify.alert("There has been an error! " + errorMessage)
  });
