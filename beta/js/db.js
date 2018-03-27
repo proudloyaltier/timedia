@@ -254,4 +254,14 @@ firebase.auth().onAuthStateChanged(function (user) {
       });
    }
  });
+} else {
+firebase.auth().onAuthStateChanged(function (user) {
+   if (user) {
+      user.providerData.forEach(function (profile) {
+         if (localStorage.name !== profile.email.replace("@timediatied.com","")) {
+            window.location.href = 'logout.html';
+         }
+      });
+    }
+  });
 }
