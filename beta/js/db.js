@@ -247,6 +247,14 @@ function changePassword(newpassword) {
  });
 }
 
+function changePasswordButton() {
+   var pwf = document.getElementById("passchange1").value;
+   var pws = document.getElementById("passchange2").value;
+   if (pwf == pws) {
+      changePassword(pwf);
+   }
+}
+
 function login() {
    var uname = document.getElementById('login-username').value + '@timediatied.com';
    var pword = document.getElementById('login-password').value;
