@@ -243,7 +243,7 @@ function changePassword(newpassword) {
  user.updatePassword(newpassword).then(function() { 
  alertify.log("Password Changed Successfully!")
  }).catch(function(error) { 
- alertify.alert("There has been an error! " + errorMessage)
+ alertify.alert("There has been an error! " + error)
  });
 }
 
