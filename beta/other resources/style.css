@@ -9,6 +9,13 @@ table, th, td {
   border-collapse: collapse;
 }
 
+.formatting-button {
+  outline: 0;
+  float: left;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
 .nobullet {
   list-style: none;
 }
