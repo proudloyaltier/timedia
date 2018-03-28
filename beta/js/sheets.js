@@ -72,7 +72,7 @@ function saveSheet() {
   }
 }
 
-var tisheetsContent = document.getElementByClassName('tisheetsContent')[0]
+var tisheetsContent = document.getElementsByClassName('tisheetsContent')[0]
 if ("addEventListener" in tisheetsContent) {
   tisheetsContent.addEventListener("keyup", saveSheet, false);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
