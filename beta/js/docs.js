@@ -2,10 +2,10 @@ function saveDoc() {
 if (localStorage.tidocssave == undefined) {
   var tidocssave = generateRandString();
   
-  var plaintext = document.getElementsById("tidocs-content").innerHTML;
+  var plaintext = document.getElementById("tidocsContent").innerHTML;
   var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password);
   
-  storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
+  storeInDatabase(tidocssave, document.getElementById("tidocsContent").innerHTML)
   localStorage.tidocssave = tidocssave;
   var urlRef = window.dbRef.child(tidocssave);
   urlRef.on("value", function(snapshot) {
@@ -18,7 +18,7 @@ if (localStorage.tidocssave == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
 } else {
-  window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(document.getElementsByTagName('h5')[0].innerHTML);
+  window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(document.getElementById("tidocsContent").innerHTML);
   var tidocssave = localStorage.tidocssave
  }
 }
@@ -38,7 +38,7 @@ if ("addEventListener" in tidocsContent) {
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
-    document.getElementsByTagName('h5')[0].innerHTML = localStorage.edit;
+    document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem('edit');
     throw new Error("Opened edit.");
