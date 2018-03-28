@@ -3,7 +3,7 @@ function saveDoc() {
     var tidocssave = generateRandString();
 
     var plaintext = document.getElementById("tidocsContent").innerHTML;
-    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password);
+    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
     storeInDatabase(tidocssave, tosave);
     localStorage.tidocssave = tidocssave;
@@ -19,7 +19,7 @@ function saveDoc() {
     localStorage.workToSave = url;
   } else {
     var plaintext = document.getElementById("tidocsContent").innerHTML;
-    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password);
+    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
     window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(tosave);
     var tidocssave = localStorage.tidocssave;
