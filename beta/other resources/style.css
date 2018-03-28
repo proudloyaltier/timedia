@@ -13,6 +13,7 @@ table, th, td {
   float: left;
   border-radius: 0px;
   box-shadow: none;
+  outline: 0px
 }
 
 .nobullet {
