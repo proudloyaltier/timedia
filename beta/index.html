@@ -166,16 +166,14 @@
             <button id="fontSelect" class="btn btn-primary formatting-button">
       <div class="arrow-down"></div>
       </button>
-            <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('undo'); saveDoc();">↰</button>
-            <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('redo'); saveDoc();">↱</button>
-            <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="saveDoc()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
+            <button class="btn btn-primary formatting-button" onclick="document.execCommand('undo'); saveDoc();">↰</button>
+            <button class="btn btn-primary formatting-button" onclick="document.execCommand('redo'); saveDoc();">↱</button>
+            <!--<button class="btn btn-primary formatting-button" onclick="saveDoc()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
             <br><br>
             <div style="display: none;" class='jumbotron container' id='fontColorDiv'>
-              <p style='font-size: 30px;'>
-                Change Text Color
-              </p>
+              <p style='font-size: 30px;'>Change Text Color</p>
               <input style="width: 5%;" id="fontColor" class="jscolor form-control" value="000000"><br>
-              <button onclick='setColor();' class='btn btn-primary'>Set Color</button><br>
+              <button onclick='setColor();' class='btn btn-primary'>Set Color</button><br><br>
             </div>
             <br><br>
           </div>
@@ -266,11 +264,9 @@
           <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="saveSheet()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
           <br><br>
           <div style="display: none;" class='jumbotron container' style="padding: 10px;" id='fontColorDivSheets'>
-            <p style='font-size: 30px;'>
-              Change Text Color
-            </p>
+            <p style='font-size: 30px;'>Change Text Color</p>
             <input style="width: 5%;" id="fontColorSheets" class="jscolor form-control" value="000000"><br>
-            <button onclick='setColorSheets();' class='btn btn-success'>Set Color</button><br>
+            <button onclick='setColorSheets();' class='btn btn-success'>Set Color</button><br><br>
           </div>
           <br><br>
         </div>
