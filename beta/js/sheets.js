@@ -1,9 +1,3 @@
-if (getQueryVariable('app') == '4') {
-  window.onerror = function(message, source, lineno, colno, error) {
-    alert(error + " " + source + " " + lineno + " " + colno + " " + message)
-  }
-}
-
 function newTh(place) {
   var newTh = document.createElement('th');
   place.appendChild(newTh);
@@ -107,6 +101,9 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = 'index.html?app=7';
           alert("Access Denied! Get TIed!")
+        }
+        window.onerror = function(message, source, lineno, colno, error) {
+        alert(error + " " + source + " " + lineno + " " + colno + " " + message)
         }
         document.getElementById('tisheets-table').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
         window.edit = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
