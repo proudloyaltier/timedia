@@ -152,7 +152,7 @@
         <h3 id="tidocs-header">TiDocs</h3><br>
         <div id="create">
           <input id="docsTitle" class="form-control lg" value="Untitled Document"><br>
-          <div class='formatting-bar'>
+          <div class='formatting-bar' style='outline: 0;'>
             <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('bold'); saveDoc();"><b>B</b></button>
             <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('italic'); saveDoc();"><i>I</i></button>
             <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-primary' onclick="document.execCommand('underline'); saveDoc();"><u>U</u></button>
@@ -247,7 +247,7 @@
       <div id="tisheets" style="display: none;">
         <h3 id="tisheets-header">TiSheets</h3>
         <input id="sheetsTitle" class="form-control lg" value="Untitled Spreadsheet"><br>
-        <div class='formatting-bar' id="sheets-formatting-bar">
+        <div class='formatting-bar' id="sheets-formatting-bar" style='outline: 0;'>
           <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('bold'); saveSheet();"><b>B</b></button>
           <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('italic'); saveSheet();"><i>I</i></button>
           <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('underline'); saveSheet();"><u>U</u></button>
