@@ -68,8 +68,8 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 
 function editDoc() {
   localStorage.edit = window.edit;
-  window.location.href = "index.html?app=3";
   localStorage.tidocssave = getQueryVariable("p");
+  window.location.href = "index.html?app=3";
 }
 
 function docReader() {
