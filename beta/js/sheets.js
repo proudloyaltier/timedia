@@ -102,7 +102,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
           window.location.href = 'index.html?app=7';
           alert("Access Denied! Get TIed!")
         }
-        document.getElementById('tisheets-table').innerHTML = child.val();
+        document.getElementById('tisheets-table').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
         window.edit = document.getElementById('tisheets-table').innerHTML
       });
     });
