@@ -267,26 +267,15 @@
           <button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="document.execCommand('redo'); saveSheet();">↱</button>
           <!--<button style='float: left; border-radius: 0px; box-shadow: none;' class='btn btn-success' onclick="saveSheet()"><span class="glyphicon glyphicon-floppy-save"></span></button>-->
           <br><br>
-          <div style="display: none;" class='jumbotron container' id='fontColorDivSheets'>
+          <div style="display: none;" class='jumbotron container' style="padding: 10px;" id='fontColorDivSheets'>
             <p style='font-size: 30px;'>
               Change Text Color
             </p>
             <input style="width: 5%;" id="fontColorSheets" class="jscolor form-control" value="000000"><br>
-            <button onclick='setColorSheets();' class='btn btn-success'>
-      Set Color
-      </button>
+            <button onclick='setColorSheets();' class='btn btn-success'>Set Color</button>
           </div>
           <br><br>
         </div>
-        <style>
-          table,
-          th,
-          td {
-            border: 1px solid gray;
-            border-collapse: collapse;
-          }
-
-        </style>
         <table style="width: 100%; outline: none;" contenteditable="true" id="tisheets-table" class='tisheetsContent'>
           <tr>
             <th>Value</th>
@@ -392,10 +381,7 @@
       <script src="js/messages.js"></script>
       <script src="js/fontChange.js"></script>
       <script src="other resources/bootbox.min.js"></script>
-      <script>
-        setInterval(customImageUpload, 0);
-      </script>
+      <script>setInterval(customImageUpload, 0);</script>
     </div>
   </body>
-
 </html>
