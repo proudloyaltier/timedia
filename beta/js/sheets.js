@@ -103,7 +103,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
           alert("Access Denied! Get TIed!")
         }
         document.getElementById('tisheets-table').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-        window.edit = document.getElementById('tisheets-table').innerHTML
+        window.edit = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
       });
     });
     document.getElementById('tisheets-table').setAttribute("contenteditable", false);
