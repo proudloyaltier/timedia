@@ -1,5 +1,3 @@
-// var tisheetsContent = document.getElementById("tisheets-table").innerHTML;
-
 function newTh(place) {
   var newTh = document.createElement('th');
   place.appendChild(newTh);
@@ -74,9 +72,9 @@ function saveSheet() {
   }
 }
 
-var tisheetsContentClass = document.getElementById('tisheetsContentClass')[0]
-if ("addEventListener" in tisheetsContentClass) {
-  tisheetsContentClass.addEventListener("keyup", saveSheet, false);
+var tisheetsContent = document.getElementByClassName('tisheetsContent')[0]
+if ("addEventListener" in tisheetsContent) {
+  tisheetsContent.addEventListener("keyup", saveSheet, false);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
     if (localStorage.editAutoSave !== undefined) {
