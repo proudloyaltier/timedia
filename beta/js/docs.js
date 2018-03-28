@@ -44,8 +44,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem('edit');
-    return;
-  }
+  } else {
 
   document.getElementById('create').remove();
   document.getElementById('view').style.display = "block";
@@ -64,6 +63,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
       window.edit = document.getElementById('view').innerHTML;
     });
   });
+ }
 }
 
 function editDoc() {
