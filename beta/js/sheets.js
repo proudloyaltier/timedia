@@ -97,6 +97,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
     var urlRef = window.dbRef.child(getQueryVariable("t"));
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
+        alert(child.val())
         var valsheet = child.val()
         localStorage.owner = child.key;
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
