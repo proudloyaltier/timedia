@@ -267,7 +267,7 @@ if (localStorage.name == undefined) {
 firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
-         localStorage.setItem("password", document.getElementById('login-password').value);
+         localStorage.setItem("password", MD5(document.getElementById('login-password').value));
          localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
          localStorage.setItem("access", btoa(localStorage.name));
          location.href = 'index.html';
