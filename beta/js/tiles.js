@@ -5,13 +5,12 @@ function save() {
 }
 
 function showTiWorkColor() {
-document.getElementById('fontColorDiv').style.display = 'block';
+  document.getElementById('fontColorDiv').style.display = 'block';
 }
 
 function showTiWorkColorSheets() {
-document.getElementById('fontColorDivSheets').style.display = 'block';
+  document.getElementById('fontColorDivSheets').style.display = 'block';
 }
-
 
 function setColor() {
     var color = "#" + document.getElementById('fontColor').value;
@@ -28,8 +27,6 @@ function setColorSheets() {
     document.getElementById('fontColorDivSheets').style.display = 'none';
     saveSheet();
 }
-
-
 
 /*function insertImage() {
 alertify
@@ -73,8 +70,8 @@ function generateRandString() {
 }
 
 function deleteTile(tileid) {
-    alertify.confirm("Are You Sure You Want To Delete This Tile?", function () {
-      var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19)
+    alertify.confirm("Are you sure you want to delete this Tile?", function () {
+      var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19);
       window.dbRef.child(toDelFirebase).set(null);
       localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
       save();
@@ -192,7 +189,6 @@ function saveFromTiWork() {
 }
 
 function loadTiles() {
-
   document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
 
   if (localStorage.files !== "") {
