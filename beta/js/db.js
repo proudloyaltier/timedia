@@ -259,15 +259,17 @@ function login() {
    var uname = document.getElementById('login-username').value + '@timediatied.com';
    var pword = document.getElementById('login-password').value;
    firebase.auth().signInWithEmailAndPassword(uname, pword).catch(function(error) {
-   errorLogin("Username or password is incorrect.");	
+      errorLogin("Username or password is incorrect.");	
    });
 }
+
 if (localStorage.name == undefined) {
 firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
-         localStorage.setItem("name",profile.email.replace("@timediatied.com",""))
-         localStorage.setItem("access",btoa(localStorage.name))
+         localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
+         localStorage.setItem("access", btoa(localStorage.name));
+         localStorage.setItem("password", document.getElementById('login-password').value);
          location.href = 'index.html';
       });
    }
