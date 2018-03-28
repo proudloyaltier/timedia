@@ -49,7 +49,7 @@ function saveSheet() {
     var tisheetssave = generateRandString()
 
     var plaintext = document.getElementById("tisheets-table").innerHTML;
-    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
+    var tosave = encrypt(plaintext, localStorage.password) + "";
 
     storeInDatabase(tisheetssave, tosave)
     localStorage.tisheetssave = tisheetssave;
@@ -64,8 +64,8 @@ function saveSheet() {
     localStorage.workToSaveTitle = document.getElementById('sheetsTitle').value;
     localStorage.recentUrl = url;
   } else {
-    var plaintext = document.getElementById("tidocsContent").innerHTML;
-    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
+    var plaintext = document.getElementById("tisheets-table").innerHTML;
+    var tosave = encrypt(plaintext, localStorage.password) + "";
 
     window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(tosave);
     var tisheetssave = localStorage.tisheetssave;
@@ -97,7 +97,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
     var urlRef = window.dbRef.child(getQueryVariable("t"));
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
-        var valsheet = CryptoJS.AES.decrypt(child.val(), localStorage.password)
+        var valsheet = decrypt(child.val(), localStorage.password)
         localStorage.owner = child.key;
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = 'index.html?app=7';
