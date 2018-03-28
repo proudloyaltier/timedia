@@ -74,7 +74,7 @@ function saveSheet() {
   }
 }
 
-if ("addEventListener" in tisheetsContent) {
+if ("addEventListener" in tisheetsContentClass) {
   tisheetsContent.addEventListener("keyup", saveSheet, false);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
