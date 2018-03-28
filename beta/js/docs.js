@@ -91,7 +91,7 @@ function encrypt (msg, pass) {
   
   var key = CryptoJS.PBKDF2(pass, salt, {
       keySize: 1024/32,
-      iterations: iterations
+      iterations: 4
     });
 
   var iv = CryptoJS.lib.WordArray.random(128/8);
@@ -114,7 +114,7 @@ function decrypt (transitmessage, pass) {
   
   var key = CryptoJS.PBKDF2(pass, salt, {
       keySize: 1024/32,
-      iterations: iterations
+      iterations: 4
     });
 
   var decrypted = CryptoJS.AES.decrypt(encrypted, key, { 
