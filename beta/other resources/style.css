@@ -4,6 +4,11 @@ textarea {
   outline: 0;
 }
 
+table, th, td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
 .nobullet {
   list-style: none;
 }
