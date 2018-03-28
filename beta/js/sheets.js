@@ -102,9 +102,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
           window.location.href = 'index.html?app=7';
           alert("Access Denied! Get TIed!")
         }
-        window.onerror = function(message, source, lineno, colno, error) {
-        alert(error + " " + source + " " + lineno + " " + colno + " " + message)
-        }
+        alert(CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8))
         document.getElementById('tisheets-table').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
         window.edit = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
       });
