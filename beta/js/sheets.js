@@ -97,14 +97,14 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
     var urlRef = window.dbRef.child(getQueryVariable("t"));
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
+        var valsheet = child.val();
         localStorage.owner = child.key;
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = 'index.html?app=7';
           alert("Access Denied! Get TIed!")
         }
-        alert(CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8))
-        document.getElementById('tisheets-table').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-        window.edit = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+        document.getElementById('tisheets-table').innerHTML = CryptoJS.AES.decrypt(valsheet, localStorage.password).toString(CryptoJS.enc.Utf8);
+        window.edit = CryptoJS.AES.decrypt(valsheet, localStorage.password).toString(CryptoJS.enc.Utf8);
       });
     });
     document.getElementById('tisheets-table').setAttribute("contenteditable", false);
