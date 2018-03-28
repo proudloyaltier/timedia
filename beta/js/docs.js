@@ -3,9 +3,9 @@ function saveDoc() {
     var tidocssave = generateRandString();
 
     var plaintext = document.getElementById("tidocsContent").innerHTML;
-    var tosave = JSON.stringify(CryptoJS.AES.encrypt(plaintext, localStorage.password));
+    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password);
 
-    storeInDatabase(tidocssave, document.getElementById("tidocsContent").innerHTML)
+    storeInDatabase(tidocssave, tosave);
     localStorage.tidocssave = tidocssave;
     var urlRef = window.dbRef.child(tidocssave);
     urlRef.on("value", function(snapshot) {
@@ -19,9 +19,9 @@ function saveDoc() {
     localStorage.workToSave = url;
   } else {
     var plaintext = document.getElementById("tidocsContent").innerHTML;
-    var tosave = JSON.stringify(CryptoJS.AES.encrypt(plaintext, localStorage.password));
+    var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password);
 
-    window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(dtosave);
+    window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(tosave);
     var tidocssave = localStorage.tidocssave;
   }
 }
@@ -44,7 +44,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem('edit');
-    throw new Error("Opened edit.");
+    break;
   }
 
   document.getElementById('create').remove();
@@ -52,6 +52,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   document.getElementById('tidocs-edit').style.display = "block";
   document.getElementById('tidocs-reader').style.display = "block";
   var urlRef = window.dbRef.child(getQueryVariable("p"));
+  
   urlRef.on("value", function(snapshot) {
     snapshot.forEach(function(child) {
       localStorage.owner = child.key;
@@ -59,7 +60,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
         window.location.href = 'index.html?app=7';
         alert("You do not have access to this document.");
       }
-      document.getElementById('view').innerHTML = JSON.parse(CryptoJS.AES.decrypt(child.val(), localStorage.password)).toString(CryptoJS.enc.Utf8);
+      document.getElementById('view').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
       window.edit = document.getElementById('view').innerHTML;
     });
   });
