@@ -60,7 +60,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
         alert("You do not have access to this document.");
       }
       document.getElementById('view').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-      window.edit = document.getElementById('view').innerHTML;
+      window.edit = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
     });
   });
  }
