@@ -1,4 +1,4 @@
-var tisheetsContent = document.getElementById("tisheets-table").innerHTML;
+// var tisheetsContent = document.getElementById("tisheets-table").innerHTML;
 
 function newTh(place) {
   var newTh = document.createElement('th');
@@ -74,6 +74,7 @@ function saveSheet() {
   }
 }
 
+var tisheetsContentClass = document.getElementById('tisheetsContentClass')[0]
 if ("addEventListener" in tisheetsContentClass) {
   tisheetsContentClass.addEventListener("keyup", saveSheet, false);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
