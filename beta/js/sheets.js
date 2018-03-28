@@ -1,6 +1,6 @@
 if (getQueryVariable('app') == '4') {
   window.onerror = function(message, source, lineno, colno, error) {
-    alert(error + " " + source + " " + "lineno" + " " + colno + "" + message)
+    alert(error + " " + source + " " + lineno + " " + colno + " " + message)
   }
 }
 
