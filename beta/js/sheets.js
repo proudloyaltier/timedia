@@ -1,7 +1,7 @@
 function newTh(place) {
   var newTh = document.createElement('th');
   place.appendChild(newTh);
-  newTh.innerHTML = 'value';
+  newTh.innerHTML = ' ';
 }
 
 function newRow() {
