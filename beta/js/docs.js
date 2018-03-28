@@ -1,6 +1,10 @@
 function saveDoc() {
 if (localStorage.tidocssave == undefined) {
-  var tidocssave = generateRandString()
+  var tidocssave = generateRandString();
+  
+  var plaintext = document.getElementsById("tidocs-content").innerHTML;
+  var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password);
+  
   storeInDatabase(tidocssave, document.getElementsByTagName('h5')[0].innerHTML)
   localStorage.tidocssave = tidocssave;
   var urlRef = window.dbRef.child(tidocssave);
@@ -31,7 +35,6 @@ if ("addEventListener" in tidocsContent) {
   }
 }
 
-
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
@@ -51,10 +54,10 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     localStorage.owner = child.key;
     if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
       window.location.href = 'index.html?app=7';
-      alert("Access Denied! Get TIed!")
+      alert("You do not have access to this document.");
     }
-    document.getElementById('view').innerHTML = child.val();
-    window.edit =  document.getElementById('view').innerHTML
+      document.getElementById('view').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+      window.edit =  document.getElementById('view').innerHTML;
     });
   });
 }
