@@ -67,7 +67,7 @@ function saveSheet() {
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
-    window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(tosave);
+    window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(tosave);
     var tisheetssave = localStorage.tisheetssave;
   }
 }
