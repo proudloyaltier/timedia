@@ -37,8 +37,7 @@
   </head>
 
   <body id="body" class="task" onload="hideTimer()">
-    <div id="timedia-nav-bar">
-      <nav class="navbar navbar-inverse fixed-top" id="navbar">
+      <nav class="navbar navbar-inverse" id="timedia-nav-bar">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tiBar">
@@ -81,7 +80,6 @@
           </div>
         </div>
       </nav>
-    </div>
     <div class="container">
       <div id="home">
         <center>
@@ -101,18 +99,14 @@
               s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%241cBPdywnZwFwXIAZ07xVL%2F" + "&opts=16862&num=10&ts=1515095798819");
               if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
             })(); /*-->*/
-
           </script>
       </div>
       </center>
       <div style="display: none;" id="messages">
-        <h3>TiChat</h3><br> Username
-        <br>
-
+        <h3>TiChat</h3><br> Username<br>
+        <input id="chat" class="form-control" autofocus><br>
+        <button id="joinChatBtn" onclick="joinChat()" class="btn btn-primary">Chat With User</button>
       </div>
-
-      <input id="chat" class="form-control" style="display: none;" autofocus><br>
-      <button id="joinChatBtn" onclick="joinChat()" class="btn btn-primary" style="display: none;">Chat With User</button>
       <div style="display: none" id="tiritype">
         <center>
           <h1 id="tiri"></h1><br>
