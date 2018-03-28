@@ -1,3 +1,9 @@
+if (getQueryVariable('app') == '4') {
+  window.onerror = function(msg) {
+    alert(msg)
+  }
+}
+
 function newTh(place) {
   var newTh = document.createElement('th');
   place.appendChild(newTh);
