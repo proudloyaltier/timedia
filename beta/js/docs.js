@@ -61,13 +61,13 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
       }
       document.getElementById('view').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
       window.edit = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+      localStorage.tidocssave = getQueryVariable("p");
     });
   });
  }
 }
 
 function editDoc() {
-  localStorage.tidocssave = getQueryVariable("p");
   localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
 }
