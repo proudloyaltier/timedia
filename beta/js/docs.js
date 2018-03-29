@@ -80,7 +80,7 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-window.onload += function() {
+function resetDocEdit() {
   if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem('tidocssave');
   }
