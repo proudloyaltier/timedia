@@ -69,7 +69,9 @@ function editDoc() {
  localStorage.editAutoSave = window.edit;
  localStorage.setItem('tidocssave', getQueryVariable("p"));
  localStorage.edit = window.edit;
+ if (localStorage.editAutoSave !== undefined) {
  window.location.href = "index.html?app=3";
+ }
 }
 
 function docReader() {
