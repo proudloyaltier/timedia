@@ -32,6 +32,7 @@ function saveDoc() {
 var tidocsContent = document.getElementById("tidocsContent");
 
 if ("addEventListener" in tidocsContent) {
+   alert(localStorage.tidocssave)
    tidocsContent.addEventListener("keyup", saveDoc, false);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
@@ -69,7 +70,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
- localStorage.tidocssave = getQueryVariable("p");
+ localStorage.setItem('tidocssave', getQueryVariable("p"));
  localStorage.edit = window.edit;
  window.location.href = "index.html?app=3";
  localStorage.editAutoSave = localStorage.edit;
