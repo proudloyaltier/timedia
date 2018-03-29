@@ -80,8 +80,8 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-if (getQueryVariable("app") !== "3") {
+window.addEventListener('DOMContentLoaded', function() {
   if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem('tidocssave');
   }
-}
+}, false);
