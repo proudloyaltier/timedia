@@ -1,5 +1,6 @@
 function saveDoc() {
   if (localStorage.tidocssave == undefined) {
+    alert('create')
     var tidocssave = generateRandString();
 
     var plaintext = document.getElementById("tidocsContent").innerHTML;
@@ -18,6 +19,7 @@ function saveDoc() {
     localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
     localStorage.workToSave = url;
   } else {
+    alert('edit')
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
@@ -29,8 +31,7 @@ function saveDoc() {
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0];
 
 if ("addEventListener" in tidocsContent) {
-  alert(localStorage.tidocssave)
-  tidocsContent.addEventListener("keyup", saveDoc, false);
+   tidocsContent.addEventListener("keyup", saveDoc, false);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
     if (localStorage.editAutoSave !== undefined) {
