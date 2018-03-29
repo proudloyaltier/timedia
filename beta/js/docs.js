@@ -30,12 +30,12 @@ function saveDoc() {
 var tidocsContent = document.getElementById("tidocsContent");
 
 if ("addEventListener" in tidocsContent) {
-   tidocsContent.addEventListener("keyup", saveDoc, false);
-  if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
-    localStorage.autosaved = true;
     if (localStorage.editAutoSave !== undefined) {
-      localStorage.removeItem('editAutoSave');
+     localStorage.removeItem('editAutoSave');
     }
+   tidocsContent.addEventListener("keyup", saveDoc, false);
+  if (localStorage.autosaved == undefined) {
+    localStorage.autosaved = true;
   }
 }
 
