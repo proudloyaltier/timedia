@@ -29,6 +29,7 @@ function saveDoc() {
 var tidocsContent = document.getElementsByClassName("tidocsContent")[0];
 
 if ("addEventListener" in tidocsContent) {
+  alert(localStorage.tidocssave)
   tidocsContent.addEventListener("keyup", saveDoc, false);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
