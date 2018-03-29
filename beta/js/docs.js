@@ -4,7 +4,7 @@ function saveDoc() {
     alert(tidocssave)
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
-    window.dbRef.child(tidocssave).child(localStorage.name).set(tosave);
+    firebase.database().ref(tidocssave).child(localStorage.name).set(tosave);
     var urlRef = window.dbRef.child(tidocssave);
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
