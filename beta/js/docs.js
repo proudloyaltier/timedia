@@ -41,6 +41,7 @@ if ("addEventListener" in tidocsContent) {
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
+    localStorage.editAutoSave = localStorage.edit;
     document.getElementById('docsTitle').remove();
     document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.removeItem('edit');
@@ -67,7 +68,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
- localStorage.editAutoSave = window.edit;
  if (getQueryVariable('p') !== localStorage.tidocssave) {
    localStorage.removeItem('tidocssave')
  }
