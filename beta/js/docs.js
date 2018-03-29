@@ -1,5 +1,5 @@
 function saveDoc() {
-  if (localStorage.tidocssave == undefined) {
+  if (!localStorage.tidocssave) {
     alert('create')
     var tidocssave = generateRandString();
 
