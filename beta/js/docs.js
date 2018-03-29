@@ -4,7 +4,8 @@ function saveDoc() {
     alert(tidocssave)
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
-    firebase.database().ref(tidocssave).child(localStorage.name).set(tosave);
+    localStorage.tidocssave = tosave;
+    firebase.database().ref("docs").child(tidocssave).child(localStorage.name).set(tosave);
     var urlRef = window.dbRef.child(tidocssave);
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
@@ -18,8 +19,7 @@ function saveDoc() {
   } else {
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
-
-    window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(tosave);
+    firebase.database().ref("docs").child(localStorage.tidocssave).child(localStorage.owner).set(tosave);
     var tidocssave = localStorage.tidocssave;
   }
 }
@@ -48,7 +48,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   document.getElementById('view').style.display = "block";
   document.getElementById('tidocs-edit').style.display = "block";
   document.getElementById('tidocs-reader').style.display = "block";
-  var urlRef = window.dbRef.child(getQueryVariable("p"));
+  var urlRef = window.dbRef.child("docs").child(getQueryVariable("p"));
   
   urlRef.on("value", function(snapshot) {
     snapshot.forEach(function(child) {
