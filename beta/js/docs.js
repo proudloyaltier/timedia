@@ -1,5 +1,5 @@
 function saveDoc() {
-  if (localStorage.tidocssave == undefined) {
+  if (localStorage.tidocssave == undefined && localStorage.editAutoSave == undefined) {
     var tidocssave = generateRandString();
 
     var plaintext = document.getElementById("tidocsContent").innerHTML;
