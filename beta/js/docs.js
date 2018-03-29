@@ -1,7 +1,6 @@
 function saveDoc() {
   if (localStorage.tidocssave == undefined) {
     alert('create')
-    alert(localStorage.tidocssave)
     var tidocssave = generateRandString();
 
     var plaintext = document.getElementById("tidocsContent").innerHTML;
@@ -72,8 +71,8 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 function editDoc() {
  localStorage.setItem('tidocssave', getQueryVariable("p"));
  localStorage.edit = window.edit;
- window.location.href = "index.html?app=3";
  localStorage.editAutoSave = localStorage.edit;
+ window.location.href = "index.html?app=3";
 }
 
 function docReader() {
