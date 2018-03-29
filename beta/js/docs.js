@@ -6,16 +6,16 @@ function saveDoc() {
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
     localStorage.tidocssave = tosave;
     firebase.database().ref("docs").child(tidocssave).child(localStorage.name).set(tosave);
+    var url = "index.html?app=3" + '&p=' + tidocssave;
+    localStorage.recentUrl = url;
+    localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
+    localStorage.workToSave = url;
     var urlRef = window.dbRef.child(tidocssave);
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
         localStorage.owner = child.key;
       });
     });
-    var url = "index.html?app=3" + '&p=' + tidocssave;
-    localStorage.recentUrl = url;
-    localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
-    localStorage.workToSave = url;
   } else {
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
