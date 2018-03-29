@@ -6,9 +6,7 @@ function saveDoc() {
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
     storeInDatabase(tidocssave, tosave);
-    if (tidocssave !== localStorage.tidocssave) {
-      localStorage.removeItem('tidocssave');
-    }
+    localStorage.removeItem('tidocssave');
     localStorage.tidocssave = tidocssave;
     var urlRef = window.dbRef.child(tidocssave);
     urlRef.on("value", function(snapshot) {
