@@ -29,7 +29,7 @@ function saveDoc() {
   }
 }
 
-var tidocsContent = document.getElementsByClassName("tidocsContent")[0];
+var tidocsContent = document.getElementById("tidocsContent");
 
 if ("addEventListener" in tidocsContent) {
    tidocsContent.addEventListener("keyup", saveDoc, false);
