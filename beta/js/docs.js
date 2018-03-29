@@ -82,6 +82,7 @@ function docReader() {
 
 function onloadIndex() {
   if (localStorage.editAutoSave == undefined && localStorage.edit == undefined) {
+    alert('DE!ETE THE DOC')
     localStorage.removeItem('tidocssave');
   }
   hideTimer();
