@@ -14,7 +14,7 @@ if (localStorage.tidocssave == undefined) {
   localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
   localStorage.workToSave = url;
 } else {
-  window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById('tidocsContent').innerHTML, localStorage.password) + "";);
+  window.dbRef.child(localStorage.tidocssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById('tidocsContent').innerHTML, localStorage.password) + "");
   var tidocssave = localStorage.tidocssave
  }
 }
