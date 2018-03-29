@@ -81,7 +81,7 @@ function docReader() {
 }
 
 window.onload += function() {
-  if (localStorage.editAutoSave == undefined && localStorage.edit == undefined) {
+  if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem('tidocssave');
   }
 }
