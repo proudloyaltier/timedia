@@ -1,6 +1,5 @@
 function saveDoc() {
-  if (localStorage.tidocssave == undefined) {
-    alert('create')
+  if (localStorage.tidocssave == undefined || localStorage.editAutoSave == undefined) {
     var tidocssave = generateRandString();
 
     var plaintext = document.getElementById("tidocsContent").innerHTML;
@@ -19,7 +18,6 @@ function saveDoc() {
     localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
     localStorage.workToSave = url;
   } else {
-    alert('edit')
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
