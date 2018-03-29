@@ -30,7 +30,6 @@ var tidocsContent = document.getElementById("tidocsContent");
 
 if ("addEventListener" in tidocsContent) {
    tidocsContent.addEventListener("keyup", saveDoc, false);
-   alert(localStorage.tidocssave);
   if (localStorage.autosaved == undefined || localStorage.editAutoSave !== undefined) {
     localStorage.autosaved = true;
     if (localStorage.editAutoSave !== undefined) {
