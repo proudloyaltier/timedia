@@ -6,6 +6,9 @@ function saveDoc() {
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
     storeInDatabase(tidocssave, tosave);
+    if (tidocssave !== localStorage.tidocssave) {
+      localStorage.removeItem('tidocssave');
+    }
     localStorage.tidocssave = tidocssave;
     var urlRef = window.dbRef.child(tidocssave);
     urlRef.on("value", function(snapshot) {
@@ -18,6 +21,9 @@ function saveDoc() {
     localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
     localStorage.workToSave = url;
   } else {
+    if (tidocssave !== localStorage.tidocssave) {
+      localStorage.removeItem('tidocssave');
+    }
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
 
@@ -69,9 +75,7 @@ function editDoc() {
  localStorage.editAutoSave = window.edit;
  localStorage.setItem('tidocssave', getQueryVariable("p"));
  localStorage.edit = window.edit;
- if (localStorage.editAutoSave !== undefined) {
  window.location.href = "index.html?app=3";
- }
 }
 
 function docReader() {
@@ -81,10 +85,10 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-function onloadIndex() {
+/*function onloadIndex() {
   if (localStorage.editAutoSave == undefined && localStorage.edit == undefined) {
     alert('DELETE THE DOC')
     localStorage.removeItem('tidocssave');
   }
   hideTimer();
-}
+}*/
