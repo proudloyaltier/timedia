@@ -1,7 +1,6 @@
 function saveDoc() {
   if (localStorage.tidocssave == undefined && localStorage.editAutoSave == undefined) {
     var tidocssave = generateRandString();
-    alert(tidocssave)
     var plaintext = document.getElementById("tidocsContent").innerHTML;
     var tosave = CryptoJS.AES.encrypt(plaintext, localStorage.password) + "";
     localStorage.tidocssave = tosave;
