@@ -35,7 +35,7 @@ if ("addEventListener" in tidocsContent) {
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
-    document.getElementById('tidocsContent').innerHTMLL = localStorage.edit;
+    document.getElementById('tidocsContent').innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem('edit');
     throw new Error("Opened edit.");
