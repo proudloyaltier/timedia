@@ -101,7 +101,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
         localStorage.owner = child.key;
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = 'index.html?app=7';
-          alert("Access Denied! Get TIed!")
+          alert("You do mot have access to this spreadsheet.")
         }
         document.getElementById('tisheets-table').innerHTML = valsheet
         window.edit = valsheet
