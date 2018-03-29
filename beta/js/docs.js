@@ -69,6 +69,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
+ localStorage.removeItem('tidocssave')
  localStorage.setItem('tidocssave', getQueryVariable("p"));
  localStorage.edit = window.edit;
  localStorage.editAutoSave = localStorage.edit;
