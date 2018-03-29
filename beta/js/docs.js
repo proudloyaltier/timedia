@@ -1,5 +1,5 @@
 function saveDoc() {
-  if (localStorage.tidocssave == undefined || localStorage.editAutoSave == undefined) {
+  if (localStorage.tidocssave == undefined) {
     var tidocssave = generateRandString();
 
     var plaintext = document.getElementById("tidocsContent").innerHTML;
@@ -67,7 +67,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
- localStorage.removeItem('tidocssave')
  localStorage.setItem('tidocssave', getQueryVariable("p"));
  localStorage.edit = window.edit;
  localStorage.editAutoSave = localStorage.edit;
@@ -81,8 +80,8 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-/*window.addEventListener('DOMContentLoaded', function() {
+window.onload += function() {
   if (localStorage.editAutoSave == undefined && localStorage.edit == undefined) {
     localStorage.removeItem('tidocssave');
   }
-}, false);*/
+}
