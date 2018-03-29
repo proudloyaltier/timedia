@@ -45,7 +45,7 @@ function pickRandomFromColumn(column) {
 function saveSheet() {
 	if (localStorage.tisheetssave == undefined) {
   	var tisheetssave = generateRandString()
-  	storeInDatabase(tisheetssave, CryptoJS.AES.encrypt(document.getElementById('tisheets-table').innerHTML, localStorage.password) + ""))
+  	storeInDatabase(tisheetssave, CryptoJS.AES.encrypt(document.getElementById('tisheets-table').innerHTML, localStorage.password) + "")
 	localStorage.tisheetssave = tisheetssave;
         var urlRef = window.dbRef.child(tisheetssave);
         urlRef.on("value", function(snapshot) {
@@ -58,7 +58,7 @@ function saveSheet() {
 	localStorage.workToSaveTitle = document.getElementById('sheetsTitle').value;
 	localStorage.recentUrl = url;
 	} else {
-         window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById('tisheets-table').innerHTML, localStorage.password) + "")); 
+         window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById('tisheets-table').innerHTML, localStorage.password) + ""); 
          var tisheetssave = localStorage.tisheetssave
 	 }
 	}
