@@ -10,6 +10,7 @@ table, th, td {
 }
 
 .formatting-button {
+  !important
   float: left;
   border-radius: 0px;
   box-shadow: none;
