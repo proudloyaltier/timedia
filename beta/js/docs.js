@@ -79,8 +79,8 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+/*window.addEventListener('DOMContentLoaded', function() {
   if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem('tidocssave');
   }
-}, false);
+}, false);*/
