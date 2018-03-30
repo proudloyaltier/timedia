@@ -269,7 +269,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       user.providerData.forEach(function (profile) {
          if (user.photoURL == null) {
           user.updateProfile({
-          photoURL: MD5(document.getElementById('login-password').value);
+          photoURL: MD5(document.getElementById('login-password').value)
           }).then(function() {
           localStorage.setItem("password", user.photoURL)
           });
