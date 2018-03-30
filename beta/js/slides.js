@@ -101,7 +101,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
   var tislidessave = generateRandString()
-  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideContainer.innerHTML, localStorage.password) + "")
+  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(btoa(JSON.stringify(slideshow)), localStorage.password) + "")
   localStorage.tislides = tislidessave;
   var urlRef = window.dbRef.child(tislidessave);
   urlRef.on("value", function(snapshot) {
@@ -114,10 +114,9 @@ function saveSlide() {
   localStorage.workToSaveTitle = "Slides!" //document.getElementById('slidesTitle').value;
   localStorage.workToSave = url;
 } else {
-  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideContainer, localStorage.password) + "");
+  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(btoa(JSON.stringify(slideshow)), localStorage.password) + "");
   var tislidessave = localStorage.tislidessave
   }
- }
 }
 
 function updateSlide() {
@@ -133,7 +132,7 @@ function nextSlide() {
 }
 
 function exportSlide() {
-  prompt("Copy", btoa(JSON.stringify(slideshow)));
+  prompt("Copy", );
 }
 
 function importSlide() {
