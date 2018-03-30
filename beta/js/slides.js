@@ -169,3 +169,5 @@ if (getQueryVariable("s") !== false) {
     });
   });
 }
+
+window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false){localStorage.removeItem('tislidessave');}}, false);
