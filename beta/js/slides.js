@@ -3,8 +3,6 @@ var slideshow = ["<br><br><br><br><br><br><br><br>"];
 var current_slide = 0;
 
 var slide_text = document.querySelector("#currentSlide");
-var slide = document.querySelector("#slide");
-
 var slideContainer = document.querySelector('#slide');
 
 function stopDrag() {
@@ -100,7 +98,26 @@ function previousSlide() {
 }
 
 function saveSlide() {
-  slideshow[current_slide] = slide.innerHTML;
+  slideshow[current_slide] = slideContainer.innerHTML;
+  if (localStorage.tislidessave == undefined) {
+  var tislidessave = generateRandString()
+  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideContainer.innerHTML, localStorage.password) + "")
+  localStorage.tislides = tislidessave;
+  var urlRef = window.dbRef.child(tislidessave);
+  urlRef.on("value", function(snapshot) {
+  snapshot.forEach(function(child) {
+  localStorage.owner = child.key;
+  });
+ });
+  var url = "index.html?app=3"+ '&s=' + tislidessave;
+  localStorage.recentUrl = url;
+  localStorage.workToSaveTitle = "Slides!" //document.getElementById('slidesTitle').value;
+  localStorage.workToSave = url;
+} else {
+  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideContainer, localStorage.password) + "");
+  var tislidessave = localStorage.tislidessave
+  }
+ }
 }
 
 function updateSlide() {
