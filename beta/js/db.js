@@ -267,9 +267,17 @@ if (localStorage.name == undefined) {
 firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
-         localStorage.setItem("password", MD5(document.getElementById('login-password').value));
          localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
          localStorage.setItem("access", btoa(localStorage.name));
+         if (user.photoURL == null) {
+          user.updateProfile({
+          photoURL: MD5(document.getElementById('login-password').value);
+          }).then(function() {
+          localStorage.setItem("password", user.photoURL)
+          });
+         } else {
+          localStorage.setItem("password", user.photoURL)
+         }
          location.href = 'index.html';
       });
    }
