@@ -267,8 +267,6 @@ if (localStorage.name == undefined) {
 firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
-         localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
-         localStorage.setItem("access", btoa(localStorage.name));
          if (user.photoURL == null) {
           user.updateProfile({
           photoURL: MD5(document.getElementById('login-password').value);
@@ -278,6 +276,8 @@ firebase.auth().onAuthStateChanged(function (user) {
          } else {
           localStorage.setItem("password", user.photoURL)
          }
+         localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
+         localStorage.setItem("access", btoa(localStorage.name));
          location.href = 'index.html';
       });
    }
