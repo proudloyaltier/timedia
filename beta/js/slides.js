@@ -165,7 +165,7 @@ if (getQueryVariable("s") !== false) {
       alert("Access Denied! Get TIed!")
     }
     document.getElementById('slide').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-    throw new Error "TI"
+    throw "TI"
     });
   });
 }
