@@ -165,7 +165,7 @@ if (getQueryVariable("s") !== false) {
       window.location.href = 'index.html?app=7';
       alert("Access Denied! Get TIed!")
     }
-    document.getElementById('slide').innerHTML = CryptoJS.AES.decrypt(JSON.parse(atob(child.val())), localStorage.password).toString(CryptoJS.enc.Utf8);
+    document.getElementById('slide').innerHTML = CryptoJS.AES.decrypt(child.val()), localStorage.password).toString(CryptoJS.enc.Utf8);
     });
   });
 }
