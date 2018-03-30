@@ -160,6 +160,7 @@ if (getQueryVariable("s") !== false) {
       window.location.href = 'index.html?app=7';
       alert("Access Denied! Get TIed!")
     }
+    localStorage.tislidessave = getQueryVariable("s");
     document.getElementById('slide').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
     throw "TI"
     });
