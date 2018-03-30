@@ -12,7 +12,9 @@ function getQueryVariable(variable)
 }
 
 function changeName() {
-       firebase.auth().currentUser.updateProfile({displayName: localStorage.getItem('name')});
+       if (firebase.auth().currentUser.displayName != localStorage.getItem('name')) {
+              firebase.auth().currentUser.updateProfile({displayName: localStorage.getItem('name')});
+       }
 }
   
 Element.prototype.remove = function() {
