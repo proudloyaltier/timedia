@@ -109,7 +109,7 @@ function saveSlide() {
   localStorage.owner = child.key;
   });
  });
-  var url = "index.html?app=3"+ '&s=' + tislidessave;
+  var url = "index.html?app=12"+ '&s=' + tislidessave;
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = "Slides!" //document.getElementById('slidesTitle').value;
   localStorage.workToSave = url;
