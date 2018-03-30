@@ -38,8 +38,16 @@ function beginDrag(element) {
     text.onmousedown = function() {beginDrag(this);};
     slideContainer.appendChild(text);
   }
-  
-  
+
+  function addSubtitle() {
+    var text = document.createElement('h5');
+    text.innerHTML = 'New Subtitle';
+    text.contentEditable = 'true';
+    text.style = 'position: absolute; margin: 0px; color: gray;';
+    text.onmousedown = function() {beginDrag(this);};
+    slideContainer.appendChild(text);
+  }
+
 function addText() {
   var text = document.createElement('p');
   text.innerHTML = "Click to enter text";
