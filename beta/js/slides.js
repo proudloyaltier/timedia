@@ -131,10 +131,6 @@ function nextSlide() {
   }
 }
 
-function exportSlide() {
-  prompt("Copy", );
-}
-
 function importSlide() {
   var slide_code = prompt("Paste Slide");
 
