@@ -114,7 +114,8 @@ function saveSlide() {
   localStorage.workToSaveTitle = "Slides" //document.getElementById('slidesTitle').value;
   localStorage.workToSave = url;
 } else {
-  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(btoa(JSON.stringify(slideshow)), localStorage.password) + "");
+  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(btoa(JSON.stringify(document.getElementById('slide').innerHTML
+)), localStorage.password) + "");
   var tislidessave = localStorage.tislidessave
   }
 }
