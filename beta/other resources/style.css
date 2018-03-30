@@ -25,6 +25,25 @@ img {
   filter: none;
 }
 
+/* iChat styles */
+.iChat-highlight {
+  color: #000;
+}
+
+.iChat-messages {
+  overflow: auto;
+  width: 75%;
+  height: 50vh;
+}
+
+.iChat-message {
+  text-align: left;
+}
+
+.iChat-username, .iChat-timestamp {
+  font-weight: bold;
+}
+
 /*!
  * bootswatch v3.3.7
  * Homepage: http://bootswatch.com
