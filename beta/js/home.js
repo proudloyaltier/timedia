@@ -99,7 +99,7 @@ var comment = document.getElementById('iChat-input').value;
 
 if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
        setInterval(checkCasioer, 0);
-       setInterval(changeName, 0);
+       setInterval(changeName, 500);
 }
 
 function customImageUpload() {
