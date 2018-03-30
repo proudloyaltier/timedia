@@ -12,8 +12,7 @@ function getQueryVariable(variable)
 }
 
 function changeName() {
-       document.getElementById('hcb_form_name').value = localStorage.name;
-       document.getElementById('hcb_form_name').disabled = true;   
+       firebase.auth().currentUser.updateProfile({displayName: localStorage.getItem('name')});
 }
   
 Element.prototype.remove = function() {
@@ -89,15 +88,8 @@ if (getQueryVariable("app") == 12) {
   window.location.href = "login.html";
 }
 
-function checkMute() {
-if (mutedusers.includes(localStorage.name.toLowerCase())) {
-  document.getElementById('HCB_comment_form_box').remove();
-  document.getElementById('mutemessage').innerHTML = "You are muted! You cannot post comments.";
- }
-}
-
 function checkCasioer() {
-var comment = document.getElementById('hcb_form_content').value;
+var comment = document.getElementById('iChat-input').value;
  if (comment.toLowerCase().includes("casio")) {
   alert("Don't say Casio! Your comment has been deleted!");
   comment.value = "";
@@ -106,7 +98,6 @@ var comment = document.getElementById('hcb_form_content').value;
 }
 
 if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
-       setInterval(checkMute, 0);
        setInterval(checkCasioer, 0);
        setInterval(changeName, 0);
 }
