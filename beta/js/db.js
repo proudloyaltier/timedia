@@ -268,17 +268,20 @@ firebase.auth().onAuthStateChanged(function (user) {
    if (user) {
       user.providerData.forEach(function (profile) {
          if (user.photoURL == null) {
+          localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
+          localStorage.setItem("access", btoa(localStorage.name));
           user.updateProfile({
           photoURL: MD5(document.getElementById('login-password').value)
           }).then(function() {
           localStorage.setItem("password", user.photoURL)
+          location.href = 'index.html';
           });
          } else {
+          localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
+          localStorage.setItem("access", btoa(localStorage.name));
           localStorage.setItem("password", user.photoURL)
+          location.href = 'index.html';
          }
-         localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
-         localStorage.setItem("access", btoa(localStorage.name));
-         location.href = 'index.html';
       });
    }
  });
