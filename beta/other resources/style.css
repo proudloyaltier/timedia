@@ -9,6 +9,10 @@ table, th, td {
   border-collapse: collapse;
 }
 
+.iChat-highlight {
+  background-color: #ff0000
+}
+
 .formatting-button {
   !important
   float: left;
