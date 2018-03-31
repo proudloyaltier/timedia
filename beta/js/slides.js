@@ -167,11 +167,11 @@ if (getQueryVariable("s") !== false) {
       alert("Access Denied! Get TIed!")
     }
     localStorage.tislidessave = getQueryVariable("s");
-    var slideLoad = JSON.parse(atob(CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8)));
-    alert(slideLoad)
+    var slideshow = JSON.parse(atob(CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8)));
+    alert(slideshow)
     updateSlide();
     });
   });
 }
 
-/*window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false || ){localStorage.removeItem('tislidessave'); localStorage.removeItem('slideshow'); sessionStorage.removeItem('slideLoad');}}, false);*/
+window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false || ){localStorage.removeItem('tislidessave'); localStorage.removeItem('slideshow'); sessionStorage.removeItem('slideLoad');}}, false);
