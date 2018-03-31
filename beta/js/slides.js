@@ -167,7 +167,7 @@ if (getQueryVariable("s") !== false) {
       alert("Access Denied! Get TIed!")
     }
     localStorage.tislidessave = getQueryVariable("s");
-    var slideLoad = CryptoJS.AES.decrypt(atob(JSON.parse(child.val())), localStorage.password).toString(CryptoJS.enc.Utf8);
+    var slideLoad = CryptoJS.AES.decrypt(JSON.parse(atob(child.val())), localStorage.password).toString(CryptoJS.enc.Utf8);
     alert(slideLoad)
     updateSlide();
     });
