@@ -167,8 +167,8 @@ if (getQueryVariable("s") !== false) {
       alert("Access Denied! Get TIed!")
     }
     localStorage.tislidessave = getQueryVariable("s");
-    localStorage.setItem("slideshow", CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8));
-    alert(localStorage.slideshow)
+    var slideLoad = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8));
+    alert(slideLoad)
     updateSlide();
     });
   });
