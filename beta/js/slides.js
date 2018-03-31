@@ -161,7 +161,7 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
       alert("Access Denied! Get TIed!")
     }
     localStorage.tislidessave = getQueryVariable("s");
-    sessionStorage.slideLoad == "loaded"
+    sessionStorage.slideLoad = "loaded"
     document.getElementById('slide').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
     throw "TI"
     });
