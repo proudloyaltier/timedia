@@ -174,4 +174,4 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
   });
 }
 
-window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false){localStorage.removeItem('tislidessave');}}, false);
+window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false){localStorage.removeItem('tislidessave'); sessionStorage.removeItem('slideLoad');}}, false);
