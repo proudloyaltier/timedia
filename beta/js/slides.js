@@ -1,4 +1,5 @@
 if (getQueryVariable("s") == false) {
+  alert(1)
   var slideshow = ["<br><br><br><br><br><br><br><br>"];
 }
 
