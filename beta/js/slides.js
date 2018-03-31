@@ -1,5 +1,4 @@
 if (getQueryVariable("s") == false) {
-  alert(1)
   var slideshow = ["<br><br><br><br><br><br><br><br>"];
 }
 
@@ -167,6 +166,7 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
     sessionStorage.slideLoad = "loaded"
     var decrypted = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
     var slideshow = JSON.parse(atob(decrypted));
+    alert(slideshow)
     updateSlide();
     throw "TI"
     });
