@@ -168,6 +168,7 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
     localStorage.tislidessave = getQueryVariable("s");
     sessionStorage.slideLoad = "loaded"
     localStorage.slideshow = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+    alert(localStorage.slideshow)
     updateSlide();
     });
   });
