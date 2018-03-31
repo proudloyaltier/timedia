@@ -1,4 +1,4 @@
-if (getQueryVariable("s") == false) {
+if (getQueryVariable("s") == false || localStorage.slideshow == undefined) {
   var slideshow = ["<br><br><br><br><br><br><br><br>"];
 }
 
@@ -173,4 +173,4 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
   });
 }
 
-window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false){localStorage.removeItem('tislidessave'); sessionStorage.removeItem('slideLoad');}}, false);
+window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false){localStorage.removeItem('tislidessave'); localStorage.removeItem('slideshow'); sessionStorage.removeItem('slideLoad');}}, false);
