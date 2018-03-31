@@ -103,7 +103,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
   var tislidessave = generateRandString()
-  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow, localStorage.password) + "");
+  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(btoa(JSON.stringify(slideshow)), localStorage.password) + "");
   localStorage.tislidessave = tislidessave;
   var urlRef = window.dbRef.child(tislidessave);
   urlRef.on("value", function(snapshot) {
@@ -116,7 +116,7 @@ function saveSlide() {
   localStorage.workToSaveTitle = "Slides" //document.getElementById('slidesTitle').value;
   localStorage.workToSave = url;
 } else {
-  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideshow, localStorage.password) + "");
+  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(btoa(JSON.stringify(slideshow)), localStorage.password) + "");
   var tislidessave = localStorage.tislidessave
   }
 }
@@ -167,7 +167,7 @@ if (getQueryVariable("s") !== false) {
       alert("Access Denied! Get TIed!")
     }
     localStorage.tislidessave = getQueryVariable("s");
-    var slideLoad = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+    var slideLoad = CryptoJS.AES.decrypt(atob(JSON.parse(child.val())), localStorage.password).toString(CryptoJS.enc.Utf8);
     alert(slideLoad)
     updateSlide();
     });
