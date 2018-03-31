@@ -1,5 +1,5 @@
 if (getQueryVariable("s") == false) {
-  localStorage.slideshow = ["<br><br><br><br><br><br><br><br>"];
+  var slideshow = ["<br><br><br><br><br><br><br><br>"];
 }
 
 var current_slide = 0;
@@ -71,7 +71,7 @@ function addImage(src) {
 }
 
 function addSlide() {
-  localStorage.slideshow.push(" <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+  slideshow.push(" <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
   current_slide = localStorage.slideshow.length - 1;
   updateSlide();
 }
@@ -83,8 +83,8 @@ function removeSlide() {
     if (remove == true) {
       slideshow.splice(current_slide, 1);
 
-      if (current_slide > localStorage.slideshow.length - 1) {
-        current_slide = localStorage.slideshow.length - 1;
+      if (current_slide > slideshow.length - 1) {
+        current_slide = slideshow.length - 1;
       }
 
       updateSlide();
@@ -100,7 +100,7 @@ function previousSlide() {
 }
 
 function saveSlide() {
-  localStorage.slideshow[current_slide] = slideContainer.innerHTML;
+  slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
   var tislidessave = generateRandString()
   storeInDatabase(tislidessave, CryptoJS.AES.encrypt(localStorage.slideshow, localStorage.password) + "");
@@ -122,13 +122,15 @@ function saveSlide() {
 }
 
 function updateSlide() {
-  alert(localStorage.slideshow)
+  if (localStorage.slideshow !== undefined) {
+    var slideshow = localStorage.slideshow;
+  }
   document.querySelector('#slide').innerHTML = localStorage.slideshow[current_slide];
   document.querySelector("#currentSlide").innerText = current_slide + 1;
 }
 
 function nextSlide() {
-  if (current_slide < localStorage.slideshow.length - 1) {
+  if (current_slide < slideshow.length - 1) {
     current_slide++;
     updateSlide();
   }
@@ -139,7 +141,7 @@ function importSlide() {
 
   localStorage.slideshow = JSON.parse(atob(slide_code));
   current_slide = 0;
-  slide.innerHTML = localStorage.slideshow[current_slide];
+  slide.innerHTML = slideshow[current_slide];
 }
 
 function stopPresentation() {
