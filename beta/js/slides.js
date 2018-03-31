@@ -1,4 +1,4 @@
-if (getQueryVariable("s") == false || localStorage.slideshow == undefined) {
+if (getQueryVariable("s") == false) {
   var slideshow = ["<br><br><br><br><br><br><br><br>"];
 }
 
@@ -103,7 +103,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
   var tislidessave = generateRandString()
-  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(localStorage.slideshow, localStorage.password) + "");
+  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow, localStorage.password) + "");
   localStorage.tislidessave = tislidessave;
   var urlRef = window.dbRef.child(tislidessave);
   urlRef.on("value", function(snapshot) {
@@ -116,7 +116,7 @@ function saveSlide() {
   localStorage.workToSaveTitle = "Slides" //document.getElementById('slidesTitle').value;
   localStorage.workToSave = url;
 } else {
-  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(localStorage.slideshow, localStorage.password) + "");
+  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideshow, localStorage.password) + "");
   var tislidessave = localStorage.tislidessave
   }
 }
