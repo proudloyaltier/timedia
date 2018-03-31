@@ -81,7 +81,7 @@ if (localStorage.access == btoa(localStorage.name)) {
     document.title = "TiSmile - TiMedia";
   }
        
-if (getQueryVariable("app") == 12) {
+if (getQueryVariable("app") == 9) {
    launchApp("tislides");
    document.title = "TiSlides - TiMedia";
  }
