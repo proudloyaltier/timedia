@@ -126,7 +126,7 @@ function updateSlide() {
     current_slide = 0;
     var slideshow = localStorage.slideshow;
   }
-  document.querySelector('#slide').innerHTML = slideshow[current_slide];
+  slide.innerHTML = slideshow[current_slide];
   document.querySelector("#currentSlide").innerText = current_slide + 1;
 }
 
