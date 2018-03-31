@@ -123,9 +123,10 @@ function saveSlide() {
 
 function updateSlide() {
   if (localStorage.slideshow !== undefined) {
+    alert(1)
     var slideshow = localStorage.slideshow;
   }
-  document.querySelector('#slide').innerHTML = localStorage.slideshow[current_slide];
+  document.querySelector('#slide').innerHTML = slideshow[current_slide];
   document.querySelector("#currentSlide").innerText = current_slide + 1;
 }
 
@@ -168,7 +169,6 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
     localStorage.tislidessave = getQueryVariable("s");
     sessionStorage.slideLoad = "loaded"
     localStorage.setItem("slideshow", CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8));
-    alert(child.val())
     updateSlide();
     });
   });
