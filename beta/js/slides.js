@@ -122,6 +122,7 @@ function saveSlide() {
 }
 
 function updateSlide() {
+  alert(localStorage.slideshow)
   document.querySelector('#slide').innerHTML = localStorage.slideshow[current_slide];
   document.querySelector("#currentSlide").innerText = current_slide + 1;
 }
