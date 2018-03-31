@@ -162,7 +162,7 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
     }
     localStorage.tislidessave = getQueryVariable("s");
     sessionStorage.slideLoad = "loaded"
-    slideshow = CryptoJS.AES.decrypt(atob(JSON.parse(child.val())), localStorage.password).toString(CryptoJS.enc.Utf8);
+    slideshow = JSON.parse(CryptoJS.AES.decrypt(atob(child.val()), localStorage.password).toString(CryptoJS.enc.Utf8));
     updateSlide();
     throw "TI"
     });
