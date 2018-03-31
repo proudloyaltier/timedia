@@ -72,7 +72,7 @@ function addImage(src) {
 
 function addSlide() {
   slideshow.push(" <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
-  current_slide = localStorage.slideshow.length - 1;
+  current_slide = slideshow.length - 1;
   updateSlide();
 }
 
