@@ -123,7 +123,7 @@ function saveSlide() {
 
 function updateSlide() {
   if (localStorage.slideshow !== undefined) {
-    alert(1)
+    current_slide = 0;
     var slideshow = localStorage.slideshow;
   }
   document.querySelector('#slide').innerHTML = slideshow[current_slide];
