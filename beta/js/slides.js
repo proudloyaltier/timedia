@@ -157,7 +157,7 @@ function presentSlide() {
   document.querySelector("#stopPresentation").style.display = "";
 }
 
-if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
+if (getQueryVariable("s") !== false) {
   var urlRef = window.dbRef.child(getQueryVariable("s"));
   urlRef.on("value", function(snapshot) {
   snapshot.forEach(function(child) {
@@ -167,8 +167,8 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
       alert("Access Denied! Get TIed!")
     }
     localStorage.tislidessave = getQueryVariable("s");
-    sessionStorage.slideLoad = "loaded"
     localStorage.setItem("slideshow", CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8));
+    alert(localStorage.slideshow)
     updateSlide();
     });
   });
