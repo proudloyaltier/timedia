@@ -167,7 +167,6 @@ if (getQueryVariable("s") !== false && sessionStorage.slideLoad !== "loaded") {
     var decrypted = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
     localStorage.slideshow = JSON.parse(atob(decrypted));
     updateSlide();
-    throw "TI"
     });
   });
 }
