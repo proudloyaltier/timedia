@@ -29,6 +29,8 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     }
 }
 
+document.getElementById('userdrop').innerHTML = localStorage.name;
+
 function launchApp(appname) {
   document.getElementById('home').remove();
 
