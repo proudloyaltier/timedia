@@ -103,7 +103,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
   var tislidessave = generateRandString()
-  storeInDatabase(tislidessave, CryptoJS.AES.encrypt(btoa(JSON.stringify(slideshow)), localStorage.password) + "");
+  storeInDatabase(tislidessave, slideshow);
   localStorage.tislidessave = tislidessave;
   var urlRef = window.dbRef.child(tislidessave);
   urlRef.on("value", function(snapshot) {
@@ -116,16 +116,12 @@ function saveSlide() {
   localStorage.workToSaveTitle = "Slides" //document.getElementById('slidesTitle').value;
   localStorage.workToSave = url;
 } else {
-  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(btoa(JSON.stringify(slideshow)), localStorage.password) + "");
+  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(slideshow);
   var tislidessave = localStorage.tislidessave
   }
 }
 
 function updateSlide() {
-  if (localStorage.slideshow !== undefined) {
-    current_slide = 0;
-    var slideshow = localStorage.slideshow;
-  }
   slide.innerHTML = slideshow[current_slide];
   document.querySelector("#currentSlide").innerText = current_slide + 1;
 }
@@ -167,8 +163,7 @@ if (getQueryVariable("s") !== false) {
       alert("Access Denied! Get TIed!")
     }
     localStorage.tislidessave = getQueryVariable("s");
-    localStorage.slideshow = JSON.parse(atob(CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8)));
-    alert(slideshow)
+    slideshow = child.val()
     updateSlide();
     });
   });
