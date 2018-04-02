@@ -75,7 +75,7 @@ function addImage(src) {
     }
   }
   image.oncontextmenu = function() {
-    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByTagName(\"img\")[" + imageNumber + "].onmousedown = null;'>Lock Position</a></li></ul>
+    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByTagName(\"img\")[" + imageNumber + "].onmousedown = null;'>Lock Position</a></li></ul>";
   };
   slideContainer.appendChild(image);
 }
