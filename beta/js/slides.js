@@ -24,31 +24,35 @@ function beginDrag(element) {
   var e = e || window.event;
   var dragX = element.offsetLeft - e.clientX;
   var dragY = element.offsetTop - e.clientY;
-  document.onmousemove = function() {
+  document.onmousemove = function () {
     dragElement(element, dragX, dragY);
   };
   document.onmouseup = stopDrag;
 }
 
-  function addHeader() {
-    var text = document.createElement('h3');
-    text.innerHTML = 'New Header';
-    text.contentEditable = 'true';
-    text.classList.add("edit-slides");
-    text.style = 'position: absolute; margin: 0px;';
-    text.onmousedown = function() {beginDrag(this);};
-    slideContainer.appendChild(text);
-  }
+function addHeader() {
+  var text = document.createElement('h3');
+  text.innerHTML = 'New Header';
+  text.contentEditable = 'true';
+  text.classList.add("edit-slides");
+  text.style = 'position: absolute; margin: 0px;';
+  text.onmousedown = function () {
+    beginDrag(this);
+  };
+  slideContainer.appendChild(text);
+}
 
-  function addSubtitle() {
-    var text = document.createElement('h5');
-    text.innerHTML = 'New Subtitle';
-    text.contentEditable = 'true';
-    text.classList.add("edit-slides");
-    text.style = 'position: absolute; margin: 0px; color: gray;';
-    text.onmousedown = function() {beginDrag(this);};
-    slideContainer.appendChild(text);
-  }
+function addSubtitle() {
+  var text = document.createElement('h5');
+  text.innerHTML = 'New Subtitle';
+  text.contentEditable = 'true';
+  text.classList.add("edit-slides");
+  text.style = 'position: absolute; margin: 0px; color: gray;';
+  text.onmousedown = function () {
+    beginDrag(this);
+  };
+  slideContainer.appendChild(text);
+}
 
 function addText() {
   var text = document.createElement('p');
@@ -56,7 +60,7 @@ function addText() {
   text.contentEditable = true;
   text.classList.add("edit-slides");
   text.style = 'position: absolute; margin: 0px;';
-  text.onmousedown = function() {
+  text.onmousedown = function () {
     beginDrag(this);
   };
   slideContainer.appendChild(text);
@@ -68,14 +72,18 @@ function addImage(src) {
   image.src = src;
   image.classList.add("edit-slides");
   image.classList.add("draggable-slides");
-  image.onmousedown = function() {
+  image.onmousedown = function () {
     beginDrag(this);
   };
   initSpecialElement(image);
-  image.onmouseover = function() {specialElement = true};
-  image.onmouseout = function() {specialElement = false};
+  image.onmouseover = function () {
+    specialElement = true
+  };
+  image.onmouseout = function () {
+    specialElement = false
+  };
   image.className += ' slides-img';
-  image.oncontextmenu = function() {
+  image.oncontextmenu = function () {
     document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[" + document.getElementsByClassName("slides-img").length + "].onmousedown = null;'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
   };
   slideContainer.appendChild(image);
@@ -114,22 +122,22 @@ function previousSlide() {
 function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
-  var tislidessave = generateRandString()
-  storeInDatabase(tislidessave, slideshow);
-  localStorage.tislidessave = tislidessave;
-  var urlRef = window.dbRef.child(tislidessave);
-  urlRef.on("value", function(snapshot) {
-  snapshot.forEach(function(child) {
-  localStorage.owner = child.key;
-  });
- });
-  var url = "index.html?app=9"+ '&s=' + tislidessave;
-  localStorage.recentUrl = url;
-  localStorage.workToSaveTitle = "Slides" //document.getElementById('slidesTitle').value;
-  localStorage.workToSave = url;
-} else {
-  window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(slideshow);
-  var tislidessave = localStorage.tislidessave
+    var tislidessave = generateRandString()
+    storeInDatabase(tislidessave, slideshow);
+    localStorage.tislidessave = tislidessave;
+    var urlRef = window.dbRef.child(tislidessave);
+    urlRef.on("value", function (snapshot) {
+      snapshot.forEach(function (child) {
+        localStorage.owner = child.key;
+      });
+    });
+    var url = "index.html?app=9" + '&s=' + tislidessave;
+    localStorage.recentUrl = url;
+    localStorage.workToSaveTitle = "Slides" //document.getElementById('slidesTitle').value;
+    localStorage.workToSave = url;
+  } else {
+    window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(slideshow);
+    var tislidessave = localStorage.tislidessave
   }
 }
 
@@ -168,21 +176,27 @@ function presentSlide() {
 
 if (getQueryVariable("s") !== false) {
   var urlRef = window.dbRef.child(getQueryVariable("s"));
-  urlRef.on("value", function(snapshot) {
-  snapshot.forEach(function(child) {
-    localStorage.owner = child.key;
-    if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
-      window.location.href = 'index.html?app=7';
-      alert("Access Denied! Get TIed!")
-    }
-    localStorage.tislidessave = getQueryVariable("s");
-    slideshow = child.val()
-    updateSlide();
-    for (i=0; i<document.getElementsByClassName('edit-slides').length; i++) {
-      document.getElementsByClassName('edit-slides')[i].onmousedown = startDrag(this);
-     }
+  urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
+      localStorage.owner = child.key;
+      if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
+        window.location.href = 'index.html?app=7';
+        alert("Access Denied! Get TIed!")
+      }
+      localStorage.tislidessave = getQueryVariable("s");
+      slideshow = child.val()
+      updateSlide();
+      for (i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
+        document.getElementsByClassName('edit-slides')[i].onmousedown = startDrag(this);
+      }
     });
   });
 }
 
-window.addEventListener('DOMContentLoaded', function() {if(getQueryVariable("s") == false){localStorage.removeItem('tislidessave'); localStorage.removeItem('slideshow'); sessionStorage.removeItem('slideLoad');}}, false);
+window.addEventListener('DOMContentLoaded', function () {
+  if (getQueryVariable("s") == false) {
+    localStorage.removeItem('tislidessave');
+    localStorage.removeItem('slideshow');
+    sessionStorage.removeItem('slideLoad');
+  }
+}, false);
