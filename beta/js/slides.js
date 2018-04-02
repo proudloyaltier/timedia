@@ -177,6 +177,9 @@ if (getQueryVariable("s") !== false) {
     localStorage.tislidessave = getQueryVariable("s");
     slideshow = child.val()
     updateSlide();
+    for (i=0; i<document.getElementsByClassName('edit-slides').length; i++) {
+      document.getElementsByClassName('edit-slides')[i].onmousedown = startDrag(this);
+     }
     });
   });
 }
