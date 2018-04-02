@@ -85,7 +85,7 @@ function openTileContext(tileID) {
   document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li></ul>';
 }
 
-$('.card').on("taphold", function() {openTileContext(' + i + ' ); openCmenu;});
+$('.card').on("taphold", function() {openTileContext(' + i + ' ); openCmenu();});
 
 
 function resetTiles() {
