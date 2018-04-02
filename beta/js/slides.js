@@ -68,14 +68,10 @@ function addImage(src) {
     beginDrag(this);
   };
   initSpecialElement(image);
-  var imageNumber;
-  for(var i = 0; i < document.getElementsByTagName("image").length; i++) {
-    if(document.getElementsByTagName("image")[i] == this) {
-      imageNumber = i;
-    }
-  }
+  image.onmouseover = function() {specialElement = true};
+  image.onmouseout = function() {specialElement = false};
   image.oncontextmenu = function() {
-    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByTagName(\"img\")[" + imageNumber + "].onmousedown = null;'>Lock Position</a></li></ul>";
+    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
   };
   slideContainer.appendChild(image);
 }
