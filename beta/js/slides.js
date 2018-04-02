@@ -1,5 +1,3 @@
-var dragged = false;
-
 if (getQueryVariable("s") == false) {
   var slideshow = ["<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"];
 }
@@ -29,14 +27,9 @@ function beginDrag(element) {
   dragged = false;
   element.style.border = 'none';
   document.onmousemove = function () {
-    var dragged = true; dragElement(element, dragX, dragY);
+    dragElement(element, dragX, dragY);
   };
-  document.onmouseup = function() {
-    stopDrag();
-    if(element.tagName.toLowerCase() == 'img' && !dragged) {
-       element.style.border = '2px solid blue';
-    }
-  };
+  document.onmouseup = stopDrag;
 }
 
 function addHeader() {
@@ -81,6 +74,7 @@ function addImage(src) {
   image.src = src;
   image.classList.add("edit-slides");
   image.classList.add("draggable-slides");
+  $(image).resizable();
   image.onmousedown = function () {
     beginDrag(this);
   };
