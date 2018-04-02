@@ -4,8 +4,6 @@ function save() {
   storeInDatabase("files", localStorage.files);
 }
 
- $('.card').on("taphold", function() {openTileContext(' + i + ' )});
-
 function showTiWorkColor() {
   document.getElementById('fontColorDiv').style.display = 'block';
 }
@@ -86,6 +84,9 @@ function deleteTile(tileid) {
 function openTileContext(tileID) {
   document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li></ul>';
 }
+
+$('.card').on("taphold", function() {openTileContext(' + i + ' ); openCmenu;});
+
 
 function resetTiles() {
 alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
