@@ -88,7 +88,6 @@ function addImage(src) {
   };
   slideContainer.appendChild(image);
   saveSlide();
-  $(image).resizable();
 }
 
 function addSlide() {
