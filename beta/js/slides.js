@@ -75,7 +75,7 @@ function addImage(src) {
   image.classList.add("edit-slides");
   image.classList.add("draggable-slides");
   $(image).resizable();
-  image.onmousedown = function () {
+  /*image.onmousedown = function () {
     beginDrag(this);
   };
   initSpecialElement(image);
@@ -84,13 +84,10 @@ function addImage(src) {
   };
   image.onmouseout = function () {
     specialElement = false
-  };
-  image.className += ' slides-img';
-  image.oncontextmenu = function () {
-    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[" + document.getElementsByClassName("slides-img").length + "].onmousedown = null;'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
-  };
+  };*/
+  $(image).draggable();
   slideContainer.appendChild(image);
-  saveSlide()
+  saveSlide();
 }
 
 function addSlide() {
