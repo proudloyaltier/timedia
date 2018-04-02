@@ -4,7 +4,7 @@ function save() {
   storeInDatabase("files", localStorage.files);
 }
 
-  $('.card').on("taphold", function() {openTileContext(' + i + ' )})});
+ $('.card').on("taphold", function() {openTileContext(' + i + ' )});
 
 function showTiWorkColor() {
   document.getElementById('fontColorDiv').style.display = 'block';
