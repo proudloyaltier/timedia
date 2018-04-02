@@ -1,3 +1,5 @@
+var dragged = false;
+
 if (getQueryVariable("s") == false) {
   var slideshow = ["<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"];
 }
@@ -24,10 +26,17 @@ function beginDrag(element) {
   var e = e || window.event;
   var dragX = element.offsetLeft - e.clientX;
   var dragY = element.offsetTop - e.clientY;
+  dragged = false;
+  element.style.border = 'none';
   document.onmousemove = function () {
-    dragElement(element, dragX, dragY);
+    var dragged = true; dragElement(element, dragX, dragY);
   };
-  document.onmouseup = stopDrag;
+  document.onmouseup = function() {
+    stopDrag();
+    if(element.tagName.toLowerCase() == 'img' && !dragged) {
+       element.style.border = '2px solid blue';
+    }
+  };
 }
 
 function addHeader() {
