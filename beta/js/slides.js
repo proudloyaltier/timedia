@@ -75,6 +75,7 @@ function addImage(src) {
     document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[" + document.getElementsByClassName("slides-img").length + "].onmousedown = null;'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
   };
   slideContainer.appendChild(image);
+  saveSlide()
 }
 
 function addSlide() {
