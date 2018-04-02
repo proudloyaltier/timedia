@@ -72,6 +72,7 @@ function addImage(src) {
   image.src = src;
   image.classList.add("edit-slides");
   image.classList.add("draggable-slides");
+  $(image).resizable();
   image.onmousedown = function () {
     beginDrag(this);
   };
