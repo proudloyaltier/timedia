@@ -75,7 +75,6 @@ function addImage(src) {
     }
   }
   image.oncontextmenu = function() {
-    alert("ti");
     document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByTagName(\"img\")[" + imageNumber + "].onmousedown = null;'>Lock Position</a></li></ul>";
   };
   slideContainer.appendChild(image);
