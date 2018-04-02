@@ -184,7 +184,7 @@ if (getQueryVariable("s") !== false) {
         alert("Access Denied! Get TIed!")
       }
       localStorage.tislidessave = getQueryVariable("s");
-      slideshow = child.val();
+      slideshow = child.val()
       updateSlide();
       for (i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
         document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(document.getElementsByClassName('edit-slides')[i])};
