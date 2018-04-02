@@ -34,6 +34,7 @@ function beginDrag(element) {
     var text = document.createElement('h3');
     text.innerHTML = 'New Header';
     text.contentEditable = 'true';
+    text.classList.add("edit-slides");
     text.style = 'position: absolute; margin: 0px;';
     text.onmousedown = function() {beginDrag(this);};
     slideContainer.appendChild(text);
@@ -43,6 +44,7 @@ function beginDrag(element) {
     var text = document.createElement('h5');
     text.innerHTML = 'New Subtitle';
     text.contentEditable = 'true';
+    text.classList.add("edit-slides");
     text.style = 'position: absolute; margin: 0px; color: gray;';
     text.onmousedown = function() {beginDrag(this);};
     slideContainer.appendChild(text);
@@ -52,6 +54,7 @@ function addText() {
   var text = document.createElement('p');
   text.innerHTML = "Click to enter text";
   text.contentEditable = true;
+  text.classList.add("edit-slides");
   text.style = 'position: absolute; margin: 0px;';
   text.onmousedown = function() {
     beginDrag(this);
@@ -63,6 +66,7 @@ function addImage(src) {
   var image = document.createElement('img');
   image.draggable = false;
   image.src = src;
+  image.classList.add("edit-slides");
   image.classList.add("draggable-slides");
   image.onmousedown = function() {
     beginDrag(this);
