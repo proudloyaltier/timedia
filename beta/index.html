@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" sizes="57x57" href="other resources/app-icon/apple-icon-57x57.png">
@@ -61,7 +60,7 @@
                   <li role="separator" class="divider"></li>
                   <li><a href="?app=3">New TiDoc <span class="glyphicon glyphicon-pencil"></span></a></li>
                   <li><a href="?app=4">New TiSheet <span class="glyphicon glyphicon-th-list"></span></a></li>
-                  <li><a href="?app=12">New TiSlide <span class="glyphicon glyphicon-blackboard"></span></a></li>
+                  <li><a href="?app=9">New TiSlide <span class="glyphicon glyphicon-blackboard"></span></a></li>
                   <li><a href="?app=10">New TiBookmark <span class="glyphicon glyphicon-bookmark"></span></a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href="?app=8">New App <span class="glyphicon glyphicon-plus"></span></a></li>
@@ -77,7 +76,13 @@
               <a class="navbar-brand" href="index.html">TiMedia <b>2</b></a>
             </center>
             <ul id="logout" class="nav navbar-nav navbar-right" style="display: none;">
-              <li><a href="logout.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" id="userdrop" href="#"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="index.html?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
+                  <li><a href="logout.html">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -85,10 +90,10 @@
     <div class="container">
       <div id="home">
         <center>
-          <h3>Tiri</h3>
+          <br><h3>TiMedia</h3>
           <img onclick="window.location.href = 'index.html?app=5'" src="other resources/microphone.png" alt="Microphone - Tiri" height="100" width="100">
           <h5 id="mutemessage"></h5>
-          <input id="iChat-input" class="iChat iChat-input"><div id="iChat-messages" class="iChat-messages iChat"></div><script src="https://legend-of-iphoenix.github.io/iChat/js/iChat.min.js"></script>
+          <input id="iChat-input" class="form-control"><br><br><div id="iChat-messages" class="iChat-messages iChat"></div><script src="https://legend-of-iphoenix.github.io/iChat/js/iChat.min.js"></script>
       </div>
       </center>
       <div style="display: none;" id="messages">
@@ -220,6 +225,9 @@
           <a href="?app=10" class="buttons">
             <center><span style="font-size:30px;" class="glyphicon glyphicon-bookmark"></center></span></a>
 
+          <a href="?app=9" class="buttons">
+            <center><span style="font-size:30px;" class="glyphicon glyphicon-blackboard"></center></span></a>
+
           <a href="?app=4" class="buttons">
             <center><span style="font-size:30px;" class="glyphicon glyphicon-th-list"></center></span></a>
 
@@ -248,12 +256,12 @@
       <button class="btn btn-slides formatting-button" onclick="removeSlide()">-</button><br><br>
       <button class="btn btn-slides formatting-button" onclick="addText()">Add Text</button>
       <button class="btn btn-slides formatting-button" onclick="addHeader()">Add Header</button>
-      <button class="btn btn-slides formatting-button" onclick="addSubtitle()">Subtitle</button><br><br>
+      <button class="btn btn-slides formatting-button" onclick="addSubtitle()">Add Subtitle</button><br><br>
       </div>
       <div id="slide" onkeyup="saveSlide()">
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       </div><br>
-      <h5 id="currentSlide">1</h5>
+      <h5 id="currentSlide">1/1</h5>
       <button onclick="previousSlide()" class="btn btn-slides formatting-button"><</button>
       <button onclick="nextSlide()" class="btn btn-slides formatting-button">></button>
       <button id="stopPresentation" onclick="stopPresentation()" class="btn btn-slides" style="display: none;">Stop Presentation</button>

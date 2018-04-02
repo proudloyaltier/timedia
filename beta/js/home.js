@@ -12,7 +12,9 @@ function getQueryVariable(variable)
 }
 
 function changeName() {
-       firebase.auth().currentUser.updateProfile({displayName: localStorage.getItem('name')});
+       if (firebase.auth().currentUser.displayName != localStorage.getItem('name')) {
+              firebase.auth().currentUser.updateProfile({displayName: localStorage.getItem('name')});
+       }
 }
   
 Element.prototype.remove = function() {
@@ -26,6 +28,8 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
         }
     }
 }
+
+document.getElementById('userdrop').innerHTML = localStorage.name;
 
 function launchApp(appname) {
   document.getElementById('home').remove();
@@ -79,7 +83,7 @@ if (localStorage.access == btoa(localStorage.name)) {
     document.title = "TiSmile - TiMedia";
   }
        
-if (getQueryVariable("app") == 12) {
+if (getQueryVariable("app") == 9) {
    launchApp("tislides");
    document.title = "TiSlides - TiMedia";
  }
@@ -99,7 +103,7 @@ var comment = document.getElementById('iChat-input').value;
 
 if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
        setInterval(checkCasioer, 0);
-       setInterval(changeName, 0);
+       setInterval(changeName, 500);
 }
 
 function customImageUpload() {

@@ -9,12 +9,16 @@ table, th, td {
   border-collapse: collapse;
 }
 
+.iChat-highlight {
+  background-color: #FFFF00;
+}
+
 .formatting-button {
   !important
   float: left;
   border-radius: 0px;
   box-shadow: none;
-  outline: 0px
+  outline: 0px;
 }
 
 .nobullet {
@@ -23,6 +27,25 @@ table, th, td {
 
 img {
   filter: none;
+}
+
+/* iChat styles */
+.iChat-highlight {
+  color: #000;
+}
+
+.iChat-messages {
+  overflow: auto;
+  width: 75%;
+  height: 50vh;
+}
+
+.iChat-message {
+  text-align: center;
+}
+
+.iChat-username, .iChat-timestamp {
+  font-weight: bold;
 }
 
 /*!
