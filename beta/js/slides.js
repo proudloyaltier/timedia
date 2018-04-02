@@ -1,5 +1,5 @@
 if (getQueryVariable("s") == false) {
-  var slideshow = ["<br><br><br><br><br><br><br><br>"];
+  var slideshow = ["<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"];
 }
 
 var current_slide = 0;
