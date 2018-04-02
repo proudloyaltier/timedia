@@ -60,14 +60,24 @@ function addText() {
 }
 
 function addImage(src) {
-  var text = document.createElement('img');
-  text.draggable = false;
-  text.src = src;
-  text.classList.add("draggable-slides")
-  text.onmousedown = function() {
+  var image = document.createElement('img');
+  image.draggable = false;
+  image.src = src;
+  image.classList.add("draggable-slides");
+  image.onmousedown = function() {
     beginDrag(this);
   };
-  slideContainer.appendChild(text);
+  initSpecialElement(image);
+  var imageNumber;
+  for(var i = 0; i < document.getElementsByTagName("image").length; i++) {
+    if(document.getElementsByTagName("image")[i] == this) {
+      imageNumber = i;
+    }
+  }
+  image.oncontextmenu = function() {
+    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByTagName(\"img\")[" + imageNumber + "].onmousedown = null;'>Lock Position</a></li></ul>
+  };
+  slideContainer.appendChild(image);
 }
 
 function addSlide() {
