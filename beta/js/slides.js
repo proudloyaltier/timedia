@@ -70,8 +70,9 @@ function addImage(src) {
   initSpecialElement(image);
   image.onmouseover = function() {specialElement = true};
   image.onmouseout = function() {specialElement = false};
+  image.className += ' slides-img';
   image.oncontextmenu = function() {
-    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
+    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[document.getElementsByClassName(\"slides-img\").length].onmousedown = null;'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
   };
   slideContainer.appendChild(image);
 }
