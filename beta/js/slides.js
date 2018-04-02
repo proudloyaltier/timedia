@@ -135,7 +135,8 @@ function saveSlide() {
 
 function updateSlide() {
   slide.innerHTML = slideshow[current_slide];
-  document.querySelector("#currentSlide").innerText = current_slide + 1;
+  var currentSlideText = current_slide + 1
+  document.querySelector('#currentSlide').innerText = currentSlideText + '/' + slideshow.length;
 }
 
 function nextSlide() {
