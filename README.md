@@ -6,28 +6,11 @@ Your documents are encrypted end to end, your data (like documents, tiles and mo
 
 ## News
 We are undergoing major additions to TiWork, make sure to backup all files stored in your tiles (click backup to backup and keep that file safe on your hard drive) as files may be lost in the database changes if not properly backed up.
-## Changelog (This may not be updated)
-November 6th - Tiri is now advanced
 
-October 19th - Introducing TIRI beta
+## What's new?
 
-October 17th - removed TiContacts as it was broken and replaced with improved Tiles
+TiSlides has now arrived!!
 
-October 14th- New desgin, tiles, TiContacts, App creator and more
-
-September 15th - Ti documents and programs library
-
-June 22nd, 2017 - PM and TI!
-
-May 24th, 2017 - added the shop, where you can buy things for TiPoints.
-
-May 24th, 2017 - added TiPoints, a virtual currency you can use to buy things on the site.
-
-May 11th, 2017 - removed the CAPTCHA because it got annoying.
-
-May 10th, 2017 - added a CAPTCHA for security.
-
-May 9th, 2017 - created TiMedia.
 
 ## What is TiMedia?
 TiMedia is a Google, Apple, and Microsoft replacement.
