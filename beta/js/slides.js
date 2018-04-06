@@ -198,3 +198,7 @@ window.addEventListener('DOMContentLoaded', function () {
   });
  }
 }, false);
+
+if (localStorage.slidesMobile !== undefined) {
+  document.querySelector('#controls').style.visibility = 'hidden';
+}
