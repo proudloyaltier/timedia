@@ -117,8 +117,9 @@ function customImageUpload() {
 
 var me = new iChatPlugin("me/me", function(data) {
     data.txt = data.txt.replace("/me", '***'+data.u);
+    data.u = ""
     return data;
-}, "get TIED");
+}, "/me function for iChat");
 
 iChat.onload = function() {
     iChat.registerPlugin(me);
