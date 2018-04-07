@@ -116,8 +116,10 @@ function customImageUpload() {
 }
 
 var me = new iChatPlugin("me/me", function(data) {
+   if (data.txt.startsWith("/me ")) {
     data.txt = data.txt.replace("/me", '***'+data.u);
     data.u = ""
+   }
     return data;
 }, "/me function for iChat");
 
