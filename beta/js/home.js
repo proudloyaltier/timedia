@@ -114,3 +114,12 @@ function customImageUpload() {
   $('.inputfile').removeClass('inputfile');
   $("label[for='hcb_file']").text("Insert Image").addClass('btn').addClass('btn-primary');
 }
+
+var me = new iChatPlugin("me/me", function(data) {
+    data.txt = data.txt.replace("/me", '***'+data.u);
+    return data;
+}, "get TIED");
+
+iChat.onload = function() {
+    iChat.registerPlugin(me);
+}
