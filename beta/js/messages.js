@@ -26,6 +26,7 @@ function getMessages() {
       var length = 0
       }
       var currentHTML = document.getElementById('private-messages').innerHTML
+      alert(currentHTML)
       document.getElementById('private-messages').innerHTML = '<p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8); + '</p><br>' + currentHTML;
     });
   });
