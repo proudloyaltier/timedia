@@ -21,7 +21,7 @@ function getMessages() {
    urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       if (child.key > 0) {
-      var length = child.key
+      var length = child.key + 1
       } else {
       var length = 0
       }
@@ -34,9 +34,7 @@ function getMessages() {
 }
 
 function sendMessage(message) {
-  getMessages();
   alert(length)
   window.dbRef.child(getQueryVariable("app")).child(length).set(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
   length = length + 1
-  getMessages();
 }
