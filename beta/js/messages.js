@@ -20,7 +20,12 @@ function getMessages() {
    var urlRef = window.dbRef.child(getQueryVariable("app"));
    urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
-      document.getElementById('private-messages').innerHTML += '<br><br><p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8); + '</p>';
+      if (child.key > 0) {
+      var length = child.key + 1
+      } else {
+      var length = 1
+      }
+      document.getElementById('private-messages').innerHTML += '<br><p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8); + '</p>';
     });
   });
 }
