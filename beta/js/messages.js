@@ -14,3 +14,16 @@ if (window.location !== "index.html" && getQueryVariable("app") !== false && get
   setInterval(changeName, 50);
   document.title = "TiChat - TiMedia"
 }
+
+function getMessages() {
+   var urlRef = window.dbRef.child(getQueryVariable("app"));
+   urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
+      document.getElementById('private-messages').innerHTML += '<br><br><p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8); + '</p>
+    });
+  });
+}
+
+function sendMessage(message) {
+  window.dbRef.child(getQueryVariable("app")).push(message);
+}
