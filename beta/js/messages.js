@@ -20,11 +20,6 @@ function getMessages() {
    var urlRef = window.dbRef.child(getQueryVariable("app"));
    urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
-      if (child.key > 0) {
-      var length = child.key + 1
-      } else {
-      var length = 0
-      }
       var currentHTML = document.getElementById('private-messages').innerHTML
       alert(currentHTML)
       document.getElementById('private-messages').innerHTML = ('<p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8) + '</p><br>' + currentHTML);
@@ -34,7 +29,5 @@ function getMessages() {
 }
 
 function sendMessage(message) {
-  alert(length)
-  window.dbRef.child(getQueryVariable("app")).child(length).set(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
-  length = length + 1
+  window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
 }
