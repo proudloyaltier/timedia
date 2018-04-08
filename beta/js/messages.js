@@ -21,7 +21,7 @@ function getMessages() {
    urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       if (child.key > 0) {
-      var length = child.key + 1
+      var length = child.key
       } else {
       var length = 0
       }
