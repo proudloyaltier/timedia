@@ -10,7 +10,7 @@ function getMessages() {
 
 function sendMessage(message) {
   window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
-  document.getElementById('private-messages').innerHTML = '<h4>Sending Message</h4>';
+  document.getElementById('private-messages').innerHTML = ' ';
   getMessages();
 }
 
