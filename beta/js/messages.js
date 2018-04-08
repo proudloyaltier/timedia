@@ -28,6 +28,8 @@ function joinChat() {
 
 if (window.location !== "index.html" && getQueryVariable("app") !== false && getQueryVariable("app").length > 7) {
   setInterval(changeName, 50);
+  document.getElementById('iChat-input').remove();
+  document.getElementById('iChat-messages').remove();
   document.title = "TiChat - TiMedia"
   window.addEventListener('DOMContentLoaded', function () {
   getMessages();
