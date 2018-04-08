@@ -25,5 +25,6 @@ function getMessages() {
 }
 
 function sendMessage(message) {
-  window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt(localStorage.name + "said:" + "<br>" + message, localStorage.password) + "");
+  var length = window.dbRef.child(getQueryVariable("app")).length;
+  window.dbRef.child(getQueryVariable("app")).child(length + 1).set(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
 }
