@@ -1,3 +1,18 @@
+function getMessages() {
+   var urlRef = window.dbRef.child(getQueryVariable("app"));
+   urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
+      var currentHTML = document.getElementById('private-messages').innerHTML
+      document.getElementById('private-messages').innerHTML = ('<p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8) + '</p><br>' + currentHTML);
+    });
+  });
+}
+
+function sendMessage(message) {
+  window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
+  getMessages();
+}
+
 var sortAlphabets = function(text) {
   return text.split('').sort().join('');
 };
@@ -13,21 +28,7 @@ function joinChat() {
 if (window.location !== "index.html" && getQueryVariable("app") !== false && getQueryVariable("app").length > 7) {
   setInterval(changeName, 50);
   document.title = "TiChat - TiMedia"
-  getMessages()
-}
-
-function getMessages() {
-   var urlRef = window.dbRef.child(getQueryVariable("app"));
-   urlRef.on("value", function (snapshot) {
-    snapshot.forEach(function (child) {
-      var currentHTML = document.getElementById('private-messages').innerHTML
-      alert(currentHTML)
-      document.getElementById('private-messages').innerHTML = ('<p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8) + '</p><br>' + currentHTML);
-      alert(document.getElementById('private-messages').innerHTML);
-    });
-  });
-}
-
-function sendMessage(message) {
-  window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
+  window.addEventListener('DOMContentLoaded', function () {
+  getMessages();
+  }, false);
 }
