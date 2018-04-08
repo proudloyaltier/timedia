@@ -3,13 +3,13 @@ function getMessages() {
    urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       var currentHTML = document.getElementById('private-messages').innerHTML
-      document.getElementById('private-messages').innerHTML = ('<p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8) + '</p><br>' + currentHTML);
+      document.getElementById('private-messages').innerHTML = ('<p>' + CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8) + '</p><br>' + currentHTML);
     });
   });
 }
 
 function sendMessage(message) {
-  window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
+  window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, getQueryVariable("app")) + "");
   document.getElementById('private-messages').innerHTML = ' ';
   getMessages();
 }
