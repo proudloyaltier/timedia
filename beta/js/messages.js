@@ -35,6 +35,7 @@ function getMessages() {
 
 function sendMessage(message) {
   getMessages();
+  alert(length)
   window.dbRef.child(getQueryVariable("app")).child(length).set(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
   length = length + 1
   getMessages();
