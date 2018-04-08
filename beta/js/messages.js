@@ -25,7 +25,7 @@ function getMessages() {
       } else {
       var length = 1
       }
-      document.getElementById('private-messages').innerHTML += '<br><p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8); + '</p>';
+      document.getElementById('private-messages').innerHTML = '<p>' + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8); + '</p><br>' + document.getElementById('private-messages').innerHTML;
     });
   });
 }
