@@ -25,5 +25,5 @@ function getMessages() {
 }
 
 function sendMessage(message) {
-  window.dbRef.child(getQueryVariable("app")).push(message);
+  window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt(message, localStorage.password) + "");
 }
