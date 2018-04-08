@@ -31,10 +31,9 @@ function getMessages() {
 }
 
 function sendMessage(message) {
-  var length = window.dbRef.child(getQueryVariable("app")).length;
   if (length !== undefined) {
   window.dbRef.child(getQueryVariable("app")).child(length + 1).set(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
   } else {
-      window.dbRef.child(getQueryVariable("app")).child(0).set(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
+  window.dbRef.child(getQueryVariable("app")).child(0).set(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, localStorage.password) + "");
   }
 }
