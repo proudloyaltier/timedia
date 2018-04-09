@@ -30,7 +30,7 @@ if (window.location !== "index.html" && getQueryVariable("app") !== false && get
   setInterval(changeName, 50);
   document.getElementById('iChat-input').style.display = 'none';
   document.getElementById('iChat-messages').style.display = 'none';
-  document.getElementById('pm-home').style.display = 'block';
+  document.getElementById('pming-home').style.display = 'block';
   document.title = "TiChat - TiMedia"
   window.addEventListener('DOMContentLoaded', function () {
   getMessages();
