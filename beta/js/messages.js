@@ -9,9 +9,12 @@ function getMessages() {
 }
 
 function sendMessage(message) {
+ if (message !== "") {
   window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, getQueryVariable("app")) + "");
+  document.getElementById('message-input').value = '';
   document.getElementById('private-messages').innerHTML = ' ';
   getMessages();
+ }
 }
 
 var sortAlphabets = function(text) {
