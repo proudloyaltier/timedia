@@ -2,8 +2,12 @@ function getMessages() {
    var urlRef = window.dbRef.child(getQueryVariable("app"));
    urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
+      var msg = document.createElement('div');
+      msg.style = "margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;"
+      msg.innerText = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)
       var currentHTML = document.getElementById('private-messages').innerHTML
-      document.getElementById('private-messages').innerHTML = ('<div style="margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;">' + CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8) + '</div><br>' + currentHTML);
+      currentHTML.insertBefore(msg, currentHTML.childNodes[0]);
+      //document.getElementById('private-messages').innerHTML = ('<div style="margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;">' +  + '</div><br>' + currentHTML);
     });
   });
 }
