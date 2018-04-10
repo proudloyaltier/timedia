@@ -5,6 +5,7 @@ function getMessages() {
       var msg = document.createElement('div')
       msg.style = "margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;"
       msg.innerText = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8);
+       alert(msg)
       var currentHTML = document.getElementById('private-messages').innerHTML
       document.getElementById('private-messages').innerHTML = (msg + currentHTML);
     });
