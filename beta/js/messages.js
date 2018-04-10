@@ -9,8 +9,11 @@ function getMessages() {
    var urlRef = window.dbRef.child(getQueryVariable("app"));
    urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
+      var message = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)
+      var username = message.split('said:<br>')[0];
+      var message_content = message.split('said:<br>')[1];
       var currentHTML = document.getElementById('private-messages').innerHTML
-      document.getElementById('private-messages').innerHTML = ('<div style="margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;">' + cleanse(CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)) + '</div><br>' + currentHTML);
+      document.getElementById('private-messages').innerHTML = ('<div style="margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;">' + username + cleanse(message_content) + '</div><br>' + currentHTML);
     });
   });
 }
