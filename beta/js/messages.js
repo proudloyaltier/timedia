@@ -1,4 +1,3 @@
-
 function getMessages() {
    var urlRef = window.dbRef.child(getQueryVariable("app"));
    urlRef.on("value", function (snapshot) {
