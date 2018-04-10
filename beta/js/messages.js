@@ -4,7 +4,8 @@ function getMessages() {
     snapshot.forEach(function (child) {
       var msg = document.createElement('div');
       msg.style = "margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;"
-      msg.innerText = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)
+      msg.innerText = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8);
+      alert(JSON.stringify(msg))
       var currentHTML = document.getElementById('private-messages').innerHTML
       currentHTML.insertBefore(msg, currentHTML.childNodes[0]);
       //document.getElementById('private-messages').innerHTML = ('<div style="margin: 5px; padding: 5px 20px; display: inline-block; border-radius: 5px; background-color: lightgray;">' +  + '</div><br>' + currentHTML);
