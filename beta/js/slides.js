@@ -163,7 +163,7 @@ function importSlide() {
 }
 
 function stopPresentation() {
-  document.querySelector("#controls").style.display = "";
+  document.querySelector("#controls").style.visibility = "";
   document.querySelector("#presentSlide").style.display = "";
   document.querySelector("#stopPresentation").style.display = "none";
 }
