@@ -169,7 +169,7 @@ function stopPresentation() {
 }
 
 function presentSlide() {
-  document.querySelector("#controls").style.display = "none";
+  document.querySelector('#controls').style.visibility = 'hidden';
   document.querySelector("#presentSlide").style.display = "none";
   document.querySelector("#stopPresentation").style.display = "";
 }
