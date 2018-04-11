@@ -126,3 +126,9 @@ var me = new iChatPlugin("me/me", function(data) {
 iChat.onload = function() {
     iChat.registerPlugin(me);
 }
+
+window.addEventListener('DOMContentLoaded', function () {
+  if (getQueryVariable("app") !== false) {
+    document.getElementById('ichat-things').remove();
+  }
+}, false);
