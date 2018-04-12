@@ -128,8 +128,8 @@ function docReader() {
   document.getElementById('tidocs-header').remove();
 }
 
-function onloadDocs() {
+window.addEventListener('DOMContentLoaded', function () {
   if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem('tidocssave');
   }
-}
+}, false);
