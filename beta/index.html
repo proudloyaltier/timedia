@@ -169,7 +169,7 @@
             <div id="create">
                 <input id="docsTitle" class="form-control lg" value="Untitled Document">
                 <br>
-                <div class='formatting-bar'>
+                <div class="formatting-bar no-print">
                     <button class="btn btn-primary formatting-button" onclick="document.execCommand('bold'); saveDoc();"><b>B</b></button>
                     <button class="btn btn-primary formatting-button" onclick="document.execCommand('italic'); saveDoc();"><i>I</i></button>
                     <button class="btn btn-primary formatting-button" onclick="document.execCommand('underline'); saveDoc();"><u>U</u></button>
@@ -343,7 +343,7 @@
             <h3 id="tisheets-header">TiSheets</h3>
             <input id="sheetsTitle" class="form-control lg" value="Untitled Spreadsheet">
             <br>
-            <div class='formatting-bar' id="sheets-formatting-bar" style='outline: 0;'>
+            <div class="formatting-bar no-print" id="sheets-formatting-bar" style='outline: 0;'>
                 <button class="btn btn-success formatting-button" onclick="document.execCommand('bold'); saveDoc();"><b>B</b></button>
                 <button class="btn btn-success formatting-button" onclick="document.execCommand('italic'); saveDoc();"><i>I</i></button>
                 <button class="btn btn-success formatting-button" onclick="document.execCommand('underline'); saveDoc();"><u>U</u></button>
