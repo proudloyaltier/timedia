@@ -10,6 +10,9 @@ if (getQueryVariable("app") == 5) {
 
 function hideTimer() {
    document.getElementById("tiri-bubbles-timer").style = 'display: none;';
+   onloadSheets();
+   onloadDocs();
+   onloadSlides();
 }
 
 if (localStorage.ts == undefined) {
