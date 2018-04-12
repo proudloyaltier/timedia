@@ -13,6 +13,13 @@ table, th, td {
   background-color: #FFFF00;
 }
 
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+}
+
 .formatting-button {
   !important
   float: left;
