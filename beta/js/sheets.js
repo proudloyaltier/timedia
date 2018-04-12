@@ -122,8 +122,8 @@ function sheetReader() {
   document.getElementById('tisheets-header').remove();
 }
 
-window.addEventListener('DOMContentLoaded', function () {
+function onloadSheets() {
   if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
     localStorage.removeItem('tisheetssave');
   }
-}, false);
+}
