@@ -1,3 +1,59 @@
+var isFirefox = typeof InstallTrigger !== 'undefined';
+var isIE = /*@cc_on!@*/ false || !!document.documentMode;
+
+function tiPrint() {
+  if (isFirefox || isIE) {
+    if (isFirefox) {
+
+      if (localStorage.setupOneClick !== "true") {
+        swal.setDefaults({
+          confirmButtonText: "Next &rarr;",
+          showCancelButton: true,
+          progressSteps: ["1", "2", "3"]
+        });
+
+        var steps = [{
+            html: "Visit <b>about:config</b> in a new tab."
+          },
+          {
+            html: "Right Click > New Boolean > <b>print.always_print_silent</b> > true"
+          },
+          {
+            text: "You can now use TiPrint!",
+          }
+        ]
+
+        swal.queue(steps).then((result) => {
+          swal.resetDefaults();
+          localStorage.setItem("setupOneClick", true);
+        });
+      } else {
+        window.print();
+        swal("Success", "Your document has been printed.", "success");
+        localStorage.setItem("setupOneClick", false);
+      }
+    } else if (isIE) {
+      Print();
+      swal("Success", "Your document has been printed.", "success");
+    }
+  }
+}
+
+$(document).on("keydown", function(e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key == "p" || e.charCode == 16 || e.charCode == 112 || e.keyCode == 80)) {
+    tiPrint();
+    e.cancelBubble = true;
+    e.preventDefault();
+
+    e.stopImmediatePropagation();
+  }
+});
+
+if (isFirefox || isIE) {
+  $("#legacyPrintButton").hide();
+  $("#printButton").show();
+}
+
 function saveDoc() {
   if (localStorage.tidocssave == undefined) {
     var tidocssave = generateRandString()
