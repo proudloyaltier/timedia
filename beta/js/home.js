@@ -35,7 +35,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
 document.getElementById('userdrop').innerHTML = localStorage.name;
 
 function launchApp(appname) {
-  document.getElementById('home').remove();
+  document.getElementById('home').style.display = 'none';
 
   document.getElementById(appname).style = "visibility: block;"
 }
