@@ -177,8 +177,6 @@ function presentSlide() {
 window.addEventListener('DOMContentLoaded', function () {
   if (getQueryVariable("s") == false) {
     localStorage.removeItem('tislidessave');
-    localStorage.removeItem('slideshow');
-    sessionStorage.removeItem('slideLoad');
   } else {
       var urlRef = window.dbRef.child(getQueryVariable("s"));
       urlRef.on("value", function (snapshot) {
