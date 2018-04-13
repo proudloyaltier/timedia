@@ -195,6 +195,7 @@ window.addEventListener('DOMContentLoaded', function () {
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
         document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(this);};
       }
+      break;
     });
   });
  }
