@@ -179,7 +179,7 @@ window.addEventListener('DOMContentLoaded', function () {
     localStorage.removeItem('tislidessave');
     localStorage.removeItem('slideshow');
     sessionStorage.removeItem('slideLoad');
-  } else {
+  } else if (loaded !== "loaded") {
       var urlRef = window.dbRef.child(getQueryVariable("s"));
       urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
@@ -195,6 +195,7 @@ window.addEventListener('DOMContentLoaded', function () {
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
         document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(this);};
       }
+      var loaded = 'loaded'
     });
   });
  }
