@@ -133,7 +133,7 @@ function saveSlide() {
     });
     var url = "index.html?app=9" + '&s=' + tislidessave;
     localStorage.recentUrl = url;
-    localStorage.workToSaveTitle = "Slides" //document.getElementById('slidesTitle').value;
+    localStorage.workToSaveTitle = document.getElementById('slidesTitle').value;
     localStorage.workToSave = url;
   } else {
     window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(slideshow);
@@ -188,6 +188,7 @@ window.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'index.html?app=7';
         alert("Access Denied! Get TIed!")
       }
+      document.getElementById('slidesTitle').remove();
       localStorage.tislidessave = getQueryVariable("s");
       slideshow = child.val()
       updateSlide();
