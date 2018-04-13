@@ -1,5 +1,15 @@
 var overTile = false;
 
+function resetTiles() {
+  alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
+    localStorage.files = ""
+    storeInDatabase("files", "");
+    window.location.href = "index.html?app=7";
+  }, function () {
+    location.reload();
+  })
+}
+
 function save() {
   storeInDatabase("files", localStorage.files);
 }
@@ -73,9 +83,15 @@ function generateRandString() {
 function deleteTile(tileid) {
   alertify.confirm("Are you sure you want to delete this Tile?", function () {
     var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19);
+    if (localStorage.files.split(",").length > 1) {
     window.dbRef.child(toDelFirebase).set(null);
     localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
     save();
+    } else {
+     window.dbRef.child(toDelFirebase).set(null);
+     resetTiles();
+     save();
+    }
     location.reload();
   }, function () {
     location.reload();
@@ -84,16 +100,6 @@ function deleteTile(tileid) {
 
 function openTileContext(tileID) {
   document.getElementById('context-menu').innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li></ul>';
-}
-
-function resetTiles() {
-  alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
-    localStorage.files = ""
-    storeInDatabase("files", "");
-    window.location.href = "index.html?app=7";
-  }, function () {
-    location.reload();
-  })
 }
 
 function searchTiles(search) {
