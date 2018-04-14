@@ -123,7 +123,6 @@ function previousSlide() {
           return false
         }
       }
-    }
   }
 }
 
@@ -165,7 +164,6 @@ function nextSlide() {
           return false
         }
       }
-    }
     updateSlide();
   }
 }
