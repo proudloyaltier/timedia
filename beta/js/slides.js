@@ -194,8 +194,10 @@ window.addEventListener('DOMContentLoaded', function () {
       updateSlide();
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
         document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(this);};
+        if (i == document.getElementsByClassName('edit-slides').length - 1) {
+          return false
+        }
       }
-      return false
     });
   });
  }
