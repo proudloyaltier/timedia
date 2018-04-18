@@ -47,7 +47,7 @@ function setupTiSmile(stage) {
           pixelate(context, 640, 480, 0, 0);
           localStorage.faces = canvas.toDataURL();
           localStorage.tismileaccount = localStorage.name;
-          localStorage.tismileaccountpassword = MD5(val);
+          localStorage.tismileaccountpassword = val;
         } else {
           swal("Error", "Password is incorrect", "error");
           setupTiSmile(2);
