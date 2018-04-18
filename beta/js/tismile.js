@@ -37,11 +37,23 @@ function setupTiSmile(stage) {
      document.getElementById('tismile-stage1').style = "display: none;";
      document.getElementById('tismile-stage2').style = "";
    } else if (stage == 2) {
-     localStorage.security = Number(document.getElementById('tismile-security').value);
-     window.pixelation = 100 - Number(localStorage.security);
-     pixelate(context, 640, 480, 0, 0);
-     localStorage.faces = canvas.toDataURL();
-     localStorage.tismileaccount = localStorage.name;
+     alertify
+      .defaultValue("")
+      .prompt("Please enter your password",
+      function (val) {
+          if (MD5(val) == localStorage.tismilepassword) {
+          localStorage.security = Number(document.getElementById('tismile-security').value);
+          window.pixelation = 100 - Number(localStorage.security);
+          pixelate(context, 640, 480, 0, 0);
+          localStorage.faces = canvas.toDataURL();
+          localStorage.tismileaccount = localStorage.name;
+          localStorage.tismileaccountpassword = MD5(val);
+        } else {
+          swal("Error", "Password is incorrect", "error");
+          setupTiSmile(2);
+        }
+      })
+
      document.getElementById('tismile-stage2').style = "display: none;";
      document.getElementById('tismile-stage3').style = "";
    }
