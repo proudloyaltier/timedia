@@ -32,8 +32,7 @@ function checkFaces() {
   
   if (localStorage.faces == faceToCompare) {
     console.log("Unlocked!");
-    localStorage.name = localStorage.tismileaccount;
-    localStorage.access = btoa(localStorage.name);
+    firebase.auth().signInWithEmailAndPassword(localStorage.tismileaccount, localStorage.tismileaccountpassword)
     window.location.href = "index.html";
   }
 }
