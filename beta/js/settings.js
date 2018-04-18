@@ -9,7 +9,7 @@ if (localStorage.bgImg !== undefined) {
 }
 
 if (localStorage.barColor !== undefined) {
-  document.getElementById('tiBar').style = "background-color: #" + localStorage.barColor + ";";
+  document.getElementById('timedia-nav-bar').style = "background-color: #" + localStorage.barColor + ";";
 }
 
 function lastTile() {
