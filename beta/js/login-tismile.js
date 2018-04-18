@@ -32,7 +32,7 @@ function checkFaces() {
   
   if (localStorage.faces == faceToCompare) {
     console.log("Unlocked!");
-    firebase.auth().signInWithEmailAndPassword(localStorage.tismileaccount, localStorage.tismileaccountpassword)
+    firebase.auth().signInWithEmailAndPassword(localStorage.tismileaccount + "@timediatied.com", localStorage.tismileaccountpassword)
   }
 }
 
