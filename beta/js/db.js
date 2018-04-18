@@ -297,6 +297,7 @@ if (localStorage.name == undefined) {
     if (user) {
       user.providerData.forEach(function (profile) {
         if (user.photoURL == null) {
+          localStorage.setItem("tismilepassword", MD5(document.getElementById('login-password').value))
           localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
           localStorage.setItem("access", btoa(localStorage.name));
           user.updateProfile({
