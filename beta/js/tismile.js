@@ -48,14 +48,13 @@ function setupTiSmile(stage) {
           localStorage.faces = canvas.toDataURL();
           localStorage.tismileaccount = localStorage.name;
           localStorage.tismileaccountpassword = val;
+          document.getElementById('tismile-stage2').style = "display: none;";
+          document.getElementById('tismile-stage3').style = "";
         } else {
           swal("Error", "Password is incorrect", "error");
           setupTiSmile(2);
         }
       })
-
-     document.getElementById('tismile-stage2').style = "display: none;";
-     document.getElementById('tismile-stage3').style = "";
    }
 }
 
