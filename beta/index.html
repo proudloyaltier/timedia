@@ -176,7 +176,7 @@
                     <button class="btn btn-primary formatting-button" onclick="document.execCommand('justifyLeft'); saveDoc();"><span class="glyphicon glyphicon-align-left"></span></button>
                     <button class="btn btn-primary formatting-button" onclick="document.execCommand('justifyCenter'); saveDoc();"><span class="glyphicon glyphicon-align-center"></span></button>
                     <button class="btn btn-primary formatting-button" onclick="document.execCommand('justifyRight'); saveDoc();"><span class="glyphicon glyphicon-align-right"></span></button>
-                    <button onclick="window.print()" id="legacyPrintButton" class="btn btn-primary no-print"><span class="glyphicon glyphicon-print"></button>
+                    <button onclick="window.print()" id="legacyPrintButton" class="btn btn-primary formatting-button no-print"><span class="glyphicon glyphicon-print"></button>
                     <button class="btn btn-primary formatting-button" onclick="showTiWorkColor()"><span class='glyphicon glyphicon-tint'></span</button>
             <!--<button class="btn btn-primary" onclick="insertImage();"><span class="glyphicon glyphicon-picture"></span></button>-->
                     <button id="fontSelect" class="btn btn-primary formatting-button">
@@ -352,6 +352,7 @@
                 <button class="btn btn-success formatting-button" onclick="document.execCommand('justifyCenter'); saveDoc();"><span class="glyphicon glyphicon-align-center"></span></button>
                 <button class="btn btn-success formatting-button" onclick="document.execCommand('justifyRight'); saveDoc();"><span class="glyphicon glyphicon-align-right"></span></button>
                 <button class="btn btn-success formatting-button" onclick="showTiWorkColorSheets()"><span class='glyphicon glyphicon-tint'></span</button>
+                <button onclick="window.print()" id="legacyPrintButton" class="btn btn-success formatting-button no-print"><span class="glyphicon glyphicon-print"></button>
             <!--<button class="btn btn-success formatting-button" onclick="insertImage();"><span class="glyphicon glyphicon-picture"></span></button>-->
                 <button id="fontSelectSheets" class="btn btn-success formatting-button">
                     <div class="arrow-down"></div>
@@ -399,7 +400,6 @@
             <button class="btn btn-success" id='tisheets-add-column' onclick="newColumn()">Add Column</button>
             <!--<button class="btn btn-success" id="tisheets-save" onclick="saveSheet(); window.location.href = '?app=7';">Save</button>-->
           <h5 style="display: none;" id="view"></h5>
-            <button onclick="window.print()" id="legacyPrintButton" class="btn btn-success no-print">Print Page</button>
             <button onclick="tiPrint()" id="printButton" class="btn btn-success no-print" style="display: none"><i class="fa fa-mouse-pointer"></i> <span class="badge badge-pill">NEW</span> Print Now with TiPrint</button>
             <br>
             <button class="btn btn-success" id="tisheets-edit" class="no-print" onclick="editSheet()" style="display: none; width: 50px; height: 50px; border-radius: 50%; position: fixed; z-index: 1; bottom: 10px; left: 10px;"><span class='glyphicon glyphicon-pencil'></span></button>
