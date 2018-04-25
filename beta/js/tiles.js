@@ -76,8 +76,9 @@ function deleteTile(tileid) {
     window.dbRef.child(toDelFirebase).set(null);
     localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
     save();
-    swal("Deleted!","Tile successfully deleted!","success");
+    swal("Deleted!","Tile successfully deleted!","success").then(
     location.reload();
+    )
   }, function () {
     location.reload();
   });
