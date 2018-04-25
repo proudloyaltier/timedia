@@ -23,13 +23,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109579764-3"></script>
-    <script>
-        function gtag() {
-            dataLayer.push(arguments)
-        }
-        window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-109579764-3")
-    </script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="other resources/style2.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -93,6 +86,8 @@
                     var errorMessage = error.message;
                     console.log(errorCode + " " + errorMessage);
                     alert("There has been an error! " + errorMessage)
+                }).then(function() {
+                    location.href = "index.html"
                 });
             } else {
                 alert('Please enter a username and password!')
@@ -116,5 +111,4 @@
     <script src="js/main.js"></script>
     <script src="js/login-tismile.js"></script>
 </body>
-
 </html>
