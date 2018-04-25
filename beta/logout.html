@@ -1,49 +1,37 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
-  <script src="js/db.js"></script>
-  <script>
-    if (localStorage.faces !== undefined) {
-      var localFaces = localStorage.faces;
-      var localTiSmileAccount = localStorage.tismileaccount;
-      var localSecurity = localStorage.security;
-      var localTiSmileAccountPassword = localStorage.tismileaccountpassword;
-    }
-
-    if (localStorage.history !== undefined) {
-      var tiriHistory = localStorage.history;
-    }
-
-    if (localStorage.pin !== undefined) {
-      var pin = localStorage.pin;
-    }
-    firebase.auth()
-      .signOut()
-    window.localStorage.clear();
-
-    if (localFaces !== undefined) {
-      localStorage.faces = localFaces;
-      localStorage.tismileaccount = localTiSmileAccount;
-      localStorage.security = localSecurity;
-      localStorage.tismileaccountpassword = localTiSmileAccountPassword;
-    }
-
-    if (tiriHistory !== undefined) {
-      localStorage.history = tiriHistory
-    }
-
-    if (pin !== undefined) {
-      localStorage.pin = pin;
-    }
-
-    window.location.href = "login.html";
-
-  </script>
-</head>
-
-<body>
-</body>
-
-</html>
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<script src="js/db.js"></script>
+<script>
+  if (localStorage.faces !== undefined) {
+    var localFaces = localStorage.faces;
+    var localTiSmileAccount = localStorage.tismileaccount;
+    var localSecurity = localStorage.security;
+    var localTiSmileAccountPassword = localStorage.tismileaccountpassword;
+  }
+  
+  if (localStorage.history !== undefined) {
+    var tiriHistory = localStorage.history;
+  }
+  
+  if (localStorage.pin !== undefined) {
+    var pin = localStorage.pin;
+  }
+  firebase.auth().signOut()
+  window.localStorage.clear();
+  
+  if (localFaces !== undefined) {
+    localStorage.faces = localFaces;
+    localStorage.tismileaccount = localTiSmileAccount;
+    localStorage.security = localSecurity;
+    localStorage.tismileaccountpassword = localTiSmileAccountPassword;
+  }
+  
+  if (tiriHistory !== undefined) {
+    localStorage.history = tiriHistory
+ }
+  
+  if (pin !== undefined) {
+    localStorage.pin = pin;
+  }
+  
+  window.location.href = "login.html";
+</script>
