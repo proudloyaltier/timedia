@@ -13,13 +13,12 @@ function showTiWorkColorSheets() {
 }
 
 function setColor() {
-  var color = "#" + document.getElementById('fontColorSlides').value;
+  var color = "#" + document.getElementById('fontColor').value;
   document.execCommand('styleWithCSS', false, true);
   document.execCommand('foreColor', false, color);
-  document.getElementById('fontColorDivSlides').style.display = 'none';
-  saveSlide();
+  document.getElementById('fontColorDiv').style.display = 'none';
+  saveDoc();
 }
-
 
 function setColorSheets() {
   var color = "#" + document.getElementById('fontColorSheets').value;
