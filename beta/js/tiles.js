@@ -8,21 +8,8 @@ function showTiWorkColor() {
   document.getElementById('fontColorDiv').style.display = 'block';
 }
 
-
-function showTiWorkColorSlides() {
-  document.getElementById('fontColorDivSlides').style.display = 'block';
-}
-
 function showTiWorkColorSheets() {
   document.getElementById('fontColorDivSheets').style.display = 'block';
-}
-
-function setColorSlides() {
-  var color = "#" + document.getElementById('fontColor').value;
-  document.execCommand('styleWithCSS', false, true);
-  document.execCommand('foreColor', false, color);
-  document.getElementById('fontColorDiv').style.display = 'none';
-  saveDoc();
 }
 
 function setColor() {
