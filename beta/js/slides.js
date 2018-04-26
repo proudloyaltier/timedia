@@ -121,9 +121,14 @@ function previousSlide() {
 
 function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
-  if (localStorage.tislidessave == undefined) {
+    var slideshow2 = []
+    for (var i=0; i<slideshow.length; i++) {
+      slideshow2.push(CryptoJS.AES.encrypt(slideshow[i], localStorage.password) + "")
+    }
+    if (i == slideshow.length-1) {
+     if (localStorage.tislidessave == undefined) {
     var tislidessave = generateRandString()
-    storeInDatabase(tislidessave, slideshow);
+    storeInDatabase(tislidessave, slideshow2);
     localStorage.tislidessave = tislidessave;
     var urlRef = window.dbRef.child(tislidessave);
     urlRef.on("value", function (snapshot) {
@@ -135,9 +140,16 @@ function saveSlide() {
     localStorage.recentUrl = url;
     localStorage.workToSaveTitle = document.getElementById('slidesTitle').value;
     localStorage.workToSave = url;
+   }
   } else {
-    window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(slideshow);
+    var slideshow2 = []
+    for (var i=0; i<slideshow.length; i++) {
+      slideshow2.push(CryptoJS.AES.encrypt(slideshow[i], localStorage.password) + "")
+    }
+    if (i == slideshow.length-1) {
+    window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(slideshow2);
     var tislidessave = localStorage.tislidessave
+    }
   }
 }
 
@@ -198,7 +210,11 @@ window.addEventListener('DOMContentLoaded', function () {
       }
       document.getElementById('slidesTitle').remove();
       localStorage.tislidessave = getQueryVariable("s");
-      slideshow = child.val()
+      slideshowD = child.val()
+      var slideshow = []
+        for (var i=0; i<slideshowD.length; i++) {
+         slideshow.push(CryptoJS.AES.decrypt(slideshowD[i], localStorage.password).toString(CryptoJS.enc.Utf8);)
+      }
       updateSlide();
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
         document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(this);};
