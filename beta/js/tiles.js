@@ -8,6 +8,11 @@ function showTiWorkColor() {
   document.getElementById('fontColorDiv').style.display = 'block';
 }
 
+
+function showTiWorkColorSlides() {
+  document.getElementById('fontColorDivSlides').style.display = 'block';
+}
+
 function showTiWorkColorSheets() {
   document.getElementById('fontColorDivSheets').style.display = 'block';
 }
