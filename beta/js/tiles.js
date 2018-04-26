@@ -92,7 +92,7 @@ function resetTiles() {
   alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
     localStorage.files = ""
     storeInDatabase("files", "");
-    swal("Deleted!","Tiles successfully reset!","success").then((value) => {                                                               
+    swal("Reset!","Tiles successfully reset!","success").then((value) => {                                                               
     window.location.href = "index.html?app=7";
     })
   }, function () {
