@@ -213,7 +213,7 @@ window.addEventListener('DOMContentLoaded', function () {
       slideshowD = child.val()
       var slideshow = []
         for (var i=0; i<slideshowD.length; i++) {
-         slideshow.push(CryptoJS.AES.decrypt(slideshowD[i], localStorage.password).toString(CryptoJS.enc.Utf8);)
+         slideshow.push(CryptoJS.AES.decrypt(slideshowD[i], localStorage.password).toString(CryptoJS.enc.Utf8))
       }
       updateSlide();
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
