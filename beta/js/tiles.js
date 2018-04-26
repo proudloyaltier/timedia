@@ -17,7 +17,7 @@ function showTiWorkColorSheets() {
   document.getElementById('fontColorDivSheets').style.display = 'block';
 }
 
-function setColor() {
+function setColorSlides() {
   var color = "#" + document.getElementById('fontColor').value;
   document.execCommand('styleWithCSS', false, true);
   document.execCommand('foreColor', false, color);
