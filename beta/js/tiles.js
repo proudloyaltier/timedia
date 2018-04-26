@@ -25,6 +25,15 @@ function setColor() {
   saveDoc();
 }
 
+function setColor() {
+  var color = "#" + document.getElementById('fontColorSlides').value;
+  document.execCommand('styleWithCSS', false, true);
+  document.execCommand('foreColor', false, color);
+  document.getElementById('fontColorDivSlides').style.display = 'none';
+  saveSlide();
+}
+
+
 function setColorSheets() {
   var color = "#" + document.getElementById('fontColorSheets').value;
   document.execCommand('styleWithCSS', false, true);
