@@ -121,12 +121,12 @@ function previousSlide() {
 
 function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
-    var slideshow2 = []
-    for (var i=0; i<slideshow.length; i++) {
+     if (localStorage.tislidessave == undefined) {
+     var slideshow2 = []
+     for (var i=0; i<slideshow.length; i++) {
       slideshow2.push(CryptoJS.AES.encrypt(slideshow[i], localStorage.password) + "")
     }
     if (i == slideshow2.length-1) {
-     if (localStorage.tislidessave == undefined) {
     var tislidessave = generateRandString()
     storeInDatabase(tislidessave, slideshow2);
     localStorage.tislidessave = tislidessave;
