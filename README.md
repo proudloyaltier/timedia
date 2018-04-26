@@ -4,8 +4,7 @@
 ## Your data is safe!
 Your documents are encrypted end to end, your data (like documents, tiles and more) is not visible to any admin or other user!
 
-## News
-We are undergoing major additions to TiWork, make sure to backup all files stored in your tiles (click backup to backup and keep that file safe on your hard drive) as files may be lost in the database changes if not properly backed up.
+Warning: TiSlides aren't encrypted yet! We are currently working on TiSlides and are not ready to encrypt yet!
 
 ## What's new?
 
