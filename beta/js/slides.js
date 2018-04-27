@@ -123,7 +123,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
     var tislidessave = generateRandString()
-    storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + ""));
+    storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
     localStorage.tislidessave = tislidessave;
     var urlRef = window.dbRef.child(tislidessave);
     urlRef.on("value", function (snapshot) {
