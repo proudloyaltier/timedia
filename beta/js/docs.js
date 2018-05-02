@@ -131,4 +131,8 @@ window.onload = function() {
   if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem("tidocssave");
   }
+  
+  if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
+    localStorage.removeItem("tisheetssave");
+  }
 }
