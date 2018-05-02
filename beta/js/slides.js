@@ -189,7 +189,7 @@ function stopPresentation() {
   document.querySelector("#stopPresentation").style.display = "none";
 }
 
-window.onload = function() {
+window.addEventListener('DOMContentLoaded', function () {
   if (getQueryVariable("s") == false) {
     localStorage.removeItem("tislidessave");
     localStorage.removeItem("slideshow");
@@ -219,7 +219,7 @@ window.onload = function() {
       });
     });
   }
-}
+}, false);
 
 /*
 
