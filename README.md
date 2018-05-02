@@ -8,6 +8,10 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 TiMedia 3 is now in beta!
 
+• Faster loading, all code has been cleaned up and optimized.
+• New Favicon
+• Removed Tiri from navigation bar.
+
 ## What is TiMedia?
 TiMedia is a Google, Apple, and Microsoft replacement.
 
