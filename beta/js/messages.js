@@ -45,8 +45,7 @@ if (window.location !== "index.html" && getQueryVariable("app") !== false && get
   document.getElementById("iChat-input").style.display = "none";
   document.getElementById("iChat-messages").style.display = "none";
   document.getElementById("pming-home").style.display = "";
-  setInterval(changeName, 50);
-  window.onload = function() {
-    getMessages();
-  }
+  window.addEventListener('DOMContentLoaded', function () {
+  getMessages();
+  }, false);
 }
