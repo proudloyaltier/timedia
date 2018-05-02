@@ -6,7 +6,7 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 ## What's new?
 
-TiSlides has now arrived!
+TiMedia 3 is now in beta!
 
 ## What is TiMedia?
 TiMedia is a Google, Apple, and Microsoft replacement.
