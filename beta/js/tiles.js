@@ -277,6 +277,4 @@ if (getQueryVariable("bookmarkurl") !== false) {
   window.location.href = atob(getQueryVariable("bookmarkurl"));
 }
 
-window.onload = function() {
-  refreshTiles();
-}
+refreshTiles();
