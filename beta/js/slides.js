@@ -91,7 +91,7 @@ function addImage(src) {
   }
 
   function addSlide() {
-    slideshow.push(" <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+    slideshow.push("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
     current_slide = slideshow.length - 1;
     updateSlide();
   }
