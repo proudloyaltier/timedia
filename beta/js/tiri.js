@@ -587,14 +587,14 @@ function setTimer(time) {
     window.timer = time.split(" ")[0] * 3600;
   }
 
-  localStorage.ts = (timer + "").toHHMMSS();
+  localStorage.ts = timer.toHHMMSS();
 
   window.timeInterval = setInterval(timerDown, 1000);
 }
 
 function timerDown() {
   window.timer = timer - 1;
-  document.getElementById("tiri-bubbles-timer").innerHTML = (timer + "").toHHMMSS();
+  document.getElementById("tiri-bubbles-timer").innerHTML = timer.toHHMMSS();
 
   if (window.timer == 0) {
     clearInterval(timerInterval);
