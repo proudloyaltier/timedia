@@ -64,7 +64,7 @@ function saveSheet() {
     localStorage.workToSaveTitle = document.getElementById("sheetsTitle").value;
     localStorage.recentUrl = url;
   } else {
-    window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById("tisheets-table").innerHTML, localStorage.password) + "");
+    window.dbRef.child(localStorage.tisheetssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById("sheetsContent").innerHTML, localStorage.password) + "");
     var tisheetssave = localStorage.getItem("tisheetssave");
   }
 }
