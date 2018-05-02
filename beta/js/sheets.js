@@ -87,7 +87,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
   }
 
   if (getQueryVariable("t") == false) {
-    document.getElementById("tisheets-table").innerHTML = localStorage.getItem("editSheet");
+    document.getElementById("sheetsContent").innerHTML = localStorage.getItem("editSheet");
     localStorage.setItem("editAutoSave", localStorage.editSheet);
     localStorage.removeItem("editSheet");
   } else {
@@ -101,11 +101,11 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
           window.location.href = "index.html?app=7";
           alert("You do not have access to this spreadsheet.")
         }
-        document.getElementById("tisheets-table").innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-        window.edit = document.getElementById("tisheets-table").innerHTML;
+        document.getElementById("sheetsContent").innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+        window.edit = document.getElementById("sheetsContent").innerHTML;
       });
     });
-    document.getElementById("tisheets-table").setAttribute("contenteditable", false);
+    document.getElementById("sheetsContent").setAttribute("contenteditable", false);
     document.getElementById("tisheets-add-row").style.display = "none";
     document.getElementById("tisheets-add-column").style.display = "none";
     document.getElementById("tisheets-edit").style.display = ""
