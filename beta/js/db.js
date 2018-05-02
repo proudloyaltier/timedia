@@ -1,6 +1,4 @@
-var bannedusers = [""];
-
-var MD5 = function (string) {
+var MD5 = function(string) {
 
   function RotateLeft(lValue, iShiftBits) {
     return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
@@ -46,22 +44,22 @@ var MD5 = function (string) {
   function FF(a, b, c, d, x, s, ac) {
     a = AddUnsigned(a, AddUnsigned(AddUnsigned(F(b, c, d), x), ac));
     return AddUnsigned(RotateLeft(a, s), b);
-  };
+  }
 
   function GG(a, b, c, d, x, s, ac) {
     a = AddUnsigned(a, AddUnsigned(AddUnsigned(G(b, c, d), x), ac));
     return AddUnsigned(RotateLeft(a, s), b);
-  };
+  }
 
   function HH(a, b, c, d, x, s, ac) {
     a = AddUnsigned(a, AddUnsigned(AddUnsigned(H(b, c, d), x), ac));
     return AddUnsigned(RotateLeft(a, s), b);
-  };
+  }
 
   function II(a, b, c, d, x, s, ac) {
     a = AddUnsigned(a, AddUnsigned(AddUnsigned(I(b, c, d), x), ac));
     return AddUnsigned(RotateLeft(a, s), b);
-  };
+  }
 
   function ConvertToWordArray(string) {
     var lWordCount;
@@ -84,7 +82,7 @@ var MD5 = function (string) {
     lWordArray[lNumberOfWords - 2] = lMessageLength << 3;
     lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
     return lWordArray;
-  };
+  }
 
   function WordToHex(lValue) {
     var WordToHexValue = "",
@@ -96,7 +94,7 @@ var MD5 = function (string) {
       WordToHexValue = WordToHexValue + WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2);
     }
     return WordToHexValue;
-  };
+  }
 
   function Utf8Encode(string) {
     string = string.replace(/\r\n/g, "\n");
@@ -120,7 +118,7 @@ var MD5 = function (string) {
     }
 
     return utftext;
-  };
+  }
 
   var x = Array();
   var k, AA, BB, CC, DD, a, b, c, d;
@@ -263,22 +261,23 @@ function snapValue(value) {
 }
 
 function errorLoading(err) {
-  alert("Errror! " + err);
+  alert(err);
 }
 
 function changePassword(newpassword) {
   var user = firebase.auth().currentUser;
 
-  user.updatePassword(newpassword).then(function () {
-    alertify.log("Password Changed Successfully!")
-  }).catch(function (error) {
-    alertify.alert("There has been an error! " + error)
+  user.updatePassword(newpassword).then(function() {
+    alertify.log("Password changed successfully!")
+  }).catch(function(error) {
+    alertify.alert(error)
   });
 }
 
 function changePasswordButton() {
   var pwf = document.getElementById("passchange1").value;
   var pws = document.getElementById("passchange2").value;
+
   if (pwf == pws) {
     changePassword(pwf);
   }
@@ -287,40 +286,41 @@ function changePasswordButton() {
 function login() {
   var uname = document.getElementById('login-username').value + '@timediatied.com';
   var pword = document.getElementById('login-password').value;
-  firebase.auth().signInWithEmailAndPassword(uname, pword).catch(function (error) {
+  firebase.auth().signInWithEmailAndPassword(uname, pword).catch(function(error) {
     errorLogin("Username or password is incorrect.");
   });
 }
 
 if (localStorage.name == undefined) {
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      user.providerData.forEach(function (profile) {
-        localStorage.setItem("tismilepassword", MD5(document.getElementById('login-password').value))
+      user.providerData.forEach(function(profile) {
+        localStorage.setItem("tismilepassword", MD5(document.getElementById('login-password').value));
+
         if (user.photoURL == null) {
           localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
           localStorage.setItem("access", btoa(localStorage.name));
           user.updateProfile({
             photoURL: MD5(document.getElementById('login-password').value)
-          }).then(function () {
-            localStorage.setItem("password", user.photoURL)
-            location.href = 'index.html';
+          }).then(function() {
+            localStorage.setItem("password", user.photoURL);
+            window.location.href = "index.html";
           });
         } else {
           localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
           localStorage.setItem("access", btoa(localStorage.name));
-          localStorage.setItem("password", user.photoURL)
-          location.href = 'index.html';
+          localStorage.setItem("password", user.photoURL);
+          location.href = "index.html";
         }
       });
     }
   });
 } else {
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      user.providerData.forEach(function (profile) {
+      user.providerData.forEach(function(profile) {
         if (localStorage.name !== profile.email.replace("@timediatied.com", "")) {
-          window.location.href = 'logout.html';
+          window.location.href = "logout.html";
         }
       });
     }
