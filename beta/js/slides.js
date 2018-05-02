@@ -124,7 +124,8 @@ function addImage(src) {
     slideshow[current_slide] = slideContainer.innerHTML;
     if (localStorage.getItem("tislidessave") == undefined) {
       var tislidessave = generateRandString()
-      storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password") + ""); localStorage.setItem("tislidessave", tislidessave);
+      storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password") + ""));
+      localStorage.setItem("tislidessave", tislidessave);
         var urlRef = window.dbRef.child(tislidessave); urlRef.on("value", function(snapshot) {
           snapshot.forEach(function(child) {
             localStorage.setItem("owner", child.key);
