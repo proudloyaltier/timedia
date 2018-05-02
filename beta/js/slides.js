@@ -124,7 +124,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.getItem("tislidessave") == undefined) {
     var tislidessave = generateRandString()
-    storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password"));
+    storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password")));
     localStorage.setItem("tislidessave", tislidessave);
     var urlRef = window.dbRef.child(tislidessave);
     urlRef.on("value", function(snapshot) {
