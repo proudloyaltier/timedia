@@ -1,3 +1,15 @@
+window.onload = function() {
+  if (localStorage.editAutoSave == undefined) {
+    localStorage.removeItem("tidocssave");
+  }
+  
+  if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
+    localStorage.removeItem("tisheetssave");
+  }
+}
+
+
+
 var isFirefox = typeof InstallTrigger !== "undefined";
 var isIE = /*@cc_on!@*/ false || !!document.documentMode;
 
@@ -125,14 +137,4 @@ function docReader() {
   document.getElementById("tidocs-edit").remove();
   document.getElementById("tidocs-reader").remove();
   document.getElementById("tidocs-header").remove();
-}
-
-window.onload = function() {
-  if (localStorage.editAutoSave == undefined) {
-    localStorage.removeItem("tidocssave");
-  }
-  
-  if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
-    localStorage.removeItem("tisheetssave");
-  }
 }
