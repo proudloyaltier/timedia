@@ -8,5 +8,5 @@ function submitApp() {
 }
 
 function updateIcon() {
-  document.getElementById("newapp-preview").innerHTML = "Preview: <span class="glyphicon glyphicon-" + document.getElementById("newapp-icon").value + ""></span>"
+  document.getElementById("newapp-preview").innerHTML = "Preview: <span class='glyphicon glyphicon-" + document.getElementById("newapp-icon").value + "'></span>";
 }
