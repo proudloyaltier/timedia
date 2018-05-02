@@ -16,9 +16,9 @@ function lastTile() {
   window.location.href = localStorage.recentUrl;
 }
 
-document.getElementById("tismileSettings").style = "display: none";
-document.getElementById("personalizationSettings").style = "display: none";
-document.getElementById("tileSettings").style = "display: none";
+document.getElementById("tismileSettings").style.display = "none";
+document.getElementById("personalizationSettings").style.display = "none";
+document.getElementById("tileSettings").style.display = "none";
 
 function sstismile() {
   if (document.getElementById("tismileSettings").style.display == "") {
