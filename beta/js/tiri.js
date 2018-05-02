@@ -299,7 +299,7 @@ function tt() {
     responsiveVoice.speak("Sorry. I do not understand");
     localStorage.ts = "Sorry, I do not understand.";
   }
-  document.getElementById("bubbles").innerHTML += "<div class='message'>" + localStorage.ts + "</div>";
+  document.getElementById("bubbles").innerHTML += "<div class='message-return'>" + localStorage.ts + "</div>";
   localStorage.history = document.getElementById("bubbles").innerHTML;
   window.scrollTo(0, document.body.scrollHeight);
 }
