@@ -66,7 +66,7 @@ function tt() {
     localStorage.us = document.getElementById("tiri-mini-box").value.toLowerCase().replace("?", "").replace("!", "").replace("!", "").replace(".", "").replace("what's ", "what is ").replace("whats ", "what is ");
   }
 
-  document.getElementById("bubbles").innerHTML += "<br><br><br><br><br><div class=" + (message - send + ">" + localStorage.us + "</div><br><br><br><br><br>");
+  document.getElementById("bubbles").innerHTML += "<br><br><br><br><br><div class='message-send'>" + localStorage.us + "</div><br><br><br><br><br>");
   if (localStorage.us == "i have a problem") {
     window.location.href = "mailto:timediamail@gmail.com";
   } else if (localStorage.us == "ti") {
