@@ -126,9 +126,3 @@ function sheetReader() {
   document.getElementById("tisheets-reader").remove();
   document.getElementById("tisheets-header").remove();
 }
-
-window.onload = function() {
-  if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
-    localStorage.removeItem("tisheetssave");
-  }
-}
