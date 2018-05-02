@@ -201,7 +201,7 @@ window.onload = function() {
         localStorage.owner = child.key;
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = "index.html?app=7";
-          alert("Access Denied! Get TIed!")
+          alert("You do not have access to this slideshow.")
         }
         document.getElementById("slidesTitle").remove();
         localStorage.setItem("tislidessave", getQueryVariable("s"));
@@ -221,6 +221,10 @@ window.onload = function() {
   }
 }
 
+/*
+
 if (localStorage.getItem("slidesMobile") !== undefined) {
   document.getElementById("controls").style.visibility = "hidden";
 }
+
+*/
