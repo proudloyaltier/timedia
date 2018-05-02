@@ -586,9 +586,7 @@ function setTimer(time) {
     responsiveVoice.speak("Alright. " + time.split(" ")[0] + " hours and counting.");
     window.timer = time.split(" ")[0] * 3600;
   }
-
-  localStorage.ts = (timer + "").toHHMMSS();
-
+  
   window.timerInterval = setInterval(timerDown, 1000);
 }
 
