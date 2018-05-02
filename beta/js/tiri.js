@@ -625,7 +625,7 @@ function timerDown() {
     clearInterval(timerInterval);
     responsiveVoice.speak("Time's up");
     localStorage.ts = "Time's up.";
-    document.getElementById("bubbles").innerHTML += "<br><div class='message-return'>Time is up.</div>";
+    document.getElementById("bubbles").innerHTML += "<br><br><div class='message-return'>Time is up.</div>";
     document.getElementById("tiri-bubbles-timer").style.display = "none";
     localStorage.history = document.getElementById("bubbles").innerHTML;
   }
