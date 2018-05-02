@@ -80,32 +80,7 @@ function tt() {
     responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split(" ")[1]));
     localStorage.ts = math.eval(localStorage.us.split(" ")[1]).toLocaleString();
   } else if (localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
-    document.getElementById("tiri-bubbles-timer").style.display = "";
-    if (isNaN(Number(localStorage.us.split(" ")[4]))) {
-      responsiveVoice.speak("Sorry. I do not understand");
-      localStorage.ts = "Sorry. I do not understand";
-    } else if (Number(localStorage.us.split(" ")[4]) < 1) {
-      responsiveVoice.speak("That would be useless");
-      localStorage.ts = "That would be useless.";
-    } else if (localStorage.us.split(" ")[5] == "seconds" || localStorage.us.split(" ")[5] == "second") {
-      window.timer = localStorage.us.split(" ")[4];
-      responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.");
-      localStorage.ts = "Alright. " + localStorage.us.split(" ")[4] + " seconds and counting.";
-    } else if (localStorage.us.split(" ")[5] == "minutes" || localStorage.us.split(" ")[5] == "minute") {
-      responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.");
-      localStorage.ts = "Alright. " + localStorage.us.split(" ")[4] + " minutes and counting.";
-      window.timer = localStorage.us.split(" ")[4] * 60;
-    } else if (localStorage.us.split(" ")[5] == "hours" || localStorage.us.split(" ")[5] == "hour") {
-      responsiveVoice.speak("Alright. " + localStorage.us.split(" ")[4] + " hours and counting.");
-      localStorage.ts = "Alright. " + localStorage.us.split(" ")[4] + " hours and counting.";
-      window.timer = localStorage.us.split(" ")[4] * 3600;
-    } else {
-      responsiveVoice.speak("Sorry. I do not understand");
-      localStorage.ts = "Sorry. I do not understand";
-    }
-
-    window.timerInterval = setInterval(timerDown, 1000);
-
+    setTimer(localStorage.us.split(" ")[4] + localStorage.us.split(" ")[5]);
   } else if (localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] == "simon says") {
     responsiveVoice.speak(localStorage.us.split("simon says ")[1]);
     localStorage.ts = localStorage.us.split("simon says ")[1];
