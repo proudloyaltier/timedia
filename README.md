@@ -1,4 +1,4 @@
-# Welcome to TiMedia! 
+# TiMedia
 
 
 ## Your data is safe!
