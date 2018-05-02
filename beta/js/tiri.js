@@ -598,11 +598,11 @@ function timerDown() {
 
   if (window.timer == 0) {
     clearInterval(timerInterval);
+    document.getElementById("tiri-bubbles-timer").style.display = "none";
+    document.getElementById("bubbles").innerHTML += "<br><br><br><br><br><div class='message-return'>Time is up.</div>";
+    localStorage.history = document.getElementById("bubbles").innerHTML;
     responsiveVoice.speak("Time's up");
     localStorage.ts = "Time's up.";
-    document.getElementById("bubbles").innerHTML += "<br><br><div class='message-return'>Time is up.</div>";
-    document.getElementById("tiri-bubbles-timer").style.display = "none";
-    localStorage.history = document.getElementById("bubbles").innerHTML;
   }
 }
 
