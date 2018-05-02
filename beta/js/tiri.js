@@ -594,7 +594,7 @@ function setTimer(time) {
 
 function timerDown() {
   window.timer = timer - 1;
-  localStorage.ts = (timer + "").toHHMMSS();
+  document.getElementById("tiri-bubbles-timer").innerHTML = (timer + "").toHHMMSS();
 
   if (window.timer == 0) {
     clearInterval(timerInterval);
