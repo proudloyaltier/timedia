@@ -1,3 +1,7 @@
 <script>
-  window.location.href = "beta";
+  if (localStorage.access !== undefined) {
+    window.location.href = "beta";
+  } else {
+    window.location.href = "overview";
+  }
 </script>
