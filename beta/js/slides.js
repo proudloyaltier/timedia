@@ -82,9 +82,10 @@ function addImage(src) {
   image.onmouseout = function() {
     specialElement = false
   };
-  image.className += " slides-img";
+  image.classList.add("slides-img");
   image.oncontextmenu = function() {
-    document.getElementById("context-menu").innerHTML = "<ul class='context menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[" + document.getElementsByClassName(\"slides-img\").length + "].onmousedown = null + "> Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
+    // ??? I Don't know what this is supposed to be
+    //document.getElementById("context-menu").innerHTML = "<ul class='context menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[document.getElementsByClassName(\"slides-img\").length + ''].onmousedown = null + "> Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
     };
     slideContainer.appendChild(image);
     saveSlide();
