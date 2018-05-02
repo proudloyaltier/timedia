@@ -18,11 +18,15 @@ String.prototype.toHHMMSS = function() {
 
 localStorage.us = "";
 
+/*
+
 if (document.getElementById("tiri-bubbles-timer").style.display == "") {
   setInterval(function() {
     document.getElementById("tiri-timer").innerHTML = (window.timer + "").toHHMMSS();
   }, 0);
 }
+
+*/
 
 if (getQueryVariable("app") == 5) {
   document.getElementById("tiri-mini-box").style.display = "none";
@@ -618,10 +622,10 @@ function timerDown() {
   localStorage.ts = (timer + "").toHHMMSS();
 
   if (window.timer == 0) {
-    responsiveVoice.speak("Time's up ");
+    clearInterval(timerInterval);
+    responsiveVoice.speak("Time's up");
     localStorage.ts = "Time's up.";
     document.getElementById("bubbles").innerHTML += "<div class='message'>Time is up.</div>";
-    clearInterval(timerInterval);
     document.getElementById("tiri-bubbles-timer").style.display = "none";
     localStorage.history = document.getElementById("bubbles").innerHTML;
   }
