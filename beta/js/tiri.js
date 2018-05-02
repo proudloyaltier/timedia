@@ -589,7 +589,7 @@ function setTimer(time) {
 
   localStorage.ts = (timer + "").toHHMMSS();
 
-  window.timeInterval = setInterval(timerDown, 1000);
+  window.timerInterval = setInterval(timerDown, 1000);
 }
 
 function timerDown() {
