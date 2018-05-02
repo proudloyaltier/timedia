@@ -1,4 +1,6 @@
-var mutedusers = [""];
+Element.prototype.remove = function() {
+  this.parentElement.removeChild(this);
+}
 
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -9,22 +11,18 @@ function getQueryVariable(variable) {
       return pair[1];
     }
   }
-  return (false);
+  return false;
 }
 
 function changeName() {
-  if (firebase.auth().currentUser.displayName != localStorage.getItem('name')) {
+  if (firebase.auth().currentUser.displayName != localStorage.getItem("name")) {
     firebase.auth().currentUser.updateProfile({
-      displayName: localStorage.getItem('name')
+      displayName: localStorage.getItem("name")
     });
   }
 }
 
-Element.prototype.remove = function () {
-  this.parentElement.removeChild(this);
-}
-
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   for (var i = this.length - 1; i >= 0; i--) {
     if (this[i] && this[i].parentElement) {
       this[i].parentElement.removeChild(this[i]);
@@ -32,12 +30,11 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
   }
 }
 
-document.getElementById('userdrop').innerHTML = localStorage.name;
+document.getElementById("userdrop").innerHTML = localStorage.name;
 
 function launchApp(appname) {
-  document.getElementById('home').style.display = 'none';
-
-  document.getElementById(appname).style = "visibility: block;"
+  document.getElementById("home").style.display = "none";
+  document.getElementById(appname).style.display = ""
 }
 
 if (localStorage.access == btoa(localStorage.name)) {
@@ -96,7 +93,7 @@ if (localStorage.access == btoa(localStorage.name)) {
 }
 
 function checkCasioer() {
-  var comment = document.getElementById('iChat-input').value;
+  var comment = document.getElementById("iChat-input").value;
   if (comment.toLowerCase().includes("casio")) {
     alert("Don't say Casio! Your comment has been deleted!");
     comment.value = "";
@@ -109,20 +106,14 @@ if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
   setInterval(changeName, 500);
 }
 
-function customImageUpload() {
-  $(".hcb-comment-tb").removeClass('hcb-comment-tb');
-  $('.inputfile').removeClass('inputfile');
-  $("label[for='hcb_file']").text("Insert Image").addClass('btn').addClass('btn-primary');
-}
-
 var me = new iChatPlugin("me/me", function(data) {
-   if (data.txt.startsWith("/me ")) {
-    data.txt = data.txt.replace("/me", '***'+data.u);
+  if (data.txt.startsWith("/me ")) {
+    data.txt = data.txt.replace("/me", "***" + data.u);
     data.u = ""
-   }
-    return data;
+  }
+  return data;
 }, "/me function for iChat");
 
 iChat.onload = function() {
-    iChat.registerPlugin(me);
+  iChat.registerPlugin(me);
 }
