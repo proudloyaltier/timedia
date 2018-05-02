@@ -587,6 +587,7 @@ function setTimer(time) {
     window.timer = time.split(" ")[0] * 3600;
   }
   
+  document.getElementById("tiri-bubbles-timer").style.display = "";
   window.timerInterval = setInterval(timerDown, 1000);
 }
 
