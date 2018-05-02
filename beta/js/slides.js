@@ -86,139 +86,141 @@ function addImage(src) {
   image.oncontextmenu = function() {
     // ??? I Don't know what this is supposed to be
     //document.getElementById("context-menu").innerHTML = "<ul class='context menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[document.getElementsByClassName(\"slides-img\").length + ''].onmousedown = null + "> Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
-    };
-    slideContainer.appendChild(image);
-    saveSlide();
-  }
+  };
+  slideContainer.appendChild(image);
+  saveSlide();
+}
 
-  function addSlide() {
-    slideshow.push("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
-    current_slide = slideshow.length - 1;
-    updateSlide();
-  }
+function addSlide() {
+  slideshow.push("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+  current_slide = slideshow.length - 1;
+  updateSlide();
+}
 
-  function removeSlide() {
-    if (slideshow.length > 1) {
-      var remove = confirm("Are you sure you want to remove this slide?");
+function removeSlide() {
+  if (slideshow.length > 1) {
+    var remove = confirm("Are you sure you want to remove this slide?");
 
-      if (remove == true) {
-        slideshow.splice(current_slide, 1);
+    if (remove == true) {
+      slideshow.splice(current_slide, 1);
 
-        if (current_slide > slideshow.length - 1) {
-          current_slide = slideshow.length - 1;
-        }
-
-        updateSlide();
+      if (current_slide > slideshow.length - 1) {
+        current_slide = slideshow.length - 1;
       }
-    }
-  }
 
-  function previousSlide() {
-    if (current_slide > 0) {
-      current_slide--;
       updateSlide();
     }
   }
+}
 
-  function saveSlide() {
-    slideshow[current_slide] = slideContainer.innerHTML;
-    if (localStorage.getItem("tislidessave") == undefined) {
-      var tislidessave = generateRandString()
-      storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password") + ""));
-      localStorage.setItem("tislidessave", tislidessave);
-        var urlRef = window.dbRef.child(tislidessave); urlRef.on("value", function(snapshot) {
-          snapshot.forEach(function(child) {
-            localStorage.setItem("owner", child.key);
-          });
-        });
-        var url = "index.html?app=9" + "&s=" + tislidessave; localStorage.setItem("recentUrl", url); localStorage.setItem("workToSaveTitle", document.getElementById("slidesTitle").value); localStorage.setItem("workToSave", url);
-      }
-      else {
-        window.dbRef.child(localStorage.getItem("tislidessave")).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password")) + "");
-        var tislidessave = localStorage.getItem("tislidessave");
+function previousSlide() {
+  if (current_slide > 0) {
+    current_slide--;
+    updateSlide();
+  }
+}
+
+function saveSlide() {
+  slideshow[current_slide] = slideContainer.innerHTML;
+  if (localStorage.getItem("tislidessave") == undefined) {
+    var tislidessave = generateRandString()
+    storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password") + ""));
+    localStorage.setItem("tislidessave", tislidessave);
+    var urlRef = window.dbRef.child(tislidessave);
+    urlRef.on("value", function(snapshot) {
+      snapshot.forEach(function(child) {
+        localStorage.setItem("owner", child.key);
+      });
+    });
+    var url = "index.html?app=9" + "&s=" + tislidessave;
+    localStorage.setItem("recentUrl", url);
+    localStorage.setItem("workToSaveTitle", document.getElementById("slidesTitle").value);
+    localStorage.setItem("workToSave", url);
+  } else {
+    window.dbRef.child(localStorage.getItem("tislidessave")).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.getItem("password")) + "");
+    var tislidessave = localStorage.getItem("tislidessave");
+  }
+}
+
+function updateSlide() {
+  slide.innerHTML = slideshow[current_slide];
+  var currentSlideText = current_slide + 1
+  document.querySelector("#currentSlide").innerText = currentSlideText + "/" + slideshow.length;
+  if (getQueryVariable("s") !== false) {
+    for (var i = 0; i < document.getElementsByClassName("edit-slides").length; i++) {
+      document.getElementsByClassName("edit-slides")[i].onmousedown = function() {
+        beginDrag(this);
+      };
+      if (i == document.getElementsByClassName("edit-slides").length - 1) {
+        return false
       }
     }
+  }
+}
 
-    function updateSlide() {
-      slide.innerHTML = slideshow[current_slide];
-      var currentSlideText = current_slide + 1
-      document.querySelector("#currentSlide").innerText = currentSlideText + "/" + slideshow.length;
-      if (getQueryVariable("s") !== false) {
+function nextSlide() {
+  if (current_slide < slideshow.length - 1) {
+    current_slide++;
+    updateSlide();
+  }
+}
+
+/*
+
+function importSlide() {
+  var slide_code = prompt("Paste Slide");
+
+  localStorage.slideshow = JSON.parse(atob(slide_code));
+  current_slide = 0;
+  slide.innerHTML = slideshow[current_slide];
+}
+
+*/
+
+function presentSlide() {
+  document.getElementById("controls").style.visibility = "hidden";
+  document.getElementById("presentSlide").style.display = "none";
+  document.getElementById("stopPresentation").style.display = "";
+}
+
+function stopPresentation() {
+  document.querySelector("#controls").style.visibility = "";
+  document.querySelector("#presentSlide").style.display = "";
+  document.querySelector("#stopPresentation").style.display = "none";
+}
+
+window.onload = function() {
+  if (getQueryVariable("s") == false) {
+    localStorage.removeItem("tislidessave");
+    localStorage.removeItem("slideshow");
+    sessionStorage.removeItem("slideLoad");
+  } else {
+    var urlRef = window.dbRef.child(getQueryVariable("s"));
+    urlRef.on("value", function(snapshot) {
+      snapshot.forEach(function(child) {
+        localStorage.owner = child.key;
+        if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
+          window.location.href = "index.html?app=7";
+          alert("Access Denied! Get TIed!")
+        }
+        document.getElementById("slidesTitle").remove();
+        localStorage.setItem("tislidessave", getQueryVariable("s"));
+        slideshow1 = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+        slideshow = slideshow1.split(",")
+        updateSlide();
         for (var i = 0; i < document.getElementsByClassName("edit-slides").length; i++) {
           document.getElementsByClassName("edit-slides")[i].onmousedown = function() {
             beginDrag(this);
           };
           if (i == document.getElementsByClassName("edit-slides").length - 1) {
-            return false
+            return false;
           }
         }
-      }
-    }
-
-    function nextSlide() {
-      if (current_slide < slideshow.length - 1) {
-        current_slide++;
-        updateSlide();
-      }
-    }
-
-    /*
-
-    function importSlide() {
-      var slide_code = prompt("Paste Slide");
-
-      localStorage.slideshow = JSON.parse(atob(slide_code));
-      current_slide = 0;
-      slide.innerHTML = slideshow[current_slide];
-    }
-
-    */
-
-    function presentSlide() {
-      document.getElementById("controls").style.visibility = "hidden";
-      document.getElementById("presentSlide").style.display = "none";
-      document.getElementById("stopPresentation").style.display = "";
-    }
-
-    function stopPresentation() {
-      document.querySelector("#controls").style.visibility = "";
-      document.querySelector("#presentSlide").style.display = "";
-      document.querySelector("#stopPresentation").style.display = "none";
-    }
-
-    window.onload = function() {
-      if (getQueryVariable("s") == false) {
-        localStorage.removeItem("tislidessave");
-        localStorage.removeItem("slideshow");
-        sessionStorage.removeItem("slideLoad");
-      } else {
-        var urlRef = window.dbRef.child(getQueryVariable("s"));
-        urlRef.on("value", function(snapshot) {
-          snapshot.forEach(function(child) {
-            localStorage.owner = child.key;
-            if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
-              window.location.href = "index.html?app=7";
-              alert("Access Denied! Get TIed!")
-            }
-            document.getElementById("slidesTitle").remove();
-            localStorage.setItem("tislidessave", getQueryVariable("s"));
-            slideshow1 = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-            slideshow = slideshow1.split(",")
-            updateSlide();
-            for (var i = 0; i < document.getElementsByClassName("edit-slides").length; i++) {
-              document.getElementsByClassName("edit-slides")[i].onmousedown = function() {
-                beginDrag(this);
-              };
-              if (i == document.getElementsByClassName("edit-slides").length - 1) {
-                return false;
-              }
-            }
-          });
-        });
-      }
-    }
+      });
+    });
   }
+}
 
-  if (localStorage.getItem("slidesMobile") !== undefined) {
-    document.getElementById("controls").style.visibility = "hidden";
-  }
+if (localStorage.getItem("slidesMobile") !== undefined) {
+  document.getElementById("controls").style.visibility = "hidden";
+}
