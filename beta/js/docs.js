@@ -1,7 +1,6 @@
 window.onload = function() {
-  if (localStorage.editAutoSave == undefined) {
+  if (localStorage.editAutoSave == undefined && localStorage.tidocssave !== undefined) {
     localStorage.removeItem("tidocssave");
-    localStorage.removeItem("queryVar");
   }
   if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
     localStorage.removeItem("tisheetssave");
@@ -103,7 +102,6 @@ if ("addEventListener" in tidocsContent) {
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
     document.getElementById("docsTitle").remove();
-    localStorage.tidocssave = localStorage.queryVar;
     document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem("edit");
@@ -129,6 +127,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
+  localStorage.tidocssave = getQueryVariable("p");
   localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
 }
