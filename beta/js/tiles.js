@@ -79,7 +79,12 @@ function deleteTile(tileid) {
   alertify.confirm("Are you sure you want to delete this Tile?", function() {
     var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19);
     window.dbRef.child(toDelFirebase).set(null);
+   if (localStorage.files.split(",").length > 1) {
     localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
+   } else {
+    localStorage.files = ""
+    storeInDatabase("files",null)
+   }
     save();
     swal("Deleted!", "Tile successfully deleted!", "success").then((value) => {
       window.location.reload();
