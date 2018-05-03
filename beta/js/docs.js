@@ -1,5 +1,5 @@
 window.onload = function() {
-  if (localStorage.editAutoSave == undefined && localStorage.tidocssave !== undefined) {
+  if (localStorage.editAutoSave == undefined && localStorage.tidocssave !== undefined && localStorage.edit == undefined) {
     localStorage.removeItem("tidocssave");
   }
   if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
