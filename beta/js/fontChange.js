@@ -189,7 +189,7 @@
       'hide_fallbacks': true,
       'initial': 'Courier New,Courier New,Courier,monospace',
       'selected': function(style) {
-       document.getElementById('tisheets-table').style.fontFamily = style;
+       document.getElementById('sheetsContent').style.fontFamily = style;
       },
       'fonts': [
         'Arial,Arial,Helvetica,sans-serif',
