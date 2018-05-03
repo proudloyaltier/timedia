@@ -40,7 +40,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="index.html">Home <span class="glyphicon glyphicon-home"></span></a></li>
                             <li><a href="index.html?app=5">Tiri <span class="glyphicon glyphicon-record"></span></a></li>
-                            <li><a href="?app=2">TiChat <span class="glyphicon glyphicon-send"></span></a></li>
+                            <li><a href="?app=2">TiChat <span class="glyphicon glyphicon-comment"></span></a></li>
                             <li><a href="?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
                             <li><a href="?app=7">Tiles <span class="glyphicon glyphicon-cloud"></span></a></li>
                             <li><a href="tishare">TiShare <span class="glyphicon glyphicon-share"></span></a></li>
@@ -432,18 +432,22 @@
         <!--context menu-->
         <nav id="context-menu" class="context-menu no-print">
             <ul class="context-menu__items">
-                <li><a href="index.html">Home <span class="glyphicon glyphicon-home"></span></a>
-                </li>
-                <li><a href="?app=2">TiChat <span class="glyphicon glyphicon-send"></span></a></li>
-                <li><a href="?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
-                <li><a href="?app=7">Tiles <span class="glyphicon glyphicon-cloud"></span></a></li>
-                <li><a href="tishare">TiShare <span class="glyphicon glyphicon-share"></span></a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="?app=3">TiDocs <span class="glyphicon glyphicon-pencil"></span></a></li>
-                <li><a href="?app=4">TiSheets <span class="glyphicon glyphicon-th-list"></span></a></li>
-                <li><a href="?app=10">TiBookmarks <span class="glyphicon glyphicon-bookmark"></span></a></li>
-                <input class="form-control" style="width: 70%" id="tiri-mini-box" onchange="tt();" placeholder="Start typing or speak now..." autofocus>
-                <!-- autofocus works more reliably and faster than .focus()-->
+               <li><a href="index.html">Home <span class="glyphicon glyphicon-home"></span></a></li>
+               <li><a href="index.html?app=5">Tiri <span class="glyphicon glyphicon-record"></span></a></li>
+               <li><a href="?app=2">TiChat <span class="glyphicon glyphicon-comment"></span></a></li>
+               <li><a href="?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
+               <li><a href="?app=7">Tiles <span class="glyphicon glyphicon-cloud"></span></a></li>
+               <li><a href="tishare">TiShare <span class="glyphicon glyphicon-share"></span></a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="?app=3">New TiDoc <span class="glyphicon glyphicon-pencil"></span></a></li>
+               <li><a href="?app=4">New TiSheet <span class="glyphicon glyphicon-th-list"></span></a></li>
+               <li id='slides-new-menu'><a href="?app=9">New TiSlide <span class="glyphicon glyphicon-blackboard"></span></a></li>
+               <li><a href="?app=10">New TiBookmark <span class="glyphicon glyphicon-bookmark"></span></a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="?app=8">New App <span class="glyphicon glyphicon-plus"></span></a></li>
+               </ul>
+               <input class="form-control" style="width: 70%" id="tiri-mini-box" onchange="tt();" placeholder="Start typing or speak now..." autofocus>
+               <!-- autofocus works more reliably and faster than .focus()-->
             </ul>
         </nav>
         <!--end of context menu -->
