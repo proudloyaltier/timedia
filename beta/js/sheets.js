@@ -65,7 +65,7 @@ function saveSheet() {
   }
 }
 
-var tisheetsContent = document.getElementsByClassName("tisheetsContent")[0];
+var tisheetsContent = document.getElementById('sheetsContent')
 
 if ("addEventListener" in tisheetsContent) {
   tisheetsContent.addEventListener("keyup", saveSheet, false);
