@@ -101,6 +101,7 @@ if ("addEventListener" in tidocsContent) {
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
+    localStorage.tidocssave = window.queryVar;
     document.getElementById("docsTitle").remove();
     document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
@@ -118,7 +119,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
           window.location.href = "index.html?app=7";
           alert("Access Denied! Get TIed!")
         }
-        localStorage.queryVar = getQueryVariable("p");
+        window.queryVar = getQueryVariable("p");
         document.getElementById("view").innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
         window.edit = document.getElementById("view").innerHTML
       });
@@ -127,7 +128,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
-  localStorage.tidocssave = getQueryVariable("p");
   localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
 }
