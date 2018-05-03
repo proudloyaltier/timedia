@@ -1,16 +1,9 @@
-window.onload = function() {
+ document.addEventListener("DOMContentLoaded",function() {
   if (localStorage.editAutoSave == undefined && localStorage.tidocssave !== undefined) {
-    if (localStorage.edit == undefined) {
     localStorage.removeItem("tidocssave");
-    } else {
-      localStorage.tidocssave = localStorage.queryVar;
-   }
   }
-  if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
-    localStorage.removeItem("tisheetssave");
-  }
-}
 
+}, false);
 
 
 var isFirefox = typeof InstallTrigger !== "undefined";
@@ -105,7 +98,6 @@ if ("addEventListener" in tidocsContent) {
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
-    localStorage.tidocssave = localStorage.queryVar;
     document.getElementById("docsTitle").remove();
     document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
@@ -133,6 +125,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
+  localStorage.tidocssave = getQueryVariable("p")
   localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
 }
