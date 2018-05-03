@@ -4,6 +4,7 @@ window.onload = function() {
     localStorage.removeItem("tidocssave");
     } else {
       localStorage.tidocssave = localStorage.queryVar;
+   }
   }
   if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
     localStorage.removeItem("tisheetssave");
