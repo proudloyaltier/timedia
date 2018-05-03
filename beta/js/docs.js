@@ -1,5 +1,5 @@
  document.addEventListener("DOMContentLoaded",function() {
-  if (localStorage.editAutoSave == undefined && localStorage.tidocssave !== undefined) {
+  if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem("tidocssave");
   }
 
@@ -112,7 +112,6 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
         localStorage.owner = child.key;
-        localStorage.queryVar = getQueryVariable("p")
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = "index.html?app=7";
           alert("Access Denied! Get TIed!")
