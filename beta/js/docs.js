@@ -115,11 +115,11 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
         localStorage.owner = child.key;
+        window.queryVar = getQueryVariable("p")
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = "index.html?app=7";
           alert("Access Denied! Get TIed!")
         }
-        window.queryVar = getQueryVariable("p");
         document.getElementById("view").innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
         window.edit = document.getElementById("view").innerHTML
       });
