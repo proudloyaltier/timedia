@@ -1,6 +1,7 @@
 window.onload = function() {
   if (localStorage.editAutoSave == undefined) {
     localStorage.removeItem("tidocssave");
+    localStorage.removeItem("queryVar");
   }
   if (localStorage.editAutoSave == undefined && localStorage.tisheetssave !== undefined) {
     localStorage.removeItem("tisheetssave");
@@ -118,6 +119,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
           window.location.href = "index.html?app=7";
           alert("Access Denied! Get TIed!")
         }
+        localStorage.queryVar = getQueryVariable("p");
         document.getElementById("view").innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
         window.edit = document.getElementById("view").innerHTML
       });
@@ -126,7 +128,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
 }
 
 function editDoc() {
-  localStorage.tidocssave = getQueryVariable("p");
+  localStorage.tidocssave = localStorage.queryVar;
   localStorage.edit = window.edit;
   window.location.href = "index.html?app=3";
 }
