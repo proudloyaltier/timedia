@@ -101,11 +101,12 @@ if ("addEventListener" in tidocsContent) {
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
-    localStorage.tidocssave = window.queryVar;
+    localStorage.tidocssave = localStorage.queryVar;
     document.getElementById("docsTitle").remove();
     document.getElementById("tidocsContent").innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem("edit");
+    localStorage.removeItem('queryVar');
   } else {
     document.getElementById("create").remove();
     document.getElementById("view").style.display = "block";
@@ -115,7 +116,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     urlRef.on("value", function(snapshot) {
       snapshot.forEach(function(child) {
         localStorage.owner = child.key;
-        window.queryVar = getQueryVariable("p")
+        localStorage.queryVar = getQueryVariable("p")
         if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
           window.location.href = "index.html?app=7";
           alert("Access Denied! Get TIed!")
