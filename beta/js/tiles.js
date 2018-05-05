@@ -1,3 +1,28 @@
+document.getElementById("ti-work").onclick = function() {
+  this.style.width = '25%';
+  this.style.height = '25%';
+  this.style.top = '37.5%';
+  this.style.left = '37.5%';
+  document.getElementById('fab-text').style.opacity = '0';
+  setTimeout(function() {
+    document.getElementById("ti-work").style.display = "none";
+    document.getElementById('docs-icon').style.top = '16.66%';
+    document.getElementById('docs-icon').style.left = '16.66%';
+    document.getElementById('sheets-icon').style.top = '16.66%';
+    document.getElementById('sheets-icon').style.left = '58.33%';
+    document.getElementById('bookmarks-icon').style.top = '58.33%';
+    document.getElementById('bookmarks-icon').style.left = '16.66%';
+    document.getElementById('slides-icon').style.left = '58.33%';
+    document.getElementById('slides-icon').style.top = '58.33%';
+    setTimeout(function() {
+      document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
+      document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
+      document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
+      document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
+    }, 250);
+  }, 750);
+}
+
 var overTile = false;
 
 function save() {
