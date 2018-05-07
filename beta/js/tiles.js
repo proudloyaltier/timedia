@@ -2,7 +2,7 @@ document.getElementById("ti-work").onclick = function() {
   this.style.width = '25%';
   this.style.height = '25%';
   this.style.top = '52.5%';
-  this.style.left = '45%';
+  this.style.left = '47%';
   document.getElementById('fab-text').style.fontSize = "30px";
   setTimeout(function() {
     document.getElementById("ti-work").style.display = "none";
