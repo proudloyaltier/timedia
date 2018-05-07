@@ -198,8 +198,7 @@ img {
   height: 50%;
   position: absolute;
   top: 40%;
-  /*left: 25%;*/
-  float: right;
+  left: 50%;
   border-radius: 50%;
   transition-duration: 0.75s;
   color: gray;
