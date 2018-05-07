@@ -11,7 +11,7 @@ document.getElementById("ti-work").onclick = function() {
     document.getElementById('sheets-icon').style.top = '80%';
     document.getElementById('sheets-icon').style.left = '90%';
     document.getElementById('bookmarks-icon').style.top = '90%';
-    document.getElementById('bookmarks-icon').style.left = 'calc(90% - 70px);%';
+    document.getElementById('bookmarks-icon').style.left = 'calc(90% - 70px)';
     document.getElementById('slides-icon').style.left = '90%';
     document.getElementById('slides-icon').style.top = '90%';
     setTimeout(function() {
