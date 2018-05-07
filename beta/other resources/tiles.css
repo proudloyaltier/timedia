@@ -196,8 +196,8 @@ img {
   background-color: lightgray;
   width: 50%;
   height: 50%;
-  position: relative;
-  top: 50%;
+  position: absolute;
+  top: 25%;
   left: 25%;
   border-radius: 50%;
   transition-duration: 0.75s;
@@ -212,7 +212,7 @@ img {
   width: 25%;
   height: 25%;
   position: absolute;
-  top: 77.5%;
+  top: 37.5%;
   left: 37.5%;
   border-radius: 50%;
   transition-duration: 0.75s;
