@@ -7,7 +7,7 @@ document.getElementById("ti-work").onclick = function() {
   setTimeout(function() {
     document.getElementById("ti-work").style.display = "none";
     document.getElementById('docs-icon').style.top = '50%';
-    document.getElementById('docs-icon').style.left = '65%';
+    document.getElementById('docs-icon').style.left = '50%';
     document.getElementById('sheets-icon').style.top = '50%';
     document.getElementById('sheets-icon').style.left = '75%';
     document.getElementById('bookmarks-icon').style.top = '75%';
