@@ -13,7 +13,7 @@ document.getElementById("ti-work").onclick = function() {
     document.getElementById('bookmarks-icon').style.top = '75%';
     document.getElementById('bookmarks-icon').style.left = '50%';
     document.getElementById('slides-icon').style.left = '75%';
-    document.getElementById('slides-icon').style.top = '73%';
+    document.getElementById('slides-icon').style.top = '75%';
     setTimeout(function() {
       document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
       document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
