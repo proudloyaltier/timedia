@@ -212,7 +212,6 @@ img {
   width: 50px;
   position: fixed;
   height: 50px;
-  position: absolute;
   top: calc(100% - 50px);
   left: calc(100% - 50px);
   border-radius: 50%;
