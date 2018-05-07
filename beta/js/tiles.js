@@ -6,14 +6,14 @@ document.getElementById("ti-work").onclick = function() {
   document.getElementById('fab-text').style.fontSize = "30px";
   setTimeout(function() {
     document.getElementById("ti-work").style.display = "none";
-    document.getElementById('docs-icon').style.top = '63.32%';
-    document.getElementById('docs-icon').style.left = '70.66%';
+    document.getElementById('docs-icon').style.top = '50%';
+    document.getElementById('docs-icon').style.left = '65%';
     document.getElementById('sheets-icon').style.top = '63.32%';
-    document.getElementById('sheets-icon').style.left = '70.33%';
-    document.getElementById('bookmarks-icon').style.top = '73.33%';
-    document.getElementById('bookmarks-icon').style.left = '65.66%';
-    document.getElementById('slides-icon').style.left = '75.33%';
-    document.getElementById('slides-icon').style.top = '73.33%';
+    document.getElementById('sheets-icon').style.left = '75%';
+    document.getElementById('bookmarks-icon').style.top = '75%';
+    document.getElementById('bookmarks-icon').style.left = '50%';
+    document.getElementById('slides-icon').style.left = '75%';
+    document.getElementById('slides-icon').style.top = '73%';
     setTimeout(function() {
       document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
       document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
