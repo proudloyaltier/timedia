@@ -213,7 +213,7 @@ img {
   height: 50px;
   position: absolute;
   top: calc(100% - 50px);
-  left: calc(100% - 75px);
+  left: calc(100% - 50px);
   border-radius: 50%;
   transition-duration: 0.75s;
 }
