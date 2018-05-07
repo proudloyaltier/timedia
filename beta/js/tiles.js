@@ -7,12 +7,12 @@ document.getElementById("ti-work").onclick = function() {
   setTimeout(function() {
     document.getElementById("ti-work").style.display = "none";
     document.getElementById('docs-icon').style.top = '80%';
-    document.getElementById('docs-icon').style.left = 'calc(90% - 70px)';
+    document.getElementById('docs-icon').style.left = 'calc(95% - 70px)';
     document.getElementById('sheets-icon').style.top = '80%';
-    document.getElementById('sheets-icon').style.left = '90%';
+    document.getElementById('sheets-icon').style.left = '95%';
     document.getElementById('bookmarks-icon').style.top = '90%';
-    document.getElementById('bookmarks-icon').style.left = 'calc(90% - 70px)';
-    document.getElementById('slides-icon').style.left = '90%';
+    document.getElementById('bookmarks-icon').style.left = 'calc(95% - 70px)';
+    document.getElementById('slides-icon').style.left = '95%';
     document.getElementById('slides-icon').style.top = '90%';
     setTimeout(function() {
       document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
