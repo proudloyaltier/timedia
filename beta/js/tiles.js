@@ -1,19 +1,19 @@
 document.getElementById("ti-work").onclick = function() {
   this.style.width = '25%';
   this.style.height = '25%';
-  this.style.top = '37.5%';
+  this.style.top = '52.5%';
   this.style.left = '37.5%';
-  document.getElementById('fab-text').style.opacity = '0';
+  document.getElementById('fab-text').style.fontSize = "30px";
   setTimeout(function() {
     document.getElementById("ti-work").style.display = "none";
-    document.getElementById('docs-icon').style.top = '16.66%';
+    document.getElementById('docs-icon').style.top = '31.66%';
     document.getElementById('docs-icon').style.left = '16.66%';
-    document.getElementById('sheets-icon').style.top = '16.66%';
+    document.getElementById('sheets-icon').style.top = '31.66%';
     document.getElementById('sheets-icon').style.left = '58.33%';
-    document.getElementById('bookmarks-icon').style.top = '58.33%';
+    document.getElementById('bookmarks-icon').style.top = '73.33%';
     document.getElementById('bookmarks-icon').style.left = '16.66%';
     document.getElementById('slides-icon').style.left = '58.33%';
-    document.getElementById('slides-icon').style.top = '58.33%';
+    document.getElementById('slides-icon').style.top = '73.33%';
     setTimeout(function() {
       document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
       document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
