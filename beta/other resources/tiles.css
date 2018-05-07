@@ -196,7 +196,7 @@ img {
   background-color: lightgray;
   width: 50%;
   height: 50%;
-  position: absolute;
+  position: relative;
   top: 25%;
   left: 25%;
   border-radius: 50%;
