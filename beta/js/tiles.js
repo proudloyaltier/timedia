@@ -1,8 +1,8 @@
 document.getElementById("ti-work").onclick = function() {
   this.style.width = '50px';
   this.style.height = '50px';
-  this.style.top = '75%';
-  this.style.left = '75%';
+  this.style.top = 'calc(100% - 50px)';
+  this.style.left = 'calc(100% - 50px)';
   document.getElementById('fab-text').style.fontSize = "30px";
   setTimeout(function() {
     document.getElementById("ti-work").style.display = "none";
