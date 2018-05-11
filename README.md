@@ -18,7 +18,7 @@ TiMedia 3 is now in beta!
 TiMedia is a Google, Apple, and Microsoft replacement.
 
 ## How do I start posting?
-Visit http://hymenop.us and sign up.
+Visit https://hymenop.us and sign up.
 
 # Rules For Testing
 Test only once, if it doesn't work, delete it from the database.
