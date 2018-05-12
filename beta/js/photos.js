@@ -20,7 +20,12 @@ function convertFile() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
-  window.dbRef.child(generateRandString()).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
+  var key = generateRandString();
+  window.dbRef.child(key).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
+  var url = "index.html?app=1" + '&i=' + key;
+  localStorage.recentUrl = url;
+  localStorage.workToSaveTitle = document.getElementById('photosTitle').value;
+  localStorage.workToSave = url;
   }, false);
 
   if (file) {
@@ -41,15 +46,15 @@ if (getQueryVariable("i") !== false) {
     });
   });
  if (contentsrc.includes("data:image")) {
-      document.getElementById("image").src = data.val();
+      document.getElementById("tiphotos-image").src = contentsrc;
     } else if (contentsrc.includes("data:video")) {
-      document.getElementById("image").remove();
-      document.getElementById("video").style = "";
-      document.getElementById("video").src = data.val();
+      document.getElementById("tiphotos-image").remove();
+      document.getElementById("tiphotos-video").style = "";
+      document.getElementById("tiphotos-video").src = contentsrc;
     } else if (contentsrc.includes("data:audio")) {
-      document.getElementById("image").remove();
-      document.getElementById("video").remove();
-      document.getElementById("audio").style = "";
-      document.getElementById("audio").src = data.val();
+      document.getElementById("tiphotos-image").remove();
+      document.getElementById("tiphotos-video").remove();
+      document.getElementById("tiphotos-audio").style = "";
+      document.getElementById("tiphotos-audio").src = contentsrc;
     } 
 }
