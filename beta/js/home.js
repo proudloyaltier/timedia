@@ -38,6 +38,10 @@ function launchApp(appname) {
 }
 
 if (localStorage.access == btoa(localStorage.name)) {
+   if (getQueryVariable("app") == 1) {
+    launchApp("messages");
+    document.title = "TiPhotos - TiMedia";
+  }
   if (getQueryVariable("app") == 2) {
     launchApp("messages");
     document.title = "TiChat - TiMedia";
