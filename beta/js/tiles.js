@@ -14,11 +14,14 @@ document.getElementById("ti-work").onclick = function() {
     document.getElementById('bookmarks-icon').style.left = 'calc(90% - 70px)';
     document.getElementById('slides-icon').style.left = '90%';
     document.getElementById('slides-icon').style.top = '90%';
+    document.getElementById('photos-icon').style.top = "top: 85%";
+    document.getElementById('photos-icon').style.left = "calc(90% - 35px)";
     setTimeout(function() {
       document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
       document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
       document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
       document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
+      document.getElementById('photos-icon').style.backgroundColor = '#f754f9';
     }, 250);
   }, 750);
 }
