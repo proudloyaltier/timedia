@@ -47,9 +47,7 @@ if (getQueryVariable("i") !== false) {
         alert("Access Denied! Get TIed!")
       }
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-    });
-  });
- if (contentsrc.includes("data:image")) {
+     if (contentsrc.includes("data:image")) {
       document.getElementById("tiphotos-image").src = contentsrc;
     } else if (contentsrc.includes("data:video")) {
       document.getElementById("tiphotos-image").remove();
@@ -61,4 +59,6 @@ if (getQueryVariable("i") !== false) {
       document.getElementById("tiphotos-audio").style = "";
       document.getElementById("tiphotos-audio").src = contentsrc;
     } 
+    });
+  });
 }
