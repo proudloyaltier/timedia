@@ -21,13 +21,14 @@ function convertPhoto() {
   var reader = new FileReader();
   reader.addEventListener("load", function () {
   var key = generateRandString();
-  window.dbRef.child(key).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
+  storeInDatabase(key, CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = document.getElementById('photosTitle').value;
   localStorage.workToSave = url;
-  swal("Uploaded","Your photo has been uploaded","success")
-  window.location.href = '?app=7';
+  swal("Uploaded","Your photo has been uploaded","success").then((value) => {
+  window.location.href = "?app=7"
+  });
   }, false);
 
   if (file) {
