@@ -9,14 +9,14 @@ function generateRandString() {
   return text;
 }
 
-function uploadFile() {
+function uploadPhoto() {
   window.selector = document.createElement("input");
   selector.type = "file";
-  selector.setAttribute("onchange", "convertFile()");
+  selector.setAttribute("onchange", "convertPhoto()");
   selector.click();
 }
 
-function convertFile() {
+function convertPhoto() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
@@ -26,6 +26,8 @@ function convertFile() {
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = document.getElementById('photosTitle').value;
   localStorage.workToSave = url;
+  swal("Uploaded","Your photo has been uploaded","success")
+  window.location.href = '?app=7';
   }, false);
 
   if (file) {
@@ -34,6 +36,8 @@ function convertFile() {
 }
 
 if (getQueryVariable("i") !== false) {
+ document.getElementById('tiphotos-view').style.display = "block";
+ document.getElementById('tiphotos-upload').style.display = "none";
  var urlRef = window.dbRef.child(getQueryVariable("i"));
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
