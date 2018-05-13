@@ -307,7 +307,8 @@ function loadTiles() {
            var is_photo = false;
             }
            })
-          })         if (is_photo) {
+          })         
+        if (is_photo) {
           if (localStorage.tileDeleteButton == "true") {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><img src=contentsrc; width="150px;" height="150px"><br></img><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
           }
