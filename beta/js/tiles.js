@@ -1,27 +1,29 @@
 document.getElementById("ti-work").onclick = function() {
-  if (this.style.transform == "") {
-    this.style.transform = "rotate(45deg)";
-    this.style.backgroundColor = "#c19a95";
-    this.style.color = "#ffffff";
-    document.getElementById('docs-icon').style.bottom = '310px';
-  document.getElementById('slides-icon').style.bottom = '250px';
-  document.getElementById('sheets-icon').style.bottom = '190px';
-  document.getElementById('bookmarks-icon').style.bottom = '130px';
-  document.getElementById('upload-icon').style.bottom = '70px';
-  document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
-  document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
-  document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
-  document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
-  document.getElementById('upload-icon').style.backgroundColor = '#346df9';
-  } else {
-    this.style.transform = "";
-    this.style.backgroundColor = "lightgray";
-    this.style.color = "gray";
-    for(var i = 0; i < document.getElementsByClassName("ti-work-icon").length; i++) {
-      document.getElementsByClassName("ti-work-icon")[i].style.bottom = "10px";
-      document.getElementsByClassName("ti-work-icon")[i].style.backgroundColor = "lightgray";
-    }
-  }
+  this.style.width = '50px';
+  this.style.height = '50px';
+  this.style.top = 'calc(100% - 50px)';
+  this.style.left = 'calc(100% - 50px)';
+  document.getElementById('fab-text').style.fontSize = "30px";
+  setTimeout(function() {
+    document.getElementById("ti-work").style.display = "none";
+    document.getElementById('docs-icon').style.top = '80%';
+    document.getElementById('docs-icon').style.left = 'calc(90% - 70px)';
+    document.getElementById('sheets-icon').style.top = '80%';
+    document.getElementById('sheets-icon').style.left = '90%';
+    document.getElementById('bookmarks-icon').style.top = '90%';
+    document.getElementById('bookmarks-icon').style.left = 'calc(90% - 70px)';
+    document.getElementById('slides-icon').style.left = '90%';
+    document.getElementById('slides-icon').style.top = '90%';
+    document.getElementById('photos-icon').style.top = "85%";
+    document.getElementById('photos-icon').style.left = "calc(90% - 35px)";
+    setTimeout(function() {
+      document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
+      document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
+      document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
+      document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
+      document.getElementById('photos-icon').style.backgroundColor = '#f754f9';
+    }, 250);
+  }, 750);
 }
 
 var overTile = false;
@@ -176,32 +178,12 @@ function searchTiles(search) {
           }
         }
          if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1") && localStorage.files.split(",")[i].split("!!")[1].includes("?app=10") !== true) {
-           var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
-            urlRef.on("value", function (snapshot) {
-           snapshot.forEach(function (child) {
-            var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-            if (contentsrc.includes("data:image")) {
-            var is_photo = true;
-            } else {
-           var is_photo = false;
-            }
-           })
-          })
-           if (is_photo) {
-          if (localStorage.tileDeleteButton == "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><img src=contentsrc; width="150px;" height="150px"><br></img><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
-          }
-          if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><img src=contentsrc; width="150px;" height="150px"><br></img><br></center></h3></span></li>';
-           }
-          } else {
            if (localStorage.tileDeleteButton == "true") {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-picture"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
           }
           if (localStorage.tileDeleteButton !== "true") {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-picture"><br></span><br></center></h3></span></li>';
           }
-         }
         }
         if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=9")) {
           if (localStorage.tileDeleteButton == "true") {
@@ -297,33 +279,13 @@ function loadTiles() {
         }
       }
       if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1") && localStorage.files.split(",")[i].split("!!")[1].includes("?app=10") !== true) {
-           var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
-            urlRef.on("value", function (snapshot) {
-           snapshot.forEach(function (child) {
-            var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-            if (contentsrc.includes("data:image")) {
-            var is_photo = true;
-            } else {
-           var is_photo = false;
-            }
-           })
-          })         
-        if (is_photo) {
-          if (localStorage.tileDeleteButton == "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><img src=contentsrc; width="150px;" height="150px"><br></img><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
-          }
-          if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><img src=contentsrc; width="150px;" height="150px"><br></img><br></center></h3></span></li>';
-           }
-          } else {
-           if (localStorage.tileDeleteButton == "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-picture"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
-          }
-          if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-picture"><br></span><br></center></h3></span></li>';
-          }
-         }
-       }
+        if (localStorage.tileDeleteButton == "true") {
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-picture"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+        }
+        if (localStorage.tileDeleteButton !== "true") {
+          document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-picture"><br></span><br></center></h3></span></li>';
+        }
+      }
 
       if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=9")) {
         if (localStorage.tileDeleteButton == "true") {
