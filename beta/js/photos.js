@@ -36,9 +36,8 @@ function convertPhoto() {
   }
 }
 
-if (getQueryVariable("i") !== false) {
- document.getElementById('tiphotos-view').style.display = "block";
- var urlRef = window.dbRef.child(getQueryVariable("i"));
+function viewPhotos(i)
+var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       localStorage.owner = child.key;
@@ -48,15 +47,13 @@ if (getQueryVariable("i") !== false) {
       }
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
+      swal('<img id="tiphotos-image" width="500px">');
       document.getElementById("tiphotos-image").src = contentsrc;
     } else if (contentsrc.includes("data:video")) {
-      document.getElementById("tiphotos-image").remove();
-      document.getElementById("tiphotos-video").style = "";
+      swal('<video id="tiphotos-video" controls></video>');
       document.getElementById("tiphotos-video").src = contentsrc;
     } else if (contentsrc.includes("data:audio")) {
-      document.getElementById("tiphotos-image").remove();
-      document.getElementById("tiphotos-video").remove();
-      document.getElementById("tiphotos-audio").style = "";
+      swal('<audio id="tiphotos-audio" controls></audio>');
       document.getElementById("tiphotos-audio").src = contentsrc;
     } 
     });
