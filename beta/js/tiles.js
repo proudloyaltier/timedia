@@ -30,9 +30,9 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].
     snapshot.forEach(function (child) {
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
-        var is_image = true;
+        var is_photo = true;
     } else {
-       var is_image = false;
+       var is_photo = false;
      }
     })
   })
