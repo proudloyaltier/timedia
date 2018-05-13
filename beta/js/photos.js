@@ -48,12 +48,7 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
       swal('<img id="tiphotos-image" width="500px">');
-      var ti_photos_reader = new FileReader();
-       ti_photos_reader.onloadend = function() {
-         document.getElementById("tiphotos-image").src = ti_photos_reader.result;
-       }
-       ti_photos_reader.readAsDataURL(contentsrc);
-       //document.getElementById("tiphotos-image").src = contentsrc;
+      document.getElementById("tiphotos-image").src = contentsrc;
     } else if (contentsrc.includes("data:video")) {
       swal('<video id="tiphotos-video" controls></video>');
       document.getElementById("tiphotos-video").src = contentsrc;
