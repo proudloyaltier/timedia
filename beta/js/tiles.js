@@ -1,29 +1,27 @@
 document.getElementById("ti-work").onclick = function() {
-  this.style.width = '50px';
-  this.style.height = '50px';
-  this.style.top = 'calc(100% - 50px)';
-  this.style.left = 'calc(100% - 50px)';
-  document.getElementById('fab-text').style.fontSize = "30px";
-  setTimeout(function() {
-    document.getElementById("ti-work").style.display = "none";
-    document.getElementById('docs-icon').style.top = '80%';
-    document.getElementById('docs-icon').style.left = 'calc(90% - 70px)';
-    document.getElementById('sheets-icon').style.top = '80%';
-    document.getElementById('sheets-icon').style.left = '90%';
-    document.getElementById('bookmarks-icon').style.top = '90%';
-    document.getElementById('bookmarks-icon').style.left = 'calc(90% - 70px)';
-    document.getElementById('slides-icon').style.left = '90%';
-    document.getElementById('slides-icon').style.top = '90%';
-    document.getElementById('photos-icon').style.top = "85%";
-    document.getElementById('photos-icon').style.left = "calc(90% - 35px)";
-    setTimeout(function() {
-      document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
-      document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
-      document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
-      document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
-      document.getElementById('photos-icon').style.backgroundColor = '#f754f9';
-    }, 250);
-  }, 750);
+  if (this.style.transform == "") {
+    this.style.transform = "rotate(45deg)";
+    this.style.backgroundColor = "#c19a95";
+    this.style.color = "#ffffff";
+    document.getElementById('docs-icon').style.bottom = '310px';
+  document.getElementById('slides-icon').style.bottom = '250px';
+  document.getElementById('sheets-icon').style.bottom = '190px';
+  document.getElementById('bookmarks-icon').style.bottom = '130px';
+  document.getElementById('upload-icon').style.bottom = '70px';
+  document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
+  document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
+  document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
+  document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
+  document.getElementById('upload-icon').style.backgroundColor = '#346df9';
+  } else {
+    this.style.transform = "";
+    this.style.backgroundColor = "lightgray";
+    this.style.color = "gray";
+    for(var i = 0; i < document.getElementsByClassName("ti-work-icon").length; i++) {
+      document.getElementsByClassName("ti-work-icon")[i].style.bottom = "10px";
+      document.getElementsByClassName("ti-work-icon")[i].style.backgroundColor = "lightgray";
+    }
+  }
 }
 
 var overTile = false;
