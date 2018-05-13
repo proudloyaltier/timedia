@@ -9,6 +9,20 @@ function generateRandString() {
   return text;
 }
 
+function loadPhotoThumb(i) {
+var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
+  urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
+      var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+     if (contentsrc.includes("data:image")) {
+        var is_image = true;
+    } else {
+       var is_image = false;
+     }
+    })
+  })
+}
+
 function uploadPhoto() {
   window.selector = document.createElement("input");
   selector.type = "file";
