@@ -47,8 +47,8 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[image].split("&i="
       }
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
+      const imageURL = contentsrc;
       swal('<img id="tiphotos-image" width="500px">');
-      document.getElementById("tiphotos-image").src = contentsrc;
     } else if (contentsrc.includes("data:video")) {
       swal('<video id="tiphotos-video" controls></video>');
       document.getElementById("tiphotos-video").src = contentsrc;
