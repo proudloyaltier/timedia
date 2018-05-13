@@ -50,7 +50,6 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[image].split("&i="
      swal({
         icon: contentsrc,
        });
-     }
     } else if (contentsrc.includes("data:video")) {
       swal('<video id="tiphotos-video" controls></video>');
       document.getElementById("tiphotos-video").src = contentsrc;
