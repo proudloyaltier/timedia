@@ -24,21 +24,6 @@ document.getElementById("ti-work").onclick = function() {
   }
 }
 
-function loadPhotoThumb(i) {
-var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
-  urlRef.on("value", function (snapshot) {
-    snapshot.forEach(function (child) {
-      var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-     if (contentsrc.includes("data:image")) {
-        var is_photo = true;
-    } else {
-       var is_photo = false;
-     }
-    })
-  })
-}
-
-
 var overTile = false;
 
 function save() {
@@ -191,7 +176,17 @@ function searchTiles(search) {
           }
         }
          if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1") && localStorage.files.split(",")[i].split("!!")[1].includes("?app=10") !== true) {
-           loadPhotoThumb(i);
+           var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
+            urlRef.on("value", function (snapshot) {
+           snapshot.forEach(function (child) {
+            var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+            if (contentsrc.includes("data:image")) {
+            var is_photo = true;
+            } else {
+           var is_photo = false;
+            }
+           })
+          })
            if (is_photo) {
           if (localStorage.tileDeleteButton == "true") {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><img src=contentsrc; width="150px;" height="150px"><br></img><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
@@ -302,8 +297,17 @@ function loadTiles() {
         }
       }
       if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1") && localStorage.files.split(",")[i].split("!!")[1].includes("?app=10") !== true) {
-         loadPhotoThumb(i);
-         if (is_photo) {
+           var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
+            urlRef.on("value", function (snapshot) {
+           snapshot.forEach(function (child) {
+            var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+            if (contentsrc.includes("data:image")) {
+            var is_photo = true;
+            } else {
+           var is_photo = false;
+            }
+           })
+          })         if (is_photo) {
           if (localStorage.tileDeleteButton == "true") {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + localStorage.files.split(",")[i].split("!!")[1] + '\');"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><img src=contentsrc; width="150px;" height="150px"><br></img><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
           }
