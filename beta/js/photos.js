@@ -36,7 +36,7 @@ function convertPhoto() {
   }
 }
 
-function viewPhotos(i)
+function viewPhotos(i) {
 var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
