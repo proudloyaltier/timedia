@@ -38,7 +38,6 @@ function convertPhoto() {
 
 if (getQueryVariable("i") !== false) {
  document.getElementById('tiphotos-view').style.display = "block";
- document.getElementById('tiphotos-upload').style.display = "none";
  var urlRef = window.dbRef.child(getQueryVariable("i"));
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
