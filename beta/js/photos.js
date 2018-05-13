@@ -24,7 +24,7 @@ function convertPhoto() {
   storeInDatabase(key, CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
-  localStorage.workToSaveTitle = selector.name.split(/(\\|\/)/g).pop()
+  localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
   swal("Uploaded","Your photo has been uploaded","success").then((value) => {
   window.location.href = "?app=7"
