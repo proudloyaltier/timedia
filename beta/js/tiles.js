@@ -245,7 +245,7 @@ function saveFromTiWork() {
 }
 
 function loadTiles() {
-  document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
+  document.getElementById('tiles-tiles').innerHTML = "Loading . . .";
 
   if (localStorage.files !== "") {
     document.getElementById('tiles-tiles').innerHTML = "";
@@ -297,6 +297,8 @@ function loadTiles() {
 
     document.getElementById("tiles-tiles").innerHTML += "<datalist id='tiles-listdiv'>";
     document.getElementById("tiles-tiles").innerHTML += "</ul>";
+  } else {
+    document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
   }
 }
 
