@@ -49,7 +49,7 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
      if (contentsrc.includes("data:image")) {
       alertify.alert('<img id="tiphotos-image" max-height="300px" width="250px" height="auto" src=' + contentsrc + '>');
     } else if (contentsrc.includes("data:video")) {
-      alertify.alert('<video id="tiphotos-video" max-height="300px" width="250px" height="auto" src=' + contentsrc + ' controls></video>');
+      alertify.alert('<video id="tiphotos-video" width="250" height="auto" src=' + contentsrc + ' controls></video>');
     } else if (contentsrc.includes("data:audio")) {
       alertify.alert('<audio id="tiphotos-audio" src=' + contentsrc + ' controls></audio>');
     } 
