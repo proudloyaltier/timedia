@@ -47,7 +47,7 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
       }
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
-      alertify.alert('<img id="tiphotos-image" max-height="300px" width="400px" height="auto" src=' + contentsrc + '>');
+      alertify.alert('<img id="tiphotos-image" max-height="300px" width="250px" height="auto" src=' + contentsrc + '>');
     } else if (contentsrc.includes("data:video")) {
       alertify.alert('<video id="tiphotos-video"  src=' + contentsrc + ' controls></video>');
     } else if (contentsrc.includes("data:audio")) {
