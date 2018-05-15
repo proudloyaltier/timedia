@@ -63,10 +63,10 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
     snapshot.forEach(function (child) {
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
-      if (localStorage.tileDeleteButton == "true") {
+      if (localStorage.tileDeleteButton !== "true") {
       document.getElementById('tiles-tiles').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + localStorage.files.split(",")[i].split("!!")[0] + '</h3></span></li>'
       } 
-      if (localStorage.tileDeleteButton !== "true") {
+      if (localStorage.tileDeleteButton == "true") {
        document.getElementById('tiles-tiles').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + localStorage.files.split(",")[i].split("!!")[0] + '</h3> <center><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></span></li>'
       }
      } else if (contentsrc.includes("data:video")) {
