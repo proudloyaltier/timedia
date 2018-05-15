@@ -56,3 +56,24 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].
     });
   });
 }
+
+function thumbPhotos(i) {
+var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
+  urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
+      localStorage.owner = child.key;
+      if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
+        window.location.href = 'index.html?app=7';
+        alert("Access Denied! Get TIed!")
+      }
+      var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+     if (contentsrc.includes("data:image")) {
+      // next
+    } else if (contentsrc.includes("data:video")) {
+      // next
+    } else if (contentsrc.includes("data:audio")) {
+      // next
+    } 
+    });
+  });
+}
