@@ -58,7 +58,7 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
 }
 
 function thumbPhotos(i) {
-var tilesHtml = doucment.getElementById('tiles-tiles').innerHTML
+var tilesHtml = document.getElementById('tiles-tiles').innerHTML
 var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
