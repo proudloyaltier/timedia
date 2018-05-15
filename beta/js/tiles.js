@@ -1,3 +1,9 @@
+function refreshTiles() {
+  getFromDatabase("files");
+}
+
+refreshTiles()
+
 document.getElementById("ti-work").onclick = function() {
   if (this.style.transform == "") {
     this.style.transform = "rotate(45deg)";
@@ -303,10 +309,6 @@ function loadTiles() {
   }
 }
 
-function refreshTiles() {
-  getFromDatabase("files");
-}
-
 function redirect() {
   window.location.href = localStorage.recentUrl;
 }
@@ -326,5 +328,3 @@ if (getQueryVariable("bookmarkurl") !== false) {
   save();
   window.location.href = atob(getQueryVariable("bookmarkurl"));
 }
-
-refreshTiles();
