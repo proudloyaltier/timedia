@@ -77,19 +77,6 @@ function renameTile(tid, rwith) {
   save();
 }
 
-function renameTilePrompt(tid) {
-  alertify
-    .defaultValue(localStorage.files.split(",")[tid].split("!!")[0])
-    .prompt("Rename",
-      function(val) {
-        var replacename = val + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
-        if (replacename != null) {
-          localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], replacename);
-          save();
-        }
-      });
-}
-
 function generateRandString() {
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -328,3 +315,17 @@ if (getQueryVariable("bookmarkurl") !== false) {
 }
 
 refreshTiles();
+
+function renameTilePrompt(tid) {
+  alertify
+    .defaultValue(localStorage.files.split(",")[tid].split("!!")[0])
+    .prompt("Rename",
+      function(val) {
+        var replacename = val + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
+        if (replacename != null) {
+          localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], replacename);
+          save();
+          loadTiles();
+        }
+      });
+}
