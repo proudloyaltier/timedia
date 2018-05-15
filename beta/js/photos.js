@@ -37,7 +37,7 @@ function convertPhoto() {
 }
 
 function viewPhotos(i) {
-var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]);
+var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("!!")[1].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       localStorage.owner = child.key;
