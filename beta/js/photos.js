@@ -62,6 +62,7 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+      alert(contentsrc)
      if (contentsrc.includes("data:image")) {
       if (localStorage.tileDeleteButton == "true") {
       document.getElementById('tiles-tiles').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + localStorage.files.split(",")[i].split("!!")[0] + '</h3></span></li>'
