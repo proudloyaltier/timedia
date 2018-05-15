@@ -311,11 +311,11 @@ function redirect() {
   window.location.href = localStorage.recentUrl;
 }
 
-
+window.addEventListener('DOMContentLoaded', function() {
 if (localStorage.files !== undefined && getQueryVariable('app') == 7) {
   loadTiles();
   setInterval(loadTiles, 1000);
-}
+}, false)
 
 if (localStorage.workToSave !== undefined) {
   saveFromTiWork();
