@@ -26,7 +26,7 @@ function convertPhoto() {
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
-  swal("Uploaded","Your photo has been uploaded","success").then((value) => {
+  swal("Uploaded","Your file has been uploaded","success").then((value) => {
   window.location.href = "?app=7"
   });
   }, false);
