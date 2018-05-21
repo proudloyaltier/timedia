@@ -21,7 +21,7 @@ function convertPhoto() {
   var reader = new FileReader();
   reader.addEventListener("load", function () {
   var key = generateRandString();
-  storeInDatabase(key, CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
+  window.dbRef.child(key).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
