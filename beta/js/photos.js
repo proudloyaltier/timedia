@@ -12,34 +12,28 @@ function generateRandString() {
 function uploadPhoto() {
   window.selector = document.createElement("input");
   selector.type = "file";
-  selector.setAttribute("multiple","");
   selector.setAttribute("onchange", "convertPhoto()");
   selector.click();
 }
 
 function convertPhoto() {
-  for (var i = 0; i < selector.files.length; i++) {
-  var file = selector.files[i];
+  var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
   var key = generateRandString();
   storeInDatabase(key, CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
-  localStorage.workToSaveTitle = file.name;
+  localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
-  saveFromTiWork()
+  swal("Uploaded","Your photo has been uploaded","success").then((value) => {
+  window.location.href = "?app=7"
+  });
   }, false);
 
   if (file) {
     reader.readAsDataURL(file);
   }
-  if (i == selector.files.length - 1) {
-   swal("Uploaded","Your photo has been uploaded","success").then((value) => {
-    window.location.href = "?app=7"
-   });
-  }
- }
 }
 
 function viewPhotos(i) {
