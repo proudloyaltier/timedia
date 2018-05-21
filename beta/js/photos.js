@@ -26,10 +26,9 @@ function convertPhoto() {
   storeInDatabase(key, CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
-  localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
+  localStorage.workToSaveTitle = selector.files[i].split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
   saveFromTiWork()
-  reader.removeEventListener("load",true);
   }, false);
 
   if (file) {
