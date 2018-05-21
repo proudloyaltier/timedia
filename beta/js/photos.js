@@ -28,13 +28,15 @@ function convertPhoto() {
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
-  swal("Uploaded","Your photo has been uploaded","success").then((value) => {
-  window.location.href = "?app=7"
-  });
   }, false);
 
   if (file) {
     reader.readAsDataURL(file);
+  }
+  if (i == selector.file.length - 1) {
+   swal("Uploaded","Your photo has been uploaded","success").then((value) => {
+    window.location.href = "?app=7"
+   });
   }
  }
 }
