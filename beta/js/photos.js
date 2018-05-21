@@ -28,6 +28,7 @@ function convertPhoto() {
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
+  saveFromTiWork()
   }, false);
 
   if (file) {
