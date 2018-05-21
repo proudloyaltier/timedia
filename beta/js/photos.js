@@ -29,7 +29,7 @@ function convertPhoto() {
   localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
   saveFromTiWork()
-  reader.removeEventListener("load");      // Succeeds
+  reader.removeEventListener("load",true);
   }, false);
 
   if (file) {
