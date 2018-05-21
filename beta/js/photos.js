@@ -26,7 +26,7 @@ function convertPhoto() {
   storeInDatabase(key, CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
-  localStorage.workToSaveTitle = selector.files[i].name;
+  localStorage.workToSaveTitle = file.name;
   localStorage.workToSave = url;
   saveFromTiWork()
   }, false);
