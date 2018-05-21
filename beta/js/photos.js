@@ -34,7 +34,7 @@ function convertPhoto() {
   if (file) {
     reader.readAsDataURL(file);
   }
-  if (i == selector.file.length - 1) {
+  if (i == selector.files.length - 1) {
    swal("Uploaded","Your photo has been uploaded","success").then((value) => {
     window.location.href = "?app=7"
    });
