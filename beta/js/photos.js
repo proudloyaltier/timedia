@@ -12,12 +12,14 @@ function generateRandString() {
 function uploadPhoto() {
   window.selector = document.createElement("input");
   selector.type = "file";
+  selector.setAttribute("multiple","");
   selector.setAttribute("onchange", "convertPhoto()");
   selector.click();
 }
 
 function convertPhoto() {
-  var file = selector.files[0];
+  for (var i = 0; i < selector.files.length; i++) {
+  var file = selector.files[i];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
   var key = generateRandString();
@@ -34,6 +36,7 @@ function convertPhoto() {
   if (file) {
     reader.readAsDataURL(file);
   }
+ }
 }
 
 function viewPhotos(i) {
