@@ -1,9 +1,9 @@
 var tiles_filters = {
-  docs: false,
-  sheets: false,
-  slides: false,
-  photos: false,
-  bookmarks: false
+  "docs": false,
+  "sheets": false,
+  "slides": false,
+  "photos": false,
+  "bookmarks": false
 }
 
 document.getElementById("ti-work").onclick = function() {
