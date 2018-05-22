@@ -6,6 +6,20 @@ var tiles_filters = {
   "bookmarks": false
 }
 
+function addFilter(filter) {
+    tiles_filters[filter] = true;
+    clearInterval(tilesLoadInterval)
+    var tilesLoadFilterInterval = setInterval(loadTilesFilter, 1000);
+}
+
+function removeFilter(filter) {
+    tiles_filters[filter] = false;
+    if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false &&  tiles_filters["slides"] == false &&  tiles_filters["photos"] == false &&  tiles_filters["bookmarks"] == false) {
+      clearInterval(tilesLoadFilterInterval)
+      var tilesLoadInterval = setInterval(loadTilesFilters, 1000);
+    }
+}
+
 document.getElementById("ti-work").onclick = function() {
   if (this.style.transform == "") {
     this.style.transform = "rotate(45deg)";
@@ -417,7 +431,7 @@ function redirect() {
 
 if (localStorage.files !== undefined && getQueryVariable('app') == 7) {
   loadTiles();
-  setInterval(loadTiles, 1000);
+  var tilesLoadInterval = setInterval(loadTiles, 1000);
 }
 
 if (localStorage.workToSave !== undefined) {
