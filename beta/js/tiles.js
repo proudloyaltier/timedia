@@ -9,7 +9,7 @@ var tiles_filters = {
 function addFilter(filter) {
     tiles_filters[filter] = true;
     clearInterval(tilesLoadInterval)
-    var tilesLoadFilterInterval = setInterval(loadTilesFilter, 1000);
+    var tilesLoadFilterInterval = setInterval(loadTilesFilters, 1000);
 }
 
 function removeFilter(filter) {
