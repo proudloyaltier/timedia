@@ -9,7 +9,7 @@ function generateRandString() {
   return text;
 }
 
-function addFile(title, upload) {
+function addPhotoFile(title, upload) {
   if (title == undefined && upload == undefined) {
     var title = prompt("File Name");
     var upload = prompt("Enter your URL");
@@ -28,12 +28,12 @@ function addFile(title, upload) {
   storeInDatabase("files", localStorage.files)
 }
 
-function saveFromTiWork() {
+function saveFromTiPhotos() {
   var title = localStorage.workToSaveTitle;
   var tosave = localStorage.workToSave;
   localStorage.removeItem('workToSave');
   localStorage.removeItem('workToSaveTitle');
-  addFile(title, tosave);
+  addPhotoFile(title, tosave);
 }
 
 function uploadPhoto() {
@@ -55,7 +55,7 @@ function convertPhoto() {
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = file.name;
   localStorage.workToSave = url;
-  saveFromTiWork();
+  saveFromTiPhotos();
   }, false);
 
   if (file) {
