@@ -9,64 +9,31 @@ function generateRandString() {
   return text;
 }
 
-function addPhotoFile(title, upload) {
-  if (title == undefined && upload == undefined) {
-    var title = prompt("File Name");
-    var upload = prompt("Enter your URL");
-  }
-
-  if (localStorage.files !== undefined && localStorage.files !== "") {
-    localStorage.files = localStorage.files + "," + title + "!!" + upload;
-  } else {
-    localStorage.files = title + "!!" + upload;
-  }
-
-  if (localStorage.files === "") {
-    localStorage.files = title + "!!" + upload;
-  }
-
-  storeInDatabase("files", localStorage.files)
-}
-
-function saveFromTiPhotos() {
-  var title = localStorage.workToSaveTitle;
-  var tosave = localStorage.workToSave;
-  localStorage.removeItem('workToSave');
-  localStorage.removeItem('workToSaveTitle');
-  addPhotoFile(title, tosave);
-}
-
 function uploadPhoto() {
   window.selector = document.createElement("input");
   selector.type = "file";
-  selector.setAttribute("multiple", "");
   selector.setAttribute("onchange", "convertPhoto()");
   selector.click();
 }
 
 function convertPhoto() {
-  for (var i = 0; i < selector.files.length; i++) {
-  var file = selector.files[i];
+  var file = selector.files[0];
   var reader = new FileReader();
-  reader.onload = function () {
+  reader.addEventListener("load", function () {
   var key = generateRandString();
   window.dbRef.child(key).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
-  localStorage.workToSaveTitle = file.name;
+  localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
   localStorage.workToSave = url;
-  saveFromTiPhotos();
-  }
+  swal("Uploaded","Your file has been uploaded","success").then((value) => {
+  window.location.href = "?app=7"
+  });
+  }, false);
 
   if (file) {
     reader.readAsDataURL(file);
   }
-  if (selector.files.length - 1 == i) {
-   swal("Uploaded","Your file has been uploaded","success").then((value) => {
-     window.location.href = "?app=7"
-   });
-  }
- }
 }
 
 function viewPhotos(i) {
