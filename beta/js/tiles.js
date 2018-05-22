@@ -16,7 +16,7 @@ function removeFilter(filter) {
     tiles_filters[filter] = false;
     if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false &&  tiles_filters["slides"] == false &&  tiles_filters["photos"] == false &&  tiles_filters["bookmarks"] == false) {
       clearInterval(tilesLoadFilterInterval)
-      var tilesLoadInterval = setInterval(loadTilesFilters, 1000);
+      var tilesLoadInterval = setInterval(loadTiles, 1000);
     }
 }
 
