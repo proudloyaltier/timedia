@@ -48,7 +48,7 @@ function convertPhoto() {
   for (var i = 0; i < selector.files.length; i++) {
   var file = selector.files[i];
   var reader = new FileReader();
-  reader.addEventListener("load", function () {
+  reader.onload = function () {
   var key = generateRandString();
   window.dbRef.child(key).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
@@ -56,7 +56,7 @@ function convertPhoto() {
   localStorage.workToSaveTitle = file.name;
   localStorage.workToSave = url;
   saveFromTiPhotos();
-  }, false);
+  }
 
   if (file) {
     reader.readAsDataURL(file);
