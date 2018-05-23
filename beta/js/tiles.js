@@ -42,7 +42,7 @@ function checkFilterStates() {
   if (document.getElementById('bookmarks-filter').checked == true) {
    addFilter("bookmarks")
    } else if (tiles_filters["bookmarks"] !== false && document.getElementById('bookmarks-filter').checked == false){
-   removeFilter("docs")
+   removeFilter("bookmarks")
    }
    if (document.getElementById('photos-filter').checked == true) {
    addFilter("photos")
