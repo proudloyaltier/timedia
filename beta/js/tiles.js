@@ -6,14 +6,6 @@ var tiles_filters = {
   "bookmarks": false
 }
 
-function checkFilterApplied() {
-    if (tiles_filters["docs"] == true || tiles_filters["sheets"] == true ||  tiles_filters["slides"] == true ||  tiles_filters["photos"] == true ||  tiles_filters["bookmarks"] == true) {
-      var checkFilterInterval = setInterval(checkFilterStates, 1000);
-    }
-}
-
-setInterval(checkFilterApplied, 0);
-
 function addFilter(filter) {
     tiles_filters[filter] = true;
     clearInterval(tilesLoadInterval)
@@ -24,7 +16,6 @@ function removeFilter(filter) {
     tiles_filters[filter] = false;
     if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false &&  tiles_filters["slides"] == false &&  tiles_filters["photos"] == false &&  tiles_filters["bookmarks"] == false) {
       clearInterval(tilesLoadFilterInterval)
-      clearInterval(checkFilterInterval)
       var tilesLoadInterval = setInterval(loadTiles, 1000);
     }
 }
@@ -57,6 +48,7 @@ function checkFilterStates() {
    }
 }
 
+setInterval(checkFilterStates, 0);
 
 function showFilterSelect() {
   document.getElementById('select-filters').style.display = 'block'
