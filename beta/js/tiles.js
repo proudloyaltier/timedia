@@ -6,9 +6,11 @@ var tiles_filters = {
   "bookmarks": false
 }
 
+
 function addFilter(filter) {
     tiles_filters[filter] = true;
     clearInterval(tilesLoadInterval)
+    var checkFilterInterval = setInterval(checkFilterStates, 1000);
     var tilesLoadFilterInterval = setInterval(loadTilesFilters, 1000);
 }
 
@@ -16,20 +18,12 @@ function removeFilter(filter) {
     tiles_filters[filter] = false;
     if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false &&  tiles_filters["slides"] == false &&  tiles_filters["photos"] == false &&  tiles_filters["bookmarks"] == false) {
       clearInterval(tilesLoadFilterInterval)
+      clearInterval(checkFilterInterval)
       var tilesLoadInterval = setInterval(loadTiles, 1000);
     }
 }
 
-function showFilterSelect() {
-  document.getElementById('select-filters').style.display = 'block'
-}
-
-function hideFilterSelect() {
-  document.getElementById('select-filters').style.display = 'none'
-}
-
 function checkFilterStates() {
-  if (Object.values(tiles_filters).every(item => item == false) {
    if (document.getElementById('docs-filter').checked) {
    addFilter("docs")
    } else if (tiles_filters["docs"] !== false && document.getElementById('docs-filter').checked == false){
@@ -55,10 +49,16 @@ function checkFilterStates() {
    } else if (tiles_filters["photos"] !== false && document.getElementById('photos-filter').checked == false){
    removeTileFilter("photos")
    }
-  }
 }
 
-setInterval(checkFilterStates
+
+function showFilterSelect() {
+  document.getElementById('select-filters').style.display = 'block'
+}
+
+function hideFilterSelect() {
+  document.getElementById('select-filters').style.display = 'none'
+}
 
 document.getElementById("ti-work").onclick = function() {
   if (this.style.transform == "") {
