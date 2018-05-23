@@ -57,7 +57,9 @@ function showFilterSelect() {
 }
 
 function hideFilterSelect() {
+  if (document.activeElement !== document.getElementById('select-filters')) {
   document.getElementById('select-filters').style.display = 'none'
+  }
 }
 
 document.getElementById("ti-work").onclick = function() {
