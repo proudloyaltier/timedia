@@ -20,6 +20,14 @@ function removeFilter(filter) {
     }
 }
 
+function showFilterSelect() {
+  document.getElementById('select-filters').style.display = 'block'
+}
+
+function hideFilterSelect() {
+  document.getElementById('select-filters').style.display = 'none'
+}
+
 function checkFilterStates() {
   if (Object.values(tiles_filters).every(item => item == false) {
    if (document.getElementById('docs-filter').checked) {
