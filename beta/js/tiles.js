@@ -24,30 +24,30 @@ function removeFilter(filter) {
 }
 
 function checkFilterStates() {
-   if (document.getElementById('docs-filter').checked) {
+   if (document.getElementById('docs-filter').checked == true) {
    addFilter("docs")
    } else if (tiles_filters["docs"] !== false && document.getElementById('docs-filter').checked == false){
-   removeTileFilter("docs")
+   removeFilter("docs")
    }
-  if (document.getElementById('sheets-filter').checked) {
+  if (document.getElementById('sheets-filter').checked == true) {
    addFilter("sheets")
    } else if (tiles_filters["sheets"] !== false && document.getElementById('sheets-filter').checked == false){
-   removeTileFilter("sheets")
+   removeFilter("sheets")
    }
-  if (document.getElementById('slides-filter').checked) {
+  if (document.getElementById('slides-filter').checked == true) {
    addFilter("slides")
    } else if (tiles_filters["slides"] !== false && document.getElementById('slides-filter').checked == false){
-   removeTileFilter("slides")
+   removeFilter("slides")
    }
-  if (document.getElementById('bookmarks-filter').checked) {
+  if (document.getElementById('bookmarks-filter').checked == true) {
    addFilter("bookmarks")
    } else if (tiles_filters["bookmarks"] !== false && document.getElementById('bookmarks-filter').checked == false){
-   removeTileFilter("docs")
+   removeFilter("docs")
    }
-   if (document.getElementById('photos-filter').checked) {
+   if (document.getElementById('photos-filter').checked == true) {
    addFilter("photos")
    } else if (tiles_filters["photos"] !== false && document.getElementById('photos-filter').checked == false){
-   removeTileFilter("photos")
+   removeFilter("photos")
    }
 }
 
