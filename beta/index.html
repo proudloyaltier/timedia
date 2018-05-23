@@ -264,7 +264,38 @@
         <div id="tiles" style="display: none;">
             <h3>Tiles <span class='glyphicon glyphicon-th-large'></span></h3>
             <br>
-            <input placeholder="File Name" class="form-control" type="text" id="tiles-search" onkeyup="searchTiles(this.value)" width="80%" autofocus>
+            <input placeholder="File Name" onfocus='showFilterSelect()' onblur='hideFilterSelect()' class="form-control" type="text" id="tiles-search" onkeyup="searchTiles(this.value)" width="80%" autofocus>
+            <div id='select-filters'>
+            <label class="custom-control custom-checkbox">
+            <input id='docs-filter' type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Docs</span>
+            </label>
+            <br>
+            <label class="custom-control custom-checkbox">
+            <input id='sheets-filter' type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Sheets</span>
+            </label>
+            <br>
+            <label class="custom-control custom-checkbox">
+            <input id='slides-filter' type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Slides</span>
+            </label>
+            <br>
+            <label class="custom-control custom-checkbox">
+            <input id='bookmarks-filter' type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Bookmarks</span>
+            </label>
+            <br>
+            <label class="custom-control custom-checkbox">
+            <input id='photos-filter' type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Photos</span>
+            </label>
+            </div>
             <br>
             <div id="tiles-tiles" class="nobullet">
                 You have no Tiles.
