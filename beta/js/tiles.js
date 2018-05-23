@@ -6,11 +6,17 @@ var tiles_filters = {
   "bookmarks": false
 }
 
+function checkFilterApplied() {
+    if (tiles_filters["docs"] == true || tiles_filters["sheets"] == true ||  tiles_filters["slides"] == true ||  tiles_filters["photos"] == true ||  tiles_filters["bookmarks"] == true) {
+      var checkFilterInterval = setInterval(checkFilterStates, 1000);
+    }
+}
+
+setInterval(checkFilterApplied, 0);
 
 function addFilter(filter) {
     tiles_filters[filter] = true;
     clearInterval(tilesLoadInterval)
-    var checkFilterInterval = setInterval(checkFilterStates, 1000);
     var tilesLoadFilterInterval = setInterval(loadTilesFilters, 1000);
 }
 
