@@ -20,6 +20,38 @@ function removeFilter(filter) {
     }
 }
 
+function checkFilterStates() {
+  if (Object.values(tiles_filters).every(item => item == false) {
+   if (document.getElementById('docs-filter').checked) {
+   addFilter("docs")
+   } else if (tiles_filters["docs"] !== false && document.getElementById('docs-filter').checked == false){
+   removeTileFilter("docs")
+   }
+  if (document.getElementById('sheets-filter').checked) {
+   addFilter("sheets")
+   } else if (tiles_filters["sheets"] !== false && document.getElementById('sheets-filter').checked == false){
+   removeTileFilter("sheets")
+   }
+  if (document.getElementById('slides-filter').checked) {
+   addFilter("slides")
+   } else if (tiles_filters["slides"] !== false && document.getElementById('slides-filter').checked == false){
+   removeTileFilter("slides")
+   }
+  if (document.getElementById('bookmarks-filter').checked) {
+   addFilter("bookmarks")
+   } else if (tiles_filters["bookmarks"] !== false && document.getElementById('bookmarks-filter').checked == false){
+   removeTileFilter("docs")
+   }
+   if (document.getElementById('photos-filter').checked) {
+   addFilter("photos")
+   } else if (tiles_filters["photos"] !== false && document.getElementById('photos-filter').checked == false){
+   removeTileFilter("photos")
+   }
+  }
+}
+
+setInterval(checkFilterStates
+
 document.getElementById("ti-work").onclick = function() {
   if (this.style.transform == "") {
     this.style.transform = "rotate(45deg)";
