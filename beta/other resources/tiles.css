@@ -1,7 +1,7 @@
 .card {
     border: 1px solid lightgray;
     margin: 2%;
-    padding: 2%;
+    padding: 1.5%;
     transition: 0.3s;
     width: 40%;
     border-radius: 5px;
