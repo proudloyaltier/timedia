@@ -52,14 +52,14 @@ setInterval(checkFilterStates, 0);
 
 function showFilterSelect() {
   document.getElementById('select-filters').style.display = 'block'
+  document.getElementById('filters-btn').onclick = 'hideFilterSelect()';
 }
 
 function hideFilterSelect() {
   document.getElementById('select-filters').style.display = 'none'
+  document.getElementById('filters-btn').onclick = 'showFilterSelect()';
 }
 
-
-showFilterSelect()
 
 document.getElementById("ti-work").onclick = function() {
   if (this.style.transform == "") {
