@@ -230,3 +230,10 @@ img {
   user-select: none;
   z-index: 1000000000;
 }
+
+#tiles-search {
+  box-shadow: none;
+  background-color: #f4f5f2;
+  border-radius: 20px;
+  padding-left: 15px;
+}
