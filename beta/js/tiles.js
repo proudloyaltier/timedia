@@ -414,7 +414,6 @@ function redirect() {
 
 
 if (localStorage.files !== undefined && getQueryVariable('app') == 7) {
-  loadTiles();
   var tilesLoadInterval = setInterval(loadTiles, 1000);
 }
 
