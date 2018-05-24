@@ -8,6 +8,7 @@ var tiles_filters = {
   
 function addFilter(filter) {
     tiles_filters[filter] = true;
+    clearInterval(tilesLoadInterval)
     loadTilesFilters();
 }
 
@@ -15,7 +16,7 @@ function addFilter(filter) {
 function removeFilter(filter) {
     tiles_filters[filter] = false;
     if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false &&  tiles_filters["slides"] == false &&  tiles_filters["photos"] == false &&  tiles_filters["bookmarks"] == false) {
-        loadTiles();
+      var tilesLoadInterval = setInterval(loadTiles, 1000);
     }
 }
 
@@ -473,6 +474,7 @@ function redirect() {
 
 if (localStorage.files !== undefined && getQueryVariable('app') == 7) {
   loadTiles();
+  var tilesLoadInterval = setInterval(loadTiles, 1000);
 }
 
 if (localStorage.workToSave !== undefined) {
