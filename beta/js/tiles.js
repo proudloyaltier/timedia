@@ -52,13 +52,13 @@ setInterval(checkFilterStates, 0);
 
 function showFilterSelect() {
   document.getElementById('select-filters').style.display = 'block'
-  document.getElementById('filter-btn').onclick = 'hideFilterSelect()';
+  document.getElementById('filter-btn').onclick = hideFilterSelect
   document.getElementById('filter-btn').className = 'glyphicon glyphicon-menu-up';
 }
 
 function hideFilterSelect() {
   document.getElementById('select-filters').style.display = 'none'
-  document.getElementById('filter-btn').onclick = 'showFilterSelect()';
+  document.getElementById('filter-btn').onclick = showFilterSelect
   document.getElementById('filter-btn').className = 'glyphicon glyphicon-menu-down';
 }
 
