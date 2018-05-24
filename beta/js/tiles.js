@@ -54,6 +54,11 @@ function showFilterSelect() {
   document.getElementById('select-filters').style.display = 'block'
 }
 
+function hideFilterSelect() {
+  document.getElementById('select-filters').style.display = 'none'
+}
+
+
 showFilterSelect()
 
 document.getElementById("ti-work").onclick = function() {
