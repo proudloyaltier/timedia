@@ -556,7 +556,8 @@ if (annyang) {
 function openTile(tile) {
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
     if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
-      window.location.href = localStorage.files.split(",")[i].split("!!")[1];
+      window.location.href = '?app=7';
+      searchTiles(localStorage.files.split(",")[i].split("!!")[1]);
     }
   }
 }
