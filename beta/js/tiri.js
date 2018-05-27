@@ -6,6 +6,20 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
   }, 0);
 }
 
+
+function openTile(tile) {
+  for (var i = 0; i < localStorage.files.split(",").length; i++) {
+    if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
+      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false) {
+        window.location.href = localStorage.files.split(",")[i].split("!!")[1];
+      } else {
+        viewPhotos(i)
+      }
+    }
+  }
+}
+
+
 if (getQueryVariable("app") == 5) {
   document.getElementById('tiri-mini-box').style = "display: none;";
 }
@@ -81,6 +95,8 @@ function tt() {
     localStorage.ts = math.eval(localStorage.us.split(" ")[1]).toLocaleString();
   } else if (localStorage.us.startsWith("open the tile")) {
     openTile(localStorage.us.split("open the tile")[1]);
+    localStorage.ts = 'Opening tile' + localStorage.us.split("open the tile")[1];
+    responsiveVoice.speak('Opening tile' + localStorage.us.split("open the tile")[1]);
   } else if (localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
     document.getElementById("tiri-bubbles-timer").style = 'display: block;';
     if (isNaN(Number(localStorage.us.split(" ")[4]))) {
@@ -553,18 +569,6 @@ if (annyang) {
   annyang.addCommands(commands);
 
   annyang.start();
-}
-
-function openTile(tile) {
-  for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
-      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false) {
-        window.location.href = localStorage.files.split(",")[i].split("!!")[1];
-      } else {
-        viewPhotos(i)
-      }
-    }
-  }
 }
 
 function joinChatTiri(name) {
