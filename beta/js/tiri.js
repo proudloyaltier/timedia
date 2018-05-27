@@ -556,10 +556,12 @@ if (annyang) {
 function openTile(tile) {
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
     if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
-      window.location.href = '?app=7';
-      searchTiles(localStorage.files.split(",")[i].split("!!")[1]);
-      document.getElementById('tiles-search').value = localStorage.files.split(",")[i].split("!!")[1];
+      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false) {
+      window.location.href = localStorage.files.split(",")[i].split("!!")[1];
+      } else {
+      viewPhotos(i)
     }
+   }
   }
 }
 
