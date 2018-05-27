@@ -92,7 +92,7 @@ function tt() {
     responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split(" ")[1]));
     localStorage.ts = math.eval(localStorage.us.split(" ")[1]).toLocaleString();
   } else if (localStorage.us.startsWith("open the tile")) {
-    openTile(localStorage.us.split("open the tile")[1]);
+    openTile(localStorage.us.split("open the tile")[1].split(" ")[1]);
     localStorage.ts = 'Opening tile' + localStorage.us.split("open the tile")[1];
     responsiveVoice.speak('Opening tile' + localStorage.us.split("open the tile")[1]);
   } else if (localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
