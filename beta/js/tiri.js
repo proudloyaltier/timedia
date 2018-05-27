@@ -470,7 +470,7 @@ if (annyang) {
       window.location.href = "mailto:timediamail@gmail.com";
     },
     'what is your favorite website': function() {
-      responsiveVoice.speak("T I media dot T-K");
+      responsiveVoice.speak("T I media");
       localStorage.ts = "TiMedia";
     },
     'what is your favorite food': function() {
@@ -558,6 +558,7 @@ function openTile(tile) {
     if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
       window.location.href = '?app=7';
       searchTiles(localStorage.files.split(",")[i].split("!!")[1]);
+      document.getElementById('tiles-search').value = localStorage.files.split(",")[i].split("!!")[1];
     }
   }
 }
