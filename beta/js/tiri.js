@@ -32,10 +32,6 @@ if (getQueryVariable("app") == 5) {
   document.getElementById("tiri-mini-box").style.display = "none";
 }
 
-function hideTimer() {
-  document.getElementById("tiri-bubbles-timer").style.display = "none";
-}
-
 if (localStorage.ts == undefined) {
   localStorage.ts = "Welcome, " + localStorage.name;
 }
@@ -58,7 +54,6 @@ function playSound(soundID) {
 }
 
 function tt() {
-  document.getElementById("tiri-bubbles-timer").style.display = "none";
   clearInterval(window.timerInterval);
   window.timer = "";
   localStorage.ts = "welcome";
@@ -586,18 +581,15 @@ function setTimer(time) {
     responsiveVoice.speak("Alright. " + time.split(" ")[0] + " hours and counting.");
     window.timer = time.split(" ")[0] * 3600;
   }
-  
-  document.getElementById("tiri-bubbles-timer").style.display = "";
   window.timerInterval = setInterval(timerDown, 1000);
 }
 
 function timerDown() {
-  window.timer = timer - 1;
-  document.getElementById("tiri-bubbles-timer").innerHTML = (timer + "").toHHMMSS();
+  window.timer = window.timer - 1;
+  document.title = "(" + (window.timer + "").toHHMMSS() + ")" + document.title;
 
   if (window.timer == 0) {
     clearInterval(timerInterval);
-    document.getElementById("tiri-bubbles-timer").style.display = "none";
     document.getElementById("bubbles").innerHTML += "<br><br><br><br><br><div class='message-return'>Time is up.</div>";
     localStorage.history = document.getElementById("bubbles").innerHTML;
     responsiveVoice.speak("Time's up");
