@@ -6,20 +6,6 @@ if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
   }, 0);
 }
 
-
-function openTile(tile) {
-  for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
-      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false) {
-        window.location.href = localStorage.files.split(",")[i].split("!!")[1];
-      } else {
-        viewPhotos(i)
-      }
-    }
-  }
-}
-
-
 if (getQueryVariable("app") == 5) {
   document.getElementById('tiri-mini-box').style = "display: none;";
 }
@@ -569,6 +555,18 @@ if (annyang) {
   annyang.addCommands(commands);
 
   annyang.start();
+}
+
+function openTile(tile) {
+  for (var i = 0; i < localStorage.files.split(",").length; i++) {
+    if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
+      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false) {
+        window.location.href = localStorage.files.split(",")[i].split("!!")[1];
+      } else {
+        viewPhotos(i)
+      }
+    }
+  }
 }
 
 function joinChatTiri(name) {
