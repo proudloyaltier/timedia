@@ -95,6 +95,14 @@ function tt() {
     openTile(localStorage.us.split("open the tile ")[1]);
     localStorage.ts = 'Opening tile' + localStorage.us.split("open the tile ")[1];
     responsiveVoice.speak('Opening tile' + localStorage.us.split("open the tile ")[1]);
+  } else if (localStorage.us.startsWith("open tile ")) {
+    openTile(localStorage.us.split("open tile ")[1]);
+    localStorage.ts = 'Opening tile' + localStorage.us.split("open the tile ")[1];
+    responsiveVoice.speak('Opening tile' + localStorage.us.split("open the tile ")[1]);
+  } else if (localStorage.us.startsWith("open my tile ")) {
+    openTile(localStorage.us.split("open my tile ")[1]);
+    localStorage.ts = 'Opening tile' + localStorage.us.split("open my tile ")[1];
+    responsiveVoice.speak('Opening tile' + localStorage.us.split("open my tile ")[1]);
   } else if (localStorage.us.split(" ")[0] + " " + localStorage.us.split(" ")[1] + " " + localStorage.us.split(" ")[2] + " " + localStorage.us.split(" ")[3] == "set a timer for") {
     document.getElementById("tiri-bubbles-timer").style = 'display: block;';
     if (isNaN(Number(localStorage.us.split(" ")[4]))) {
