@@ -97,8 +97,8 @@ function tt() {
     responsiveVoice.speak('Opening tile' + localStorage.us.split("open the tile ")[1]);
   } else if (localStorage.us.startsWith("open tile ")) {
     openTile(localStorage.us.split("open tile ")[1]);
-    localStorage.ts = 'Opening tile' + localStorage.us.split("open the tile ")[1];
-    responsiveVoice.speak('Opening tile' + localStorage.us.split("open the tile ")[1]);
+    localStorage.ts = 'Opening tile' + localStorage.us.split("open tile ")[1];
+    responsiveVoice.speak('Opening tile' + localStorage.us.split("open tile ")[1]);
   } else if (localStorage.us.startsWith("open my tile ")) {
     openTile(localStorage.us.split("open my tile ")[1]);
     localStorage.ts = 'Opening tile' + localStorage.us.split("open my tile ")[1];
