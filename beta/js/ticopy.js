@@ -19,8 +19,8 @@ function copy(text) {
 
 document.oncopy = function() {
   var clipboard = window.getSelection().toString();
-  var prefix = '<a style="text-decoration: none;" href="' + window.location.href + '">';
-  var suffix = '</a> | <span style="color: gray;">Copied with TiCopy, the new way to copy things.</span>';
+  var prefix = '<span style="text-decoration: none;" onclick="window.location.href = ' + window.location.href + ';">';
+  var suffix = '</span>';
 
   copy(prefix + clipboard + suffix);
 }
