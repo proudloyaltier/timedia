@@ -88,8 +88,8 @@ function closeSettings() {
 }
 
 function openSettings() {
-  document.getElementById("settings").style.right = "0px";
   document.getElementById("settings").style.display = "block";
+  document.getElementById("settings").style.right = "0px";
 }
 
 function toggleSettings() {
