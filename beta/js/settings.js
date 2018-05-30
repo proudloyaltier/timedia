@@ -84,10 +84,12 @@ function backSettings() {
 
 function closeSettings() {
   document.getElementById("settings").style.right = "-251px";
+  document.getElementById("settings").style.display = "none";
 }
 
 function openSettings() {
   document.getElementById("settings").style.right = "0px";
+  document.getElementById("settings").style.display = "block";
 }
 
 function toggleSettings() {
