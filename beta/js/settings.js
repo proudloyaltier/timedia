@@ -79,6 +79,7 @@ function changeSettingsPage() {
   } else {
   document.getElementById("dark-mode-off").remove();
   }
+  jscolor.installByClassName('jscolor form-control')
 }
 
 function backSettings() {
