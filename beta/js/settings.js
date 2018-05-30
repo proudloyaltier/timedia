@@ -30,13 +30,6 @@ function setDarkMode() {
   window.location.reload();
 }
 
-if (localStorage.getItem("darkmode") == "true") {
-  darkMode();
-  document.getElementById("dark-mode-on").remove();
-} else {
-  document.getElementById("dark-mode-off").remove();
-}
-
 document.getElementById("settings-back-arrow").innerHTML = "<";
 
 var settingsPage = "settings";
@@ -50,6 +43,12 @@ var settings = {
 };
 
 function changeSettingsPage() {
+  if (localStorage.getItem("darkmode") == "true") {
+  darkMode();
+  document.getElementById("dark-mode-on").remove();
+  } else {
+  document.getElementById("dark-mode-off").remove();
+  }
   var pageOn = settings;
   for (var i = 0; i < settingsPage.split("/").length; i++) {
     pageOn = pageOn[settingsPage.split("/")[i]];
