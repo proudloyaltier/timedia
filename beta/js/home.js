@@ -60,12 +60,6 @@ if (localStorage.access == btoa(localStorage.name)) {
     launchApp("tiritype");
     document.title = "Tiri Type - TiMedia";
   }
-
-  if (getQueryVariable("app") == 6) {
-    launchApp("settings");
-    document.title = "Settings - TiMedia";
-  }
-
   if (getQueryVariable("app") == 7) {
     launchApp("tiles");
     document.title = "Tiles - TiMedia";
