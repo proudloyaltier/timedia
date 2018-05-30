@@ -37,7 +37,7 @@ var settingsPage = "settings";
 var settings = {
   settings: {
     Account: '<h6 style="font-size: 150%">Change Password </h6><input class="form-control" type="text" id="passchange1" placeholder="New Password"><input class="form-control" type="text" id="passchange2" placeholder="Confirm New Password"><button onclick="changePasswordButton();" class="btn btn-primary">Change Password</button><br>',
-    Tiles: '<button onclick="backupTiles(' + TilesBackup.txt + ', localStorage.files)" class="btn btn-primary">Backup Tiles</button><button onclick="restoreTiles()" class="btn btn-primary">Restore Tiles</button><br><br><button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button><br><br><button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br>',
+    Tiles: '<button onclick="backupTiles(' + "TilesBackup.txt" + ', localStorage.files)" class="btn btn-primary">Backup Tiles</button><button onclick="restoreTiles()" class="btn btn-primary">Restore Tiles</button><br><br><button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button><br><br><button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br>',
     Personalization: '<h6 style="font-size: 150%"> Theming Options </h6> Background Image<br><input class="form-control" type="text" id="backgroundImg"><br> Bar Color<br><input style="width: 5%;" id="barColor" class="jscolor form-control" value="2296f3"><br><button onclick="updateSettings()" class="btn btn-success">Save</button><br><br><button onclick="setDarkMode();" class="btn btn-primary" id="dark-mode-on">Turn On Dark Mode</button><button onclick="darkModeOff();" class="btn btn-primary" id="dark-mode-off">Turn Off Dark Mode</button>'
   }
 };
