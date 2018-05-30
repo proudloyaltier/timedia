@@ -1,0 +1,68 @@
+#settings {
+  position: absolute;
+  width: 50%;
+  height: 97%;
+  border-left: 1px solid lightgray;
+  top: 1.5%;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  min-width: 200px;
+  color: gray;
+  -webkit-transition: right 1s;
+  transition: right 1s;
+  right: -251px;
+  max-width: 250px;
+  overflow: hidden;
+}
+
+
+#settings-sections div {
+  border: none;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 3px;
+  margin: 7px;
+  -webkit-transition: background-color 0.75s;
+  transition: background-color 0.75s;
+}
+
+#settings-sections div:active {
+  background-color: #f7f7f7;
+}
+
+#settings-sections div:hover {
+  background-color: #f7f7f7;
+}
+
+.settings-submenu {
+  position: absolute;
+  right: -250px;
+  -webkit-transition: right 1s;
+  transition: right 1s;
+}
+
+#settings-sections {
+  -webkit-transition: transform 1s;
+  transition: transform 1s;
+}
+
+#settings-back-arrow {
+  display: none;
+  float: left;
+  padding: 10px;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.5s;
+}
+
+#settings-back-arrow:hover {
+  background-color: #f7f7f7;
+}
+
+#settings-back-arrow:active {
+  background-color: #e2e2e2;
+}
+
+* {
+  font-family: sans-serif;
+}
