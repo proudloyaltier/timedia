@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="other resources/photos.css" crossorigin="anonymous">
     <link rel="stylesheet" href="other resources/cmenu.css" crossorigin="anonymous">
     <link rel="stylesheet" href="other resources/tiri.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="other resources/settings.css" crossorigin="anonymous">
     <link rel="icon" href="other resources/favicon.ico">
     <title>TiMedia</title>
 </head>
@@ -69,7 +68,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" id="userdrop" href="#"><span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick='openSettings()'>Settings <span class="glyphicon glyphicon-cog"></span></a></li>
+                            <li><a href="index.html?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
                             <li><a href="logout.html">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
                         </ul>
                     </li>
@@ -203,6 +202,7 @@
                 <br>
 
                 <!--<button onclick="saveDoc(); window.location.href = '?app=7';" class="btn btn-primary">Save</button>-->
+            </div>
             <h5 style="display: none;" id="view"></h5>
             <br>
             <button onclick="tiPrint()" id="printButton" class="btn btn-primary no-print" style="display: none"><i class="fa fa-mouse-pointer"></i> <span class="badge badge-pill">NEW</span> Print Now with TiPrint</button>
@@ -210,6 +210,56 @@
             <button id="tidocs-edit" class="btn btn-primary" class="no-print" style="float: left; display: none; width: 50px; height: 50px; border-radius: 50%; position: fixed; z-index: 1; bottom: 10px; left: 10px;" onclick="editDoc()" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
             <button id="tidocs-reader" class="btn btn-primary" class="no-print" style="float: right; display: none; width: 50px; height: 50px; border-radius: 50%; position: fixed; z-index: 1; bottom: 10px; right: 10px;" onclick="docReader()" class="btn btn-primary"><span class="glyphicon glyphicon-align-justify"></span></button>
         </div>
+
+        <div id="settings" style="display: none;">
+            <h3>Settings</h3>
+            <br>
+            <h4 onclick="sspersonal()"> Personalization And Account <span id="sspersonal-icon" class="glyphicon glyphicon-menu-down"></span></h4>
+            <div id="personalizationSettings">
+                <h6 style="font-size: 150%"> Change Password </h6>
+                <input class="form-control" type="text" id="passchange1" placeholder='New Password'>
+                <input class="form-control" type="text" id="passchange2" placeholder='Confirm New Password'>
+                <br>
+                <button onclick='changePasswordButton();' class='btn btn-primary'>Change Password</button>
+                <br>
+                <br>
+                <h6 style="font-size: 150%"> Theming Options </h6> Background Image
+                <br>
+                <input class="form-control" type="text" id="backgroundImg">
+                <br> Bar Color
+                <br>
+                <input style="width: 5%;" id="barColor" class="jscolor form-control" value="2296f3">
+                <br>
+                <button onclick="updateSettings()" class="btn btn-success">Save</button>
+                <br>
+                <br>
+                <button onclick="setDarkMode();" class="btn btn-primary" id="dark-mode-on">Turn On Dark Mode</button>
+                <button onclick="darkModeOff();" class="btn btn-primary" id="dark-mode-off">Turn Off Dark Mode</button>
+                <br>
+                <br>
+            </div>
+            <br>
+            <h4 onclick="sstiles()">Tiles <span id="sstiles-icon" class="glyphicon glyphicon-menu-down"></span></h4>
+            <div id="tileSettings" style="">
+                <button onclick="backupTiles('TilesBackup.txt', localStorage.files)" class="btn btn-primary">Backup Tiles</button>
+                <button onclick="restoreTiles()" class="btn btn-primary">Restore Tiles</button>
+                <br>
+                <br>
+                <button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button>
+                <br>
+                <br>
+                <button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button>
+                <br>
+            </div>
+            <br>
+            <h4 id="ti-smile-settings-text" onclick="sstismile()"> TiSmile <span id="sstismile-icon" class="glyphicon glyphicon-menu-down"></span></h4>
+            <div id="tismileSettings">
+                <img src="other resources/smile.png" width="100" height="100">
+                <br>
+                <h4><b>Introducing TiSmile</b> - Unlock with a smile.</h4>
+                <button onclick="window.location.href='index.html?app=11'" class="btn btn-primary">Open TiSmile Preferences</button>
+                <br>
+            </div>
         </div>
         <div id="tiles" style="display: none;">
             <span class="glyphicon glyphicon-th-large" style="font-size: 300%; float: left;"></span>
@@ -490,15 +540,6 @@
             </ul>
         </nav>
         <!--end of context menu -->
-        <div id="settings" style='top: 0; display: none; background-color: white;'>
-        <h3 id='settings-uname'>
-        </h3>
-        <div id="settings-back-arrow" onclick="backSettings()">
-        </div>
-        <br><br>
-        <div id="settings-sections">
-        </div>
-        </div>
         <script src="js/birthday.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
         <script src="js/aes.js"></script>
