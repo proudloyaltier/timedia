@@ -43,7 +43,6 @@
                             <li><a href="index.html">Home <span class="glyphicon glyphicon-home"></span></a></li>
                             <li><a href="index.html?app=5">Tiri <span class="glyphicon glyphicon-record"></span></a></li>
                             <li><a href="?app=2">TiChat <span class="glyphicon glyphicon-comment"></span></a></li>
-                            <li><a href="?app=6">Settings <span class="glyphicon glyphicon-cog"></span></a></li>
                             <li><a href="?app=7">Tiles <span class="glyphicon glyphicon-cloud"></span></a></li>
                             <li><a href="tishare">TiShare <span class="glyphicon glyphicon-share"></span></a></li>
                             <li role="separator" class="divider"></li>
@@ -210,57 +209,6 @@
             <br>
             <button id="tidocs-edit" class="btn btn-primary" class="no-print" style="float: left; display: none; width: 50px; height: 50px; border-radius: 50%; position: fixed; z-index: 1; bottom: 10px; left: 10px;" onclick="editDoc()" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
             <button id="tidocs-reader" class="btn btn-primary" class="no-print" style="float: right; display: none; width: 50px; height: 50px; border-radius: 50%; position: fixed; z-index: 1; bottom: 10px; right: 10px;" onclick="docReader()" class="btn btn-primary"><span class="glyphicon glyphicon-align-justify"></span></button>
-        </div>
-
-        <div id="settings" style="display: none;">
-            <h3>Settings</h3>
-            <br>
-            <h4 onclick="sspersonal()"> Personalization And Account <span id="sspersonal-icon" class="glyphicon glyphicon-menu-down"></span></h4>
-            <div id="personalizationSettings">
-                <h6 style="font-size: 150%"> Change Password </h6>
-                <input class="form-control" type="text" id="passchange1" placeholder='New Password'>
-                <input class="form-control" type="text" id="passchange2" placeholder='Confirm New Password'>
-                <br>
-                <button onclick='changePasswordButton();' class='btn btn-primary'>Change Password</button>
-                <br>
-                <br>
-                <h6 style="font-size: 150%"> Theming Options </h6> Background Image
-                <br>
-                <input class="form-control" type="text" id="backgroundImg">
-                <br> Bar Color
-                <br>
-                <input style="width: 5%;" id="barColor" class="jscolor form-control" value="2296f3">
-                <br>
-                <button onclick="updateSettings()" class="btn btn-success">Save</button>
-                <br>
-                <br>
-                <button onclick="setDarkMode();" class="btn btn-primary" id="dark-mode-on">Turn On Dark Mode</button>
-                <button onclick="darkModeOff();" class="btn btn-primary" id="dark-mode-off">Turn Off Dark Mode</button>
-                <br>
-                <br>
-            </div>
-            <br>
-            <h4 onclick="sstiles()">Tiles <span id="sstiles-icon" class="glyphicon glyphicon-menu-down"></span></h4>
-            <div id="tileSettings" style="">
-                <button onclick="backupTiles('TilesBackup.txt', localStorage.files)" class="btn btn-primary">Backup Tiles</button>
-                <button onclick="restoreTiles()" class="btn btn-primary">Restore Tiles</button>
-                <br>
-                <br>
-                <button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button>
-                <br>
-                <br>
-                <button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button>
-                <br>
-            </div>
-            <br>
-            <h4 id="ti-smile-settings-text" onclick="sstismile()"> TiSmile <span id="sstismile-icon" class="glyphicon glyphicon-menu-down"></span></h4>
-            <div id="tismileSettings">
-                <img src="other resources/smile.png" width="100" height="100">
-                <br>
-                <h4><b>Introducing TiSmile</b> - Unlock with a smile.</h4>
-                <button onclick="window.location.href='index.html?app=11'" class="btn btn-primary">Open TiSmile Preferences</button>
-                <br>
-            </div>
         </div>
         <div id="tiles" style="display: none;">
             <span class="glyphicon glyphicon-th-large" style="font-size: 300%; float: left;"></span>
