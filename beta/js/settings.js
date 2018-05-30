@@ -75,7 +75,6 @@ function changeSettingsPage() {
   } else {
   document.getElementById("dark-mode-off").remove();
   }
-  document.getElementById("settings-uname").innerHTML = localStorage.name;
 }
 
 function backSettings() {
@@ -99,4 +98,5 @@ function toggleSettings() {
   }
 }
 
+document.getElementById("settings-uname").innerText = localStorage.name;
 changeSettingsPage();
