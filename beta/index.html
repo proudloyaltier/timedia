@@ -66,11 +66,7 @@
                 </center>
                 <ul id="logout" class="nav navbar-nav navbar-right" style="display: none;">
                     <li class="dropdown">
-                        <a data-toggle="dropdown" id="userdrop" href="#"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a onclick='openSettings()'>Settings <span class="glyphicon glyphicon-cog"></span></a></li>
-                            <li><a href="logout.html">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-                        </ul>
+                        <a data-toggle="dropdown" id="userdrop" onclick='openSettings();'><span class="caret"></span></a>
                     </li>
                 </ul>
             </div>
@@ -489,7 +485,8 @@
         </nav>
         <!--end of context menu -->
         <div id="settings" style='top: 0; display: none; background-color: white;'> 
-        <h3 id='settings-uname'> </h3> <div id="settings-back-arrow" onclick="backSettings()"> 
+        <h3 id='settings-uname'> </h3> <div id="settings-back-arrow" onclick="backSettings()">
+        <a href="logout.html">Logout <span class="glyphicon glyphicon-log-out"></span></a>
         </div> 
         <br><br> 
         <div id="settings-sections"> 
