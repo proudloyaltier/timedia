@@ -80,12 +80,9 @@ var isMobile = {
 };
 
 if (isMobile.any()) {
-  document.getElementById("ti-smile-settings-text").style.display = "none";
   document.getElementById("slides-new-menu").style.display = "none";
   localStorage.tileDeleteButton = true;
   localStorage.slidesMobile = true;
-} else {
-  document.getElementById("ti-smile-settings-text").style.display = "";
 }
 
 function pixelate(context, srcWidth, srcHeight, xPos, yPos) {
