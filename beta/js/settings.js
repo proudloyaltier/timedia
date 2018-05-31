@@ -89,11 +89,13 @@ function backSettings() {
 
 function closeSettings() {
   document.getElementById("settings").style.right = "-251px";
-  document.getElementById("settings").style.display = "none";
+  document.getElementById('settings').style.opacity=  0; 
+  document.getElementById('settings').style.zIndex =  "-1000000000000000000";
 }
 
 function openSettings() {
-  document.getElementById("settings").style.display = "block";
+  document.getElementById('settings').style.opacity=  1; 
+  document.getElementById('settings').style.zIndex =  "auto";
   document.getElementById("settings").style.right = "0px";
 }
 
