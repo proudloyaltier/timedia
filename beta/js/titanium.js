@@ -10,5 +10,5 @@ document.body.insertBefore(titaniumad, document.body.firstChild)
 setTimeout(function() {
   document.getElementById('titanium-ad').remove();
   localStorage.dismissedTiTanium = true;
- }, 25000);
+ }, 10000);
 } 
