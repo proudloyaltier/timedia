@@ -8,6 +8,10 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 TiMedia 3 is now in beta!
 
+• TiTanium is now in beta!
+
+• TiPhotos and Tile redesign
+
 • Faster loading, all code has been cleaned up and optimized.
 
 • New Favicon
