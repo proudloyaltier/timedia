@@ -1,4 +1,4 @@
-if (!navigator.userAgent.toLowerCase().includes("titanium") && localStorage.dismissedTiTanium !== "true") {
+if (!navigator.userAgent.toLowerCase().includes("titanium") && localStorage.dismissedTiTanium !== "true" && !isMobile.any()) {
 var titaniumad = document.createElement('div')
 titaniumad.onclick = function() {
   window.open('https://proudloyaltier.github.io/titanium');
