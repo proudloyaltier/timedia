@@ -1,0 +1,15 @@
+#icon {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1.25s;
+}
+
+#setupText {
+  -webkit-animation-name: fadein;
+  -webkit-animation-duration: 2s;
+}
+
+#setupWindow {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
