@@ -1,3 +1,27 @@
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    opacity: 1;
+    width: 90px;
+    height: 90px;
+  }
+}
+
 #icon {
   -webkit-animation-name: spin;
   -webkit-animation-duration: 1.25s;
