@@ -22,7 +22,7 @@ var isMobile = {
 if (!navigator.userAgent.toLowerCase().includes("titanium") && localStorage.dismissedTiTanium !== "true" && !isMobile.any()) {
 var titaniumad = document.createElement('div')
 titaniumad.onclick = function() {
-  window.open('https://proudloyaltier.github.io/titanium');
+  window.open('https://proudloyaltier.github.io/timedia/beta/titanium');
 }
 titaniumad.style = "top: 0; width: 100%; background-color: black; border-radius: 2px; color: white; text-align: center; height: 30px;";
 titaniumad.id = 'titanium-ad'
