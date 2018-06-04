@@ -19,7 +19,7 @@ TiMedia 3 is now in beta!
 • Removed Tiri from navigation bar.
 
 ## What is TiMedia?
-TiMedia is a Google, Apple, and Microsoft replacement.
+TiMedia is a all-in one cloud storage service.
 
 ## How do I start posting?
 Visit https://hymenop.us and sign up.
