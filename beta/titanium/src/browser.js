@@ -1,13 +1,13 @@
 /*
 
-TiTanium Alpha 5.4
+TiTanium Alpha 5.6
 By The TiMedia Team
 
 https://github.com/proudloyaltier/titanium
 
 */
 
-var version = "Alpha 5.4";
+var version = "Alpha 5.6";
 var homepage = "https://www.bing.com";
 var searchUrl = "https://www.bing.com/search?q=";
 var tabsbar = document.getElementById("tabsbar");
@@ -36,6 +36,7 @@ var tihistory = [];
 var tibookmarks = [];
 
 var settingsToggle = false;
+var incognito = false;
 var currentTab = 0;
 
 var tabtitlelength = 50;
@@ -337,9 +338,17 @@ function updateTabs() {
 
   for (var i = 0; i < titabs.length; i++) {
     if (i === currentTab) {
-      tabsbar.innerHTML += '<span id="tabitem' + i + '" class="tab active" onclick="openTab(' + i + ')" title="' + titabstitles[i] + '">' + titabstitles[i].substring(0, tabtitlelength) + ' <span class="x" onclick="closeTab(' + i + ')">X</span></span> ';
+      if (incognito === true) {
+        tabsbar.innerHTML += '<span id="tabitem' + i + '" class="tab active dark" onclick="openTab(' + i + ')" title="' + titabstitles[i] + '">' + titabstitles[i].substring(0, tabtitlelength) + ' <span class="x" onclick="closeTab(' + i + ')">X</span></span> ';
+      } else {
+        tabsbar.innerHTML += '<span id="tabitem' + i + '" class="tab active" onclick="openTab(' + i + ')" title="' + titabstitles[i] + '">' + titabstitles[i].substring(0, tabtitlelength) + ' <span class="x" onclick="closeTab(' + i + ')">X</span></span> ';
+      }
     } else {
-      tabsbar.innerHTML += '<span id="tabitem' + i + '" class="tab" onclick="openTab(' + i + ')"  title="' + titabstitles[i] + '">' + titabstitles[i].substring(0, tabtitlelength) + ' <span class="x" onclick="closeTab(' + i + ')">X</span></span> ';
+      if (incognito === true) {
+        tabsbar.innerHTML += '<span id="tabitem' + i + '" class="tab dark" onclick="openTab(' + i + ')"  title="' + titabstitles[i] + '">' + titabstitles[i].substring(0, tabtitlelength) + ' <span class="x" onclick="closeTab(' + i + ')">X</span></span> ';
+      } else {
+        tabsbar.innerHTML += '<span id="tabitem' + i + '" class="tab" onclick="openTab(' + i + ')"  title="' + titabstitles[i] + '">' + titabstitles[i].substring(0, tabtitlelength) + ' <span class="x" onclick="closeTab(' + i + ')">X</span></span> ';
+      }
     }
   }
 
@@ -375,6 +384,28 @@ function hideSettings() {
 function incognitoMode() {
   hideSettings();
 
+  if (incognito === false) {
+    bar.classList.add("dark");
+    bookmarksBar.classList.add("dark");
+
+    for (var i = 0; i < document.getElementsByTagName("span").length; i++) {
+      document.getElementsByTagName("span")[i].classList.add("dark");
+    }
+
+    incognito = true;
+    updateTabs();
+  } else {
+    bar.classList.remove("dark");
+    bookmarksBar.classList.remove("dark");
+
+    for (var i = 0; i < document.getElementsByTagName("span").length; i++) {
+      document.getElementsByTagName("span")[i].classList.remove("dark");
+    }
+
+    incognito = false;
+    updateTabs();
+  }
+
   iframe.executeJavaScript('__defineGetter__("navigator", function() { return "(hidden for security)"; });');
 }
 
@@ -399,22 +430,22 @@ function openUrl() {
       } else {
         iframe.src = "http://" + urlBox.value;
       }
-  } else {
-    iframe.src = searchUrl + urlBox.value;
+    } else {
+      iframe.src = searchUrl + urlBox.value;
+    }
+
+    currentPage = tihistory.length;
   }
 
-  currentPage = tihistory.length;
-}
+  urlBox.blur();
 
-urlBox.blur();
+  document.title = iframe.src + " - TiTanium";
+  urlBox.value = iframe.src.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
 
-document.title = iframe.src + " - TiTanium";
-urlBox.value = iframe.src.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+  titabs[currentTab] = iframe.src;
+  titabstitles[currentTab] = iframe.src;
 
-titabs[currentTab] = iframe.src;
-titabstitles[currentTab] = iframe.src;
-
-updateTabs();
+  updateTabs();
 }
 
 function setHomepage(url) {
