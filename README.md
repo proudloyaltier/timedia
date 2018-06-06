@@ -1,2 +1,2 @@
 # TiTanium
-A new browser developed by TiMedia.
+Source code for a new browser developed by TiMedia.
