@@ -246,8 +246,11 @@ function updatePage() {
   titabstitles[currentTab] = iframe.getTitle();
   titabs[currentTab] = iframe.getURL();
   updateTabs();
-
-  tihistory.push(iframe.getURL());
+  
+  if (incognito === false) {
+    tihistory.push(iframe.getURL());
+  }
+  
   saveData();
 }
 
