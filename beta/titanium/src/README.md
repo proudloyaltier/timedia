@@ -1,2 +1,2 @@
-# TiTanium Source
-### The source for a new browser called TiTanium
+# TiTanium
+A new browser developed by TiMedia.
