@@ -11,7 +11,7 @@ function createWindow () {
     title: 'TiTanium',
 	   width: 1920,
 	   height: 1080,
-     icon: 'icon.png'
+     	   icon: 'icon.png'
   })
 
   // and load the index.html of the app.
