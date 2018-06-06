@@ -5,9 +5,9 @@ var isLinux = navigator.platform.toLowerCase().includes("linux");
 var downloadButton = document.getElementById("downloadButton");
 var availableDownloads = document.getElementById("availableDownloads");
 
-var windowsDownload = "https://drive.google.com/open?id=1QLwQkhBCht5K6l0MUnTHtmjTbfZJJZGh";
-var macDownload = "https://drive.google.com/open?id=1QLwQkhBCht5K6l0MUnTHtmjTbfZJJZGh";
-var linuxDownload = "https://drive.google.com/open?id=1QLwQkhBCht5K6l0MUnTHtmjTbfZJJZGh";
+var windowsDownload = "https://github.com/proudloyaltier/timedia/archive/TiTanium.zip";
+var macDownload = "https://github.com/proudloyaltier/timedia/archive/TiTanium.zip";
+var linuxDownload = "https://github.com/proudloyaltier/timedia/archive/TiTanium.zip";
 
 if (isWindows) {
   downloadButton.innerText = "Download for Windows";
