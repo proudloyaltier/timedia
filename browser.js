@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           getFromDatabase("files")
           syncBookmarks();
           renderBookmarks();
-        }, 10000)
+        }, 1000)
       });
     }
   });
