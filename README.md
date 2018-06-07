@@ -9,9 +9,8 @@ You can download the Alpha builds from GitHub and run them, but they may be unst
 
 # Features
 
-
-## TiBookmarks
-Bookmarks on both TiTanium and your TiMedia automatically sync with each other.
+## Speed
+Three times faster then the competition!
 
 ## Incognito Mode
 Incognito Mode puts privacy first, hiding your userAgent, the navigator property, and localStorage, plus cookies.
