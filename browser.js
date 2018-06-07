@@ -45,12 +45,10 @@ firebase.auth().onAuthStateChanged(function(user) {
           localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
           localStorage.setItem("access", btoa(localStorage.name));
           window.reload();
-          setInterval(function() {
           document.getElementById('user').innerHTML = localStorage.name;
           getFromDatabase("files")
           syncBookmarks();
           renderBookmarks();
-        }, 100)
       });
     }
   });
@@ -277,9 +275,7 @@ function renderBookmarks() {
   for (var i = 0; i < syncBookmarks().length; i++) {
     bookmarksBar.innerHTML += '<a onclick="openTiBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
   }
- } else {
-  alert("You are not logged in to TiTanium");
- }
+ } 
 }
 
 function openTiBookmark(id) {
