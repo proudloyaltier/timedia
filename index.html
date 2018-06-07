@@ -3,6 +3,7 @@
 
   <head>
     <title>TiTanium</title>
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="https://bootswatch.com/3/paper/bootstrap.min.css">
@@ -37,6 +38,7 @@
         <span onclick="addBookmark()" class="glyphicon glyphicon-star btn btn-primary" title="Bookmark"></span>
         <span onclick="incognitoMode()" class="glyphicon glyphicon-eye-close btn btn-primary" title="Incognito"></span>
         <span onclick="toggleSettings()" class="glyphicon glyphicon-cog btn btn-primary" title="Settings"></span>
+        <span onclick="toggleLogin();" class="glyphicon glyphicon-user btn btn-primary" title="Settings"></span><br>
       </div>
       <div id="bookmarks"><br></div>
       <div id='httpSite' style='background-color: red; padding: 10px; border-radius: 2px; display: none;'>
@@ -45,11 +47,16 @@
       <div id="webframes">
         <webview id="tab0"></webview>
       </div>
-
+      <div id='login' class='container' style='display: none'>
+      	<h4> Sign in to TiTanium </h4>
+      	<input id='uname' class='form-control' placeholder="Username">
+      	<input id='pword' class='form-control' type='password' placeholder="Password" onchange='signin()'>
+      </div>
       <div id="settings" class="container" style="display: none;">
         <h2>Settings</h2>
         <h4>About</h4>
         <h6>TiTanium Alpha 5.6</h6>
+        <span> Account: </span><span id='user'>Not Logged In</span>
         <h4>General</h4>
         Homepage<br>
         <input type="url" id="homepageInput" class="form-control" oninput="setHomepage(this.value)"><br> Search Engine<br>
