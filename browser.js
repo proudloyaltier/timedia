@@ -124,6 +124,7 @@ var tihistory = [];
 var tibookmarks = [];
 
 var settingsToggle = false;
+var loginToggle = true;
 var incognito = false;
 var currentTab = 0;
 
