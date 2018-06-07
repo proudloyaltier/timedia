@@ -273,7 +273,7 @@ function importBookmarks() {
 
 function renderBookmarks() {
   bookmarksBar.innerHTML = "";
-  if (syncBookmarks() !== undefined && syncBookmarks() !== "") {
+  if (syncBookmarks() !== undefined && syncBookmarks() !== "" && firebase.auth().currentUser !== null) {
   for (var i = 0; i < syncBookmarks().length; i++) {
     bookmarksBar.innerHTML += '<a onclick="openTiBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
   }
