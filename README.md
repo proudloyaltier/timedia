@@ -1,3 +1,5 @@
+![TiTanium](https://hymenop.us/beta/titanium/icon.png)
+
 # TiTanium
 Source code for a new browser developed by TiMedia.
 
