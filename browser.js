@@ -1,9 +1,100 @@
+var config = {
+  apiKey: "AIzaSyC4jMK0UJIEujeqMl-FcUz5QeomXekV2P4",
+  authDomain: "timedia-f129d.firebaseapp.com",
+  databaseURL: "https://timedia-f129d.firebaseio.com",
+  projectId: "timedia-f129d",
+  storageBucket: "timedia-f129d.appspot.com",
+  messagingSenderId: "180167533703"
+};
+
+firebase.initializeApp(config);
+window.dbRef = firebase.database().ref();
+
+
+function snapValue(value) {
+  localStorage.setItem(window.gfdName, value.val());
+  window.gfdName = null;
+}
+
+function errorLoading(err) {
+  alert(err);
+}
+
+function getFromDatabase(name) {
+  window.gfdName = name;
+  window.dbRef.child(name).child(localStorage.name).on("value", snapValue, errorLoading);
+}
+
+function storeInDatabase(name, value) {
+  window.dbRef.child(name).child(localStorage.name).set(value);
+}
+
+function signin() {
+uname = document.getElementById("uname").value;
+pword = document.getElementById("pword").value;
+firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function(error) {
+    alert("User name or password incorrect");
+});
+document.getElementById('login').style.display = "none";
+}
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      user.providerData.forEach(function(profile) {
+          localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
+          localStorage.setItem("access", btoa(localStorage.name));
+          window.reload();
+          setInterval(function() {
+          document.getElementById('user').innerHTML = localStorage.name;
+          getFromDatabase("files")
+          syncBookmarks();
+          renderBookmarks();
+        }, 100)
+      });
+    }
+  });
+
+
+function save() {
+  storeInDatabase("files", localStorage.files);
+}
+
+function addFile(title, upload) {
+  if (title == undefined && upload == undefined) {
+    var title = prompt("File Name");
+    var upload = prompt("Enter your URL");
+  }
+
+  if (localStorage.files !== undefined && localStorage.files !== "") {
+    localStorage.files = localStorage.files + "," + title + "!!" + upload;
+  } else {
+    localStorage.files = title + "!!" + upload;
+  }
+
+  if (localStorage.files === "") {
+    localStorage.files = title + "!!" + upload;
+  }
+
+  save();
+}
+
+
+function syncBookmarks() {
+    var syncb = []
+    for(var i = 0; i < localStorage.files.split(",").length; i++) {
+        if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=10&l=") == true) {
+        syncb.push(localStorage.files.split(",")[i].split("!!")[0] + "!!" + decodeURI(atob(localStorage.files.split(",")[i].split("!!")[1].split("?app=10&l=")[1])))
+        }
+    }
+    return syncb
+}
 /*
 
-TiTanium Alpha 5.6
+TiTanium Alpha 5.8
 By The TiMedia Team
 
-https://github.com/proudloyaltier/titanium
+https://github.com/proudloyaltier/timedia/tree/titanium/
 
 */
 
@@ -53,7 +144,6 @@ if (localStorage.setup !== "true") {
 
 function loadData() {
   tihistory = JSON.parse(localStorage.history);
-  tibookmarks = JSON.parse(localStorage.bookmarks);
 
   if (localStorage.homepage !== undefined && localStorage.searchUrl !== undefined) {
     homepage = localStorage.homepage;
@@ -66,7 +156,6 @@ function loadData() {
 
 function saveData() {
   localStorage.history = JSON.stringify(tihistory);
-  localStorage.bookmarks = JSON.stringify(tibookmarks);
   localStorage.homepage = homepage;
   localStorage.searchUrl = searchUrl;
 }
@@ -85,12 +174,8 @@ function finishSetup() {
 }
 
 function addBookmark() {
-  tibookmarks.push({
-    "name": iframe.getTitle(),
-    "url": iframe.getURL(),
-    "icon": ""
-  });
-
+  addFile(iframe.getTitle(), "index.html?app=10"+ '&l=' + btoa(encodeURI(iframe.getURL()))),
+  save();
   saveData();
   renderBookmarks();
 }
@@ -187,14 +272,17 @@ function importBookmarks() {
 
 function renderBookmarks() {
   bookmarksBar.innerHTML = "";
-
-  for (var i = 0; i < tibookmarks.length; i++) {
-    bookmarksBar.innerHTML += '<a onclick="openBookmark(' + i + ')" oncontextmenu="deleteBookmark(' + i + ')"><img src="' + tibookmarks[i].icon + '" width="16px" height="16px"> ' + tibookmarks[i].name + '</a> ';
+  if (syncBookmarks() !== undefined && syncBookmarks() !== "") {
+  for (var i = 0; i < syncBookmarks().length; i++) {
+    bookmarksBar.innerHTML += '<a onclick="openTiBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
   }
+ } else {
+  alert("You are not logged in to TiTanium");
+ }
 }
 
-function openBookmark(id) {
-  iframe.src = tibookmarks[id].url;
+function openTiBookmark(id) {
+  iframe.src = syncBookmarks()[id].split("!!")[1][id];
 }
 
 function deleteBookmark(id) {
@@ -377,6 +465,7 @@ function updateTabs() {
 function toggleSettings() {
   if (settingsToggle === true) {
     settings.style.display = "none";
+    document.getElementById('login').style.display = "none";
     iframe.style.display = "";
     settingsToggle = false;
   } else {
@@ -387,6 +476,21 @@ function toggleSettings() {
     settingsToggle = true;
   }
 }
+
+function toggleLogin() {
+  if (settingsToggle === true) {
+    document.querySelector('#login').style.display = "none";
+    iframe.style.display = "";
+    settingsToggle = false;
+  } else {
+    iframe.style.display = "none";
+    document.querySelector('#login').style.display = "";
+    document.getElementById("homepageInput").value = homepage;
+    document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
+    settingsToggle = true;
+  }
+}
+
 
 function clearHistory() {
   tihistory = [];
