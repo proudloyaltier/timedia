@@ -478,16 +478,16 @@ function toggleSettings() {
 }
 
 function toggleLogin() {
-  if (settingsToggle === true) {
+  if (loginToggle === true) {
     document.querySelector('#login').style.display = "none";
     iframe.style.display = "";
-    settingsToggle = false;
+    loginToggle = false;
   } else {
     iframe.style.display = "none";
     document.querySelector('#login').style.display = "";
     document.getElementById("homepageInput").value = homepage;
     document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
-    settingsToggle = true;
+    loginToggle = true;
   }
 }
 
