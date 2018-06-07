@@ -224,6 +224,7 @@ function reload() {
 }
 
 function updatePage() {
+  document.getElementById('httpSite').style.display = 'none';
   if (document.activeElement !== urlBox) {
     if (iframe.getURL().includes(searchUrl)) {
       urlBox.value = decodeURI(iframe.getURL().split(searchUrl)[1]);
@@ -241,6 +242,10 @@ function updatePage() {
 
   if (incognito === true) {
     iframe.executeJavaScript('__defineGetter__("navigator", function() { console.error("The navigator property is not available at this time."); }); localStorage.clear();');
+  }
+  
+  if (iframe.getURL().startsWith('http:')) {
+    document.getElementById('httpSite').style.display = 'block';
   }
 
   document.title = iframe.getTitle() + " - TiTanium";
