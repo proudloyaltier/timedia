@@ -47,7 +47,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           localStorage.setItem("access", btoa(localStorage.name));
           window.reload();
           document.getElementById('signout').style.display = 'block';
-          setInterval(function() {
+          var tilesLoad = setInterval(function() {
           document.getElementById('user').innerHTML = localStorage.name;
           getFromDatabase("files")
           syncBookmarks();
@@ -94,9 +94,12 @@ function syncBookmarks() {
 
 function signout() {
   firebase.auth().signOut().then(function() {
+  window.location.reload();
   localStorage.removeItem('name')
   localStorage.removeItem('access')
   document.getElementById('signout').style.display = 'none';
+  document.getElementById('user').innerHTML = 'Not Logged In';
+  localStorage.removeItem('files')
  }, function(error) {
   alert('Sign Out Error: ' + error);
  });
