@@ -324,6 +324,7 @@ function reload() {
 
 function updatePage() {
   document.getElementById('httpSite').style.display = 'none';
+  document.getElementById('urlbox').style.color = 'black';
   if (document.activeElement !== urlBox) {
     if (iframe.getURL().includes(searchUrl)) {
       urlBox.value = decodeURI(iframe.getURL().split(searchUrl)[1]);
@@ -345,6 +346,10 @@ function updatePage() {
   
   if (iframe.getURL().startsWith('http:')) {
     document.getElementById('httpSite').style.display = 'block';
+  }
+  
+  if (iframe.getURL().startsWith('https:')) {
+    document.getElementById('urlbox').style.color = 'green';
   }
 
   document.title = iframe.getTitle() + " - TiTanium";
