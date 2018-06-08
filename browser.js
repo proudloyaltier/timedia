@@ -42,9 +42,11 @@ document.getElementById('login').style.display = "none";
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       user.providerData.forEach(function(profile) {
+          document.getElementById('signout').style.display = 'none';
           localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
           localStorage.setItem("access", btoa(localStorage.name));
           window.reload();
+          document.getElementById('signout').style.display = 'block';
           setInterval(function() {
           document.getElementById('user').innerHTML = localStorage.name;
           getFromDatabase("files")
@@ -94,6 +96,7 @@ function signout() {
   firebase.auth().signOut().then(function() {
   localStorage.removeItem('name')
   localStorage.removeItem('access')
+  document.getElementById('signout').style.display = 'none';
  }, function(error) {
   alert('Sign Out Error: ' + error);
  });
