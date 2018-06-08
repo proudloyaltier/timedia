@@ -89,6 +89,15 @@ function syncBookmarks() {
     }
     return syncb
 }
+
+function signout() {
+  firebase.auth().signOut().then(function() {
+  localStorage.removeItem('name')
+  localStorage.removeItem('access')
+ }, function(error) {
+  alert('Sign Out Error: ' + error);
+ });
+}
 /*
 
 TiTanium Alpha 5.8
@@ -124,7 +133,7 @@ var tihistory = [];
 var tibookmarks = [];
 
 var settingsToggle = false;
-var loginToggle = true;
+var loginToggle = false;
 var incognito = false;
 var currentTab = 0;
 
