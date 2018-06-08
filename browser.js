@@ -293,7 +293,7 @@ function renderBookmarks() {
 }
 
 function openTiBookmark(id) {
-  iframe.src = syncBookmarks()[id].split("!!")[1][id];
+  iframe.src = syncBookmarks()[id].split("!!")[1];
 }
 
 function deleteBookmark(id) {
