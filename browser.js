@@ -348,6 +348,7 @@ function updatePage() {
   }
   
   if (iframe.getURL().startsWith('http:')) {
+    document.getElementById('urlbox').style.color = 'red';
     document.getElementById('httpSite').style.display = 'block';
   }
   
