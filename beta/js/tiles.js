@@ -170,11 +170,10 @@ function deleteTile(tileid) {
   alertify.confirm("Are you sure you want to delete this Tile?", function() {
     var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19);
     window.dbRef.child(toDelFirebase).set(null);
-   if (localStorage.files.split(",").length > 1) {
+   if (tileid > 0) {
     localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
    } else {
-    localStorage.files = ""
-    storeInDatabase("files",null)
+     localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1] + ",", "");
    }
     save();
     swal("Deleted!", "Tile successfully deleted!", "success").then((value) => {
@@ -191,6 +190,10 @@ function openTileContext(tileID) {
 
 function resetTiles() {
   alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function() {
+    for (var i = 0; i < localStorage.files.split(",").length; i++) {
+     var toDelFirebaseReset = localStorage.files.split(",")[i].split("!!")[1].slice(19);
+     window.dbRef.child(toDelFirebaseReset).set(null);
+    }
     localStorage.files = ""
     storeInDatabase("files", "");
     swal("Reset!", "Tiles successfully reset!", "success").then((value) => {
