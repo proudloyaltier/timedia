@@ -173,8 +173,12 @@ function deleteTile(tileid) {
    if (tileid > 0) {
     localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
    } else {
+     if (localStorage.files.split(",")[tileid + 1] !== undefined) {
      localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1] + ",", "");
-   }
+     } else {
+     localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
+     }
+    }
     save();
     swal("Deleted!", "Tile successfully deleted!", "success").then((value) => {
       window.location.reload();
