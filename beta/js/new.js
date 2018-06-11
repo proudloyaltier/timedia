@@ -28,7 +28,8 @@ function uploadTIAPP() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
-  document.getElementById('newapp-application-view').style.display = 'block'
+  document.getElementById('newapp').style.display = 'none';
+  document.getElementById('newapp-application-view').style.display = 'block';
   document.getElementById('newapp-application-view').innerHTML = reader.result.split(",source:")[1]
   }, false);
 
