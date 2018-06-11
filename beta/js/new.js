@@ -14,17 +14,22 @@ function updateIcon() {
 }
 
 function uploadApp() {
-  window.selector = document.createElement("input");
-  selector.type = "file";
-  selector.setAttribute("onchange", "uploadTIAPP()");
-  selector.click();
+ alertify.confirm("Opening apps download from the internet can be dangerous! Are you sure you want to continue?", function () {
+    window.selector = document.createElement("input");
+    selector.type = "file";
+    selector.setAttribute("onchange", "uploadTIAPP()");
+    selector.click(); 
+   }, function() {
+    return false;
+ });
 }
 
 function uploadTIAPP() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
-  alert(reader.result.split(",source:")[1])
+  document.getElementById('newapp-application-view').style.display = 'block'
+  document.getElementById('newapp-application-view').innerHTML = reader.result.split(",source:")[1]
   }, false);
 
   if (file) {
