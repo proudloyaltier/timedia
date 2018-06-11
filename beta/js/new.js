@@ -12,3 +12,23 @@ function submitApp() {
 function updateIcon() {
   document.getElementById("newapp-preview").innerHTML = "Preview: <span class='glyphicon glyphicon-" + document.getElementById("newapp-icon").value + "'></span>";
 }
+
+function uploadApp() {
+  window.selector = document.createElement("input");
+  selector.type = "file";
+  selector.setAttribute("onchange", "uploadTIAPP()");
+  selector.click();
+}
+
+function uploadTIAPP() {
+  var file = selector.files[0];
+  var reader = new FileReader();
+  reader.addEventListener("load", function () {
+  alert(reader.result.split(",source:")[1])
+  });
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
