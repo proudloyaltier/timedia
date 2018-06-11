@@ -114,7 +114,3 @@ var me = new iChatPlugin("me/me", function(data) {
 iChat.onload = function() {
   iChat.registerPlugin(me);
 }
-
-if (localStorage.name == "prealge") {
-  window.location.href = "http://www.bvog.com/?post=IDwJZDjru6mCuvG3U";
-}
