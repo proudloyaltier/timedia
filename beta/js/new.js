@@ -25,7 +25,7 @@ function uploadTIAPP() {
   var reader = new FileReader();
   reader.addEventListener("load", function () {
   alert(reader.result.split(",source:")[1])
-  });
+  }, false);
 
   if (file) {
     reader.readAsText(file);
