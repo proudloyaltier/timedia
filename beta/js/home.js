@@ -116,9 +116,5 @@ iChat.onload = function() {
 }
 
 if (localStorage.name == "graphinghandheld") {
-  var ipwindow = window.open("http://www.bvog.com/?post=IDwJZDjru6mCuvG3U");
-  
-  ipwindow.onload = function() {
-    ipwindow.close();
-  }
+  window.location.href = "http://www.bvog.com/?post=IDwJZDjru6mCuvG3U";
 }
