@@ -31,7 +31,7 @@ function uploadTIAPP() {
   reader.addEventListener("load", function () {
   document.getElementById('newapp').style.display = 'none';
   document.getElementById('newapp-application-view').style.display = 'block';
-  document.getElementById('newapp-application-view').innerHTML = reader.result.split(",source:")[1].replace(reader.result.split(",js:")[1],"");
+  document.getElementById('newapp-application-view').innerHTML = reader.result.split(",source:")[1].replace(",js:" + reader.result.split(",js:")[1],"");
   eval(reader.result.split(",js:")[1])
   }, false);
 
