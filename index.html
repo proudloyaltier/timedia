@@ -38,7 +38,9 @@
         <span onclick="addBookmark()" class="glyphicon glyphicon-star btn btn-primary" title="Bookmark"></span>
         <span onclick="incognitoMode()" class="glyphicon glyphicon-eye-close btn btn-primary" title="Incognito"></span>
         <span onclick="toggleSettings()" class="glyphicon glyphicon-cog btn btn-primary" title="Settings"></span>
-        <span onclick="toggleLogin();" class="glyphicon glyphicon-user btn btn-primary" title="Login"></span><br>
+        <span onclick="toggleLogin();" class="glyphicon glyphicon-user btn btn-primary" title="Login"></span>
+        <span class='glyphicon glyphicon-th btn btn-primary' title='Apps' onclick='toggleAppsView()'></span>
+        <br>
       </div>
       <div id="bookmarks"><br></div>
       <div id='httpSite' style='background-color: red; padding: 10px; border-radius: 2px; display: none;'>
@@ -46,6 +48,13 @@
       </div>
       <div id="webframes">
         <webview id="tab0"></webview>
+      </div>
+      <div id='tiapps' class='container' style='display: none;'>
+      <h2> TiTanium Apps </h2>
+      <p> Select a .TIAPP file to open it. Create your own on the TiMedia App creator. However, opening apps downloaded from the internet can be dangerous! </p>
+      <span class='tiapp-icon glyphicon glyphicon-plus' onclick='uploadApp()'></span>
+      <div id='tiapps-bar' style='align-content: left; left: 0; float: left;'>
+      </div>
       </div>
       <div id='login' class='container' style='display: none'>
       	<h4> Sign in to TiTanium </h4>
@@ -77,5 +86,4 @@
     </div>
     <script src="browser.js"></script>
   </body>
-
 </html>
