@@ -122,3 +122,15 @@ a {
 .active {
   color: white;
 }
+
+.tiapp-icon {
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  font-size: 315%;
+  float: left;
+}
