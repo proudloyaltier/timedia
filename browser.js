@@ -132,13 +132,14 @@ if (localStorage.homepage !== undefined && localStorage.searchUrl !== undefined)
   homepage = localStorage.homepage;
   searchUrl = localStorage.searchUrl;
 }
-
+var tiapps = [];
 var titabs = [homepage];
 var titabstitles = [homepage];
 var tihistory = [];
 var tibookmarks = [];
 
 var settingsToggle = false;
+var appsToggle = false;
 var loginToggle = false;
 var incognito = false;
 var currentTab = 0;
@@ -378,6 +379,8 @@ function updateHistory() {
 function newTab(url) {
   settings.style.display = "none";
   settingsToggle = false;
+  document.querySelector('#tiapps').style.display = "none";
+  appsToggle = false;
 
   if (typeof url !== "undefined") {
     titabs.push(url);
@@ -511,6 +514,19 @@ function toggleLogin() {
   }
 }
 
+function toggleAppsView() {
+  if (appsToggle === true) {
+    document.querySelector('#tiapps').style.display = "none";
+    iframe.style.display = "";
+    appsToggle = false;
+  } else {
+    iframe.style.display = "none";
+    document.querySelector('#tiapps').style.display = "";
+    document.getElementById("homepageInput").value = homepage;
+    document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
+    appsToggle = true;
+  }
+}
 
 function clearHistory() {
   tihistory = [];
@@ -553,7 +569,10 @@ function incognitoMode() {
 
 function openUrl() {
   hideSettings();
-
+  document.querySelector('#tiapps').style.display = "none";
+  appsToggle = false
+  document.querySelector('#login').style.display = "none";
+  loginToggle = false;
   if (urlBox.value.split(":")[0] === "agent") {
     var agentString = urlBox.value.split(":");
     agentString.shift();
@@ -631,3 +650,37 @@ iframe.addEventListener("page-title-updated", updatePage);
 iframe.addEventListener("new-window", function(e) {
   newTab(e.url);
 });
+
+function openApp(i) {
+window.open("data:text/html;charset=utf-8," + tiapps[i].split(";;")[1] + '<script>' + tiapps[i].split(";;")[2] + '</script>', "", "_blank")
+}
+
+function renderApps() {
+  document.getElementById('tiapps-bar').innerHTML = "";
+  for (var i=0; i < tiapps.length; i++) {
+     document.getElementById('tiapps-bar').innerHTML += '<span onclick="openApp(' + i + ')" class="tiapp-icon ' + tiapps[i].split(";;")[0] + '"></span>';
+  }
+}
+
+function uploadApp() {
+    window.selector = document.createElement("input");
+    selector.type = "file";
+    selector.setAttribute("onchange", "uploadTIAPP()");
+    selector.click(); 
+}
+
+function uploadTIAPP() {
+  var file = selector.files[0];      
+  var reader = new FileReader();
+  reader.addEventListener("load", function () {
+  var source = reader.result.split(",source:")[1].replace(',js:'+reader.result.split(",js:")[1], "");
+  var js = reader.result.split(",js:")[1]
+  var icon = "glyphicon glyphicon-"+reader.result.split(",icon:")[1].replace(",source:"+reader.result.split(',source:')[1],"");
+  tiapps.push( icon + ";;" + source + ";;" + js)
+  renderApps();
+  }, false);
+
+  if (file) {
+    reader.readAsText(file);
+  }
+}
