@@ -52,6 +52,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           getFromDatabase("files")
           syncBookmarks();
           renderBookmarks();
+          renderApps();
         }, 1000)
       });
     }
@@ -293,7 +294,7 @@ function renderBookmarks() {
   for (var i = 0; i < syncBookmarks().length; i++) {
     bookmarksBar.innerHTML += '<a onclick="openTiBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
   }
- } 
+ }
 }
 
 function openTiBookmark(id) {
@@ -347,12 +348,12 @@ function updatePage() {
   if (incognito === true) {
     iframe.executeJavaScript('__defineGetter__("navigator", function() { console.error("The navigator property is not available at this time."); }); localStorage.clear();');
   }
-  
+
   if (iframe.getURL().startsWith('http:')) {
     document.getElementById('urlbox').style.color = 'red';
     document.getElementById('httpSite').style.display = 'block';
   }
-  
+
   if (iframe.getURL().startsWith('https:')) {
     document.getElementById('urlbox').style.color = 'green';
   }
@@ -656,7 +657,10 @@ window.open("data:text/html;charset=utf-8," + tiapps[i].split(";;")[1] + '<scrip
 }
 
 function renderApps() {
-  document.getElementById('tiapps-bar').innerHTML = "";
+  if (localStorage.tiapps !== undefined) {
+    tiapps = localStorage.tiapps.split(",");
+  }
+    document.getElementById('tiapps-bar').innerHTML = "";
   for (var i=0; i < tiapps.length; i++) {
      document.getElementById('tiapps-bar').innerHTML += '<span onclick="openApp(' + i + ')" class="tiapp-icon ' + tiapps[i].split(";;")[0] + '"></span>';
   }
@@ -666,17 +670,18 @@ function uploadApp() {
     window.selector = document.createElement("input");
     selector.type = "file";
     selector.setAttribute("onchange", "uploadTIAPP()");
-    selector.click(); 
+    selector.click();
 }
 
 function uploadTIAPP() {
-  var file = selector.files[0];      
+  var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
   var source = reader.result.split(",source:")[1].replace(',js:'+reader.result.split(",js:")[1], "");
   var js = reader.result.split(",js:")[1]
   var icon = "glyphicon glyphicon-"+reader.result.split(",icon:")[1].replace(",source:"+reader.result.split(',source:')[1],"");
   tiapps.push( icon + ";;" + source + ";;" + js)
+  localStorage.tiapps = tiapps + "";
   renderApps();
   }, false);
 
