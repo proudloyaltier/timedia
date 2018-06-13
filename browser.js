@@ -662,7 +662,7 @@ function renderApps() {
   }
     document.getElementById('tiapps-bar').innerHTML = "";
   for (var i=0; i < tiapps.length; i++) {
-     document.getElementById('tiapps-bar').innerHTML += '<span onclick="openApp(' + i + ')" class="tiapp-icon ' + tiapps[i].split(";;")[0] + '"></span>';
+     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + tiapps[i].split(";;")[0] + '"></span>';
   }
 }
 
@@ -672,6 +672,27 @@ function uploadApp() {
     selector.setAttribute("onchange", "uploadTIAPP()");
     selector.click();
 }
+
+function deleteApp(i) {
+  var appConfirm = confirm("Are you sure you would like to delete this app?")
+  if (appConfirm) {
+    if (tiapps.length == 1) {
+      var firstAppDeleted = true;
+    }
+    if (i > 0) {
+   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i] + ",", "")
+  } else {
+   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i], "")
+  }
+   tiapps = localStorage.tiapps;
+   if (firstAppDeleted) {
+     localStorage.removeItem('tiapps');
+     tiapps = [];
+   }
+   renderApps();
+ }
+}
+
 
 function uploadTIAPP() {
   var file = selector.files[0];
