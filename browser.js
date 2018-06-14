@@ -707,3 +707,5 @@ function uploadTIAPP() {
     reader.readAsText(file);
   }
 }
+
+renderApps();
