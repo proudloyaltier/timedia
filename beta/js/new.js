@@ -3,9 +3,9 @@ function submitApp() {
   var appSource = document.getElementById("newapp-source").value;
   var appjs = document.getElementById("newapp-source-js").value;
   var appIcon = document.getElementById("newapp-icon").value;
-  var data = btoa("app_name:" + appName + ",created_by:" + localStorage.getItem("name") + ",icon:" + appIcon + ",source:" + appSource + ",js:" + appjs);
+  var data = "<ticon>" + appIcon + "</ticon>" + appSource + "<script>" + appjs + "</script>";
   var a = document.createElement("a");
-  a.href = "data:application/octet-stream;charset=utf-8;base64," + data;
+  a.href = "data:text/html;charset=utf-8," + data;
   a.download = appName + ".tiapp";
   a.click();
 }
@@ -29,10 +29,7 @@ function uploadTIAPP() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
-  document.getElementById('newapp').style.display = 'none';
-  document.getElementById('newapp-application-view').style.display = 'block';
-  document.getElementById('newapp-application-view').innerHTML = reader.result.split(",source:")[1].replace(",js:" + reader.result.split(",js:")[1],"");
-  eval(reader.result.split(",js:")[1])
+  window.open(reader.result);
   }, false);
 
   if (file) {
