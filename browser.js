@@ -662,7 +662,7 @@ function renderApps() {
   }
     document.getElementById('tiapps-bar').innerHTML = "";
   for (var i=0; i < tiapps.length; i++) {
-     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].split("<ticon style='display: none;'>")[1].replace(tiapps[i].split('</ticon>')[1], "") + '"></span>';
+     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].split("<ticon style='display: none;'>")[1].replace('</ticon>' + tiapps[i].split('</ticon>')[1], "") + '"></span>';
   }
 }
 
