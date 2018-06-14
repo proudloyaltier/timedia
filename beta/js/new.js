@@ -29,7 +29,7 @@ function uploadTIAPP() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
-  window.open(reader.result);
+  window.open("data:text/html;charset=utf-8," + reader.result, "", "_blank")
   }, false);
 
   if (file) {
