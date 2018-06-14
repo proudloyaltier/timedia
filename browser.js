@@ -653,7 +653,7 @@ iframe.addEventListener("new-window", function(e) {
 });
 
 function openApp(i) {
-window.open("data:text/html;charset=utf-8," + tiapps[i].split(";;")[1] + '<script>' + tiapps[i].split(";;")[2] + '</script>', "", "_blank")
+window.open("data:text/html;charset=utf-8," + tiapps[i], "", "_blank")
 }
 
 function renderApps() {
@@ -662,7 +662,7 @@ function renderApps() {
   }
     document.getElementById('tiapps-bar').innerHTML = "";
   for (var i=0; i < tiapps.length; i++) {
-     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + tiapps[i].split(";;")[0] + '"></span>';
+     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].split('<ticon>')[1].replace(tiapps[i].split('</ticon>')[1], "") + '"></span>';
   }
 }
 
@@ -698,10 +698,7 @@ function uploadTIAPP() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
-  var source = reader.result.split(",source:")[1].replace(',js:'+reader.result.split(",js:")[1], "");
-  var js = reader.result.split(",js:")[1]
-  var icon = "glyphicon glyphicon-"+reader.result.split(",icon:")[1].replace(",source:"+reader.result.split(',source:')[1],"");
-  tiapps.push( icon + ";;" + source + ";;" + js)
+  tiapps.push(reader.result)
   localStorage.tiapps = tiapps + "";
   renderApps();
   }, false);
