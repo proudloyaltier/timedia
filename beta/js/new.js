@@ -5,7 +5,7 @@ function submitApp() {
   var appIcon = document.getElementById("newapp-icon").value;
   var data = "<ticon style='display: none;'>" + appIcon + "</ticon>" + appSource + "<script>" + appjs + "</script>";
   var a = document.createElement("a");
-  a.href = data;
+  a.href = "data:application/octet-stream;charset=utf-8;base64," + data;
   a.download = appName + ".tiapp";
   a.click();
 }
