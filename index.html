@@ -38,7 +38,6 @@
         <span onclick="addBookmark()" class="glyphicon glyphicon-star btn btn-primary" title="Bookmark"></span>
         <span onclick="incognitoMode()" class="glyphicon glyphicon-eye-close btn btn-primary" title="Incognito"></span>
         <span onclick="toggleSettings()" class="glyphicon glyphicon-cog btn btn-primary" title="Settings"></span>
-        <span onclick="toggleLogin();" class="glyphicon glyphicon-user btn btn-primary" title="Login"></span>
         <span class='glyphicon glyphicon-th btn btn-primary' title='Apps' onclick='toggleAppsView()'></span>
         <br>
       </div>
@@ -56,27 +55,34 @@
       <div id='tiapps-bar' style='align-content: left; left: 0; float: left;'>
       </div>
       </div>
-      <div id='login' class='container' style='display: none'>
-      	<h4> Sign in to TiTanium </h4>
-      	<input id='uname' class='form-control' placeholder="Username">
-      	<input id='pword' class='form-control' type='password' placeholder="Password" onchange='signin()'>
-	<button onclick='signin();' class='btn btn-primary'>Login</button>
-      </div>
       <div id="settings" class="container" style="display: none;">
         <h2>Settings</h2>
+        <div class='jumbotron'>
         <h4>About</h4>
-        <h6>TiTanium Alpha 5.6</h6>
-        <span> Account: </span><span id='user'>Not Logged In</span>
-	<button id='signout' onclick='signout()' style='display: none' class='btn btn-primary'>Sign out</button>
+        <h6>TiTanium Alpha 6.5</h6>
+        </div>
+        <div class='jumbotron'>
+        <div id='login'>
+          <h4> Sign in to TiTanium </h4>
+          <input id='uname' class='form-control' placeholder="Username">
+          <input id='pword' class='form-control' type='password' placeholder="Password" onchange='signin()'>
+          <button onclick='signin();' class='btn btn-primary'>Login</button>
+        </div>
+        <span id='account-info' style='display: none'><h5 id='user'> Account: </h5></span>
+	      <button id='signout' onclick='signout()' style='display: none' class='btn btn-primary'>Sign out</button>
+       </div>
+        <div class='jumbotron'>
         <h4>General</h4>
         Homepage<br>
         <input type="url" id="homepageInput" class="form-control" oninput="setHomepage(this.value)"><br> Search Engine<br>
         <select id="searchEngineInput" class="form-control" oninput="setSearchEngine(this.value)">
-	<option value="0">Google</option>
-	<option value="1">Bing</option>
-	<option value="2">Yahoo!</option>
-	<option value="3">DuckDuckGo</option>
+	           <option value="0">Google</option>
+             <option value="1">Bing</option>
+	           <option value="2">Yahoo!</option>
+	            <option value="3">DuckDuckGo</option>
         </select>
+       </div>
+       <div class='jumbotron'>
         <h4>History</h4>
         <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
         <h4>Bookmarks</h4>
