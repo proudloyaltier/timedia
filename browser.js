@@ -711,3 +711,17 @@ function uploadTIAPP() {
 }
 
 renderApps();
+
+
+function updateOnlineStatus() {
+    document.getElementById("offline").style.display = 'none';
+    document.getElementById("webframes").style.display = 'block';
+}
+
+function updateOfflineStatus() {
+  document.getElementById("offline").style.display = 'block';
+  document.getElementById("webframes").style.display = 'none';
+}
+
+window.addEventListener('offline', updateOfflineStatus);
+window.addEventListener('online',  updateOnlineStatus);
