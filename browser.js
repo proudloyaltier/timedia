@@ -621,7 +621,7 @@ function openUrl() {
   document.title = iframe.src + " - TiTanium";
   urlBox.value = iframe.src.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
 
-  titabfs[currentTab] = iframe.src;
+  titabs[currentTab] = iframe.src;
   titabstitles[currentTab] = iframe.src;
 
   updateTabs();
