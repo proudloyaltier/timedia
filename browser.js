@@ -33,9 +33,10 @@ function signin() {
 uname = document.getElementById("uname").value;
 pword = document.getElementById("pword").value;
 firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function(error) {
-    alert("User name or password incorrect");
+    alert("User name or password is incorrect!");
 });
 document.getElementById('login').style.display = "none";
+document.getElementById('account-info').style.display = 'block';
 }
 
 
@@ -45,10 +46,11 @@ firebase.auth().onAuthStateChanged(function(user) {
           document.getElementById('signout').style.display = 'none';
           localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
           localStorage.setItem("access", btoa(localStorage.name));
-          window.reload();
           document.getElementById('signout').style.display = 'block';
           var tilesLoad = setInterval(function() {
-          document.getElementById('user').innerHTML = localStorage.name;
+          document.getElementById('login').style.display = "none";
+          document.getElementById('account-info').style.display = 'block';
+          document.getElementById('user').innerHTML = "Account: " + localStorage.name;
           getFromDatabase("files")
           syncBookmarks();
           renderBookmarks();
@@ -94,27 +96,27 @@ function syncBookmarks() {
 }
 
 function signout() {
-  firebase.auth().signOut().then(function() {
   window.location.reload();
   localStorage.removeItem('name')
   localStorage.removeItem('access')
   document.getElementById('signout').style.display = 'none';
-  document.getElementById('user').innerHTML = 'Not Logged In';
+  document.getElementById('user').style.display = 'none';
   localStorage.removeItem('files')
+  firebase.auth().signOut().then(function() {
  }, function(error) {
   alert('Sign Out Error: ' + error);
  });
 }
 /*
 
-TiTanium Alpha 5.8
+TiTanium Alpha 6.5
 By The TiMedia Team
 
 https://github.com/proudloyaltier/timedia/tree/titanium/
 
 */
 
-var version = "Alpha 5.6";
+var version = "Alpha 6.5";
 var homepage = "https://www.bing.com";
 var searchUrl = "https://www.bing.com/search?q=";
 var tabsbar = document.getElementById("tabsbar");
