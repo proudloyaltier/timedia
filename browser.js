@@ -426,11 +426,19 @@ function closeTab(id) {
     if (id === titabs.length - 1) {
       currentTab = titabs.length - 2;
     } else {
+      if (id !== 0) {
       currentTab = id - 1;
+    } else if (titabs.length > 1 && id == 0) {
+      currentTab = 1;
     }
-
+    }
+    if (id > 0) {
     titabs.splice(id, 1);
     titabstitles.splice(id, 1);
+    } else {
+    titabs.shift();
+    titabstitles.shift();
+    }
 
     if (titabs.length === 0) {
       window.close();
@@ -613,7 +621,7 @@ function openUrl() {
   document.title = iframe.src + " - TiTanium";
   urlBox.value = iframe.src.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
 
-  titabs[currentTab] = iframe.src;
+  titabfs[currentTab] = iframe.src;
   titabstitles[currentTab] = iframe.src;
 
   updateTabs();
@@ -725,3 +733,18 @@ function updateOfflineStatus() {
 
 window.addEventListener('offline', updateOfflineStatus);
 window.addEventListener('online',  updateOnlineStatus);
+
+urlbox.onfocus = function() {
+  urlbox.style.color = 'black';
+}
+
+urlbox.onblur = function() {
+  if (iframe.getURL().startsWith('http:')) {
+    document.getElementById('urlbox').style.color = 'red';
+    document.getElementById('httpSite').style.display = 'block';
+  }
+
+  if (iframe.getURL().startsWith('https:')) {
+    document.getElementById('urlbox').style.color = 'green';
+  }
+}
