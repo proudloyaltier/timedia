@@ -34,36 +34,33 @@
         <span onclick="backPage()" class="glyphicon glyphicon-menu-left btn btn-primary" title="Back"></span>
         <span onclick="forPage()" class="glyphicon glyphicon-menu-right btn btn-primary" title="Forward"></span>
         <span onclick="reload()" class="glyphicon glyphicon-refresh btn btn-primary" title="Reload"></span>
-        <input id="urlbox" type="url" class="form-control" onfocus="select(this); hideSettings();" onchange="openUrl()" title="Enter a URL or search the web" spellcheck="false" autocorrect="false">
+        <span class='titanium-input'>
+        <span id="httpIcon" class="glyphicon glyphicon-remove-circle" style="color: red; display: none;" title="This page is insecure."></span>
+        <span id="httpsIcon" class="glyphicon glyphicon-lock" style="color: green; display: none;" title="This page is secure."></span>
+
+        <input id="urlbox" type="url" class="form-control" onfocus="select(this); this.style.color = ''; hideMenus();" onchange="openUrl()" title="Enter a URL or search the web" spellcheck="false" autocorrect="false">
+        </span>
         <span onclick="addBookmark()" class="glyphicon glyphicon-star btn btn-primary" title="Bookmark"></span>
         <span onclick="incognitoMode()" class="glyphicon glyphicon-eye-close btn btn-primary" title="Incognito"></span>
         <span onclick="toggleSettings()" class="glyphicon glyphicon-cog btn btn-primary" title="Settings"></span>
-        <span class='glyphicon glyphicon-th btn btn-primary' title='Apps' onclick='toggleAppsView()'></span>
-        <br>
+        <span onclick="toggleApps()" class="glyphicon glyphicon-th btn btn-primary" title="Apps"></span>
       </div>
       <div id="bookmarks"><br></div>
-      <div id='httpSite' style='background-color: red; padding: 10px; border-radius: 2px; display: none;'>
-      This website is secured using HTTP. Please contact the owner of this website and advise them to upgrade to the higher-security HTTPS standard.
-      </div>
-      <div id='offline' class='container' style='display: none;'>
-        <h1> Your browser is offline </h1>
-        <h3> Connect to the internet to search the web! </h3>
-      </div>
       <div id="webframes">
         <webview id="tab0"></webview>
       </div>
-      <div id='tiapps' class='container' style='display: none;'>
-      <h2> TiTanium Apps </h2>
-      <p> Select a .TIAPP file to open it. Create your own on the TiMedia App creator. However, opening apps downloaded from the internet can be dangerous! </p>
-      <span class='tiapp-icon glyphicon glyphicon-plus' onclick='uploadApp()'></span>
-      <div id='tiapps-bar' style='align-content: left; left: 0; float: left;'>
-      </div>
+      <div id="apps" class="container" style="display: none;">
+        <h2> Apps </h2>
+        <p> Select a .TIAPP file to open it. Create your own on the TiMedia App creator. However, opening apps downloaded from the internet can be dangerous! </p>
+        <span class='tiapp-icon glyphicon glyphicon-plus' onclick='uploadApp()'></span>
+        <div id='tiapps-bar' style='align-content: left; left: 0; float: left;'>
+        </div>
       </div>
       <div id="settings" class="container" style="display: none;">
         <h2>Settings</h2>
         <div class='jumbotron'>
         <h4>About</h4>
-        <h6>TiTanium Alpha 6.5</h6>
+        <h6>TiTanium Alpha 6.6</h6>
         </div>
         <div class='jumbotron'>
         <div id='login'>
@@ -89,11 +86,10 @@
        <div class='jumbotron'>
         <h4>History</h4>
         <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
-        <h4>Bookmarks</h4>
-        <!--<button class="btn btn-primary" onclick="exportBookmarks()">Export Bookmarks (.tbf)</button><br><br>-->
-        <button class="btn btn-danger" onclick="clearBookmarks()">Clear Bookmarks</button>
       </div>
+    </div>
     </div>
     <script src="browser.js"></script>
   </body>
+
 </html>
