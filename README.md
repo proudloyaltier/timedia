@@ -1,8 +1,8 @@
 # TiTanium
-Source code for a new browser developed by TiMedia and built on :electron:.
+Source code for a new browser developed by TiMedia built on :electron:.
 
 ## What is TiTanium?
-TiTanium is a brand new browser developed by TiMedia.
+TiTanium is a brand new browser developed by TiMedia built on :electron:.
 
 ## How can I use it?
 You can download the Alpha builds from GitHub and run them, but they may be unstable.
