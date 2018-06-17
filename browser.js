@@ -1,3 +1,12 @@
+/*
+
+TiTanium Alpha 6.6
+By The TiMedia Team
+
+https://github.com/proudloyaltier/timedia/tree/TiTanium
+
+*/
+
 var config = {
   apiKey: "AIzaSyC4jMK0UJIEujeqMl-FcUz5QeomXekV2P4",
   authDomain: "timedia-f129d.firebaseapp.com",
@@ -107,16 +116,8 @@ function signout() {
   alert('Sign Out Error: ' + error);
  });
 }
-/*
 
-TiTanium Alpha 6.5
-By The TiMedia Team
-
-https://github.com/proudloyaltier/timedia/tree/titanium/
-
-*/
-
-var version = "Alpha 6.5";
+var version = "Alpha 6.6";
 var homepage = "https://www.bing.com";
 var searchUrl = "https://www.bing.com/search?q=";
 var tabsbar = document.getElementById("tabsbar");
@@ -125,6 +126,8 @@ var iframe = document.getElementById("tab0");
 var urlBox = document.getElementById("urlbox");
 var webframes = document.getElementById("webframes");
 var settings = document.getElementById("settings");
+var apps = document.getElementById("apps");
+var installedApps = document.getElementById("installedApps");
 
 var setupWindow = document.getElementById("setupWindow");
 var browserWindow = document.getElementById("browserWindow");
@@ -135,15 +138,15 @@ if (localStorage.homepage !== undefined && localStorage.searchUrl !== undefined)
   homepage = localStorage.homepage;
   searchUrl = localStorage.searchUrl;
 }
-var tiapps = [];
+
 var titabs = [homepage];
 var titabstitles = [homepage];
 var tihistory = [];
 var tibookmarks = [];
+var tiapps = [];
 
 var settingsToggle = false;
 var appsToggle = false;
-var loginToggle = false;
 var incognito = false;
 var currentTab = 0;
 
@@ -162,6 +165,82 @@ if (localStorage.setup !== "true") {
   iframe.src = homepage;
 }
 
+function openApp(i) {
+window.open("data:text/html;charset=utf-8," + tiapps[i], "", "_blank")
+}
+
+function renderApps() {
+  if (localStorage.tiapps !== undefined) {
+    tiapps = localStorage.tiapps.split(",");
+  }
+    document.getElementById('tiapps-bar').innerHTML = "";
+  for (var i=0; i < tiapps.length; i++) {
+     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].split("<ticon style='display: none;'>")[1].replace('</ticon>' + tiapps[i].split('</ticon>')[1], "") + '"></span>';
+  }
+}
+
+function uploadApp() {
+    window.selector = document.createElement("input");
+    selector.type = "file";
+    selector.setAttribute("onchange", "uploadTIAPP()");
+    selector.click();
+}
+
+function deleteApp(i) {
+  var appConfirm = confirm("Are you sure you would like to delete this app?")
+  if (appConfirm) {
+    if (tiapps.length == 1) {
+      var firstAppDeleted = true;
+    }
+    if (i > 0) {
+   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i] + ",", "")
+  } else {
+   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i], "")
+  }
+   tiapps = localStorage.tiapps;
+   if (firstAppDeleted) {
+     localStorage.removeItem('tiapps');
+     tiapps = [];
+   }
+   renderApps();
+ }
+}
+
+
+function uploadTIAPP() {
+  var file = selector.files[0];
+  var reader = new FileReader();
+  reader.addEventListener("load", function () {
+  tiapps.push(reader.result)
+  localStorage.tiapps = tiapps + "";
+  renderApps();
+  }, false);
+
+  if (file) {
+    reader.readAsText(file);
+  }
+}
+
+renderApps();
+
+function toggleApps() {
+  if (appsToggle === true) {
+    settings.style.display = "none";
+    apps.style.display = "none";
+    iframe.style.display = "";
+    settingsToggle = false;
+    appsToggle = false;
+  } else {
+    iframe.style.display = "none";
+    settings.style.display = "none";
+    apps.style.display = "";
+    renderApps();
+    settingsToggle = false;
+    appsToggle = true;
+  }
+}
+
+
 function loadData() {
   tihistory = JSON.parse(localStorage.history);
 
@@ -176,6 +255,8 @@ function loadData() {
 
 function saveData() {
   localStorage.history = JSON.stringify(tihistory);
+  localStorage.bookmarks = JSON.stringify(tibookmarks);
+  localStorage.apps = JSON.stringify(tiapps);
   localStorage.homepage = homepage;
   localStorage.searchUrl = searchUrl;
 }
@@ -204,9 +285,7 @@ function exportBookmarks() {
   var a = document.createElement("a");
 
   a.href = "data:application/octet-stream;charset=utf-8;base64," + btoa(JSON.stringify(tibookmarks));
-
   a.download = "bookmarks.tbf";
-
   a.click();
 }
 
@@ -216,7 +295,7 @@ function importBookmarksFile() {
   fileSelector.type = "file";
   fileSelector.accept = ".html,.tbf";
 
-  fileSelector.oninput = function() {
+  fileSelector.onchange = function() {
     var file = fileSelector.files[0];
     var filename = file.name.toLowerCase();
     var extension = filename.split(".");
@@ -294,12 +373,12 @@ function renderBookmarks() {
   bookmarksBar.innerHTML = "";
   if (firebase.auth().currentUser !== null && syncBookmarks() !== undefined && syncBookmarks() !== "") {
   for (var i = 0; i < syncBookmarks().length; i++) {
-    bookmarksBar.innerHTML += '<a onclick="openTiBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
+    bookmarksBar.innerHTML += '<a onclick="openBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
   }
  }
 }
 
-function openTiBookmark(id) {
+function openBookmark(id) {
   iframe.src = syncBookmarks()[id].split("!!")[1];
 }
 
@@ -324,21 +403,12 @@ function clearBookmarks() {
 }
 
 function reload() {
-  hideSettings();
+  hideMenus();
 
   iframe.reload();
 }
 
-function updatePage() {
-  document.getElementById('httpSite').style.display = 'none';
-  document.getElementById('urlbox').style.color = 'black';
-  if (document.activeElement !== urlBox) {
-    if (iframe.getURL().includes(searchUrl)) {
-      urlBox.value = decodeURI(iframe.getURL().split(searchUrl)[1]);
-    } else {
-      urlBox.value = iframe.getURL().replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
-    }
-  }
+function updateUserAgent() {
   if (customUserAgent !== null) {
     iframe.setUserAgent(customUserAgent);
   } else if (incognito === true) {
@@ -346,18 +416,25 @@ function updatePage() {
   } else {
     iframe.setUserAgent("TiTanium");
   }
+}
+
+function updatePage() {
+  if (document.activeElement !== urlBox) {
+    if (iframe.getURL().includes(searchUrl)) {
+      urlBox.value = decodeURI(iframe.getURL().split(searchUrl)[1]);
+    } else {
+      urlBox.value = iframe.getURL().replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+    }
+
+    if (iframe.getURL().split(":")[0].toLowerCase() === "http") {
+      urlBox.style.color = "red";
+    } else {
+      urlBox.style.color = "green";
+    }
+  }
 
   if (incognito === true) {
-    iframe.executeJavaScript('__defineGetter__("navigator", function() { console.error("The navigator property is not available at this time."); }); localStorage.clear();');
-  }
-
-  if (iframe.getURL().startsWith('http:')) {
-    document.getElementById('urlbox').style.color = 'red';
-    document.getElementById('httpSite').style.display = 'block';
-  }
-
-  if (iframe.getURL().startsWith('https:')) {
-    document.getElementById('urlbox').style.color = 'green';
+    iframe.executeJavaScript('__defineGetter__("navigator", function() { return({"doNotTrack": "1"}); });');
   }
 
   document.title = iframe.getTitle() + " - TiTanium";
@@ -379,11 +456,12 @@ function updateHistory() {
   }
 }
 
+function blockAds() {
+  iframe.executeJavaScript('for (var i = 0; i < document.getElementsByTagName("iframe").length; i++) { if (document.getElementsByTagName("iframe")[i].id.toLowerCase().includes("ad")) { document.getElementsByTagName("iframe")[i].style.display = "none"; } }');
+}
+
 function newTab(url) {
-  settings.style.display = "none";
-  settingsToggle = false;
-  document.querySelector('#tiapps').style.display = "none";
-  appsToggle = false;
+  hideMenus();
 
   if (typeof url !== "undefined") {
     titabs.push(url);
@@ -403,8 +481,10 @@ function newTab(url) {
 
   webframes.appendChild(newframe);
 
-  newframe.addEventListener("did-start-loading", updatePage);
+  newframe.addEventListener("did-start-loading", updateUserAgent);
   newframe.addEventListener("did-stop-loading", updatePage);
+  newframe.addEventListener("did-stop-loading", blockAds);
+  newframe.addEventListener("did-stop-loading", updateUserAgent);
   newframe.addEventListener("did-stop-loading", updateHistory);
   newframe.addEventListener("page-title-updated", updatePage);
   newframe.addEventListener("new-window", function(e) {
@@ -458,8 +538,7 @@ function closeTab(id) {
 }
 
 function openTab(id) {
-  settings.style.display = "none";
-  settingsToggle = false;
+  hideMenus();
 
   if (typeof titabs[id] !== "undefined") {
     iframe.style.display = "none";
@@ -499,43 +578,18 @@ function updateTabs() {
 function toggleSettings() {
   if (settingsToggle === true) {
     settings.style.display = "none";
-    document.getElementById('login').style.display = "none";
+    apps.style.display = "none";
     iframe.style.display = "";
     settingsToggle = false;
+    appsToggle = false;
   } else {
     iframe.style.display = "none";
+    apps.style.display = "none";
     settings.style.display = "";
     document.getElementById("homepageInput").value = homepage;
     document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
     settingsToggle = true;
-  }
-}
-
-function toggleLogin() {
-  if (loginToggle === true) {
-    document.querySelector('#login').style.display = "none";
-    iframe.style.display = "";
-    loginToggle = false;
-  } else {
-    iframe.style.display = "none";
-    document.querySelector('#login').style.display = "";
-    document.getElementById("homepageInput").value = homepage;
-    document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
-    loginToggle = true;
-  }
-}
-
-function toggleAppsView() {
-  if (appsToggle === true) {
-    document.querySelector('#tiapps').style.display = "none";
-    iframe.style.display = "";
     appsToggle = false;
-  } else {
-    iframe.style.display = "none";
-    document.querySelector('#tiapps').style.display = "";
-    document.getElementById("homepageInput").value = homepage;
-    document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
-    appsToggle = true;
   }
 }
 
@@ -544,14 +598,16 @@ function clearHistory() {
   saveData();
 }
 
-function hideSettings() {
+function hideMenus() {
   settings.style.display = "none";
+  apps.style.display = "none";
   iframe.style.display = "";
   settingsToggle = false;
+  appsToggle = false;
 }
 
 function incognitoMode() {
-  hideSettings();
+  hideMenus();
 
   if (incognito === false) {
     bar.classList.add("dark");
@@ -579,11 +635,10 @@ function incognitoMode() {
 }
 
 function openUrl() {
-  hideSettings();
-  document.querySelector('#tiapps').style.display = "none";
-  appsToggle = false
-  document.querySelector('#login').style.display = "none";
-  loginToggle = false;
+  hideMenus();
+
+  urlBox.style.color = "";
+
   if (urlBox.value.split(":")[0] === "agent") {
     var agentString = urlBox.value.split(":");
     agentString.shift();
@@ -603,7 +658,9 @@ function openUrl() {
   } else if (urlBox.value === "titanium://quit" || urlBox.value === "titanium://quit/") {
     window.close();
   } else {
-    if (urlBox.value.includes(".") && urlBox.value.split(" ").length === 1) {
+    if (urlBox.value === "localhost" || urlBox.value === "localhost/") {
+      iframe.src = "http://localhost/";
+    } else if ((urlBox.value.includes(".") && urlBox.value.split(" ").length === 1) || urlBox.value.includes("http://") || urlBox.value.includes("https://")) {
       if (urlBox.value.includes("http://") || urlBox.value.includes("https://")) {
         iframe.src = urlBox.value;
       } else {
@@ -638,13 +695,13 @@ function setSearchEngine(value) {
 }
 
 function backPage() {
-  hideSettings();
+  hideMenus();
 
   iframe.executeJavaScript("window.history.back();");
 }
 
 function forPage() {
-  hideSettings();
+  hideMenus();
 
   iframe.executeJavaScript("window.history.forward();");
 }
@@ -654,97 +711,12 @@ function clearData() {
   window.location.reload();
 }
 
-iframe.addEventListener("did-start-loading", updatePage);
+iframe.addEventListener("did-start-loading", updateUserAgent);
 iframe.addEventListener("did-stop-loading", updatePage);
+iframe.addEventListener("did-stop-loading", blockAds);
+iframe.addEventListener("did-stop-loading", updateUserAgent);
 iframe.addEventListener("did-stop-loading", updateHistory);
 iframe.addEventListener("page-title-updated", updatePage);
 iframe.addEventListener("new-window", function(e) {
   newTab(e.url);
 });
-
-function openApp(i) {
-window.open("data:text/html;charset=utf-8," + tiapps[i], "", "_blank")
-}
-
-function renderApps() {
-  if (localStorage.tiapps !== undefined) {
-    tiapps = localStorage.tiapps.split(",");
-  }
-    document.getElementById('tiapps-bar').innerHTML = "";
-  for (var i=0; i < tiapps.length; i++) {
-     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].split("<ticon style='display: none;'>")[1].replace('</ticon>' + tiapps[i].split('</ticon>')[1], "") + '"></span>';
-  }
-}
-
-function uploadApp() {
-    window.selector = document.createElement("input");
-    selector.type = "file";
-    selector.setAttribute("onchange", "uploadTIAPP()");
-    selector.click();
-}
-
-function deleteApp(i) {
-  var appConfirm = confirm("Are you sure you would like to delete this app?")
-  if (appConfirm) {
-    if (tiapps.length == 1) {
-      var firstAppDeleted = true;
-    }
-    if (i > 0) {
-   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i] + ",", "")
-  } else {
-   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i], "")
-  }
-   tiapps = localStorage.tiapps;
-   if (firstAppDeleted) {
-     localStorage.removeItem('tiapps');
-     tiapps = [];
-   }
-   renderApps();
- }
-}
-
-
-function uploadTIAPP() {
-  var file = selector.files[0];
-  var reader = new FileReader();
-  reader.addEventListener("load", function () {
-  tiapps.push(reader.result)
-  localStorage.tiapps = tiapps + "";
-  renderApps();
-  }, false);
-
-  if (file) {
-    reader.readAsText(file);
-  }
-}
-
-renderApps();
-
-
-function updateOnlineStatus() {
-    document.getElementById("offline").style.display = 'none';
-    document.getElementById("webframes").style.display = 'block';
-}
-
-function updateOfflineStatus() {
-  document.getElementById("offline").style.display = 'block';
-  document.getElementById("webframes").style.display = 'none';
-}
-
-window.addEventListener('offline', updateOfflineStatus);
-window.addEventListener('online',  updateOnlineStatus);
-
-urlbox.onfocus = function() {
-  urlbox.style.color = 'black';
-}
-
-urlbox.onblur = function() {
-  if (iframe.getURL().startsWith('http:')) {
-    document.getElementById('urlbox').style.color = 'red';
-    document.getElementById('httpSite').style.display = 'block';
-  }
-
-  if (iframe.getURL().startsWith('https:')) {
-    document.getElementById('urlbox').style.color = 'green';
-  }
-}
