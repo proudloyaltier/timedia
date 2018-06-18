@@ -3,10 +3,10 @@
 
   <head>
     <title>TiTanium</title>
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="https://bootswatch.com/3/paper/bootstrap.min.css">
-    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
   </head>
 
   <body>
@@ -19,7 +19,7 @@
         <br>
         <input type="radio" name="import" value="0" checked>Import from previous browser<br>
         <input type="radio" name="import" value="1">Import from a bookmarks file<br>
-        <input type="radio" name="import" value="2">Don"t import any bookmarks<br><br>
+        <input type="radio" name="import" value="2">Don't import any bookmarks<br><br>
 
         <button class="btn btn-primary" onclick="importBookmarks()">Continue</button>
       </div>
@@ -45,46 +45,44 @@
         <webview id="tab0"></webview>
       </div>
       <div id="apps" class="container" style="display: none;">
-        <h2>Apps</h2>
-        <p>Select a .tiapp file to open it. Create your own on the TiMedia App creator. However, opening apps downloaded from the internet can be dangerous!</p>
-        <span class="tiapp-icon glyphicon glyphicon-plus" onclick="uploadApp()"></span>
-        <div id="tiappsBar">
+        <h2> Apps </h2>
+        <p> Select a .TIAPP file to open it. Create your own on the TiMedia App creator. However, opening apps downloaded from the internet can be dangerous! </p>
+        <span class='tiapp-icon glyphicon glyphicon-plus' onclick='uploadApp()'></span>
+        <div id='tiapps-bar' style='align-content: left; left: 0; float: left;'>
         </div>
       </div>
-      <div id="settings" class="container" style="display: none; oveflow: visible !important;">
+      <div id="settings" class="container" style="display: none;">
         <h2>Settings</h2>
-        <div class="jumbotron">
-          <h4>About</h4>
-          <h6>TiTanium Alpha 6.8</h6>
+        <div class='jumbotron'>
+        <h4>About</h4>
+        <h6>TiTanium Alpha 6.6</h6>
         </div>
-        <div class="jumbotron">
-          <div id="login">
-            <h4>Login</h4>
-            <input id="username" class="form-control" placeholder="Username">
-            <input id="password" class="form-control" type="password" placeholder="Password" onchange="login()"><br>
-
-            <button onclick="login()" class="btn btn-primary">Login</button>
-          </div>
-          <span id="accountInfo" style="display: none"><h5 id="user">Account: </h5></span>
-          <button id="signout" onclick="signout()" style="display: none" class="btn btn-primary">Sign out</button>
+        <div class='jumbotron'>
+        <div id='login'>
+          <h4> Sign in to TiTanium </h4>
+          <input id='uname' class='form-control' placeholder="Username">
+          <input id='pword' class='form-control' type='password' placeholder="Password" onchange='signin()'>
+          <button onclick='signin();' class='btn btn-primary'>Login</button>
         </div>
-        <div class="jumbotron">
-          <h4>General</h4>
-          Homepage
-          <input type="url" id="homepageInput" class="form-control" oninput="setHomepage(this.value)">
-          <br> Search Engine<br>
-          <select id="searchEngineInput" class="form-control" oninput="setSearchEngine(this.value)">
+        <span id='account-info' style='display: none'><h5 id='user'> Account: </h5></span>
+	      <button id='signout' onclick='signout()' style='display: none' class='btn btn-primary'>Sign out</button>
+       </div>
+        <div class='jumbotron'>
+        <h4>General</h4>
+        Homepage<br>
+        <input type="url" id="homepageInput" class="form-control" oninput="setHomepage(this.value)"><br> Search Engine<br>
+        <select id="searchEngineInput" class="form-control" oninput="setSearchEngine(this.value)">
 	           <option value="0">Google</option>
              <option value="1">Bing</option>
 	           <option value="2">Yahoo!</option>
-             <option value="3">DuckDuckGo</option>
-           </select>
-        </div>
-        <div class="jumbotron">
-          <h4>History</h4>
-          <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
-        </div>
+	            <option value="3">DuckDuckGo</option>
+        </select>
+       </div>
+       <div class='jumbotron'>
+        <h4>History</h4>
+        <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
       </div>
+    </div>
     </div>
     <script src="browser.js"></script>
   </body>
