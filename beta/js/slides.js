@@ -66,28 +66,33 @@ function addText() {
   slideContainer.appendChild(text);
 }
 
-function addImage(src) {
-  var image = document.createElement('img');
-  image.draggable = false;
-  image.src = src;
-  image.classList.add("edit-slides");
-  image.classList.add("draggable-slides");
-  image.onmousedown = function () {
-    beginDrag(this);
-  };
-  initSpecialElement(image);
-  image.onmouseover = function () {
-    specialElement = true
-  };
-  image.onmouseout = function () {
-    specialElement = false
-  };
-  image.className += ' slides-img';
-  image.oncontextmenu = function () {
-    document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[" + document.getElementsByClassName("slides-img").length + "].onmousedown = null;'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
-  };
-  slideContainer.appendChild(image);
-  saveSlide();
+function addImage() {
+  alertify
+    .prompt("Image Url",
+      function(val) {
+        var src = val;
+        var image = document.createElement('img');
+        image.draggable = false;
+        image.src = src;
+        image.classList.add("edit-slides");
+        image.classList.add("draggable-slides");
+        image.onmousedown = function () {
+         beginDrag(this);
+        };
+        initSpecialElement(image);
+        image.onmouseover = function () {
+        specialElement = true
+        };
+        image.onmouseout = function () {
+        specialElement = false
+        };
+        image.className += ' slides-img';
+        image.oncontextmenu = function () {
+        document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='document.getElementsByClassName(\"slides-img\")[" + document.getElementsByClassName("slides-img").length + "].onmousedown = null;'>Lock Position <span class='glyphicon glyphicon-lock'></span></a></li></ul>";
+        };
+       slideContainer.appendChild(image);
+       saveSlide();
+     });
 }
 
 function addSlide() {
