@@ -1,17 +1,12 @@
 {
   "name": "TiTanium",
-  "version": "0.0.66",
+  "version": "0.0.68",
   "description": "A new browser developed by TiMedia.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "repository": "https://github.com/proudloyaltier/timedia/tree/TiTanium",
-  "keywords": [
-    "TiTanium",
-    "TiMedia",
-    "Browser"
-  ],
   "author": "TiMedia",
   "license": "CC0-1.0",
   "devDependencies": {
