@@ -176,7 +176,7 @@ function renderApps() {
   }
   document.getElementById("tiappsBar").innerHTML = "";
   for (var i = 0; i < tiapps.length; i++) {
-    document.getElementById("tiappsBar").innerHTML += '<span oncontextmenu="deleteApp(' + i + ')" onclick="openApp(' + i + ')" class="tiapp-icon glyphicon glyphicon-' + tiapps[i].split('<ticon style="display: none;">')[1].replace("</ticon>" + tiapps[i].split("</ticon>")[1], "") + '></span>';
+    document.getElementById("tiappsBar").innerHTML += '<span oncontextmenu="deleteApp(' + i + ')" onclick="openApp(' + i + ')" class="tiapp-icon glyphicon glyphicon-' + tiapps[i].split("<ticon style='display: none;'>")[1].replace("</ticon>" + tiapps[i].split("</ticon>")[1], "") + '></span>';
   }
 }
 
