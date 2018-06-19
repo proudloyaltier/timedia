@@ -1,6 +1,6 @@
 /*
 
-TiTanium Alpha 6.6
+TiTanium Alpha 6.8
 By The TiMedia Team
 
 https://github.com/proudloyaltier/timedia/tree/TiTanium
@@ -117,7 +117,7 @@ function signout() {
  });
 }
 
-var version = "Alpha 6.6";
+var version = "Alpha 6.8";
 var homepage = "https://www.bing.com";
 var searchUrl = "https://www.bing.com/search?q=";
 var tabsbar = document.getElementById("tabsbar");
@@ -452,7 +452,7 @@ function setUserAgent(agent) {
 
 function updateHistory() {
   if (incognito === false) {
-    tihistory.push(iframe.getURL());
+    tihistory.push('<b>' + new Date().toLocaleTimeString() + "</b>: " + iframe.getURL());
   }
 }
 
@@ -586,6 +586,9 @@ function toggleSettings() {
     iframe.style.display = "none";
     apps.style.display = "none";
     settings.style.display = "";
+    for (var i = 0; i < tihistory.length; i++) {
+    document.getElementById('history-view').innerHTML = "<span class='history-item'>" + tihistory[i] + "</span>" + document.getElementById('history-view').innerHTML ;
+    }
     document.getElementById("homepageInput").value = homepage;
     document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
     settingsToggle = true;
