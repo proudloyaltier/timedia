@@ -55,7 +55,7 @@
         <h2>Settings</h2>
         <div class='jumbotron'>
         <h4>About</h4>
-        <h6>TiTanium Alpha 6.6</h6>
+        <h6>TiTanium Alpha 6.8</h6>
         </div>
         <div class='jumbotron'>
         <div id='login'>
@@ -65,26 +65,31 @@
           <button onclick='signin();' class='btn btn-primary'>Login</button>
         </div>
         <span id='account-info' style='display: none'><h5 id='user'> Account: </h5></span>
-	      <button id='signout' onclick='signout()' style='display: none' class='btn btn-primary'>Sign out</button>
+        <button id='signout' onclick='signout()' style='display: none' class='btn btn-primary'>Sign out</button>
        </div>
         <div class='jumbotron'>
         <h4>General</h4>
         Homepage<br>
         <input type="url" id="homepageInput" class="form-control" oninput="setHomepage(this.value)"><br> Search Engine<br>
         <select id="searchEngineInput" class="form-control" oninput="setSearchEngine(this.value)">
-	           <option value="0">Google</option>
+             <option value="0">Google</option>
              <option value="1">Bing</option>
-	           <option value="2">Yahoo!</option>
-	            <option value="3">DuckDuckGo</option>
+             <option value="2">Yahoo!</option>
+             <option value="3">DuckDuckGo</option>
         </select>
        </div>
        <div class='jumbotron'>
-        <h4>History</h4>
+        <h4 id='history-heading'>History Settings</h4>
         <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
+        </div>
+        <div class='jumbotron'>
+        <h4> Your History </h4>
+        <div id='history-view' class='jumbotron'>
+        </div>
+       </div>
       </div>
     </div>
     </div>
     <script src="browser.js"></script>
   </body>
-
 </html>
