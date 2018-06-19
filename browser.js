@@ -587,8 +587,9 @@ function toggleSettings() {
     apps.style.display = "none";
     settings.style.display = "";
     for (var i = 0; i < tihistory.length; i++) {
-    document.getElementById('history-view').innerHTML = "<span class='history-item'>" + tihistory[i] + "</span>" + document.getElementById('history-view').innerHTML ;
+    document.getElementById('history-view').innerHTML = "<p class='history-item'>" + tihistory[i] + "</p>" + document.getElementById('history-view').innerHTML ;
     }
+    document.getElementById('history-view').className = 'jumbotron';
     document.getElementById("homepageInput").value = homepage;
     document.getElementById("searchEngineInput").value = searchEngines.indexOf(searchUrl);
     settingsToggle = true;
