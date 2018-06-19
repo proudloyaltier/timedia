@@ -143,8 +143,8 @@ a {
 }
 
 .history-item {
-  padding-bottom: 4px;
-  float: left;
+  left: 0;
+  padding-left: 2px;
   clear: left;
 }
 
