@@ -92,6 +92,12 @@ webview {
   outline: 0px;
 }
 
+#tiappsBar {
+  align-content: left;
+  left: 0;
+  float: left;
+}
+
 #urlbox {
   background-color: white;
   border-radius: 25px;
@@ -124,7 +130,7 @@ a {
 }
 
 .tiapp-icon {
-  background-color: blue;
+  background-color: #2b99f0;
   color: white;
   border-radius: 50%;
   height: 50px;
