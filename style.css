@@ -51,6 +51,14 @@ body {
   user-select: none;
 }
 
+#locked-bar {
+  background-color: #2296f3;
+  width: 100%;
+  padding: 10px;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
 #bookmarks {
   background-color: #2296f3;
   color: white;
