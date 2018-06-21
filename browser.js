@@ -715,6 +715,31 @@ function clearData() {
   window.location.reload();
 }
 
+function lockTab() {
+    localStorage.lockCode = CryptoJS.AES.encrypt("locked", document.getElementById('lock-password').value)
+    localStorage.locked = true;
+    localStorage.page = document.getElementById('lock-page').value
+    window.location.reload();
+}
+
+function showUnlockTab() {
+    document.getElementById('lock-settings').style.display = 'block';
+    document.getElementById('webframes').style.display = 'none';
+}
+
+function unlockTab() {
+  if (CryptoJS.AES.decrypt(localStorage.lockCode, document.getElementById('unlock-password').value).toString(CryptoJS.enc.Utf8) == "locked") {
+    localStorage.removeItem('locked');
+    localStorage.removeItem('lockCode');
+    document.getElementById('lock-settings').style.display = 'none';
+    document.getElementById('webframes').style.display = 'block';
+    localStorage.removeItem(localStorage.page)
+    window.location.reload();
+  } else {
+    document.getElementById('webframes').style.display = 'block';
+  }
+}
+
 iframe.addEventListener("did-start-loading", updateUserAgent);
 iframe.addEventListener("did-stop-loading", updatePage);
 iframe.addEventListener("did-stop-loading", blockAds);
@@ -724,3 +749,13 @@ iframe.addEventListener("page-title-updated", updatePage);
 iframe.addEventListener("new-window", function(e) {
   newTab(e.url);
 });
+
+window.onload = function() {
+  if (localStorage.locked) {
+    document.getElementById('lock-icon').style.display = 'block';
+    document.getElementById('bar').style.display = 'none';
+    urlbox.value = localStorage.page;
+    openUrl()
+    document.getElementById('locked-bar').style.display = 'block';
+   }
+}
