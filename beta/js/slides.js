@@ -211,7 +211,7 @@ window.addEventListener('DOMContentLoaded', function () {
       updateSlide();
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
         document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(this);};
-        document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {deleteItem(i);};
+        document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";};
         if (i == document.getElementsByClassName('edit-slides').length - 1) {
           return false
         }
