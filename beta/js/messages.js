@@ -7,7 +7,7 @@ function cleanse(text) {
 }
 
 function getMessages() {
-  var urlRef = window.dbRef.child(getQueryVariable("app"));
+  var urlRef = window.dbRef.child("tichat").child(getQueryVariable("app"));
   urlRef.on("value", function(snapshot) {
     snapshot.forEach(function(child) {
       var message = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)
@@ -21,7 +21,7 @@ function getMessages() {
 
 function sendMessage(message) {
   if (message !== "") {
-    window.dbRef.child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, getQueryVariable("app")) + "");
+    window.dbRef.child("tichat").child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, getQueryVariable("app")) + "");
     document.getElementById("message-input").value = "";
     document.getElementById("private-messages").innerHTML = " ";
     getMessages();
