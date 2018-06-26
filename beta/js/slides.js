@@ -145,7 +145,7 @@ function saveSlide() {
 
 function deleteItem(i) {
   document.getElementsByClassName('edit-slides')[i].remove();
-  updateSlide();
+  saveSlide();
 }
 
 function updateSlide() {
@@ -159,7 +159,7 @@ function updateSlide() {
         };
         document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {
           specialElement = true;
-          document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
+          document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Item <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
         };
         if (i == document.getElementsByClassName('edit-slides').length - 1) {
           return false
@@ -220,7 +220,7 @@ window.addEventListener('DOMContentLoaded', function () {
         };
         document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {
           specialElement = true;
-          document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
+          document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Item <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
         };
         if (i == document.getElementsByClassName('edit-slides').length - 1) {
           return false
