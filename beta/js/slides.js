@@ -154,8 +154,12 @@ function updateSlide() {
   document.querySelector('#currentSlide').innerText = currentSlideText + '/' + slideshow.length;
   if (getQueryVariable("s") !== false) {
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
-        document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(this);};
-        document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";};
+        document.getElementsByClassName('edit-slides')[i].onmousedown = function() {
+          beginDrag(this);
+        };
+        document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {
+          document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
+        };
         if (i == document.getElementsByClassName('edit-slides').length - 1) {
           return false
         }
@@ -210,8 +214,12 @@ window.addEventListener('DOMContentLoaded', function () {
       slideshow = slideshow1.split(",")
       updateSlide();
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
-        document.getElementsByClassName('edit-slides')[i].onmousedown = function() {beginDrag(this);};
-        document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a href='#' onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";};
+        document.getElementsByClassName('edit-slides')[i].onmousedown = function() {
+          beginDrag(this);
+        };
+        document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {
+          document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
+        };
         if (i == document.getElementsByClassName('edit-slides').length - 1) {
           return false
         }
