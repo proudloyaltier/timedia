@@ -168,8 +168,18 @@ function generateRandString() {
 
 function deleteTile(tileid) {
   alertify.confirm("Are you sure you want to delete this Tile?", function() {
+    var fbFolder;
+    if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=3&p=")) {
+      fbFolder = "docs";
+    } else if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=4&t=") {
+      fbFolder = "sheets";
+    } else if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=9&s=") {
+      fbFolder = "slides";
+    } else {
+      fbFolder = "photos"
+    }
     var toDelFirebase = localStorage.files.split(",")[tileid].split("!!")[1].slice(19);
-    window.dbRef.child(toDelFirebase).set(null);
+    window.dbRef.child(fbFolder).child(toDelFirebase).set(null);
    if (tileid > 0) {
     localStorage.files = localStorage.files.replace("," + localStorage.files.split(",")[tileid].split("!!")[0] + "!!" + localStorage.files.split(",")[tileid].split("!!")[1], "");
    } else {
@@ -195,8 +205,18 @@ function openTileContext(tileID) {
 function resetTiles() {
   alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function() {
     for (var i = 0; i < localStorage.files.split(",").length; i++) {
+     var fbFolder;
+     if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=3&p=")) {
+      fbFolder = "docs";
+     } else if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=4&t=") {
+      fbFolder = "sheets";
+     } else if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=9&s=") {
+      fbFolder = "slides";
+     } else {
+      fbFolder = "photos"
+     }
      var toDelFirebaseReset = localStorage.files.split(",")[i].split("!!")[1].slice(19);
-     window.dbRef.child(toDelFirebaseReset).set(null);
+     window.dbRef.child(fbFolder).child(toDelFirebaseReset).set(null);
     }
     localStorage.files = ""
     storeInDatabase("files", "");
