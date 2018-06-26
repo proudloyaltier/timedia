@@ -158,6 +158,7 @@ function updateSlide() {
           beginDrag(this);
         };
         document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {
+          specialElement = true;
           document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
         };
         if (i == document.getElementsByClassName('edit-slides').length - 1) {
@@ -218,6 +219,7 @@ window.addEventListener('DOMContentLoaded', function () {
           beginDrag(this);
         };
         document.getElementsByClassName('edit-slides')[i].oncontextmenu = function() {
+          specialElement = true;
           document.getElementById("context-menu").innerHTML = "<ul class='context-menu__items'><li><a onclick='deleteItem(" + i + ")'>Delete Position <span class='glyphicon glyphicon-trash'></span></a></li></ul>";
         };
         if (i == document.getElementsByClassName('edit-slides').length - 1) {
