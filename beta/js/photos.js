@@ -21,7 +21,7 @@ function convertPhoto() {
   var reader = new FileReader();
   reader.addEventListener("load", function () {
   var key = generateRandString();
-  window.dbRef.child(key).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
+  window.dbRef.child("photos").child(key).child(localStorage.name).set(CryptoJS.AES.encrypt(reader.result, localStorage.password) + "");
   var url = "index.html?app=1" + '&i=' + key;
   localStorage.recentUrl = url;
   localStorage.workToSaveTitle = selector.value.split(/(\\|\/)/g).pop()
@@ -37,7 +37,7 @@ function convertPhoto() {
 }
 
 function viewPhotos(i) {
-var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]);
+var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       localStorage.owner = child.key;
@@ -58,7 +58,7 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
 }
 
 function thumbPhotos(i) {
-var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]);
+var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
@@ -89,7 +89,7 @@ var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]
 }
 
 function thumbPhotosSearch(i) {
-var urlRef = window.dbRef.child(localStorage.files.split(",")[i].split("&i=")[1]);
+var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);

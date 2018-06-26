@@ -125,7 +125,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
     var tislidessave = generateRandString()
-    storeInDatabase(tislidessave, CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
+    window.dbRef.child("slides").child(tislidessave).child(localStorage.name).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
     localStorage.tislidessave = tislidessave;
     var urlRef = window.dbRef.child(tislidessave);
     urlRef.on("value", function (snapshot) {
@@ -138,7 +138,7 @@ function saveSlide() {
     localStorage.workToSaveTitle = document.getElementById('slidesTitle').value;
     localStorage.workToSave = url;
   } else {
-    window.dbRef.child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
+    window.dbRef.child("slides").child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
     var tislidessave = localStorage.tislidessave
   }
 }
@@ -201,7 +201,7 @@ window.addEventListener('DOMContentLoaded', function () {
     localStorage.removeItem('slideshow');
     sessionStorage.removeItem('slideLoad');
   } else {
-      var urlRef = window.dbRef.child(getQueryVariable("s"));
+      var urlRef = window.dbRef.child("slides").child(getQueryVariable("s"));
       urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
       localStorage.owner = child.key;
