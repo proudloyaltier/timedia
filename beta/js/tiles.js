@@ -171,9 +171,9 @@ function deleteTile(tileid) {
     var fbFolder;
     if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=3&p=")) {
       fbFolder = "docs";
-    } else if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=4&t=") {
+    } else if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=4&t=")) {
       fbFolder = "sheets";
-    } else if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=9&s=") {
+    } else if (localStorage.files.split(",")[tileid].split("!!")[1].includes("index.html?app=9&s=")) {
       fbFolder = "slides";
     } else {
       fbFolder = "photos"
@@ -208,9 +208,9 @@ function resetTiles() {
      var fbFolder;
      if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=3&p=")) {
       fbFolder = "docs";
-     } else if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=4&t=") {
+     } else if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=4&t=")) {
       fbFolder = "sheets";
-     } else if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=9&s=") {
+     } else if (localStorage.files.split(",")[i].split("!!")[1].includes("index.html?app=9&s=")) {
       fbFolder = "slides";
      } else {
       fbFolder = "photos"
