@@ -48,7 +48,6 @@ document.getElementById('login').style.display = "none";
 document.getElementById('account-info').style.display = 'block';
 }
 
-
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       user.providerData.forEach(function(profile) {
@@ -142,7 +141,6 @@ if (localStorage.homepage !== undefined && localStorage.searchUrl !== undefined)
 var titabs = [homepage];
 var titabstitles = [homepage];
 var tihistory = [];
-var tibookmarks = [];
 var tiapps = [];
 
 var settingsToggle = false;
@@ -163,6 +161,18 @@ if (localStorage.setup !== "true") {
   renderBookmarks();
 
   iframe.src = homepage;
+}
+
+function signinFirstTime() {
+uname = document.getElementById("uname-first").value;
+pword = document.getElementById("pword-first").value;
+firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function(error) {
+    alert("User name or password is incorrect!");
+    location.reload();
+});
+document.getElementById('login').style.display = "none";
+document.getElementById('account-info').style.display = 'block';
+finishSetup()
 }
 
 function openApp(i) {
@@ -255,7 +265,6 @@ function loadData() {
 
 function saveData() {
   localStorage.history = JSON.stringify(tihistory);
-  localStorage.bookmarks = JSON.stringify(tibookmarks);
   localStorage.apps = JSON.stringify(tiapps);
   localStorage.homepage = homepage;
   localStorage.searchUrl = searchUrl;
@@ -266,11 +275,10 @@ function finishSetup() {
   localStorage.setup = true;
   setupWindow.style.display = "none";
   browserWindow.style.display = "";
-
+  saveData();
   renderBookmarks();
   loadData();
   renderBookmarks();
-
   iframe.src = homepage;
 }
 
@@ -281,92 +289,8 @@ function addBookmark() {
   renderBookmarks();
 }
 
-function exportBookmarks() {
-  var a = document.createElement("a");
-
-  a.href = "data:application/octet-stream;charset=utf-8;base64," + btoa(JSON.stringify(tibookmarks));
-  a.download = "bookmarks.tbf";
-  a.click();
-}
-
-function importBookmarksFile() {
-  var fileSelector = document.createElement("input");
-
-  fileSelector.type = "file";
-  fileSelector.accept = ".html,.tbf";
-
-  fileSelector.onchange = function() {
-    var file = fileSelector.files[0];
-    var filename = file.name.toLowerCase();
-    var extension = filename.split(".");
-
-    extension = extension[extension.length - 1];
-
-    if (extension == "html" || extension == "tbf") {
-      var reader = new FileReader();
-
-      reader.readAsText(file, "UTF-8");
-      reader.onload = function(e) {
-        var content = e.target.result;
-
-        if (extension == "html") {
-
-          var text = content.split("<DT>");
-          text.shift();
-
-          for (var i = 0; i < text.length; i++) {
-            var parser = new DOMParser();
-            var el = parser.parseFromString(text[i], "text/html").firstChild.children[1].children[0];
-
-            tibookmarks.push({
-              "name": el.innerText,
-              "url": el.href,
-              "icon": el.getAttribute("icon")
-            });
-          }
-
-          saveData();
-          finishSetup();
-        } else if (extension == "tbf") {
-          tibookmarks = JSON.parse(content);
-
-          saveData();
-          finishSetup();
-        }
-
-        reader.onerror = function(e) {
-          alert("Error reading file.");
-          return false;
-        }
-      }
-    } else {
-      alert("This file type is not supported.");
-    }
-  }
-
-  fileSelector.click();
-}
-
 function transferBookmarks() {
   alert("This feature will be available in the future.");
-}
-
-function importBookmarks() {
-  switch (Number(document.querySelector("input[name=import]:checked").value)) {
-    case 0:
-      transferBookmarks();
-      break;
-    case 1:
-      importBookmarksFile();
-      break;
-    case 2:
-      tihistory = [];
-      tibookmarks = [];
-      saveData();
-
-      finishSetup();
-      break;
-  }
 }
 
 function renderBookmarks() {
@@ -380,26 +304,6 @@ function renderBookmarks() {
 
 function openBookmark(id) {
   iframe.src = syncBookmarks()[id].split("!!")[1];
-}
-
-function deleteBookmark(id) {
-  var todelete = confirm("Are you sure you would like to delete this bookmark?");
-
-  if (todelete === true) {
-    tibookmarks.splice(id, 1);
-    renderBookmarks();
-    saveData();
-  }
-}
-
-function clearBookmarks() {
-  var toclear = confirm("Are you sure you would like to clear your bookmarks?");
-
-  if (toclear === true) {
-    tibookmarks = [];
-    renderBookmarks();
-    saveData();
-  }
 }
 
 function reload() {
