@@ -532,7 +532,9 @@ function closeTab(id) {
     } else {
       document.getElementById("tab" + id).src = titabs[id];
     }
-
+    if (id == 0) {
+      document.getElementById("tab1").remove();
+    }
     updateTabs();
   }
 }
