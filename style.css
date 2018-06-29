@@ -163,3 +163,13 @@ a {
 .history-top {
   border-bottom: 1px solid gray;
 }
+
+.spanLink {
+  text-decoration: none;
+  color: #2196f3;
+}
+
+.spanLink:hover {
+  color: #2196f3;
+  text-decoration: underline;
+}
