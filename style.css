@@ -74,6 +74,13 @@ body {
   padding: 3px;
 }
 
+#offline {
+  background-color: #2296f3;
+  color: white;
+  width: 100%;
+  padding: 3px;
+}
+
 webview {
   position: absolute;
   width: 100%;

@@ -665,3 +665,15 @@ window.onload = function() {
     document.getElementById('locked-bar').style.display = 'block';
    }
 }
+
+var online;
+function checkOnlineStatus() {
+  online = navigator.onLine;
+  if (!online) {
+    document.getElementById('webframes').style.display = 'none';
+    document.getElementById('offline').style.display = 'block';
+  } else {
+      document.getElementById('webframes').style.display = 'block';
+      document.getElementById('offline').style.display = 'none';
+  }
+}
