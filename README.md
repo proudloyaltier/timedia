@@ -14,3 +14,6 @@ Three times faster than the competition!
 
 ## Incognito Mode
 Incognito Mode puts privacy first, hiding your userAgent, the navigator property, and localStorage, plus cookies.
+
+## Bookmarks
+TiBookmarks are fast and sync effortlessly across devices! Just sign in and you're done!
