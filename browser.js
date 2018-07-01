@@ -677,3 +677,5 @@ function checkOnlineStatus() {
       document.getElementById('offline').style.display = 'none';
   }
 }
+
+setInterval(checkOnlineStatus, 100)
