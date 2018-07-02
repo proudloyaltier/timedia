@@ -4,6 +4,12 @@ textarea {
   outline: 0;
 }
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('glyphicon-fonts/glyphicons-halflings-regular.eot');
+  src: url('glyphicon-fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphicon-fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('glyphicon-fonts/glyphicons-halflings-regular.woff') format('woff'), url('glyphicon-fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('glyphicon-fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
 table, th, td {
   border: 1px solid gray;
   border-collapse: collapse;
