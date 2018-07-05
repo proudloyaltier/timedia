@@ -571,7 +571,7 @@ function openUrl() {
     if (urlBox.value === "localhost" || urlBox.value === "localhost/") {
       iframe.src = "http://localhost/";
     } else if ((urlBox.value.includes(".") && urlBox.value.split(" ").length === 1) || urlBox.value.includes("http://") || urlBox.value.includes("https://")) {
-      if (urlBox.value.includes("http://") || urlBox.value.includes("https://")) {
+      if (urlBox.value.includes("http://") || urlBox.value.includes("https://") || urlBox.value.includes("file:///")) {
         iframe.src = urlBox.value;
       } else {
         iframe.src = "http://" + urlBox.value;
