@@ -143,6 +143,7 @@ var titabstitles = [homepage];
 var tihistory = [];
 var tiapps = [];
 
+var fullScreenToggle = false;
 var settingsToggle = false;
 var appsToggle = false;
 var incognito = false;
@@ -664,6 +665,17 @@ window.onload = function() {
     openUrl()
     document.getElementById('locked-bar').style.display = 'block';
    }
+}
+
+function readLocalFile() {
+  newTab("file:///" + window.localselector.files[0].path);
+}
+
+function openLocalFile() {
+  window.localselector = document.createElement("input");
+  localselector.type = "file";
+  localselector.setAttribute("onchange", "readLocalFile()");
+  localselector.click();
 }
 
 var online;
