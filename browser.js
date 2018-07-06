@@ -143,7 +143,6 @@ var titabstitles = [homepage];
 var tihistory = [];
 var tiapps = [];
 
-var fullScreenToggle = false;
 var settingsToggle = false;
 var appsToggle = false;
 var incognito = false;
