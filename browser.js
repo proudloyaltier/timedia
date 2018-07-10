@@ -216,6 +216,10 @@ function deleteApp(i) {
  }
 }
 
+function installAppWeb(app) {
+  tiapps.push(app)
+  localStorage.tiapps = tiapps + "";
+}
 
 function uploadTIAPP() {
   var file = selector.files[0];
@@ -366,10 +370,13 @@ function blockAds() {
 
 function newTab(url) {
   hideMenus();
-
+  if (typeof url !== "undefined" && url.startsWith("installapp://")) {
+      var appToInstall = url.split("installapp://")[1]
+      installAppWeb(appToInstall)
+  } else { 
   if (typeof url !== "undefined") {
-    titabs.push(url);
-    titabstitles.push(url);
+     titabs.push(url);
+     titabstitles.push(url);
   } else {
     titabs.push(homepage);
     titabstitles.push(homepage);
@@ -398,6 +405,7 @@ function newTab(url) {
   iframe = newframe;
 
   updateTabs();
+ }
 }
 
 function closeTab(id) {
@@ -567,6 +575,9 @@ function openUrl() {
     }
   } else if (urlBox.value === "titanium://quit" || urlBox.value === "titanium://quit/") {
     window.close();
+  } else if (urlbox.value.startsWith("installapp://")) {
+    var appToInstall = urlbox.value.split("installapp://")[1]
+    installAppWeb(appToInstall)
   } else {
     if (urlBox.value === "localhost" || urlBox.value === "localhost/") {
       iframe.src = "http://localhost/";
