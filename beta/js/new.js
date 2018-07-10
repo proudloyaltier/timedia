@@ -86,7 +86,12 @@ function openApp(i) {
         alert("Access Denied! Get TIed!")
       }
        alertify.confirm("Opening apps download from the internet can be dangerous! Are you sure you want to continue?", function () {
+         if (!navigator.userAgent.toLowerCase().includes("titanium")) {
             window.open("data:text/html;charset=utf-8," + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8), "", "_blank")
+          } else {
+            window.open("installapp://" + CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8));
+            swal("App Installed", "The app has been installed in TiTanium, open all your apps in the Apps menu(<span class='glyphicon glyphicon-th'></span>)", "success")
+          }
          }, function() {
           return false;
        });
