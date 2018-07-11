@@ -8,6 +8,8 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 TiMedia 3 is now in beta!
 
+• Importing TiApps to tiles now fully works!
+
 •  Reorganized the DB and made it much cleaner, therefore easier to maintain
 
 •  All prompts have been replaced with Alertify dialogues, which look much better.
