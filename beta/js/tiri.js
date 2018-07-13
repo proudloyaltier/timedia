@@ -60,10 +60,12 @@ String.prototype.toHHMMSS = function() {
 function openTile(tile) {
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
     if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
-      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false) {
+      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false && localStorage.files.split(",")[i].split("!!")[1].includes("?app=8&a") == false) {
         window.location.href = localStorage.files.split(",")[i].split("!!")[1];
-      } else {
+      } else if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i")) {
         viewPhotos(i)
+      } else {
+       openApp(i)
       }
     }
   }
