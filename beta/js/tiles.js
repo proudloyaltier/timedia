@@ -146,6 +146,7 @@ if (localStorage.files == "null") {
 }
 
 function renameTile(tid, rwith) {
+  rwith.replace(",", "‚").replace("!!", "‼");
   localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], rwith + "!!" + localStorage.files.split(",")[tid].split("!!")[1]);
   save();
 }
@@ -155,7 +156,8 @@ function renameTilePrompt(tid) {
     .defaultValue(localStorage.files.split(",")[tid].split("!!")[0])
     .prompt("Rename",
       function(val) {
-        var replacename = val + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
+        var val2 = val.replace(",", "‚").replace("!!", "‼")
+        var replacename =  val2 + "!!" + localStorage.files.split(",")[tid].split("!!")[1]
         if (replacename != null) {
           localStorage.files = localStorage.files.replace(localStorage.files.split(",")[tid], replacename);
           save();
@@ -241,6 +243,7 @@ function resetTiles() {
 }
 
 function searchTiles(search) {
+  search = search.replace(",", "‚").replace("!!", "‼");
   document.getElementById("tiles-searchbox").innerHTML = "";
 
   if (search == "") {
@@ -321,6 +324,7 @@ function restoreTiles() {
 }
 
 function addFile(title, upload) {
+  title = title.replace(",", "‚").replace("!!", "‼");
   if (title == undefined && upload == undefined) {
     var title = prompt("File Name");
     var upload = prompt("Enter your URL");

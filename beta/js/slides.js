@@ -127,7 +127,7 @@ function saveSlide() {
     var tislidessave = generateRandString()
     window.dbRef.child("slides").child(tislidessave).child(localStorage.name).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
     localStorage.tislidessave = tislidessave;
-    var urlRef = window.dbRef.child(tislidessave);
+    var urlRef = window.dbRef.child("slides").child(tislidessave);
     urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
         localStorage.owner = child.key;

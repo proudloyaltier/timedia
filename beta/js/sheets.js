@@ -49,7 +49,7 @@ function saveSheet() {
     var tisheetssave = generateRandString()
     window.dbRef.child("sheets").child(tisheetssave).child(localStorage.name).set(CryptoJS.AES.encrypt(document.getElementById("sheetsContent").innerHTML, localStorage.password) + "");
     localStorage.tisheetssave = tisheetssave;
-    var urlRef = window.dbRef.child(tisheetssave);
+    var urlRef = window.dbRef.child("sheets").child(tisheetssave);
     urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
         localStorage.owner = child.key;

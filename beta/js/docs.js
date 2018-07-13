@@ -59,7 +59,7 @@ function saveDoc() {
     var tidocssave = generateRandString()
     window.dbRef.child("docs").child(tidocssave).child(localStorage.name).set(CryptoJS.AES.encrypt(document.getElementById('tidocsContent').innerHTML, localStorage.password) + "");
     localStorage.tidocssave = tidocssave;
-    var urlRef = window.dbRef.child(tidocssave);
+    var urlRef = window.dbRef.child("docs").child(tidocssave);
     urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
         localStorage.owner = child.key;
