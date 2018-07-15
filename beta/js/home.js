@@ -1,4 +1,4 @@
-Element.prototype.remove = function() {
+Element.prototype.remove = function () {
   this.parentElement.removeChild(this);
 }
 
@@ -22,7 +22,7 @@ function changeName() {
   }
 }
 
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
   for (var i = this.length - 1; i >= 0; i--) {
     if (this[i] && this[i].parentElement) {
       this[i].parentElement.removeChild(this[i]);
@@ -38,7 +38,7 @@ function launchApp(appname) {
 }
 
 if (localStorage.access == btoa(localStorage.name)) {
-   if (getQueryVariable("app") == 1) {
+  if (getQueryVariable("app") == 1) {
     window.location.href = "?app=7";
   }
   if (getQueryVariable("app") == 2) {
@@ -80,6 +80,11 @@ if (localStorage.access == btoa(localStorage.name)) {
     document.title = "TiSmile - TiMedia";
   }
 
+  if (getQueryVariable("app") == 12) {
+    launchApp("tiriShortcuts");
+    document.title = "Tiri Shortcuts - TiMedia";
+  }
+
   if (getQueryVariable("app") == 9) {
     launchApp("tislides");
     document.title = "TiSlides - TiMedia";
@@ -103,7 +108,7 @@ if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
   setInterval(changeName, 500);
 }
 
-var me = new iChatPlugin("me/me", function(data) {
+var me = new iChatPlugin("me/me", function (data) {
   if (data.txt.startsWith("/me ")) {
     data.txt = data.txt.replace("/me", "***" + data.u);
     data.u = ""
@@ -111,6 +116,6 @@ var me = new iChatPlugin("me/me", function(data) {
   return data;
 }, "/me function for iChat");
 
-iChat.onload = function() {
+iChat.onload = function () {
   iChat.registerPlugin(me);
 }

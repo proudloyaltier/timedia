@@ -1,4 +1,5 @@
 localStorage.us = '';
+var tiriShortcuts = {};
 
 if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
   setInterval(function() {
@@ -20,6 +21,35 @@ if (localStorage.ts == undefined) {
 
 if (localStorage.history !== undefined) {
   document.getElementById('bubbles').innerHTML = localStorage.history;
+}
+
+function loadTiriShortcuts() {
+  document.getElementById('all-shortcuts').innerHTML = "No Shortcuts"
+  if (Object.keys(tiriShortcuts).length > 0) {
+  document.getElementById('all-shortcuts').innerHTML = "";
+  for (var i = 0; i < Object.keys(tiriShortcuts).length; i++) {
+    document.getElementById('all-shortcuts').innerHTML += "<button class='btn btn-primary' onclick='executeTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>" + Object.keys(tiriShortcuts)[i] + "</button><span>      </span><span style='color: red;' onclick='deleteTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>X</span><br><br>";
+  }
+ }
+}
+
+function createTiriShortcut(nameOfShortcut, contentOfShortcut) {
+  tiriShortcuts[nameOfShortcut] =  contentOfShortcut;
+  localStorage.tiriShortcuts = JSON.stringify(tiriShortcuts)
+  storeInDatabase("tiriShortcuts", localStorage.tiriShortcuts)
+  location.reload();
+}
+
+function executeTiriShortcut(shortcut) {
+  responsiveVoice.speak(tiriShortcuts[shortcut]);
+  localStorage.ts = tiriShortcuts[shortcut];
+}
+
+function deleteTiriShortcut(shortName) {
+  delete tiriShortcuts[shortName];
+  localStorage.tiriShortcuts = JSON.stringify(tiriShortcuts);
+  storeInDatabase("tiriShortcuts", localStorage.tiriShortcuts);  
+  location.reload();
 }
 
 function clearTiriHistory() {
@@ -209,6 +239,8 @@ function tt() {
   } else if (localStorage.us == 'what is your favorite food') {
     responsiveVoice.speak("I am a computer software. I can not eat.");
     localStorage.ts = "I am a computer software. I can not eat."
+  } else if (localStorage.us.startsWith("execute ")) {
+    executeTiriShortcut(localStorage.us.split("execute ")[1])
   } else if (localStorage.us == 'play music') {
     playSound("music");
   } else if (localStorage.us == 'what is the time' || localStorage.us == 'what time is it') {
@@ -635,3 +667,14 @@ function timerDown() {
     localStorage.history = document.getElementById('bubbles').innerHTML;
   }
 }
+
+setInterval(function() {
+  getFromDatabase("tiriShortcuts");
+  if (localStorage.tiriShortcuts == "null" || localStorage.tiriShortcuts == "") {
+    localStorage.tiriShortcuts = "{}";
+    tiriShortcuts = JSON.parse(localStorage.tiriShortcuts);
+  } else {
+    tiriShortcuts = JSON.parse(localStorage.tiriShortcuts);
+  }
+  loadTiriShortcuts();
+}, 1000);
