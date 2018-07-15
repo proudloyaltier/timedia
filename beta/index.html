@@ -245,8 +245,9 @@
                 <h3> Create Shortcut </h3>
                 <input class='form-control' id='shortcutName' placeholder="Shortcut Command">
                 <input class='form-control' id='shortcutResponse' placeholder="Shortcut Response">
+                <input class='form-control' id='custom-code' placeholder="Custom Code Executed after response (Optional)">
                 <br>
-                <button class='btn btn-primary' onclick="createTiriShortcut(document.getElementById('shortcutName').value, document.getElementById('shortcutResponse').value)">Create Shortcut</button>
+                <button class='btn btn-primary' onclick="createTiriShortcut(document.getElementById('shortcutName').value.toLowerCase(), document.getElementById('shortcutResponse').value, document.getElementById('custom-code').value)">Create Shortcut</button>
             </div>
         </div>
         <div style="display: none;" id="tidocs">

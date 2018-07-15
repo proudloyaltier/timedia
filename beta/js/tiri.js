@@ -33,16 +33,17 @@ function loadTiriShortcuts() {
  }
 }
 
-function createTiriShortcut(nameOfShortcut, contentOfShortcut) {
-  tiriShortcuts[nameOfShortcut] =  contentOfShortcut;
+function createTiriShortcut(nameOfShortcut, contentOfShortcut, codeOfShortcut) {
+  tiriShortcuts[nameOfShortcut] =  [contentOfShortcut, codeOfShortcut];
   localStorage.tiriShortcuts = JSON.stringify(tiriShortcuts)
   storeInDatabase("tiriShortcuts", localStorage.tiriShortcuts)
   location.reload();
 }
 
 function executeTiriShortcut(shortcut) {
-  responsiveVoice.speak(tiriShortcuts[shortcut]);
-  localStorage.ts = tiriShortcuts[shortcut];
+  responsiveVoice.speak(tiriShortcuts[shortcut][0]);
+  localStorage.ts = tiriShortcuts[shortcut][0];
+  eval(tiriShortcuts[shortcut][1])
 }
 
 function deleteTiriShortcut(shortName) {
