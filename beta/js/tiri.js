@@ -359,8 +359,19 @@ function tt() {
     responsiveVoice.speak("Echo looks great, but I prefer T I Pod.");
     localStorage.ts = "Echo looks great, but I prefer TiPod.";
   } else {
+    if (Object.keys(tiriShortcuts).length > 0) {
+      for (var i = 0; i < Object.keys(tiriShortcuts).length; i++) {
+        if (localStorage.us.toLowerCase() == Object.keys(tiriShortcuts)[i].toLowerCase()) {
+          executeTiriShortcut(Object.keys(tiriShortcuts)[i]);
+        } else {
+          responsiveVoice.speak("Sorry. I do not understand");
+          localStorage.ts = "Sorry, I do not understand.";
+        }
+      }
+    } else {
     responsiveVoice.speak("Sorry. I do not understand");
     localStorage.ts = "Sorry, I do not understand.";
+    }
   }
   document.getElementById("bubbles").innerHTML += '<div class="message-return">' + localStorage.ts + '</div>';
   localStorage.history = document.getElementById('bubbles').innerHTML
