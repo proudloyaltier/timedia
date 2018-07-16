@@ -6,8 +6,6 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 ## What's new?
 
-TiMedia 3 is now in beta!
-
 • Fix minor, annoying Tiles glitches!
 
 • Importing TiApps to tiles now fully works!
