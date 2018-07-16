@@ -12,21 +12,7 @@ TiMedia 3 is now in beta!
 
 • Importing TiApps to tiles now fully works!
 
-•  Reorganized the DB and made it much cleaner, therefore easier to maintain
-
-•  All prompts have been replaced with Alertify dialogues, which look much better.
-
-• New app has been completely revamped!
-
-• TiTanium is now in beta!
-
-• TiPhotos and Tile redesign
-
-• Faster loading, all code has been cleaned up and optimized.
-
-• New Favicon
-
-• Removed Tiri from navigation bar.
+• Introducing Tiri Shortcuts! The custom tiri commands that can be created in seconds!  For developers, even add your own custom code executed after your response!  You could open a tile, remind yourself to do something, and more!
 
 ## What is TiMedia?
 TiMedia is a all-in one cloud storage service.

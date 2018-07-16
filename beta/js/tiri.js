@@ -28,7 +28,7 @@ function loadTiriShortcuts() {
   if (Object.keys(tiriShortcuts).length > 0) {
   document.getElementById('all-shortcuts').innerHTML = "";
   for (var i = 0; i < Object.keys(tiriShortcuts).length; i++) {
-    document.getElementById('all-shortcuts').innerHTML += "<button class='btn btn-primary' onclick='executeTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>" + Object.keys(tiriShortcuts)[i] + "</button><span>      </span><span style='color: red;' onclick='deleteTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>X</span><br><br>";
+    document.getElementById('all-shortcuts').innerHTML += "<button class='tiri-shortcuts-button' onclick='executeTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>" + Object.keys(tiriShortcuts)[i] + "</button><span>      </span><span style='color: red;' onclick='deleteTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>X</span><br><br>";
   }
  }
 }
@@ -363,10 +363,15 @@ function tt() {
       for (var i = 0; i < Object.keys(tiriShortcuts).length; i++) {
         if (localStorage.us.toLowerCase() == Object.keys(tiriShortcuts)[i].toLowerCase()) {
           executeTiriShortcut(Object.keys(tiriShortcuts)[i]);
-        } else {
-          responsiveVoice.speak("Sorry. I do not understand");
-          localStorage.ts = "Sorry, I do not understand.";
+          var executed = true;
         }
+      }
+      if (!executed) {
+        responsiveVoice.speak("Sorry. I do not understand");
+        localStorage.ts = "Sorry, I do not understand.";
+        delete executed
+      } else {
+        delete executed
       }
     } else {
     responsiveVoice.speak("Sorry. I do not understand");

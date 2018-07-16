@@ -35,3 +35,17 @@
   filter: invert(100%);
   background-color: black;
 }
+
+.tiri-shortcuts-button {
+  border-radius: 7px;
+  background-color: white;
+  color: lightslategrey;
+  border: 1px gray;
+  width: 25%;
+  height: 50px;
+}
+
+.tiri-shortcuts-button:hover {
+  border-radius: 7px;
+  background-color: lightsteelblue;
+}
