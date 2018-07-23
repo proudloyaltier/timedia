@@ -6,6 +6,8 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 ## What's new?
 
+• Fix some Tiri glitches and add clear our conversation command to Tiri Type!
+
 • Fix minor, annoying Tiles glitches!
 
 • Importing TiApps to tiles now fully works!
