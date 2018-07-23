@@ -124,7 +124,8 @@ function tt() {
   } else if (localStorage.us == 'clear our conversation') {
     responsiveVoice.speak("Cleared");
     localStorage.ts = 'Cleared';
-    clearTiriHistory();
+    localStorage.removeItem('history');
+    var clearingConversation = true;
   } else if (localStorage.us.split(" ")[0] == 'solve') {
     responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split("solve ")[1]));
     localStorage.ts = math.eval(localStorage.us.split("solve ")[1]).toLocaleString();
@@ -383,7 +384,11 @@ function tt() {
     }
   }
   document.getElementById("bubbles").innerHTML += '<div class="message-return">' + localStorage.ts + '</div>';
+  if (typeof clearingConversation == "undefined") {
   localStorage.history = document.getElementById('bubbles').innerHTML
+  } else {
+  location.reload();
+  }
   window.scrollTo(0, document.body.scrollHeight);
 }
 
