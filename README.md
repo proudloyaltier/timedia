@@ -4,6 +4,14 @@
 ## Your data is safe!
 Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more) is not visible to any admin or other user!
 
+
+## To-do List
+- [ ] Tiles folders
+- [x] Secure database
+- [ ] Update other-non recognized file types (like .pptx, .zip, and more)
+- [x] Add Tiri Shortcuts
+
+
 ## What's new?
 
 • Fix some Tiri glitches and add clear our conversation command to Tiri Type!
