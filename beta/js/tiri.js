@@ -122,8 +122,8 @@ function tt() {
     responsiveVoice.speak("T I");
     localStorage.ts = 'TI!';
   } else if (localStorage.us.split(" ")[0] == 'solve') {
-    responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split(" ")[1]));
-    localStorage.ts = math.eval(localStorage.us.split(" ")[1]).toLocaleString();
+    responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split("solve ")[1]));
+    localStorage.ts = math.eval(localStorage.us.split("solve ")[1]).toLocaleString();
   } else if (localStorage.us.startsWith("open the tile ")) {
     openTile(localStorage.us.split("open the tile ")[1]);
     localStorage.ts = 'Opening tile ' + localStorage.us.split("open the tile ")[1];
