@@ -121,6 +121,10 @@ function tt() {
   } else if (localStorage.us == 'ti') {
     responsiveVoice.speak("T I");
     localStorage.ts = 'TI!';
+  } else if (localStorage.us == 'clear our conversaion') {
+    clearTiriHistory();
+    responsiveVoice.speak("Cleared");
+    localStorage.ts = 'Cleared';
   } else if (localStorage.us.split(" ")[0] == 'solve') {
     responsiveVoice.speak("The answer is " + math.eval(localStorage.us.split("solve ")[1]));
     localStorage.ts = math.eval(localStorage.us.split("solve ")[1]).toLocaleString();
