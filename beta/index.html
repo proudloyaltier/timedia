@@ -104,6 +104,11 @@
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
+                                <a href="?app=13">App Store
+                                    <span class="glyphicon glyphicon-th-list"></span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="?app=8">New App
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </a>
@@ -218,21 +223,31 @@
         <div style="display: none;" id="newapp">
             <h3>New App</h3>
             <br>
-            <h5> Execute .TIAPP file </h5>
-            <button class='btn btn-primary' onclick='uploadApp()'>Open Application</button>
-            <h5> Create App </h5>
-            <input id="newapp-name" class="form-control" placeholder="App Name">
-            <br>
+            <div class='jumbotron'>
+                <h5> Execute .TIAPP file </h5>
+                <button class='btn btn-primary' onclick='uploadApp()'>Open Application</button>
+                <h5> Create App </h5>
+                <input id="newapp-name" class="form-control" placeholder="App Name">
+                <br>
 
-            <input id="newapp-icon" onkeyup="updateIcon()" class="form-control" placeholder="App Icon (GlyphIcon)">
-            <p id="newapp-preview">Icon Preview: </p>
-            <br>
+                <input id="newapp-icon" onkeyup="updateIcon()" class="form-control" placeholder="App Icon (GlyphIcon)">
+                <p id="newapp-preview">Icon Preview: </p>
+                <br>
 
-            <textarea id="newapp-source" class="form-control" placeholder="App Source (HTML - CSS)"></textarea>
-            <textarea id='newapp-source-js' class="form-control" placeholder="App Source (JS)"></textarea>
-            <br>
+                <textarea id="newapp-source" class="form-control" placeholder="App Source (HTML - CSS)"></textarea>
+                <textarea id='newapp-source-js' class="form-control" placeholder="App Source (JS)"></textarea>
+                <br>
 
-            <button class="btn btn-primary" onclick="submitApp()">Create App</button>
+                <button class="btn btn-primary" onclick="submitApp()">Create App</button>
+            </div>
+            <div class='jumbotron'>
+                <div>
+                    <h4> Submit App To The Store </h4>
+                    <input class='form-control' placeholder='App Name' id='submitted-app-name'>
+                    <br>
+                    <button class='btn btn-primary' onclick='uploadAppToSubmit();'>Upload Packages</button>
+                </div>
+            </div>
         </div>
         <div style='display: none;' id='tiriShortcuts'>
             <div class='jumbotron'>
@@ -248,6 +263,14 @@
                 <input class='form-control' id='custom-code' placeholder="Custom Code Executed after response (Optional)">
                 <br>
                 <button class='btn btn-primary' onclick="createTiriShortcut(document.getElementById('shortcutName').value.toLowerCase(), document.getElementById('shortcutResponse').value, document.getElementById('custom-code').value)">Create Shortcut</button>
+            </div>
+        </div>
+        <div style='display: none;' id='appstore'>
+            <h3> App Store </h3>
+            <br></br>
+            <div>
+                <div id='store-allapps' class='nobullet'>
+                </div>
             </div>
         </div>
         <div style="display: none;" id="tidocs">
@@ -742,6 +765,7 @@
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
                         crossorigin="anonymous"></script>
                     <script src="js/new.js"></script>
+                    <script src="js/appStore.js"></script>
                     <script src="js/speech.js"></script>
                     <script src="js/bookmarks.js"></script>
                     <script src="js/db.js"></script>

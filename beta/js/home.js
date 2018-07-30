@@ -85,6 +85,11 @@ if (localStorage.access == btoa(localStorage.name)) {
     document.title = "Tiri Shortcuts - TiMedia";
   }
 
+  if (getQueryVariable("app") == 13) {
+    launchApp("appstore");
+    document.title = "App Store - TiMedia";
+  }
+
   if (getQueryVariable("app") == 9) {
     launchApp("tislides");
     document.title = "TiSlides - TiMedia";
@@ -103,7 +108,7 @@ function checkCasioer() {
   }
 }
 
-if (getQueryVariable("app") == false || getQueryVariable("app") > 12) {
+if (getQueryVariable("app") == false || getQueryVariable("app") > 13) {
   setInterval(checkCasioer, 0);
   setInterval(changeName, 500);
 }
