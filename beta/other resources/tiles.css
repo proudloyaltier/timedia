@@ -237,3 +237,10 @@ img {
   border-radius: 20px;
   padding-left: 15px;
 }
+
+#apps-search {
+  box-shadow: none;
+  background-color: #f4f5f2;
+  border-radius: 20px;
+  padding-left: 15px;
+}

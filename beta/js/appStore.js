@@ -19,6 +19,23 @@ function loadApps() {
     }
 }
 
+function searchApps() {
+    if (document.getElementById('apps-search').value  == "") {
+        document.getElementById('store-search').style.display = 'none';
+        document.getElementById('store-allapps').style.display = 'block';
+        loadApps();
+    } else {
+        document.getElementById('store-search').innerHTML = "";
+        document.getElementById('store-search').style.display = 'block';
+        document.getElementById('store-allapps').style.display = 'none';
+        for (var i = 0; i < storeApps.length; i++) {
+            if (storeApps[i].name.includes(document.getElementById('apps-search').value)) {
+                document.getElementById('store-search').innerHTML = document.getElementById('store-search').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="openStoreApp(' + i + ');"><h3><center>' + storeApps[i].name + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-' + storeApps[i].icon + '"><br></span><br><br></center></h3></span></li>';
+            }
+        }
+    }
+}
+
 function uploadAppToSubmit() {
     window.dbRef.child("appStore").child(document.getElementById("submitted-app-name").value).once("value", function (snapshot) {
         if (snapshot.val() == null) {
