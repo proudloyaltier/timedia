@@ -9,7 +9,7 @@ function saveBookmark() {
 
 if (getQueryVariable("l") !== false || localStorage.editBookmark !== undefined) {
   if (localStorage.editBookmark !== undefined) {
-    document.getElementsByTagName('h4')[0].innerHTML = decodeURI(localStorage.editBookmark);
+    document.getElementById('bookmarksContent').innerHTML = decodeURI(localStorage.editBookmark);
     localStorage.removeItem('editBookmark');
     throw new Error("Opened edit.");
   }
