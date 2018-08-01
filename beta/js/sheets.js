@@ -6,42 +6,42 @@ function newTh(place) {
 
 function newRow() {
   var newTr = document.createElement('tr');
-  document.getElementsByTagName('table')[0].appendChild(newTr);
-  for (var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('th').length; i++) {
+  document.getElementById("sheetsContent").appendChild(newTr);
+  for (var i = 0; i < document.getElementById("sheetsContent").getElementsByTagName('tr')[0].getElementsByTagName('th').length; i++) {
     newTh(newTr);
   }
 }
 
 function newColumn() {
-  for (var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
+  for (var i = 0; i < document.getElementById("sheetsContent").getElementsByTagName('tr').length; i++) {
     newTh(document.getElementsByTagName('tr')[i]);
   }
 }
 
 function getCellData(column, row) {
-  return document.getElementsByTagName('table')[0].getElementsByTagName('tr')[row].getElementsByTagName('th')[column].innerHTML;
+  return document.getElementById("sheetsContent").getElementsByTagName('tr')[row].getElementsByTagName('th')[column].innerHTML;
 }
 
 function getColumnMean(column) {
   var sum = 0;
-  for (var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
-    sum = eval(document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + "+" + sum.toString());
+  for (var i = 0; i < document.getElementById("sheetsContent").getElementsByTagName('tr').length; i++) {
+    sum = eval(document.getElementById("sheetsContent").getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + "+" + sum.toString());
   }
-  return sum / document.getElementsByTagName('table')[0].getElementsByTagName('tr').length;
+  return sum / document.getElementById("sheetsContent").getElementsByTagName('tr').length;
 }
 
 function getColumnRange(column) {
-  var highest = document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[column].innerHTML;
-  var lowest = document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[column].innerHTML;
-  for (var i = 0; i < document.getElementsByTagName('table')[0].getElementsByTagName('tr').length; i++) {
-    eval('if(' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ' > ' + highest + ') {highest = ' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ';}');
-    eval('if(' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ' < ' + lowest + ') {lowest = ' + document.getElementsByTagName('table')[0].getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ';}');
+  var highest = document.getElementById("sheetsContent").getElementsByTagName('tr')[0].getElementsByTagName('th')[column].innerHTML;
+  var lowest = document.getElementById("sheetsContent").getElementsByTagName('tr')[0].getElementsByTagName('th')[column].innerHTML;
+  for (var i = 0; i < document.getElementById("sheetsContent").getElementsByTagName('tr').length; i++) {
+    eval('if(' + document.getElementById("sheetsContent").getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ' > ' + highest + ') {highest = ' + document.getElementById("sheetsContent").getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ';}');
+    eval('if(' + document.getElementById("sheetsContent").getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ' < ' + lowest + ') {lowest = ' + document.getElementById("sheetsContent").getElementsByTagName('tr')[i].getElementsByTagName('th')[column].innerHTML + ';}');
   }
   return (highest - lowest);
 }
 
 function pickRandomFromColumn(column) {
-  return document.getElementsByTagName('table')[0].getElementsByTagName('tr')[Math.floor(Math.random() * document.getElementsByTagName('table')[0].getElementsByTagName('tr').length)].getElementsByTagName('th')[column].innerHTML
+  return document.getElementById("sheetsContent").getElementsByTagName('tr')[Math.floor(Math.random() * document.getElementById("sheetsContent").getElementsByTagName('tr').length)].getElementsByTagName('th')[column].innerHTML
 }
 
 function saveSheet() {
