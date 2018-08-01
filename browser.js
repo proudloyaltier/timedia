@@ -39,34 +39,34 @@ function storeInDatabase(name, value) {
 }
 
 function signin() {
-uname = document.getElementById("uname").value;
-pword = document.getElementById("pword").value;
-firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function(error) {
+  uname = document.getElementById("uname").value;
+  pword = document.getElementById("pword").value;
+  firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function (error) {
     alert("User name or password is incorrect!");
-});
-document.getElementById('login').style.display = "none";
-document.getElementById('account-info').style.display = 'block';
+  });
+  document.getElementById('login').style.display = "none";
+  document.getElementById('account-info').style.display = 'block';
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      user.providerData.forEach(function(profile) {
-          document.getElementById('signout').style.display = 'none';
-          localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
-          localStorage.setItem("access", btoa(localStorage.name));
-          document.getElementById('signout').style.display = 'block';
-          var tilesLoad = setInterval(function() {
-          document.getElementById('login').style.display = "none";
-          document.getElementById('account-info').style.display = 'block';
-          document.getElementById('user').innerHTML = "Account: " + localStorage.name;
-          getFromDatabase("files")
-          syncBookmarks();
-          renderBookmarks();
-          renderApps();
-        }, 1000)
-      });
-    }
-  });
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    user.providerData.forEach(function (profile) {
+      document.getElementById('signout').style.display = 'none';
+      localStorage.setItem("name", profile.email.replace("@timediatied.com", ""));
+      localStorage.setItem("access", btoa(localStorage.name));
+      document.getElementById('signout').style.display = 'block';
+      var tilesLoad = setInterval(function () {
+        document.getElementById('login').style.display = "none";
+        document.getElementById('account-info').style.display = 'block';
+        document.getElementById('user').innerHTML = "Account: " + localStorage.name;
+        getFromDatabase("files")
+        syncBookmarks();
+        renderBookmarks();
+        renderApps();
+      }, 1000)
+    });
+  }
+});
 
 
 function save() {
@@ -94,13 +94,13 @@ function addFile(title, upload) {
 
 
 function syncBookmarks() {
-    var syncb = []
-    for(var i = 0; i < localStorage.files.split(",").length; i++) {
-        if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=10&l=") == true) {
-        syncb.push(localStorage.files.split(",")[i].split("!!")[0] + "!!" + decodeURI(atob(localStorage.files.split(",")[i].split("!!")[1].split("?app=10&l=")[1])))
-        }
+  var syncb = []
+  for (var i = 0; i < localStorage.files.split(",").length; i++) {
+    if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=10&l=") == true) {
+      syncb.push(localStorage.files.split(",")[i].split("!!")[0] + "!!" + decodeURI(atob(localStorage.files.split(",")[i].split("!!")[1].split("?app=10&l=")[1])))
     }
-    return syncb
+  }
+  return syncb
 }
 
 function signout() {
@@ -110,10 +110,10 @@ function signout() {
   document.getElementById('signout').style.display = 'none';
   document.getElementById('user').style.display = 'none';
   localStorage.removeItem('files')
-  firebase.auth().signOut().then(function() {
- }, function(error) {
-  alert('Sign Out Error: ' + error);
- });
+  firebase.auth().signOut().then(function () {
+  }, function (error) {
+    alert('Sign Out Error: ' + error);
+  });
 }
 
 var version = "Alpha 6.8";
@@ -164,36 +164,36 @@ if (localStorage.setup !== "true") {
 }
 
 function signinFirstTime() {
-uname = document.getElementById("uname-first").value;
-pword = document.getElementById("pword-first").value;
-firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function(error) {
+  uname = document.getElementById("uname-first").value;
+  pword = document.getElementById("pword-first").value;
+  firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function (error) {
     alert("User name or password is incorrect!");
     location.reload();
-});
-document.getElementById('login').style.display = "none";
-document.getElementById('account-info').style.display = 'block';
-finishSetup()
+  });
+  document.getElementById('login').style.display = "none";
+  document.getElementById('account-info').style.display = 'block';
+  finishSetup()
 }
 
 function openApp(i) {
-window.open("data:text/html;charset=utf-8," + tiapps[i], "", "_blank")
+  window.open("data:text/html;charset=utf-8," + tiapps[i].content, "", "_blank")
 }
 
 function renderApps() {
-  if (localStorage.tiapps !== undefined) {
-    tiapps = localStorage.tiapps.split(",");
+  if (localStorage.tiapps !== undefined && localStorage.tiapps !== "[]") {
+    tiapps = JSON.parse(localStorage.tiapps)
   }
-    document.getElementById('tiapps-bar').innerHTML = "";
-  for (var i=0; i < tiapps.length; i++) {
-     document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i  + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].split("<ticon style='display: none;'>")[1].replace('</ticon>' + tiapps[i].split('</ticon>')[1], "") + '"></span>';
+  document.getElementById('tiapps-bar').innerHTML = "";
+  for (var i = 0; i < tiapps.length; i++) {
+    document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].icon + '"></span>';
   }
 }
 
 function uploadApp() {
-    window.selector = document.createElement("input");
-    selector.type = "file";
-    selector.setAttribute("onchange", "uploadTIAPP()");
-    selector.click();
+  window.selector = document.createElement("input");
+  selector.type = "file";
+  selector.setAttribute("onchange", "uploadTIAPP()");
+  selector.click();
 }
 
 function deleteApp(i) {
@@ -202,32 +202,35 @@ function deleteApp(i) {
     if (tiapps.length == 1) {
       var firstAppDeleted = true;
     }
-    if (i > 0) {
-   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i] + ",", "")
-  } else {
-   localStorage.tiapps = localStorage.tiapps.replace(tiapps[i], "")
+    tiapps = tiapps.splice(tiapps[i], 1);
+    localStorage.tiapps = JSON.stringify(tiapps);
+    tiapps = localStorage.tiapps;
+    if (firstAppDeleted) {
+      localStorage.removeItem('tiapps');
+      tiapps = [];
+    }
+    renderApps();
   }
-   tiapps = localStorage.tiapps;
-   if (firstAppDeleted) {
-     localStorage.removeItem('tiapps');
-     tiapps = [];
-   }
-   renderApps();
- }
 }
 
 function installAppWeb(app) {
-  tiapps.push(app)
-  localStorage.tiapps = tiapps + "";
+  tiapps.push({
+    "content": app,
+    "icon": app.split("<ticon style='display: none;'>")[1].replace('</ticon>' + app.split('</ticon>')[1], "")
+  })
+  localStorage.tiapps = JSON.stringify(tiapps)
 }
 
 function uploadTIAPP() {
   var file = selector.files[0];
   var reader = new FileReader();
   reader.addEventListener("load", function () {
-  tiapps.push(reader.result)
-  localStorage.tiapps = tiapps + "";
-  renderApps();
+    tiapps.push({
+      "content": reader.result,
+      "icon": reader.result.split("<ticon style='display: none;'>")[1].replace('</ticon>' + reader.result.split('</ticon>')[1], "")
+    })
+    localStorage.tiapps = JSON.stringify(tiapps)
+    renderApps();
   }, false);
 
   if (file) {
@@ -287,8 +290,8 @@ function finishSetup() {
 }
 
 function addBookmark() {
-  addFile(iframe.getTitle(), "index.html?app=10"+ '&l=' + btoa(encodeURI(iframe.getURL()))),
-  save();
+  addFile(iframe.getTitle(), "index.html?app=10" + '&l=' + btoa(encodeURI(iframe.getURL()))),
+    save();
   saveData();
   renderBookmarks();
 }
@@ -300,10 +303,10 @@ function transferBookmarks() {
 function renderBookmarks() {
   bookmarksBar.innerHTML = "";
   if (firebase.auth().currentUser !== null && syncBookmarks() !== undefined && syncBookmarks() !== "") {
-  for (var i = 0; i < syncBookmarks().length; i++) {
-    bookmarksBar.innerHTML += '<a onclick="openBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
+    for (var i = 0; i < syncBookmarks().length; i++) {
+      bookmarksBar.innerHTML += '<a onclick="openBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
+    }
   }
- }
 }
 
 function openBookmark(id) {
@@ -371,41 +374,41 @@ function blockAds() {
 function newTab(url) {
   hideMenus();
   if (typeof url !== "undefined" && url.startsWith("installapp://")) {
-      var appToInstall = url.split("installapp://")[1]
-      installAppWeb(appToInstall)
-  } else { 
-  if (typeof url !== "undefined") {
-     titabs.push(url);
-     titabstitles.push(url);
+    var appToInstall = url.split("installapp://")[1]
+    installAppWeb(appToInstall)
   } else {
-    titabs.push(homepage);
-    titabstitles.push(homepage);
+    if (typeof url !== "undefined") {
+      titabs.push(url);
+      titabstitles.push(url);
+    } else {
+      titabs.push(homepage);
+      titabstitles.push(homepage);
+    }
+
+    document.getElementById("tab" + currentTab).style.display = "none";
+
+    currentTab = titabs.length - 1;
+
+    newframe = document.createElement("webview");
+    newframe.src = titabs[currentTab];
+    newframe.id = "tab" + currentTab;
+
+    webframes.appendChild(newframe);
+
+    newframe.addEventListener("did-start-loading", updateUserAgent);
+    newframe.addEventListener("did-stop-loading", updatePage);
+    newframe.addEventListener("did-stop-loading", blockAds);
+    newframe.addEventListener("did-stop-loading", updateUserAgent);
+    newframe.addEventListener("did-stop-loading", updateHistory);
+    newframe.addEventListener("page-title-updated", updatePage);
+    newframe.addEventListener("new-window", function (e) {
+      newTab(e.url);
+    });
+
+    iframe = newframe;
+
+    updateTabs();
   }
-
-  document.getElementById("tab" + currentTab).style.display = "none";
-
-  currentTab = titabs.length - 1;
-
-  newframe = document.createElement("webview");
-  newframe.src = titabs[currentTab];
-  newframe.id = "tab" + currentTab;
-
-  webframes.appendChild(newframe);
-
-  newframe.addEventListener("did-start-loading", updateUserAgent);
-  newframe.addEventListener("did-stop-loading", updatePage);
-  newframe.addEventListener("did-stop-loading", blockAds);
-  newframe.addEventListener("did-stop-loading", updateUserAgent);
-  newframe.addEventListener("did-stop-loading", updateHistory);
-  newframe.addEventListener("page-title-updated", updatePage);
-  newframe.addEventListener("new-window", function(e) {
-    newTab(e.url);
-  });
-
-  iframe = newframe;
-
-  updateTabs();
- }
 }
 
 function closeTab(id) {
@@ -419,17 +422,17 @@ function closeTab(id) {
       currentTab = titabs.length - 2;
     } else {
       if (id !== 0) {
-      currentTab = id - 1;
-    } else if (titabs.length > 1 && id == 0) {
-      currentTab = 1;
-    }
+        currentTab = id - 1;
+      } else if (titabs.length > 1 && id == 0) {
+        currentTab = 1;
+      }
     }
     if (id > 0) {
-    titabs.splice(id, 1);
-    titabstitles.splice(id, 1);
+      titabs.splice(id, 1);
+      titabstitles.splice(id, 1);
     } else {
-    titabs.shift();
-    titabstitles.shift();
+      titabs.shift();
+      titabstitles.shift();
     }
 
     if (titabs.length === 0) {
@@ -501,7 +504,7 @@ function toggleSettings() {
     apps.style.display = "none";
     settings.style.display = "";
     for (var i = 0; i < tihistory.length; i++) {
-    document.getElementById('history-view').innerHTML = "<p class='history-item'>" + tihistory[i] + "</p>" + document.getElementById('history-view').innerHTML ;
+      document.getElementById('history-view').innerHTML = "<p class='history-item'>" + tihistory[i] + "</p>" + document.getElementById('history-view').innerHTML;
     }
     document.getElementById('history-view').className = 'jumbotron';
     document.getElementById("homepageInput").value = homepage;
@@ -633,15 +636,15 @@ function clearData() {
 }
 
 function lockTab() {
-    localStorage.lockCode = CryptoJS.AES.encrypt("locked", document.getElementById('lock-password').value)
-    localStorage.locked = true;
-    localStorage.page = document.getElementById('lock-page').value
-    window.location.reload();
+  localStorage.lockCode = CryptoJS.AES.encrypt("locked", document.getElementById('lock-password').value)
+  localStorage.locked = true;
+  localStorage.page = document.getElementById('lock-page').value
+  window.location.reload();
 }
 
 function showUnlockTab() {
-    document.getElementById('lock-settings').style.display = 'block';
-    document.getElementById('webframes').style.display = 'none';
+  document.getElementById('lock-settings').style.display = 'block';
+  document.getElementById('webframes').style.display = 'none';
 }
 
 function unlockTab() {
@@ -663,18 +666,18 @@ iframe.addEventListener("did-stop-loading", blockAds);
 iframe.addEventListener("did-stop-loading", updateUserAgent);
 iframe.addEventListener("did-stop-loading", updateHistory);
 iframe.addEventListener("page-title-updated", updatePage);
-iframe.addEventListener("new-window", function(e) {
+iframe.addEventListener("new-window", function (e) {
   newTab(e.url);
 });
 
-window.onload = function() {
+window.onload = function () {
   if (localStorage.locked) {
     document.getElementById('lock-icon').style.display = 'block';
     document.getElementById('bar').style.display = 'none';
     urlbox.value = localStorage.page;
     openUrl()
     document.getElementById('locked-bar').style.display = 'block';
-   }
+  }
 }
 
 function readLocalFile() {
@@ -695,8 +698,8 @@ function checkOnlineStatus() {
     document.getElementById('webframes').style.display = 'none';
     document.getElementById('offline').style.display = 'block';
   } else {
-      document.getElementById('webframes').style.display = 'block';
-      document.getElementById('offline').style.display = 'none';
+    document.getElementById('webframes').style.display = 'block';
+    document.getElementById('offline').style.display = 'none';
   }
 }
 
