@@ -79,6 +79,16 @@ setTimeout(function () {
     setInterval(loadApps, 1000);
 }, 1000)
 
+function generateAppBadge() {
+    var appBadgeCode = "<a href='https://proudloyaltier.github.io/timedia/beta/index.html?app=13&app-badge=" + document.getElementById("app-badge-name").value + "'><img src='https://proudloyaltier.github.io/timedia/beta/other%20resources/app-badge.png'></img></a>"
+    document.getElementById("app-badge-result").style.display = 'block'
+    document.getElementById("app-badge-result").innerText = appBadgeCode;
+    document.getElementById("app-badge-result-preview").style.display = 'block'
+    document.getElementById("app-badge-result-preview").innerHTML = appBadgeCode;
+    document.getElementById("app-badge-preview-text").style.display = 'block';
+    document.getElementById("app-badge-code-text").style.display = 'block';
+}
+
 if (getQueryVariable("app-badge") !== false && getQueryVariable("app") == 13) {
     document.getElementById("apps-search").value = getQueryVariable("app-badge");
     setInterval(searchApps, 1000);

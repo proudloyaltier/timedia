@@ -263,6 +263,18 @@
                     <br>
                     <button class='btn btn-primary' onclick='uploadAppToSubmit();'>Upload Packages</button>
                 </div>
+                <br>
+                <div>
+                    <h4> Badges </h4>
+                    <p><b>NOTE: You must have published your app before creating a badge</b><br>Create an app badge to put on your website</p>
+                    <input class='form-control' id="app-badge-name" placeholder="Published App Name">
+                    <br>
+                    <button class='btn btn-primary' onclick="generateAppBadge()">Generate Badge</button>
+                    <p id='app-badge-code-text'>Code:</p>
+                    <span id='app-badge-result' style="display: none;"></span><br><br>
+                    <p id='app-badge-preview-text'>Preview:</p>
+                    <span id='app-badge-result-preview' style="display: none;"></span>
+                </div>
             </div>
         </div>
         <div style='display: none;' id='tiriShortcuts'>
