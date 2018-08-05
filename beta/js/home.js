@@ -38,7 +38,7 @@ function launchApp(appname) {
 }
 
 if (localStorage.access == btoa(localStorage.name)) {
-  switch (getQueryVariable("app")) {
+  switch (Number(getQueryVariable("app"))) {
     case 1:
       window.location.replace("?app=7");
       break;
