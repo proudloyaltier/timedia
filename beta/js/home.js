@@ -38,63 +38,58 @@ function launchApp(appname) {
 }
 
 if (localStorage.access == btoa(localStorage.name)) {
-  if (getQueryVariable("app") == 1) {
-    window.location.href = "?app=7";
+  switch (getQueryVariable("app")) {
+    case 1:
+      window.location.replace("?app=7");
+      break;
+    case 2:
+      document.title = "TiChat - TiMedia";
+      launchApp("messages");
+      break;
+    case 3:
+      document.title = "TiDocs - TiMedia";
+      launchApp("tidocs");
+      break;
+    case 4:
+      document.title = "TiSheets - TiMedia";
+      launchApp("tisheets");
+      break;
+    case 5:
+      document.title = "Tiri Type - TiMedia";
+      launchApp("tiritype");
+      break;
+    case 7:
+      document.title = "Tiles - TiMedia";
+      launchApp("tiles");
+      break;
+    case 8:
+      document.title = "New App - TiMedia";
+      launchApp("newapp");
+      break;
+    case 9:
+      launchApp("tislides");
+      document.title = "TiSlides - TiMedia";
+      break;
+    case 10:
+      document.title = "TiBookmarks - TiMedia";
+      launchApp("tibookmarks");
+      break;
+    case 11:
+      document.title = "TiSmile - TiMedia";
+      launchApp("tismile");
+      break;
+    case 12:
+      document.title = "Tiri Shortcuts - TiMedia";
+      launchApp("tiriShortcuts");
+      break;
+    case 13:
+      document.title = "App Store - TiMedia";
+      launchApp("appstore");
+      break;
+    default:
+      launchApp("home");
+      break;
   }
-  if (getQueryVariable("app") == 2) {
-    launchApp("messages");
-    document.title = "TiChat - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 3) {
-    launchApp("tidocs");
-    document.title = "TiDocs - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 4) {
-    launchApp("tisheets");
-    document.title = "TiSheets - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 5) {
-    launchApp("tiritype");
-    document.title = "Tiri Type - TiMedia";
-  }
-  if (getQueryVariable("app") == 7) {
-    launchApp("tiles");
-    document.title = "Tiles - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 8) {
-    launchApp("newapp");
-    document.title = "New App - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 10) {
-    launchApp("tibookmarks");
-    document.title = "TiBookmarks - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 11) {
-    launchApp("tismile");
-    document.title = "TiSmile - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 12) {
-    launchApp("tiriShortcuts");
-    document.title = "Tiri Shortcuts - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 13) {
-    launchApp("appstore");
-    document.title = "App Store - TiMedia";
-  }
-
-  if (getQueryVariable("app") == 9) {
-    launchApp("tislides");
-    document.title = "TiSlides - TiMedia";
-  }
-
 } else {
   window.location.href = "login.html";
 }
