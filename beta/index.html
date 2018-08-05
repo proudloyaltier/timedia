@@ -8,10 +8,8 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="other resources/style.css" crossorigin="anonymous">
     <link rel="stylesheet" href="other resources/slides.css" crossorigin="anonymous">
     <link rel="stylesheet" href="other resources/tiles.css" crossorigin="anonymous">
@@ -73,12 +71,12 @@
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <a onclick='uploadPhoto();'>Upload TiPhoto
+                  <a onclick="uploadPhoto()">Upload TiPhoto
                                     <span class="glyphicon glyphicon-picture"></span>
                                 </a>
                 </li>
                 <li>
-                  <a onclick='saveAppToTiles();'>Upload TiApp
+                  <a onclick="saveAppToTiles()">Upload TiApp
                                     <span class="glyphicon glyphicon-th"></span>
                                 </a>
                 </li>
@@ -354,51 +352,51 @@
       <div id="tiles" style="display: none;">
         <span class="glyphicon glyphicon-th-large" style="font-size: 300%; float: left;"></span>
         <input style='width: 70%; display: inline-block;' placeholder="Search" class="form-control" type="text" id="tiles-search" oninput="searchTiles(this.value)" width="80%" autofocus>
-        <span id="filter-btn" class="glyphicon glyphicon-menu-down" style="font-size: 215%; width: 30%; display: inline;" onclick='showFilterSelect()"></span>
-            <div id="select-filters" style="display: none;">
-                <h5>Filters</h5>
-                Filters allow you to view all tiles of the filetype(s) you select below.
-                <br>
-                <label class="custom-control custom-checkbox">
+        <span id="filter-btn" class="glyphicon glyphicon-menu-down" style="font-size: 215%; width: 30%; display: inline;" onclick="showFilterSelect()"></span>
+        <div id="select-filters" style="display: none;">
+          <h5>Filters</h5>
+          Filters allow you to view all tiles of the filetypes you select below.
+          <br>
+          <label class="custom-control custom-checkbox">
                     <input id="docs-filter" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">Docs</span>
                 </label>
-                <br>
-                <label class="custom-control custom-checkbox">
+          <br>
+          <label class="custom-control custom-checkbox">
                     <input id="sheets-filter" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">Sheets</span>
                 </label>
-                <br>
-                <label class="custom-control custom-checkbox">
+          <br>
+          <label class="custom-control custom-checkbox">
                     <input id="slides-filter" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">Slides</span>
                 </label>
-                <br>
-                <label class="custom-control custom-checkbox">
+          <br>
+          <label class="custom-control custom-checkbox">
                     <input id="bookmarks-filter" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">Bookmarks</span>
                 </label>
-                <br>
-                <label class="custom-control custom-checkbox">
+          <br>
+          <label class="custom-control custom-checkbox">
                     <input id="photos-filter" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">Photos</span>
                 </label>
-                <br>
-                <label class="custom-control custom-checkbox">
+          <br>
+          <label class="custom-control custom-checkbox">
                     <input id=' apps-filter ' type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">Apps</span>
                 </label>
-            </div>
-            <br>
-            <br>
-            <div id="tiles-tiles" class="nobullet">
-                You don't have any Tiles. </div>
+        </div>
+        <br>
+        <br>
+        <div id="tiles-tiles" class="nobullet">
+          You don't have any Tiles. </div>
         <div id="tiles-searchbox" class="nobullet" style="display: none;">
         </div>
         <br>
