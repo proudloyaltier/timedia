@@ -1,16 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
-
 textarea {
   outline: 0;
 }
 
 @font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('glyphicon-fonts/glyphicons-halflings-regular.eot');
-  src: url('glyphicon-fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphicon-fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('glyphicon-fonts/glyphicons-halflings-regular.woff') format('woff'), url('glyphicon-fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('glyphicon-fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  font-family: "Glyphicons Halflings";
+  src: url("glyphicon-fonts/glyphicons-halflings-regular.eot");
+  src: url("glyphicon-fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("glyphicon-fonts/glyphicons-halflings-regular.woff2") format("woff2"), url('glyphicon-fonts/glyphicons-halflings-regular.woff') format('woff'), url('glyphicon-fonts/glyphicons-halflings-regular.ttf') format("truetype"), url("glyphicon-fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid gray;
   border-collapse: collapse;
 }
@@ -26,9 +27,18 @@ table, th, td {
   }
 }
 
+.centered {
+  text-align: center;
+}
+
+.page404 {
+  width: 50%;
+  border-radius: 15px;
+  margin-top: 10%;
+}
+
 .formatting-button {
-  !important
-  float: left;
+  float: left !important;
   border-radius: 0px;
   box-shadow: none;
   outline: 0px;
@@ -42,7 +52,6 @@ img {
   filter: none;
 }
 
-/* iChat styles */
 .iChat-highlight {
   color: #000;
 }
@@ -57,7 +66,8 @@ img {
   text-align: center;
 }
 
-.iChat-username, .iChat-timestamp {
+.iChat-username,
+.iChat-timestamp {
   font-weight: bold;
 }
 
