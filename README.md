@@ -13,6 +13,7 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 
 ## What's new?
+• TiMedia is now a lot faster!
 
 • Fix some Tiri glitches and add clear our conversation command to Tiri Type!
 
