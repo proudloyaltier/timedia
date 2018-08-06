@@ -58,7 +58,7 @@ img {
 
 .iChat-messages {
   overflow: auto;
-  width: 75%;
+  width: 100%;
   height: 50vh;
 }
 
