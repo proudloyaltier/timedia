@@ -283,7 +283,7 @@
         <h3 id="tidocs-header no-print">TiDocs</h3>
         <br>
         <div id="create">
-          <input id="docsTitle" class="form-control lg" value="Untitled Document">
+          <input id="tidocsTitle" class="form-control lg" value="Untitled Document">
           <br>
           <div class="formatting-bar no-print">
             <button class="btn btn-primary formatting-button" onclick="document.execCommand('bold'); saveDoc();">
@@ -324,14 +324,14 @@
               <p style='font-size: 30px;'>Change Text Color</p>
               <input style="width: 5%;" id="fontColor" class="jscolor form-control" value="000000">
               <br>
-              <button onclick='setColor();' class='btn btn-primary'>Set Color</button>
+              <button onclick="setColor()" class='btn btn-primary'>Set Color</button>
               <br>
               <br>
             </div>
             <br>
             <br>
           </div>
-          <h5 class="tidocsContent" style="outline: none;" id="tidocsContent" contenteditable="true" autofocus></h5>
+          <h5 id="tidocsContent" style="outline: none;" contenteditable="true" autofocus></h5>
           <br>
         </div>
         <h5 style="display: none;" id="view"></h5>
@@ -698,25 +698,22 @@
         <a href="logout.html">Logout
                 <span class="glyphicon glyphicon-log-out"></span>
             </a>
-        <div id="settings-back-arrow" onclick="backSettings()">
-          <</div>
-            <br>
-            <br>
-            <div id="settings-sections">
-            </div>
-            <script src="js/birthday.js"></script>
+        <div id="settings-back-arrow" onclick="backSettings()"><</div>
+            <!-- JavaScript -->
+            <div id="settings-sections"></div>
+            <script src="js/home.js"></script>
             <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
             <script src="js/aes.js"></script>
+            <script src="js/birthday.js"></script>
             <script src="js/alertify.js"></script>
             <script src="js/titanium.js"></script>
-            <script src="js/home.js"></script>
             <script src="js/cmenu.js"></script>
             <script src="js/main.js"></script>
             <script src="js/tismile.js"></script>
             <script src="js/annyang.js"></script>
             <script src="js/math.min.js"></script>
             <script src="js/jscolor.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
             <script src="js/swal.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
