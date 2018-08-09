@@ -89,11 +89,11 @@ String.prototype.toHHMMSS = function() {
 }
 
 function openTile(tile) {
-  for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    if (localStorage.files.split(",")[i].toLowerCase().includes(tile.toLowerCase())) {
-      if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i") == false && localStorage.files.split(",")[i].split("!!")[1].includes("?app=8&a") == false) {
-        window.location.href = localStorage.files.split(",")[i].split("!!")[1];
-      } else if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=1&i")) {
+  for (var i = 0; i < Object.keys(files).length; i++) {
+    if (Object.keys(files)[i].toLowerCase().includes(tile.toLowerCase())) {
+      if (files[Object.keys(files)[i]].includes("?app=1&i") == false && files[Object.keys(files)[i]].includes("?app=8&a") == false) {
+        window.location.href = files[Object.keys(files)[i]];
+      } else if (files[Object.keys(files)[i]].includes("?app=1&i")) {
         viewPhotos(i)
       } else {
        openApp(i)

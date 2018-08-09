@@ -38,7 +38,7 @@ function convertPhoto() {
 }
 
 function viewPhotos(i) {
-var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i].split("&i=")[1]);
+var urlRef = window.dbRef.child("photos").child(files[Object.keys(files)[i]].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       localStorage.owner = child.key;
@@ -59,30 +59,30 @@ var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i]
 }
 
 function thumbPhotos(i) {
-var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i].split("&i=")[1]);
+  var urlRef = window.dbRef.child("photos").child(files[Object.keys(files)[i]].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
       if (localStorage.tileDeleteButton !== "true") {
-      document.getElementById('tiles-tiles').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + localStorage.files.split(",")[i].split("!!")[0] + '</h3></span></li>'
+        document.getElementById('tiles-tiles').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + Object.keys(files)[i].split("!!")[0] + '</h3></span></li>'
       } 
       if (localStorage.tileDeleteButton == "true") {
-       document.getElementById('tiles-tiles').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + localStorage.files.split(",")[i].split("!!")[0] + '</h3> <center><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></span></li>'
+        document.getElementById('tiles-tiles').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + Object.keys(files)[i].split("!!")[0] + '</h3> <center><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></span></li>'
       }
      } else if (contentsrc.includes("data:video")) {
       if (localStorage.tileDeleteButton == "true") {
-            document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+        document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
       }
       if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br></center></h3></span></li>';
+        document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br></center></h3></span></li>';
       }
     } else if (contentsrc.includes("data:audio")) {
       if (localStorage.tileDeleteButton == "true") {
-            document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+        document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
       }
       if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br></center></h3></span></li>';
+        document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br></center></h3></span></li>';
       }
     } 
     });
@@ -90,30 +90,30 @@ var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i]
 }
 
 function thumbPhotosSearch(i) {
-var urlRef = window.dbRef.child("photos").child(localStorage.files.split(",")[i].split("&i=")[1]);
+  var urlRef = window.dbRef.child("photos").child(files[Object.keys(files)[i]].split("&i=")[1]);
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       var contentsrc = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
      if (contentsrc.includes("data:image")) {
       if (localStorage.tileDeleteButton !== "true") {
-      document.getElementById('tiles-searchbox').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + localStorage.files.split(",")[i].split("!!")[0] + '</h3></span></li>'
+        document.getElementById('tiles-searchbox').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + Object.keys(files)[i].split("!!")[0] + '</h3></span></li>'
       } 
       if (localStorage.tileDeleteButton == "true") {
-       document.getElementById('tiles-searchbox').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + localStorage.files.split(",")[i].split("!!")[0] + '</h3> <center><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></span></li>'
+        document.getElementById('tiles-searchbox').innerHTML += '<li onclick="viewPhotos(' + i + ')" onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="img-background"><center><img height="200px" width="auto" src=' + contentsrc + '></center><span class="img-background-bottom-bar"><h3 style="color: gray; vertical-align: middle; display: table-cell;"><span class="glyphicon glyphicon-picture" style="font-size: 30px; padding: 10px;"></span>' + Object.keys(files)[i].split("!!")[0] + '</h3> <center><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></span></li>'
       }
      } else if (contentsrc.includes("data:video")) {
       if (localStorage.tileDeleteButton == "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+        document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
       }
       if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br></center></h3></span></li>';
+        document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-facetime-video"><br></span><br></center></h3></span></li>';
       }
     } else if (contentsrc.includes("data:audio")) {
       if (localStorage.tileDeleteButton == "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+        document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
       }
       if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + localStorage.files.split(",")[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br></center></h3></span></li>';
+        document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="viewPhotos(' + i + ')"><h3><center>' + Object.keys(files)[i].split("!!")[0] + '<br><span style="font-size: 300%; color: #f754f9;" class="glyphicon glyphicon-headphones"><br></span><br></center></h3></span></li>';
       }
     } 
     });
