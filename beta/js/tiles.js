@@ -35,67 +35,69 @@ function refreshTiles() {
   getFromDatabaseTiles("files");
 }
 
-refreshTiles();
-
 function addFilter(filter) {
-    tiles_filters[filter] = true;
-    clearInterval(tilesLoadInterval)
-    loadTilesFilters();
+  tiles_filters[filter] = true;
+  clearInterval(tilesLoadInterval)
+  loadTilesFilters();
 }
 
-
 function removeFilter(filter) {
-    tiles_filters[filter] = false;
-    if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false &&  tiles_filters["slides"] == false &&  tiles_filters["photos"] == false &&  tiles_filters["bookmarks"] == false) {
-      var tilesLoadInterval = setInterval(loadTiles, 1000);
-    }
+  tiles_filters[filter] = false;
+  if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false && tiles_filters["slides"] == false && tiles_filters["photos"] == false && tiles_filters["bookmarks"] == false) {
+    var tilesLoadInterval = setInterval(loadTiles, 1000);
+  }
 }
 
 function checkFilterStates() {
-   if (document.getElementById('docs-filter').checked == true) {
-   addFilter("docs")
-   } else if (tiles_filters["docs"] !== false && document.getElementById('docs-filter').checked == false){
-   removeFilter("docs")
-   }
+  if (document.getElementById('docs-filter').checked == true) {
+    addFilter("docs");
+  } else if (tiles_filters["docs"] !== false && document.getElementById('docs-filter').checked == false) {
+    removeFilter("docs");
+  }
+
   if (document.getElementById('sheets-filter').checked == true) {
-   addFilter("sheets")
-   } else if (tiles_filters["sheets"] !== false && document.getElementById('sheets-filter').checked == false){
-   removeFilter("sheets")
-   }
+    addFilter("sheets");
+  } else if (tiles_filters["sheets"] !== false && document.getElementById('sheets-filter').checked == false) {
+    removeFilter("sheets");
+  }
+
   if (document.getElementById('slides-filter').checked == true) {
-   addFilter("slides")
-   } else if (tiles_filters["slides"] !== false && document.getElementById('slides-filter').checked == false){
-   removeFilter("slides")
-   }
+    addFilter("slides");
+  } else if (tiles_filters["slides"] !== false && document.getElementById('slides-filter').checked == false) {
+    removeFilter("slides");
+  }
+
   if (document.getElementById('bookmarks-filter').checked == true) {
-   addFilter("bookmarks")
-   } else if (tiles_filters["bookmarks"] !== false && document.getElementById('bookmarks-filter').checked == false){
-   removeFilter("bookmarks")
-   }
-   if (document.getElementById('photos-filter').checked == true) {
-   addFilter("photos")
-   } else if (tiles_filters["photos"] !== false && document.getElementById('photos-filter').checked == false){
-   removeFilter("photos")
-   }
-   if (document.getElementById('apps-filter').checked == true) {
-   addFilter("apps")
- } else if (tiles_filters["apps"] !== false && document.getElementById('apps-filter').checked == false){
-   removeFilter("apps")
-   }
+    addFilter("bookmarks");
+  } else if (tiles_filters["bookmarks"] !== false && document.getElementById('bookmarks-filter').checked == false) {
+    removeFilter("bookmarks");
+  }
+
+  if (document.getElementById('photos-filter').checked == true) {
+    addFilter("photos");
+  } else if (tiles_filters["photos"] !== false && document.getElementById('photos-filter').checked == false) {
+    removeFilter("photos");
+  }
+
+  if (document.getElementById('apps-filter').checked == true) {
+    addFilter("apps");
+  } else if (tiles_filters["apps"] !== false && document.getElementById('apps-filter').checked == false) {
+    removeFilter("apps");
+  }
 }
 
-setInterval(checkFilterStates, 0);
-
 function showFilterSelect() {
-  document.getElementById('select-filters').style.display = 'block'
-  document.getElementById('filter-btn').onclick = hideFilterSelect
-  document.getElementById('filter-btn').className = 'glyphicon glyphicon-menu-up';
+  document.getElementById('select-filters').style.display = "";
+  document.getElementById("filter-btn").removeEventListener("click", showFilterSelect);
+  document.getElementById("filter-btn").addEventListener("click", hideFilterSelect);
+  document.getElementById('filter-btn').className = "glyphicon glyphicon-menu-up";
 }
 
 function hideFilterSelect() {
-  document.getElementById('select-filters').style.display = 'none'
-  document.getElementById('filter-btn').onclick = showFilterSelect
-  document.getElementById('filter-btn').className = 'glyphicon glyphicon-menu-down';
+  document.getElementById("select-filters").style.display = "none";
+  document.getElementById("filter-btn").removeEventListener("click", hideFilterSelect);
+  document.getElementById("filter-btn").addEventListener("click", showFilterSelect);
+  document.getElementById("filter-btn").className = "glyphicon glyphicon-menu-down";
 }
 
 
@@ -104,23 +106,23 @@ document.getElementById("ti-work").onclick = function() {
     this.style.transform = "rotate(45deg)";
     this.style.backgroundColor = "#c19a95";
     this.style.color = "#ffffff";
-    document.getElementById('tiapps-icon').style.bottom = '370px';
-    document.getElementById('docs-icon').style.bottom = '310px';
-  document.getElementById('slides-icon').style.bottom = '250px';
-  document.getElementById('sheets-icon').style.bottom = '190px';
-  document.getElementById('bookmarks-icon').style.bottom = '130px';
-  document.getElementById('upload-icon').style.bottom = '70px';
-  document.getElementById('tiapps-icon').style.backgroundColor = "#7200ff";
-  document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
-  document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
-  document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
-  document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
-  document.getElementById('upload-icon').style.backgroundColor = '#346df9';
+    document.getElementById("tiapps-icon").style.bottom = "370px";
+    document.getElementById("docs-icon").style.bottom = "310px";
+    document.getElementById("slides-icon").style.bottom = "250px";
+    document.getElementById("sheets-icon").style.bottom = "190px";
+    document.getElementById("bookmarks-icon").style.bottom = "130px";
+    document.getElementById("upload-icon").style.bottom = "70px";
+    document.getElementById("tiapps-icon").style.backgroundColor = "#7200ff";
+    document.getElementById("docs-icon").style.backgroundColor = "#2296F3";
+    document.getElementById("slides-icon").style.backgroundColor = "#f4b400";
+    document.getElementById("sheets-icon").style.backgroundColor = "#008c1e";
+    document.getElementById("bookmarks-icon").style.backgroundColor = "#ff0000";
+    document.getElementById("upload-icon").style.backgroundColor = "#346df9";
   } else {
     this.style.transform = "";
     this.style.backgroundColor = "lightgray";
     this.style.color = "gray";
-    for(var i = 0; i < document.getElementsByClassName("ti-work-icon").length; i++) {
+    for (var i = 0; i < document.getElementsByClassName("ti-work-icon").length; i++) {
       document.getElementsByClassName("ti-work-icon")[i].style.bottom = "10px";
       document.getElementsByClassName("ti-work-icon")[i].style.backgroundColor = "lightgray";
     }
@@ -156,19 +158,6 @@ function setColorSheets() {
   document.getElementById("fontColorDivSheets").style.display = "none";
   saveSheet();
 }
-
-/*
-
-function insertImage() {
-alertify
-  .defaultValue('https://')
-  .prompt("Image URL",
-          function (val) {
-          document.execCommand('insertImage',false,val);
-   });
-}
-
-*/
 
 function renameTile(tid, rwith) {
   files[rwith] = files[Object.keys(files)[tid]]
@@ -213,7 +202,7 @@ function deleteTile(tileid) {
     } else {
       fbFolder = "photos"
     }
-    
+
     var toDelFirebase = files[Object.keys(files)[tileid]].slice(19);
     window.dbRef.child(fbFolder).child(toDelFirebase).set(null);
     save();
@@ -228,20 +217,20 @@ function openTileContext(tileID) {
 function resetTiles() {
   alertify.confirm("Are you sure you want to delete all of your Tiles?", function() {
     for (var i = 0; i < Object.keys(files).length; i++) {
-     var fbFolder;
+      var fbFolder;
       if (files[Object.keys(files)[i]].includes("index.html?app=3&p=")) {
-       fbFolder = "docs";
+        fbFolder = "docs";
       } else if (files[Object.keys(files)[i]].includes("index.html?app=4&t=")) {
-       fbFolder = "sheets";
+        fbFolder = "sheets";
       } else if (files[Object.keys(files)[i]].includes("index.html?app=9&s=")) {
-       fbFolder = "slides";
+        fbFolder = "slides";
       } else if (files[Object.keys(files)[i]].includes("index.html?app=8&a=")) {
-       fbFolder = "apps"
-     } else {
-       fbFolder = "photos"
-     }
+        fbFolder = "apps"
+      } else {
+        fbFolder = "photos"
+      }
       var toDelFirebaseReset = files[Object.keys(files)[i]].slice(19);
-     window.dbRef.child(fbFolder).child(toDelFirebaseReset).set(null);
+      window.dbRef.child(fbFolder).child(toDelFirebaseReset).set(null);
     }
     files = "";
     storeInDatabase("files", "");
@@ -292,11 +281,11 @@ function searchTiles(search) {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #ff0000;" class="glyphicon glyphicon-bookmark"><br></span><br></center></h3></span></li>';
           }
         }
-         if (files[Object.keys(files)[i]].includes("?app=1") && files[Object.keys(files)[i]].includes("?app=10") !== true) {
+        if (files[Object.keys(files)[i]].includes("?app=1") && files[Object.keys(files)[i]].includes("?app=10") !== true) {
           thumbPhotosSearch(i)
         }
 
-         if (files[Object.keys(files)[i]].includes("?app=8")) {
+        if (files[Object.keys(files)[i]].includes("?app=8")) {
           appThumbSearch(i)
         }
         if (files[Object.keys(files)[i]].includes("?app=9")) {
@@ -338,14 +327,14 @@ function loadTilesFilters() {
   document.getElementById('tiles-tiles').innerHTML = "Loading . . .";
 
   if (files !== "" && files !== {}) {
-    document.getElementById('tiles-tiles').innerHTML = "";
+    document.getElementById("tiles-tiles").innerHTML = "";
     for (var i = 0; i < Object.keys(files).length; i++) {
-      if (files[Object.keys(files)[i]].includes('?app=3') && tiles_filters.docs == true) {
+      if (files[Object.keys(files)[i]].includes("?app=3") && tiles_filters.docs === true) {
         if (localStorage.tileDeleteButton == "true") {
-          document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+          document.getElementById("tiles-tiles").innerHTML = document.getElementById("tiles-tiles").innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
         }
         if (localStorage.tileDeleteButton !== "true") {
-          document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br></center></h3></span></li>';
+          document.getElementById("tiles-tiles").innerHTML = document.getElementById("tiles-tiles").innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br></center></h3></span></li>';
         }
       }
 
@@ -370,8 +359,8 @@ function loadTilesFilters() {
         thumbPhotos(i)
       }
       if (files[Object.keys(files)[i]].includes("?app=8") && tiles_filters.apps == true) {
-       appThumb(i)
-     }
+        appThumb(i)
+      }
       if (files[Object.keys(files)[i]].includes("?app=9") && tiles_filters.slides == true) {
         if (localStorage.tileDeleteButton == "true") {
           document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
@@ -385,12 +374,12 @@ function loadTilesFilters() {
     document.getElementById("tiles-tiles").innerHTML += "<datalist id='tiles-listdiv'>";
     document.getElementById("tiles-tiles").innerHTML += "</ul>";
   } else {
-    document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
+    document.getElementById("tiles-tiles").innerHTML = "You have no Tiles.";
   }
 }
 
 function loadTiles() {
-  document.getElementById('tiles-tiles').innerHTML = "Loading . . .";
+  document.getElementById("tiles-tiles").innerHTML = "Loading...";
 
   if (files !== "" && files !== {}) {
     document.getElementById('tiles-tiles').innerHTML = "";
@@ -421,15 +410,18 @@ function loadTiles() {
           document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #ff0000;" class="glyphicon glyphicon-bookmark"><br></span><br></center></h3></span></li>';
         }
       }
+
       if (files[Object.keys(files)[i]].includes("?app=1") && files[Object.keys(files)[i]].includes("?app=10") !== true) {
-        thumbPhotos(i)
+        thumbPhotos(i);
       }
+
       if (files[Object.keys(files)[i]].includes("?app=8")) {
-       appThumb(i)
+        appThumb(i);
       }
+
       if (files[Object.keys(files)[i]].includes("?app=9")) {
         if (localStorage.tileDeleteButton == "true") {
-          document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
         }
         if (localStorage.tileDeleteButton !== "true") {
           document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br></center></h3></span></li>';
@@ -440,7 +432,7 @@ function loadTiles() {
     document.getElementById("tiles-tiles").innerHTML += "<datalist id='tiles-listdiv'>";
     document.getElementById("tiles-tiles").innerHTML += "</ul>";
   } else {
-    document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
+    document.getElementById("tiles-tiles").innerHTML = "You have no Tiles.";
   }
 }
 
@@ -448,10 +440,10 @@ function redirect() {
   window.location.href = localStorage.recentUrl;
 }
 
-
-if (getQueryVariable('app') == 7) {
+if (getQueryVariable("app") == 7) {
   refreshTiles();
   loadTiles();
+
   var tilesLoadInterval = setInterval(loadTiles, 1000);
 }
 
