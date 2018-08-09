@@ -12,7 +12,7 @@ var tiles_filters = {
 if (files == null) {
   files = "";
   localStorage.removeItem(files);
-  save()
+  save();
   refreshTiles();
 }
 
@@ -213,19 +213,11 @@ function deleteTile(tileid) {
     } else {
       fbFolder = "photos"
     }
+    
     var toDelFirebase = files[Object.keys(files)[tileid]].slice(19);
     window.dbRef.child(fbFolder).child(toDelFirebase).set(null);
-    if (Object.keys(files).length <= 1) {
-      files = "";
-      storeInDatabase("files", "");
-    }
-    delete files[Object.keys(files)[tileid]]
     save();
-    swal("Deleted!", "Tile successfully deleted!", "success").then((value) => {
-      window.location.reload();
-    })
-  }, function() {
-    window.location.reload();
+    refreshTiles();
   });
 }
 
@@ -234,7 +226,7 @@ function openTileContext(tileID) {
 }
 
 function resetTiles() {
-  alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function() {
+  alertify.confirm("Are you sure you want to delete all of your Tiles?", function() {
     for (var i = 0; i < Object.keys(files).length; i++) {
      var fbFolder;
       if (files[Object.keys(files)[i]].includes("index.html?app=3&p=")) {
