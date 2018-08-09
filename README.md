@@ -10,18 +10,14 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 - [x] Secure database
 - [ ] Update other-non recognized file types (like .pptx, .zip, and more)
 - [x] Add Tiri Shortcuts
+- [x] Convert Tiles To JSON
 
 
 ## What's new?
+
+• Tiles is now fully using JSON!
+
 • TiMedia is now a lot faster!
-
-• Fix some Tiri glitches and add clear our conversation command to Tiri Type!
-
-• Fix minor, annoying Tiles glitches!
-
-• Importing TiApps to tiles now fully works!
-
-• Introducing Tiri Shortcuts! The custom tiri commands that can be created in seconds!  For developers, even add your own custom code executed after your response!  You could open a tile, remind yourself to do something, and more!
 
 ## What is TiMedia?
 TiMedia is a all-in one cloud storage service.
