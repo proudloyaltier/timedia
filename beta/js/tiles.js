@@ -38,50 +38,50 @@ function refreshTiles() {
 refreshTiles();
 
 function addFilter(filter) {
-    tiles_filters[filter] = true;
-    clearInterval(tilesLoadInterval)
-    loadTilesFilters();
+  tiles_filters[filter] = true;
+  clearInterval(tilesLoadInterval)
+  loadTilesFilters();
 }
 
 
 function removeFilter(filter) {
-    tiles_filters[filter] = false;
-    if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false &&  tiles_filters["slides"] == false &&  tiles_filters["photos"] == false &&  tiles_filters["bookmarks"] == false) {
-      var tilesLoadInterval = setInterval(loadTiles, 1000);
-    }
+  tiles_filters[filter] = false;
+  if (tiles_filters["docs"] == false && tiles_filters["sheets"] == false && tiles_filters["slides"] == false && tiles_filters["photos"] == false && tiles_filters["bookmarks"] == false) {
+    var tilesLoadInterval = setInterval(loadTiles, 1000);
+  }
 }
 
 function checkFilterStates() {
-   if (document.getElementById('docs-filter').checked == true) {
-   addFilter("docs")
-   } else if (tiles_filters["docs"] !== false && document.getElementById('docs-filter').checked == false){
-   removeFilter("docs")
-   }
+  if (document.getElementById('docs-filter').checked == true) {
+    addFilter("docs")
+  } else if (tiles_filters["docs"] !== false && document.getElementById('docs-filter').checked == false) {
+    removeFilter("docs")
+  }
   if (document.getElementById('sheets-filter').checked == true) {
-   addFilter("sheets")
-   } else if (tiles_filters["sheets"] !== false && document.getElementById('sheets-filter').checked == false){
-   removeFilter("sheets")
-   }
+    addFilter("sheets")
+  } else if (tiles_filters["sheets"] !== false && document.getElementById('sheets-filter').checked == false) {
+    removeFilter("sheets")
+  }
   if (document.getElementById('slides-filter').checked == true) {
-   addFilter("slides")
-   } else if (tiles_filters["slides"] !== false && document.getElementById('slides-filter').checked == false){
-   removeFilter("slides")
-   }
+    addFilter("slides")
+  } else if (tiles_filters["slides"] !== false && document.getElementById('slides-filter').checked == false) {
+    removeFilter("slides")
+  }
   if (document.getElementById('bookmarks-filter').checked == true) {
-   addFilter("bookmarks")
-   } else if (tiles_filters["bookmarks"] !== false && document.getElementById('bookmarks-filter').checked == false){
-   removeFilter("bookmarks")
-   }
-   if (document.getElementById('photos-filter').checked == true) {
-   addFilter("photos")
-   } else if (tiles_filters["photos"] !== false && document.getElementById('photos-filter').checked == false){
-   removeFilter("photos")
-   }
-   if (document.getElementById('apps-filter').checked == true) {
-   addFilter("apps")
- } else if (tiles_filters["apps"] !== false && document.getElementById('apps-filter').checked == false){
-   removeFilter("apps")
-   }
+    addFilter("bookmarks")
+  } else if (tiles_filters["bookmarks"] !== false && document.getElementById('bookmarks-filter').checked == false) {
+    removeFilter("bookmarks")
+  }
+  if (document.getElementById('photos-filter').checked == true) {
+    addFilter("photos")
+  } else if (tiles_filters["photos"] !== false && document.getElementById('photos-filter').checked == false) {
+    removeFilter("photos")
+  }
+  if (document.getElementById('apps-filter').checked == true) {
+    addFilter("apps")
+  } else if (tiles_filters["apps"] !== false && document.getElementById('apps-filter').checked == false) {
+    removeFilter("apps")
+  }
 }
 
 setInterval(checkFilterStates, 0);
@@ -99,28 +99,28 @@ function hideFilterSelect() {
 }
 
 
-document.getElementById("ti-work").onclick = function() {
+document.getElementById("ti-work").onclick = function () {
   if (this.style.transform == "") {
     this.style.transform = "rotate(45deg)";
     this.style.backgroundColor = "#c19a95";
     this.style.color = "#ffffff";
     document.getElementById('tiapps-icon').style.bottom = '370px';
     document.getElementById('docs-icon').style.bottom = '310px';
-  document.getElementById('slides-icon').style.bottom = '250px';
-  document.getElementById('sheets-icon').style.bottom = '190px';
-  document.getElementById('bookmarks-icon').style.bottom = '130px';
-  document.getElementById('upload-icon').style.bottom = '70px';
-  document.getElementById('tiapps-icon').style.backgroundColor = "#7200ff";
-  document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
-  document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
-  document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
-  document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
-  document.getElementById('upload-icon').style.backgroundColor = '#346df9';
+    document.getElementById('slides-icon').style.bottom = '250px';
+    document.getElementById('sheets-icon').style.bottom = '190px';
+    document.getElementById('bookmarks-icon').style.bottom = '130px';
+    document.getElementById('upload-icon').style.bottom = '70px';
+    document.getElementById('tiapps-icon').style.backgroundColor = "#7200ff";
+    document.getElementById('docs-icon').style.backgroundColor = '#2296F3';
+    document.getElementById('slides-icon').style.backgroundColor = '#f4b400';
+    document.getElementById('sheets-icon').style.backgroundColor = '#008c1e';
+    document.getElementById('bookmarks-icon').style.backgroundColor = '#ff0000';
+    document.getElementById('upload-icon').style.backgroundColor = '#346df9';
   } else {
     this.style.transform = "";
     this.style.backgroundColor = "lightgray";
     this.style.color = "gray";
-    for(var i = 0; i < document.getElementsByClassName("ti-work-icon").length; i++) {
+    for (var i = 0; i < document.getElementsByClassName("ti-work-icon").length; i++) {
       document.getElementsByClassName("ti-work-icon")[i].style.bottom = "10px";
       document.getElementsByClassName("ti-work-icon")[i].style.backgroundColor = "lightgray";
     }
@@ -170,6 +170,122 @@ alertify
 
 */
 
+function IsJsonString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
+function moveTileIntoFolder(tileid) {
+  alertify
+    .defaultValue("")
+    .prompt("Which Folder (case sensitive)", function (val) {
+      val = encodeURI(val);
+      if (typeof files[val] == "undefined") {
+        swal("Error", "Please enter a valid folder name", "error")
+      } else {
+        var parsed = JSON.parse(files[val]);
+        parsed[Object.keys(files)[tileid]] = files[Object.keys(files)[tileid]];
+        delete files[Object.keys(files)[tileid]]
+        files[val] = JSON.stringify(parsed);
+        save();
+        swal("Successful", "Your file has been moved!", "success")
+      }
+    })
+}
+
+function moveTileOutOfFolder(tileid) {
+  var parsed = JSON.parse(files[getQueryVariable("f")]);
+  files[Object.keys(parsed)[tileid]] = parsed[Object.keys(parsed)[tileid]]
+  delete parsed[Object.keys(parsed)[tileid]]
+  if (JSON.stringify(parsed) == "{}") {
+    parsed = null;
+    files[getQueryVariable("f")] = null
+  } else {
+    files[getQueryVariable("f")] = JSON.stringify(parsed);
+  }
+  save();
+  swal("Successful", "Your file has been moved!", "success")
+}
+
+function deleteTileFolder(tileid) {
+  var parsed = JSON.parse(files[getQueryVariable("f")]);
+  alertify.confirm("Are you sure you want to delete this Tile?", function () {
+    var fbFolder;
+    if (Object.keys(parsed)[tileid].includes("index.html?app=3&p=")) {
+      fbFolder = "docs";
+    } else if (Object.keys(parsed)[tileid].includes("index.html?app=4&t=")) {
+      fbFolder = "sheets";
+    } else if (Object.keys(parsed)[tileid].includes("index.html?app=9&s=")) {
+      fbFolder = "slides";
+    } else if (Object.keys(parsed)[tileid].includes("index.html?app=8&a=")) {
+      fbFolder = "apps"
+    } else {
+      fbFolder = "photos"
+    }
+    var toDelFirebase = parsed[Object.keys(parsed)[tileid]].slice(19);
+    window.dbRef.child(fbFolder).child(toDelFirebase).set(null);
+    if (Object.keys(files).length <= 1) {
+      files = "";
+      storeInDatabase("files", "");
+    }
+    if (Object.keys(files).length <= 1 && Object.keys(parsed).length <= 1) {
+      files = "";
+      storeInDatabase("files", "");
+    }
+
+    delete Object.keys(parsed)[tileid]
+    files[getQueryVaraiable("f")] = JSON.stringify(parsed)
+    save();
+    swal("Deleted!", "Tile successfully deleted!", "success").then((value) => {
+      window.location.reload();
+    })
+  }, function () {
+    window.location.reload();
+  });
+}
+
+function newFolder() {
+  if (typeof files !== "object" || files == null) {
+    files = {};
+  }
+  alertify
+    .defaultValue("Untitled Folder")
+    .prompt("Create a new folder",
+      function (val) {
+        if (files[encodeURI(val)] == undefined) {
+          files[encodeURI(val)] = JSON.stringify({});
+          window.dbRef.child("files").child(localStorage.name).set(files);
+          swal("Created", "Your new folder has been created!", "success");
+        } else {
+          swal("Error", "The folder name is already in use!", "error")
+        }
+      })
+}
+
+function renameTilePromptFolder(tid) {
+  alertify
+    .defaultValue(Object.keys(files)[tid])
+    .prompt("Rename",
+      function (val) {
+        if (val != null) {
+          files[getQueryVaraiable("f")][rwith] = Object.keys(JSON.parse(files[getQueryVariable("f")]))[tid]
+          var parsed = JSON.parse(files[getQueryVariable("f")]);
+          delete Object.keys(parsed)[tid];
+          files[getQueryVariable("f")] = JSON.stringify(parsed);
+          save();
+        }
+      });
+}
+
+if (getQueryVariable("f") !== false) {
+  files = JSON.parse(localStorage.files)
+  loadTilesFolders();
+}
+
 function renameTile(tid, rwith) {
   files[rwith] = files[Object.keys(files)[tid]]
   delete files[Object.keys(files)[tid]]
@@ -180,7 +296,7 @@ function renameTilePrompt(tid) {
   alertify
     .defaultValue(Object.keys(files)[tid])
     .prompt("Rename",
-      function(val) {
+      function (val) {
         if (val != null) {
           renameTile(tid, val);
           save();
@@ -200,7 +316,7 @@ function generateRandString() {
 }
 
 function deleteTile(tileid) {
-  alertify.confirm("Are you sure you want to delete this Tile?", function() {
+  alertify.confirm("Are you sure you want to delete this Tile?", function () {
     var fbFolder;
     if (files[Object.keys(files)[tileid]].includes("index.html?app=3&p=")) {
       fbFolder = "docs";
@@ -224,39 +340,43 @@ function deleteTile(tileid) {
     swal("Deleted!", "Tile successfully deleted!", "success").then((value) => {
       window.location.reload();
     })
-  }, function() {
+  }, function () {
     window.location.reload();
   });
 }
 
 function openTileContext(tileID) {
-  document.getElementById("context-menu").innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li></ul>';
+  document.getElementById("context-menu").innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li><li><a href="#" onclick="moveTileIntoFolder(' + tileID + ')"><span class="glyphicon glyphicon-share"></span> Move </a></li></ul>';
+}
+
+function openTileContextFolder(tileID) {
+  document.getElementById("context-menu").innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTileFolder(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePromptFolder(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li><li><a href="#" onclick="moveTileOutOfFolder(' + tileID + ')"><span class="glyphicon glyphicon-share"></span> Move Back To All Files</a></li></ul>';
 }
 
 function resetTiles() {
-  alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function() {
+  alertify.confirm("Are You Sure You Want To Delete All of Your Tiles?", function () {
     for (var i = 0; i < Object.keys(files).length; i++) {
-     var fbFolder;
+      var fbFolder;
       if (files[Object.keys(files)[i]].includes("index.html?app=3&p=")) {
-       fbFolder = "docs";
+        fbFolder = "docs";
       } else if (files[Object.keys(files)[i]].includes("index.html?app=4&t=")) {
-       fbFolder = "sheets";
+        fbFolder = "sheets";
       } else if (files[Object.keys(files)[i]].includes("index.html?app=9&s=")) {
-       fbFolder = "slides";
+        fbFolder = "slides";
       } else if (files[Object.keys(files)[i]].includes("index.html?app=8&a=")) {
-       fbFolder = "apps"
-     } else {
-       fbFolder = "photos"
-     }
+        fbFolder = "apps"
+      } else {
+        fbFolder = "photos"
+      }
       var toDelFirebaseReset = files[Object.keys(files)[i]].slice(19);
-     window.dbRef.child(fbFolder).child(toDelFirebaseReset).set(null);
+      window.dbRef.child(fbFolder).child(toDelFirebaseReset).set(null);
     }
     files = "";
     storeInDatabase("files", "");
     swal("Reset!", "Tiles successfully reset!", "success").then((value) => {
       window.location.href = "index.html?app=7";
     })
-  }, function() {
+  }, function () {
     window.location.reload();
   })
 }
@@ -300,11 +420,11 @@ function searchTiles(search) {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #ff0000;" class="glyphicon glyphicon-bookmark"><br></span><br></center></h3></span></li>';
           }
         }
-         if (files[Object.keys(files)[i]].includes("?app=1") && files[Object.keys(files)[i]].includes("?app=10") !== true) {
+        if (files[Object.keys(files)[i]].includes("?app=1") && files[Object.keys(files)[i]].includes("?app=10") !== true) {
           thumbPhotosSearch(i)
         }
 
-         if (files[Object.keys(files)[i]].includes("?app=8")) {
+        if (files[Object.keys(files)[i]].includes("?app=8")) {
           appThumbSearch(i)
         }
         if (files[Object.keys(files)[i]].includes("?app=9")) {
@@ -313,6 +433,14 @@ function searchTiles(search) {
           }
           if (localStorage.tileDeleteButton !== "true") {
             document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br></center></h3></span></li>';
+          }
+        }
+        if (typeof files[Object.keys(files)[i]] == "object" && files[Object.keys(files)[i]] !== null) {
+          if (localStorage.tileDeleteButton == "true") {
+            document.getElementById('tiles-searchbox').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+          }
+          if (localStorage.tileDeleteButton !== "true") {
+            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
           }
         }
       }
@@ -378,8 +506,8 @@ function loadTilesFilters() {
         thumbPhotos(i)
       }
       if (files[Object.keys(files)[i]].includes("?app=8") && tiles_filters.apps == true) {
-       appThumb(i)
-     }
+        appThumb(i)
+      }
       if (files[Object.keys(files)[i]].includes("?app=9") && tiles_filters.slides == true) {
         if (localStorage.tileDeleteButton == "true") {
           document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
@@ -403,7 +531,7 @@ function loadTiles() {
   if (files !== "" && files !== {}) {
     document.getElementById('tiles-tiles').innerHTML = "";
     for (var i = 0; i < Object.keys(files).length; i++) {
-      if (files[Object.keys(files)[i]].includes('?app=3')) {
+      if (files[Object.keys(files)[i]].includes('?app=3') && !IsJsonString(files[Object.keys(files)[i]])) {
         if (localStorage.tileDeleteButton == "true") {
           document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
         }
@@ -412,7 +540,7 @@ function loadTiles() {
         }
       }
 
-      if (files[Object.keys(files)[i]].includes("?app=4")) {
+      if (files[Object.keys(files)[i]].includes("?app=4") && !IsJsonString(files[Object.keys(files)[i]])) {
         if (localStorage.tileDeleteButton == "true") {
           document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #008c1e;" class="glyphicon glyphicon-th-list"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
         }
@@ -421,7 +549,7 @@ function loadTiles() {
         }
       }
 
-      if (files[Object.keys(files)[i]].includes("?app=10")) {
+      if (files[Object.keys(files)[i]].includes("?app=10") && !IsJsonString(files[Object.keys(files)[i]])) {
         if (localStorage.tileDeleteButton == "true") {
           document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #ff0000;" class="glyphicon glyphicon-bookmark"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
         }
@@ -429,11 +557,19 @@ function loadTiles() {
           document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #ff0000;" class="glyphicon glyphicon-bookmark"><br></span><br></center></h3></span></li>';
         }
       }
-      if (files[Object.keys(files)[i]].includes("?app=1") && files[Object.keys(files)[i]].includes("?app=10") !== true) {
+      if (files[Object.keys(files)[i]].includes("?app=1") && files[Object.keys(files)[i]].includes("?app=10") !== true && !IsJsonString(files[Object.keys(files)[i]])) {
         thumbPhotos(i)
       }
-      if (files[Object.keys(files)[i]].includes("?app=8")) {
-       appThumb(i)
+      if (files[Object.keys(files)[i]].includes("?app=8") && !IsJsonString(files[Object.keys(files)[i]])) {
+        appThumb(i)
+      }
+      if (IsJsonString(files[Object.keys(files)[i]])) {
+        if (localStorage.tileDeleteButton == "true") {
+          document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+        }
+        if (localStorage.tileDeleteButton !== "true") {
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
+        }
       }
       if (files[Object.keys(files)[i]].includes("?app=9")) {
         if (localStorage.tileDeleteButton == "true") {
@@ -452,12 +588,68 @@ function loadTiles() {
   }
 }
 
+function loadTilesFolders() {
+  document.getElementById('tiles-tiles').innerHTML = "Loading . . .";
+
+  if (files !== "" && files !== {}) {
+    document.getElementById('tiles-tiles').innerHTML = "";
+    var parsed = JSON.parse(files[getQueryVariable("f")])
+    for (var i = 0; i < Object.keys(parsed).length; i++) {
+      if (parsed[Object.keys(parsed)[i]].includes('?app=3')) {
+        if (localStorage.tileDeleteButton == "true") {
+          document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTileFolder(' + i + ');">Delete</button></center></h3></span></li>';
+        }
+        if (localStorage.tileDeleteButton !== "true") {
+          document.getElementById('tiles-tiles').innerHTML = document.getElementById('tiles-tiles').innerHTML + '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-pencil"><br></span><br></center></h3></span></li>';
+        }
+      }
+
+      if (parsed[Object.keys(parsed)[i]].includes("?app=4")) {
+        if (localStorage.tileDeleteButton == "true") {
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #008c1e;" class="glyphicon glyphicon-th-list"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTileFolder(' + i + ');">Delete</button></center></h3></span></li>';
+        }
+        if (localStorage.tileDeleteButton !== "true") {
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #008c1e;" class="glyphicon glyphicon-th-list"><br></span><br></center></h3></span></li>';
+        }
+      }
+
+      if (parsed[Object.keys(parsed)[i]].includes("?app=10")) {
+        if (localStorage.tileDeleteButton == "true") {
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #ff0000;" class="glyphicon glyphicon-bookmark"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTileFolder(' + i + ');">Delete</button></center></h3></span></li>';
+        }
+        if (localStorage.tileDeleteButton !== "true") {
+          document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #ff0000;" class="glyphicon glyphicon-bookmark"><br></span><br></center></h3></span></li>';
+        }
+      }
+      if (parsed[Object.keys(parsed)[i]].includes("?app=1") && !parsed[Object.keys(parsed)[i]].includes("?app=10")) {
+        thumbPhotosFolder(i)
+      }
+      if (parsed[Object.keys(parsed)[i]].includes("?app=8")) {
+        appThumbFolder(i)
+      }
+      if (parsed[Object.keys(parsed)[i]].includes("?app=9")) {
+        if (localStorage.tileDeleteButton == "true") {
+          document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTileFolder(' + i + ');">Delete</button></center></h3></span></li>';
+        }
+        if (localStorage.tileDeleteButton !== "true") {
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContextFolder(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + parsed[Object.keys(parsed)[i]] + '\');"><h3><center>' + Object.keys(parsed)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br></center></h3></span></li>';
+        }
+      }
+    }
+
+    document.getElementById("tiles-tiles").innerHTML += "<datalist id='tiles-listdiv'>";
+    document.getElementById("tiles-tiles").innerHTML += "</ul>";
+  } else {
+    document.getElementById('tiles-tiles').innerHTML = "You have no Tiles.";
+  }
+}
+
 function redirect() {
   window.location.href = localStorage.recentUrl;
 }
 
 
-if (getQueryVariable('app') == 7) {
+if (getQueryVariable('app') == 7 && getQueryVariable("f") == false) {
   refreshTiles();
   loadTiles();
   var tilesLoadInterval = setInterval(loadTiles, 1000);
