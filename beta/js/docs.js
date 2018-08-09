@@ -1,4 +1,4 @@
-var tidocsContent = document.getElementsById("tidocsContent");
+var tidocsContent = document.getElementById("tidocsContent");
 var tidocsTitle = document.getElementById("tidocsTitle");
 
 var isFirefox = typeof InstallTrigger !== "undefined";
