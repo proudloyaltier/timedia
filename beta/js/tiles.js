@@ -431,13 +431,13 @@ function searchTiles(search) {
         }
         if (IsJsonString(files[Object.keys(files)[i]])) {
           if (localStorage.tileDeleteButton == "true") {
-            document.getElementById('tiles-searchbox').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+            document.getElementById('tiles-searchbox').innerHTML += '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
           }
           if (localStorage.tileDeleteButton !== "true") {
-            document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
+            document.getElementById("tiles-searchbox").innerHTML += '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
           }
         }
-        if (files[Object.keys(files)[i]].includes("?app=9")) {
+        if (files[Object.keys(files)[i]].includes("?app=9") && !IsJsonString(files[Object.keys(files)[i]])) {
           if (localStorage.tileDeleteButton == "true") {
             document.getElementById('tiles-searchbox').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + files[Object.keys(files)[i]] + '\');"><h3><center>' + Object.keys(files)[i] + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-blackboard"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
           }
@@ -567,10 +567,10 @@ function loadTiles() {
       }
       if (IsJsonString(files[Object.keys(files)[i]])) {
         if (localStorage.tileDeleteButton == "true") {
-          document.getElementById('tiles-tiles').innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
+          document.getElementById('tiles-tiles').innerHTML += '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br><br><button class="btn btn-danger" id="delete-single-tile" style="" onclick="deleteTile(' + i + ');">Delete</button></center></h3></span></li>';
         }
         if (localStorage.tileDeleteButton !== "true") {
-          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openTileContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
+          document.getElementById("tiles-tiles").innerHTML += '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
         }
       }
       if (files[Object.keys(files)[i]].includes("?app=9") && !IsJsonString(files[Object.keys(files)[i]])) {
