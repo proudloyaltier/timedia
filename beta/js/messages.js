@@ -6,10 +6,25 @@ function cleanse(text) {
   return eltext;
 }
 
+var chatUsers = [];
+function addUser() {
+  if (chatUsers.length <= 0) {
+    chatUsers.push(document.getElementById("chat").value)
+    window.chat = document.getElementById("chat").value + localStorage.name;
+    chat = chat.toLowerCase();
+  } else {
+    chatUsers.push(document.getElementById("chat").value)
+    window.chat += document.getElementById("chat").value.toLowerCase();
+  }
+  document.getElementById("usersInChat").innerHTML += '<span style="border-radius: 20px; background-color: lightgray; margin: 2px; padding: 7px 11px;">' + document.getElementById("chat").value + '</span><br><br>';
+  document.getElementById("chat").value = "";
+}
+
 function getMessages() {
+  document.getElementById("private-messages").innerHTML = "";
   var urlRef = window.dbRef.child("tichat").child(getQueryVariable("app"));
-  urlRef.on("value", function(snapshot) {
-    snapshot.forEach(function(child) {
+  urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
       var message = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)
       var username = message.split("said:<br>")[0] + "said:<br>";
       var messageContent = message.split("said:<br>")[1];
@@ -28,14 +43,12 @@ function sendMessage(message) {
   }
 }
 
-var sortAlphabets = function(text) {
+var sortAlphabets = function (text) {
   return text.split("").sort().join("");
 };
 
 function joinChat() {
-  var chat = document.getElementById("chat").value + localStorage.name;
-  chat = chat.toLowerCase();
-  var chatPassword1 = sortAlphabets(chat);
+  var chatPassword1 = sortAlphabets(window.chat);
   var chatPassword = MD5(chatPassword1);
   window.location.href = "index.html?app=" + chatPassword;
 }
@@ -46,6 +59,6 @@ if (window.location !== "index.html" && getQueryVariable("app") !== false && get
   document.getElementById("iChat-messages").style.display = "none";
   document.getElementById("pming-home").style.display = "";
   window.addEventListener('DOMContentLoaded', function () {
-  getMessages();
+    setInterval(getMessages, 1000);
   }, false);
 }

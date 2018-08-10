@@ -161,9 +161,11 @@
       <div id="messages" style="display: none;">
         <h3>TiChat</h3>
         <p>Username</p>
-        <input id="chat" class="form-control" onchange="joinChat()" autofocus>
+        <input id="chat" class="form-control" onchange="addUser()" autofocus>
         <br>
-        <button id="joinChatBtn" onclick="joinChat()" class="btn btn-primary">Chat With User</button>
+        <div id='usersInChat'></div>
+        <br>
+        <button id="joinChatBtn" onclick="joinChat()" class="btn btn-primary">Open Chat</button>
       </div>
       <div id="tiritype" class="centered" style="display: none">
         <h1 id="tiri"></h1>
