@@ -268,14 +268,14 @@ function newFolder() {
 }
 
 function renameTilePromptFolder(tid) {
+  var parsed = JSON.parse(files[getQueryVariable("f")])
   alertify
-    .defaultValue(Object.keys(files)[tid])
+    .defaultValue(Object.keys(parsed)[tid])
     .prompt("Rename",
       function (val) {
         if (val != null) {
-          files[getQueryVaraiable("f")][rwith] = Object.keys(JSON.parse(files[getQueryVariable("f")]))[tid]
-          var parsed = JSON.parse(files[getQueryVariable("f")]);
-          delete Object.keys(parsed)[tid];
+          parsed[val] = parsed[Object.keys(parsed)[tid]]
+          delete parsed[Object.keys(parsed)[tid]];
           files[getQueryVariable("f")] = JSON.stringify(parsed);
           save();
         }
