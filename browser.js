@@ -20,18 +20,19 @@ firebase.initializeApp(config);
 window.dbRef = firebase.database().ref();
 
 
-function snapValue(value) {
-  localStorage.setItem(window.gfdName, value.val());
+function getFromDatabaseTiles(name) {
+  window.gfdName = name;
+  window.dbRef.child(name).child(localStorage.name).on("value", snapValueTiles, errorLoadingTiles);
+}
+
+function snapValueTiles(value) {
+  files = value.val();
+  localStorage.files = JSON.stringify(files);
   window.gfdName = null;
 }
 
-function errorLoading(err) {
+function errorLoadingTiles(err) {
   alert(err);
-}
-
-function getFromDatabase(name) {
-  window.gfdName = name;
-  window.dbRef.child(name).child(localStorage.name).on("value", snapValue, errorLoading);
 }
 
 function storeInDatabase(name, value) {
@@ -59,7 +60,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById('login').style.display = "none";
         document.getElementById('account-info').style.display = 'block';
         document.getElementById('user').innerHTML = "Account: " + localStorage.name;
-        getFromDatabase("files")
+        getFromDatabaseTiles("files")
         syncBookmarks();
         renderBookmarks();
         renderApps();
@@ -70,7 +71,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
 function save() {
-  storeInDatabase("files", localStorage.files);
+  window.dbRef.child("files").child(localStorage.name).set(files);
 }
 
 function addFile(title, upload) {
@@ -78,17 +79,12 @@ function addFile(title, upload) {
     var title = prompt("File Name");
     var upload = prompt("Enter your URL");
   }
-
-  if (localStorage.files !== undefined && localStorage.files !== "") {
-    localStorage.files = localStorage.files + "," + title + "!!" + upload;
-  } else {
-    localStorage.files = title + "!!" + upload;
+  files = JSON.parse(localStorage.files);
+  if (files == "") {
+    files = {};
   }
-
-  if (localStorage.files === "") {
-    localStorage.files = title + "!!" + upload;
-  }
-
+  title = title.replace(".", " ");
+  files[title] = upload
   save();
 }
 
@@ -96,8 +92,11 @@ function addFile(title, upload) {
 function syncBookmarks() {
   var syncb = []
   for (var i = 0; i < localStorage.files.split(",").length; i++) {
-    if (localStorage.files.split(",")[i].split("!!")[1].includes("?app=10&l=") == true) {
-      syncb.push(localStorage.files.split(",")[i].split("!!")[0] + "!!" + decodeURI(atob(localStorage.files.split(",")[i].split("!!")[1].split("?app=10&l=")[1])))
+    if (files[Object.keys(files)[i]].includes("?app=10&l=") == true) {
+      syncb.push({
+        name: Object.keys(files)[i],
+        content: decodeURI(atob(files[Object.keys(files)[i]].split("?app=10&l=")[1]))
+      });
     }
   }
   return syncb
@@ -304,13 +303,13 @@ function renderBookmarks() {
   bookmarksBar.innerHTML = "";
   if (firebase.auth().currentUser !== null && syncBookmarks() !== undefined && syncBookmarks() !== "") {
     for (var i = 0; i < syncBookmarks().length; i++) {
-      bookmarksBar.innerHTML += '<a onclick="openBookmark(' + i + ')">' + syncBookmarks()[i].split("!!")[0] + '</a> ';
+      bookmarksBar.innerHTML += '<a onclick="openBookmark(' + i + ')">' + syncBookmarks()[i].name + '</a> ';
     }
   }
 }
 
 function openBookmark(id) {
-  iframe.src = syncBookmarks()[id].split("!!")[1];
+  iframe.src = syncBookmarks()[id].content;
 }
 
 function reload() {
