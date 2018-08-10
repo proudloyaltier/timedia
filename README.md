@@ -6,7 +6,7 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 
 ## To-do List
-- [ ] Tiles folders
+- [x] Tiles folders
 - [x] Secure database
 - [ ] Update other-non recognized file types (like .pptx, .zip, and more)
 - [x] Add Tiri Shortcuts
