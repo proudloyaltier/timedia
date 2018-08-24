@@ -2,25 +2,55 @@ var storeApps = []
 function getAppsFromStore() {
     window.dbRef.child("appStore").once("value", function (snapshot) {
         snapshot.forEach(function (child) {
-            var icon = child.val().split("<ticon style='display: none;'>")[1].replace("</ticon>" + child.val().split("</ticon>")[1], "");
+            var icon = child.val().content.split("<ticon style='display: none;'>")[1].replace("</ticon>" + child.val().content.split("</ticon>")[1], "");
             storeApps.push({
                 icon: icon,
-                content: child.val(),
+                developer: child.val().developer,
+                content: child.val().content,
                 name: child.key
             })
         })
     })
 }
 
+function updateTiAppMenu(app) {
+    document.getElementById("context-menu").innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="updateAppInStore(' + app + ')"><span class="glyphicon glyphicon-pencil"></span> Update App</a></li></ul>';
+}
+
 function loadApps() {
     document.getElementById('store-allapps').innerHTML = "";
     for (var i = 0; i < storeApps.length; i++) {
-        document.getElementById('store-allapps').innerHTML = document.getElementById('store-allapps').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="openStoreApp(' + i + ');"><h3><center>' + storeApps[i].name + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-' + storeApps[i].icon + '"><br></span><br><br></center></h3></span></li>';
+        if (storeApps[i].developer.toLowerCase() == localStorage.name.toLowerCase()) {
+            document.getElementById('store-allapps').innerHTML = document.getElementById('store-allapps').innerHTML + '<li style="float: left; width: 250px; height: 250px;" onmouseover="specialElement = true;" oncontextmenu="updateTiAppMenu(' + i + ')" onmouseout="specialElement = false" class="card" onclick="openStoreApp(' + i + ');"><h3><center>' + storeApps[i].name + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-' + storeApps[i].icon + '"><br></span><br><br></center></h3></span></li>';
+        } else {
+            document.getElementById('store-allapps').innerHTML = document.getElementById('store-allapps').innerHTML + '<li style="float: left; width: 250px; height: 250px;" class="card" onmouseover="specialElement = false" onclick="openStoreApp(' + i + ');"><h3><center>' + storeApps[i].name + '<br><span style="font-size: 300%; color: #2296F3;" class="glyphicon glyphicon-' + storeApps[i].icon + '"><br></span><br><br></center></h3></span></li>';
+        }
+    }
+}
+
+function updateAppInStore(app) {
+    window.selector = document.createElement("input");
+    selector.type = "file";
+    selector.accept = ".tiapp";
+    selector.setAttribute("onchange", "uploadAppToUpdate(" + app + ")");
+    selector.click();
+}
+
+function uploadAppToUpdate(app) {
+    var file = selector.files[0];
+    var reader = new FileReader();
+    reader.addEventListener("load", function () {
+        window.dbRef.child("appStore").child(storeApps[app].name).child("content").set(reader.result)
+        swal("Submitted", "Your app has successfully been updated", "success")
+    }, false);
+
+    if (file) {
+        reader.readAsText(file);
     }
 }
 
 function searchApps() {
-    if (document.getElementById('apps-search').value  == "") {
+    if (document.getElementById('apps-search').value == "") {
         document.getElementById('store-search').style.display = 'none';
         document.getElementById('store-allapps').style.display = 'block';
         loadApps();
@@ -37,17 +67,11 @@ function searchApps() {
 }
 
 function uploadAppToSubmit() {
-    window.dbRef.child("appStore").child(document.getElementById("submitted-app-name").value).once("value", function (snapshot) {
-        if (snapshot.val() == null) {
-            window.selector = document.createElement("input");
-            selector.type = "file";
-            selector.accept = ".tiapp";
-            selector.setAttribute("onchange", "uploadSubmittedApp()");
-            selector.click();
-        } else {
-            swal("Error", "App name is already taken", "error");
-        }
-    })
+    window.selector = document.createElement("input");
+    selector.type = "file";
+    selector.accept = ".tiapp";
+    selector.setAttribute("onchange", "uploadSubmittedApp()");
+    selector.click();
 }
 
 function openStoreApp(i) {
@@ -62,16 +86,23 @@ function openStoreApp(i) {
 
 
 function uploadSubmittedApp() {
-    var file = selector.files[0];
-    var reader = new FileReader();
-    reader.addEventListener("load", function () {
-        window.dbRef.child("appStore").child(document.getElementById("submitted-app-name").value).set(reader.result)
-        swal("Submitted", "Your app has successfully been submitted", "success")
-    }, false);
+    window.dbRef.child("appStore").once("value", function (snapshot) {
+        if (!snapshot.hasChild(document.getElementById("submitted-app-name").value)) {
+            var file = selector.files[0];
+            var reader = new FileReader();
+            reader.addEventListener("load", function () {
+                window.dbRef.child("appStore").child(document.getElementById("submitted-app-name").value).child("content").set(reader.result)
+                window.dbRef.child("appStore").child(document.getElementById("submitted-app-name").value).child("developer").set(localStorage.name)
+                swal("Submitted", "Your app has successfully been submitted", "success")
+            }, false);
 
-    if (file) {
-        reader.readAsText(file);
-    }
+            if (file) {
+                reader.readAsText(file);
+            }
+        } else {
+            swal("Error", "App name is already taken", "error");
+        }
+    });
 }
 
 setTimeout(function () {
