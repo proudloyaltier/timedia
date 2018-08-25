@@ -1,6 +1,6 @@
 /*
 
-TiTanium Alpha 6.8
+TiTanium Alpha 12
 By The TiMedia Team
 
 https://github.com/proudloyaltier/timedia/tree/TiTanium
@@ -115,7 +115,7 @@ function signout() {
   });
 }
 
-var version = "Alpha 6.8";
+var version = "Alpha 12";
 var homepage = "https://www.bing.com";
 var searchUrl = "https://www.bing.com/search?q=";
 var tabsbar = document.getElementById("tabsbar");
@@ -184,7 +184,7 @@ function renderApps() {
   }
   document.getElementById('tiapps-bar').innerHTML = "";
   for (var i = 0; i < tiapps.length; i++) {
-    document.getElementById('tiapps-bar').innerHTML += '<span oncontextmenu="deleteApp(' + i + ')" onclick="openApp(' + i + ')" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].icon + '"></span>';
+    document.getElementById('tiapps-bar').innerHTML += '<span draggable=true ondragstart="appDrag(event, ' + i + ')" oncontextmenu="deleteApp(' + i + ')" onclick="openApp(' + i + ')" title="' + tiapps[i].name + '" class="tiapp-icon ' + "glyphicon glyphicon-" + tiapps[i].icon + '"></span>';
   }
 }
 
@@ -225,6 +225,7 @@ function uploadTIAPP() {
   var reader = new FileReader();
   reader.addEventListener("load", function () {
     tiapps.push({
+      "name": selector.value.split(/(\\|\/)/g).pop(),
       "content": reader.result,
       "icon": reader.result.split("<ticon style='display: none;'>")[1].replace('</ticon>' + reader.result.split('</ticon>')[1], "")
     })
@@ -410,6 +411,25 @@ function newTab(url) {
   }
 }
 
+function openInTiSets(app) {
+  newTab("data:text/html;charset=utf-8," + "<title>" + tiapps[app].name.replace(".tiapp", "") + "</title>" + tiapps[app].content)
+  updateTabs()
+}
+
+function allowAppDrop(ev) {
+  ev.preventDefault();
+}
+
+function appDrag(ev, app) {
+  ev.dataTransfer.setData("app", app);
+}
+
+function appDrop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("app");
+  openInTiSets(data)
+}
+
 function closeTab(id) {
   settings.style.display = "none";
   settingsToggle = false;
@@ -558,7 +578,6 @@ function openUrl() {
   hideMenus();
 
   urlBox.style.color = "";
-
   if (urlBox.value.split(":")[0] === "agent") {
     var agentString = urlBox.value.split(":");
     agentString.shift();
@@ -597,13 +616,10 @@ function openUrl() {
   }
 
   urlBox.blur();
-
   document.title = iframe.src + " - TiTanium";
   urlBox.value = iframe.src.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
-
   titabs[currentTab] = iframe.src;
   titabstitles[currentTab] = iframe.src;
-
   updateTabs();
 }
 

@@ -28,7 +28,7 @@
     </div>
     <div id="browserWindow">
       <br>
-      <div id="tabsbar">
+      <div id="tabsbar" ondrop="appDrop(event)" ondragover="allowAppDrop(event)">
         <span id="tabitem0" class="tab active" onclick="openTab(0)"></span>
       </div>
       <div id='locked-bar' style='display: none;'>
@@ -69,7 +69,7 @@
         <h2>Settings</h2>
         <div class='jumbotron'>
         <h4>About</h4>
-        <h6>TiTanium Alpha 6.8</h6>
+        <h6>TiTanium Alpha 12</h6>
         </div>
         <div class='jumbotron'>
         <div id='login'>
