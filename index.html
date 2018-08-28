@@ -1,116 +1,119 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>TiTanium</title>
-    <script src="firebase.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bootstrap.css">
-  </head>
+<head>
+  <title>TiTanium</title>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap.css">
+</head>
 
-  <body>
-    <div id="setupWindow" class="container" align="center" style="display: none;">
-      <img id="icon" src="icon.png" width="90px" height="90px" draggable="false"><br><br>
-      <div id="setupText">
-        <h1>Welcome to TiTanium</h1>
-        <div class="jumbotron" style="width: 50%; border-radius: 15px;">
-          <h2>Sign In</h2>
-          <p>To use all of TiTanium's features, sign in with your TiMedia account.</p>
-          <input id="usernameFirst" class="form-control" placeholder="Username">
-          <input id="passwordFirst" class="form-control" type="password" placeholder="Password" onchange="signinFirstTime()">
-          <br>
-          <button class="btn btn-primary" onclick="signinFirstTime()">Sign In</button>
-          <br>
-          <br>
-        </div>
-        <span class="spanLink" onclick="finishSetup()">Skip Setup</span>
+<body>
+  <div id="setupWindow" class="container" align="center" style="display: none;">
+    <img id="icon" src="icon.png" width="90px" height="90px" draggable="false"><br><br>
+    <div id="setupText">
+      <h1>Welcome to TiTanium</h1>
+      <div class='jumbotron' style='width: 50%; border-radius: 15px;'>
+        <h2> Sign In </h2>
+        <p> To use all of TiTanium's features, sign in with your TiMedia account </p>
+        <input id='uname-first' class='form-control' placeholder="Username">
+        <input id='pword-first' class='form-control' type='password' placeholder="Password" onchange='signinFirstTime()'>
+        <br>
+        <button onclick='signinFirstTime();' class='btn btn-primary'>Login</button>
+        <br>
+        <br>
+      </div>
+      <span class='spanLink' onclick='finishSetup()'>Skip Setup</span>
+    </div>
+  </div>
+  <div id="browserWindow">
+    <br>
+    <div id="tabsbar" ondrop="appDrop(event)" ondragover="allowAppDrop(event)">
+      <span id="tabitem0" class="tab active" onclick="openTab(0)"></span>
+    </div>
+    <div id='locked-bar' style='display: none;'>
+      <span id='lock-icon' style='display: none;' class="glyphicon glyphicon-lock" onclick="showUnlockTab()" style='font-size: 300%;'></span>
+    </div>
+    <div id="bar">
+      <span onclick="newTab()" class="glyphicon glyphicon-plus btn btn-primary" title="New Tab"></span>
+      <span onclick="backPage()" class="glyphicon glyphicon-menu-left btn btn-primary" title="Back"></span>
+      <span onclick="forPage()" class="glyphicon glyphicon-menu-right btn btn-primary" title="Forward"></span>
+      <span onclick="reload()" class="glyphicon glyphicon-refresh btn btn-primary" title="Reload"></span>
+      <input id="urlbox" type="url" class="form-control" onfocus="select(this); this.style.color = ''; hideMenus();" onchange="openUrl()"
+        title="Enter a URL or search the web" spellcheck="false" autocorrect="false">
+      <span onclick="addBookmark()" class="glyphicon glyphicon-star btn btn-primary" title="Bookmark"></span>
+      <span onclick="incognitoMode()" class="glyphicon glyphicon-eye-close btn btn-primary" title="Incognito"></span>
+      <span onclick="toggleSettings()" class="glyphicon glyphicon-cog btn btn-primary" title="Settings"></span>
+      <span onclick="toggleApps()" class="glyphicon glyphicon-th btn btn-primary" title="Apps"></span>
+      <span onclick="openLocalFile()" class="glyphicon glyphicon-open-file btn btn-primary" title="Open Local File"></span>
+    </div>
+    <div id="bookmarks"><br></div>
+    <div id='offline' align='center' style='display: none;'>
+      <h1> Offline </h1>
+      <h3> TiTanium needs an internet connection to connect to the internet </h3>
+    </div>
+    <div id="webframes">
+      <webview id="tab0"></webview>
+    </div>
+    <div id="apps" class="container" style="display: none;">
+      <h2> Apps </h2>
+      <p> Select a .TIAPP file to open it. Create your own on the TiMedia App creator. However, opening apps downloaded from
+        the internet can be dangerous! </p>
+      <span class='tiapp-icon glyphicon glyphicon-plus' onclick='uploadApp()'></span>
+      <div id='tiapps-bar'>
       </div>
     </div>
-    <div id="browserWindow">
-      <br>
-      <div id="tabsbar" ondrop="appDrop(event)" ondragover="allowAppDrop(event)">
-        <span id="tabitem0" class="tab active" onclick="openTab(0)"></span>
+    <div id='lock-settings' style='display: none;' class='jumbotron container'>
+      <h4 id='lock-status'> Unlock tab
+        </h1>
+        <input id='unlock-password' class='form-control' onchange='unlockTab()' placeholder="Password">
+    </div>
+    <div id="settings" class="container" style="display: none;">
+      <h2>Settings</h2>
+      <div class='jumbotron'>
+        <h4>About</h4>
+        <h6>TiTanium Alpha 14</h6>
       </div>
-      <div id="lockedBar" style="display: none;">
-        <span id="lockIcon" style="display: none;" class="glyphicon glyphicon-lock" onclick="showUnlockTab()" style="font-size: 300%;"></span>
-      </div>
-      <div id="bar">
-        <span onclick="newTab()" class="glyphicon glyphicon-plus btn btn-primary" title="New Tab"></span>
-        <span onclick="backPage()" class="glyphicon glyphicon-menu-left btn btn-primary" title="Back"></span>
-        <span onclick="forwardPage()" class="glyphicon glyphicon-menu-right btn btn-primary" title="Forward"></span>
-        <span onclick="reload()" class="glyphicon glyphicon-refresh btn btn-primary" title="Reload"></span>
-        <input id="urlbox" type="url" class="form-control" onfocus="select(this); this.style.color = ''; hideMenus();" onchange="openUrl()" title="Enter a URL or search the web" spellcheck="false" autocorrect="false">
-        <span onclick="addBookmark()" class="glyphicon glyphicon-star btn btn-primary" title="Bookmark"></span>
-        <span onclick="incognitoMode()" class="glyphicon glyphicon-eye-close btn btn-primary" title="Incognito"></span>
-        <span onclick="toggleSettings()" class="glyphicon glyphicon-cog btn btn-primary" title="Settings"></span>
-        <span onclick="toggleApps()" class="glyphicon glyphicon-th btn btn-primary" title="Apps"></span>
-        <span onclick="openLocalFile()" class="glyphicon glyphicon-open-file btn btn-primary" title="Open Local File"></span>
-      </div>
-      <div id="bookmarks"><br></div>
-      <div id="offline" align="center" style="display: none;">
-        <h1>Offline</h1>
-        <h3>TiTanium needs an internet connection to connect to the internet</h3>
-      </div>
-      <div id="webframes">
-        <webview id="tab0"></webview>
-      </div>
-      <div id="apps" class="container" style="display: none;">
-        <h2>Apps</h2>
-        <p>Select a .TIAPP file to open it. Create your own on the TiMedia App creator. However, opening apps downloaded from the internet can be dangerous!</p>
-        <span class="tiapp-icon glyphicon glyphicon-plus" onclick="uploadApp()"></span>
-        <div id="tiapps-bar"></div>
-      </div>
-      <div id="lockSettings" style="display: none;" class="jumbotron container">
-        <h4 id="lockStatus">Unlock tab</h4>
-        <input id="unlockPassword" class="form-control" onchange="unlockTab()" placeholder="Password">
-      </div>
-      <div id="settings" class="container" style="display: none;">
-        <h2>Settings</h2>
-        <div class="jumbotron">
-          <h4>About</h4>
-          <h6>TiTanium Alpha 13</h6>
+      <div class='jumbotron'>
+        <div id='login'>
+          <h4> Sign in to TiTanium </h4>
+          <input id='uname' class='form-control' placeholder="Username">
+          <input id='pword' class='form-control' type='password' placeholder="Password" onchange='signin()'>
+          <button onclick='signin();' class='btn btn-primary'>Login</button>
         </div>
-        <div class="jumbotron">
-          <div id="signin">
-            <h4> Sign in to TiTanium </h4>
-            <input id="username" class="form-control" placeholder="Username">
-            <input id="password" class="form-control" type="password" placeholder="Password" onchange="signin()">
-            <button onclick="signIn()" class="btn btn-primary">Sign In</button>
-          </div>
-          <span id="accountInfo" style="display: none">
-          <h5 id="user">Account:</h5>
-          </span>
-          <button id="signout" onclick="signOut()" style="display: none;" class="btn btn-primary">Sign Out</button>
-        </div>
-        <div class="jumbotron">
-          <h4>General</h4>
-          Homepage<br>
-          <input type="url" id="homepageInput" class="form-control" oninput="setHomepage(this.value)"><br> Search Engine<br>
-          <select id="searchEngineInput" class="form-control" oninput="setSearchEngine(this.value)">
-             <option value="0">Google</option>
-             <option value="1">Bing</option>
-             <option value="2">Yahoo!</option>
-             <option value="3">DuckDuckGo</option>
+        <span id='account-info' style='display: none'><h5 id='user'> Account: </h5></span>
+        <button id='signout' onclick='signout()' style='display: none' class='btn btn-primary'>Sign out</button>
+      </div>
+      <div class='jumbotron'>
+        <h4>General</h4>
+        Homepage<br>
+        <input type="url" id="homepageInput" class="form-control" oninput="setHomepage(this.value)"><br> Search Engine<br>
+        <select id="searchEngineInput" class="form-control" oninput="setSearchEngine(this.value)">
+          <option value="0">Google</option>
+          <option value="1">Bing</option>
+          <option value="2">Yahoo!</option>
+          <option value="3">DuckDuckGo</option>
         </select>
-        </div>
-        <div class="jumbotron">
-          <h4 id="lockStatus">Lock Tab</h4>
-          <input id="lockPassword" class="form-control" placeholder="Password">
-          <input id="lockPage" class="form-control" onchange="lockTab()" placeholder="Page to Lock">
-        </div>
-        <div class="jumbotron">
-          <h4 id="history-heading">History Settings</h4>
-          <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
-        </div>
-        <div class="jumbotron">
-          <h4>History</h4>
-          <div id="historyView" class="jumbotron">
-          </div>
+      </div>
+      <div class='jumbotron'>
+        <h4 id='lock-status'> Lock tab
+          </h1>
+          <input id='lock-password' class='form-control' placeholder="Password">
+          <input id='lock-page' class='form-control' onchange='lockTab()' placeholder="Page to Lock">
+      </div>
+      <div class='jumbotron'>
+        <h4 id='history-heading'>History Settings</h4>
+        <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
+      </div>
+      <div class='jumbotron'>
+        <h4> Your History </h4>
+        <div id='history-view' class='jumbotron'>
         </div>
       </div>
     </div>
-    <script src="md5.js"></script>
-    <script src="browser.js"></script>
-  </body>
+  </div>
+  <script src="md5.js"></script>
+  <script src="browser.js"></script>
+</body>
 
 </html>
