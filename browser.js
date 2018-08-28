@@ -40,8 +40,8 @@ function storeInDatabase(name, value) {
 }
 
 function signin() {
-  uname = document.getElementById("uname").value;
-  pword = document.getElementById("pword").value;
+  var uname = document.getElementById("uname").value;
+  var pword = document.getElementById("pword").value;
   firebase.auth().signInWithEmailAndPassword(uname + "@timediatied.com", pword).catch(function (error) {
     alert("User name or password is incorrect!");
   });
