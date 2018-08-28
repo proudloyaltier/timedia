@@ -14,20 +14,11 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 
 ## What's new?
-
 • It is now possible to update TiApps in the store
 
 • Folders and JSON Tiles
 
 • TiMedia is now a lot faster!
-
-• Fix some Tiri glitches and add clear our conversation command to Tiri Type!
-
-• Fix minor, annoying Tiles glitches!
-
-• Importing TiApps to tiles now fully works!
-
-• Introducing Tiri Shortcuts! The custom tiri commands that can be created in seconds!  For developers, even add your own custom code executed after your response!  You could open a tile, remind yourself to do something, and more!
 
 ## What is TiMedia?
 TiMedia is a all-in one cloud storage service.
