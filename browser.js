@@ -66,20 +66,10 @@ function renderApps() {
   if (localStorage.tiApps !== undefined && localStorage.tiApps !== "[]") {
     tiApps = JSON.parse(localStorage.tiApps)
   }
+  
   document.getElementById("tiApps-bar").innerHTML = "";
   for (var i = 0; i < tiApps.length; i++) {
-    document.getElementById("tiApps-bar").innerHTML += "<span draggable=true ondragstart="
-    appDrag(event, " + i + ")
-    " oncontextmenu="
-    deleteApp(" + i + ")
-    " onclick="
-    openApp(" + i + ")
-    " title="
-    " + tiApps[i].name + "
-    " class="
-    tiapp - icon " + "
-    glyphicon glyphicon - " + tiApps[i].icon + "
-    "></span>";
+    document.getElementById("tiApps-bar").innerHTML += "<span draggable='true' ondragstart='appDrag(event, " + i + ")' oncontextmenu='deleteApp(" + i + ")' onclick='openApp(" + i + ")' title='" + tiApps[i].name + "' class='tiapp-icon glyphicon glyphicon-" + tiApps[i].icon + "'></span>";
   }
 }
 
@@ -728,6 +718,8 @@ function signOut() {
 
   window.location.reload();
 }
+
+updateTabs();
 
 setInterval(checkOnlineStatus, 100);
 
