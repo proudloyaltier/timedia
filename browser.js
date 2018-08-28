@@ -385,7 +385,7 @@ function toggleSettings() {
     settings.style.display = "";
 
     for (var i = 0; i < tihistory.length; i++) {
-      historyView.innerHTML = "<p class='history - item " > " + tihistory[i] + " < /p>" + historyView.innerHTML;
+      historyView.innerHTML = "<p class='history-item'>" + tihistory[i] + "</p>" + historyView.innerHTML;
     }
 
     historyView.className = "jumbotron";
