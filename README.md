@@ -25,6 +25,3 @@ TiMedia is a all-in one cloud storage service.
 
 ## How do I start posting?
 Visit https://hymenop.us and sign up.
-
-# Rules For Testing
-Test only once, if it doesn't work, delete it from the database.
