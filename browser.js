@@ -1,13 +1,13 @@
 /*
 
-TiTanium Alpha 14
+TiTanium Alpha 15
 By The TiMedia Team
 
 https://github.com/proudloyaltier/timedia/tree/TiTanium
 
 */
 
-var version = "Alpha 14";
+var version = "Alpha 15";
 var homepage = "https://www.bing.com";
 var searchUrl = "https://www.bing.com/search?q=";
 var tabsbar = document.getElementById("tabsbar");
