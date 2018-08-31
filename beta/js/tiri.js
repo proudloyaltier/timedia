@@ -639,7 +639,7 @@ if (annyang) {
 
 function joinChatTiri(name) {
   var chat = name + localStorage.name;
-  var chat = chat.toLowerCase();
+  chat = chat.toLowerCase();
   var chatPassword1 = sortAlphabets(chat);
   var chatPassword = MD5(chatPassword1);
   window.location.href = "index.html?app=" + chatPassword;
