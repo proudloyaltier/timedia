@@ -6,6 +6,7 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 
 ## To-do List
+- [x] TiChat multi user
 - [x] Folders in tiles
 - [x] JSON for tiles
 - [x] Secure database
