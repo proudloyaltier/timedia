@@ -629,7 +629,11 @@ function openUrl() {
 }
 
 function setHomepage(url) {
-  homepage = url;
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    homepage = url;
+  } else {
+    homepage = "https://" + url;
+  }
   saveData();
 }
 
