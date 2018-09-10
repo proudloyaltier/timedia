@@ -716,6 +716,34 @@ function openLocalFile() {
   localselector.click();
 }
 
+function isPositiveNumber(value) {
+  return /^\d+$/.test(value);
+}
+
+
+window.addEventListener("keydown", function(e) {
+  if (e.key == "r" && (e.ctrlKey || e.metaKey)){
+    e.preventDefault()
+    reload()
+ }
+ if (isPositiveNumber(e.key) && (e.ctrlKey || e.metaKey)){
+  e.preventDefault()
+  if (typeof titabs[e.key - 1] !== "undefined") {
+    openTab(e.key - 1)
+  }
+}
+if (e.key == "w" && (e.ctrlKey || e.metaKey)){
+  e.preventDefault()
+  if (typeof currentTab !== "undefined") {
+    closeTab(currentTab);
+  }
+}
+if (e.key == "t" && (e.ctrlKey || e.metaKey)){
+  e.preventDefault()
+  newTab()
+}
+}, true);
+
 var online;
 function checkOnlineStatus() {
   online = navigator.onLine;

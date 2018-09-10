@@ -1,22 +1,23 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow, globalShortcut} = require('electron')
 const os = require('os')
 const dialog = require('electron').dialog
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     title: 'TiTanium',
-	   width: 1920,
-	   height: 1080,
-     icon: 'icon.png',
-     webPreferences: {
-       nativeWindowOpen: true
-     }
+    width: 1920,
+    height: 1080,
+    icon: 'icon.png',
+    webPreferences: {
+      nativeWindowOpen: true
+    }
   })
 
   // and load the index.html of the app.
@@ -32,12 +33,15 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+  globalShortcut.register('CommandOrControl+N', () => {
+    createWindow()
+  })
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', function() {
+app.on('ready', function () {
   if (process.platform === 'darwin' && (Number(os.release().split('.').join('').trim()) < 1700)) {
     dialog.showErrorBox('Unsupported', 'Your macOS version is not supported.')
     app.quit()
