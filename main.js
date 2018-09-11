@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, globalShortcut} = require('electron')
+const { app, BrowserWindow, globalShortcut, Menu} = require('electron')
 const os = require('os')
 const dialog = require('electron').dialog
 
@@ -36,6 +36,26 @@ function createWindow() {
   globalShortcut.register('CommandOrControl+N', () => {
     createWindow()
   })
+  var menu = Menu.buildFromTemplate([
+    {
+      label: 'File',
+      submenu: [
+        {
+          label: 'New Window',
+          click() {
+            createWindow()
+          }
+        },
+        {
+          label: 'Quit TiTanium',
+          click() {
+            app.quit()
+          }
+        }
+      ]
+    }
+  ])
+  Menu.setApplicationMenu(menu);
 }
 
 // This method will be called when Electron has finished
