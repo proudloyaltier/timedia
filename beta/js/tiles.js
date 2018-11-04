@@ -284,10 +284,14 @@ function renameTilePromptFolder(tid) {
       });
 }
 
-if (getQueryVariable("f") !== false) {
-  files = JSON.parse(localStorage.files)
-  loadTilesFolders();
+function checkIfFolder() {
+  if (getQueryVariable("f") !== false) {
+    files = JSON.parse(localStorage.files)
+    loadTilesFolders();
+  }
 }
+
+setInterval(checkIfFolder, 1000);
 
 function renameTile(tid, rwith) {
   files[rwith] = files[Object.keys(files)[tid]]
