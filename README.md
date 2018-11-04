@@ -24,5 +24,5 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 ## What is TiMedia?
 TiMedia is a all-in one cloud storage service.
 
-## How do I start posting?
-Visit https://hymenop.us and sign up.
+## How do I start?
+Visit https://timedia.app and sign up.
