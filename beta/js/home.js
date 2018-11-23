@@ -37,6 +37,18 @@ function launchApp(appname) {
   document.getElementById(appname).style.display = ""
 }
 
+
+firebase.auth().onAuthStateChanged(function (user) {
+  setInterval(function () {
+    if (firebase.auth().currentUser) {
+      if (localStorage.name !== user.email.replace("@timediatied.com", "")) {
+        window.localStorage.clear();
+        window.location.href = "logout.html";
+      }
+    }
+  }, 100)
+})
+
 if (localStorage.access == btoa(localStorage.name)) {
   switch (Number(getQueryVariable("app"))) {
     case 1:
