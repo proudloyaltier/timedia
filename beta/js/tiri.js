@@ -2,7 +2,7 @@ localStorage.us = '';
 var tiriShortcuts = {};
 
 if (document.getElementById('tiri-bubbles-timer').style.display = "block") {
-  setInterval(function() {
+  setInterval(function () {
     document.getElementById("tiri-bubbles-timer").innerHTML = (window.timer + '').toHHMMSS();
   }, 0);
 }
@@ -26,17 +26,17 @@ if (localStorage.history !== undefined) {
 function loadTiriShortcuts() {
   document.getElementById('all-shortcuts').innerHTML = "No Shortcuts"
   if (Object.keys(tiriShortcuts).length > 0) {
-  document.getElementById('all-shortcuts').innerHTML = "";
-  for (var i = 0; i < Object.keys(tiriShortcuts).length; i++) {
-    document.getElementById('all-shortcuts').innerHTML += "<button class='tiri-shortcuts-button' onclick='executeTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>" + Object.keys(tiriShortcuts)[i] + "</button><span>      </span><span style='color: red;' onclick='deleteTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>X</span><br><br>";
+    document.getElementById('all-shortcuts').innerHTML = "";
+    for (var i = 0; i < Object.keys(tiriShortcuts).length; i++) {
+      document.getElementById('all-shortcuts').innerHTML += "<button class='tiri-shortcuts-button' onclick='executeTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>" + Object.keys(tiriShortcuts)[i] + "</button><span>      </span><span style='color: red;' onclick='deleteTiriShortcut(" + '"' + Object.keys(tiriShortcuts)[i] + '"' + ")'>X</span><br><br>";
+    }
   }
- }
 }
 
 function createTiriShortcut(nameOfShortcut, contentOfShortcut, codeOfShortcut) {
-  tiriShortcuts[nameOfShortcut] =  [contentOfShortcut, codeOfShortcut];
+  tiriShortcuts[nameOfShortcut] = [contentOfShortcut, codeOfShortcut];
   localStorage.tiriShortcuts = JSON.stringify(tiriShortcuts)
-  storeInDatabase("tiriShortcuts", localStorage.tiriShortcuts)
+  window.dbRef.child(localStorage.name).child("tiriShortcuts").set(localStorage.tiriShortcuts);
   location.reload();
 }
 
@@ -49,7 +49,7 @@ function executeTiriShortcut(shortcut) {
 function deleteTiriShortcut(shortName) {
   delete tiriShortcuts[shortName];
   localStorage.tiriShortcuts = JSON.stringify(tiriShortcuts);
-  storeInDatabase("tiriShortcuts", localStorage.tiriShortcuts);  
+  window.dbRef.child(localStorage.name).child("tiriShortcuts").set(localStorage.tiriShortcuts);
   location.reload();
 }
 
@@ -70,7 +70,7 @@ function playSound(soundID) {
 
 //End of sound code 
 
-String.prototype.toHHMMSS = function() {
+String.prototype.toHHMMSS = function () {
   var sec_num = parseInt(this, 10); // don't forget the second param
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -96,7 +96,7 @@ function openTile(tile) {
       } else if (files[Object.keys(files)[i]].includes("?app=1&i")) {
         viewPhotos(i)
       } else {
-       openApp(i)
+        openApp(i)
       }
     }
   }
@@ -379,15 +379,15 @@ function tt() {
         delete executed
       }
     } else {
-    responsiveVoice.speak("Sorry. I do not understand");
-    localStorage.ts = "Sorry, I do not understand.";
+      responsiveVoice.speak("Sorry. I do not understand");
+      localStorage.ts = "Sorry, I do not understand.";
     }
   }
   document.getElementById("bubbles").innerHTML += '<div class="message-return">' + localStorage.ts + '</div>';
   if (typeof clearingConversation == "undefined") {
-  localStorage.history = document.getElementById('bubbles').innerHTML
+    localStorage.history = document.getElementById('bubbles').innerHTML
   } else {
-  location.reload();
+    location.reload();
   }
   window.scrollTo(0, document.body.scrollHeight);
 }
@@ -397,11 +397,11 @@ if (annyang) {
   //I made some purposeful spelling, or grammar errors to get the pronunciation right
   var commands = {
     //semi-useless easter eggs
-    'what is your favorite color': function() {
+    'what is your favorite color': function () {
       responsiveVoice.speak("I do not have eyes but my favorite three number sequence is 26, 159, 162, which is turquoise in javascript");
       localStorage.ts = 'Turqouise';
     },
-    'give me a nickname': function() {
+    'give me a nickname': function () {
       var rand1 = Math.floor((Math.random() * 10) + 1);
       var rand2 = Math.floor((Math.random() * 10) + 1);
       var rand3 = Math.floor((Math.random() * 10) + 1);
@@ -466,107 +466,107 @@ if (annyang) {
       responsiveVoice.speak("I will call you " + nickname);
       localStorage.ts = nickname;
     },
-    'hey tiri': function() {
+    'hey tiri': function () {
       responsiveVoice.speak("Yes?");
       localStorage.ts = 'Yes?';
       window.location.href = "index.html?app=5";
     },
-    'how are you': function() {
+    'how are you': function () {
       responsiveVoice.speak("I am good");
       localStorage.ts = 'I am good';
     },
-    'what is your favorite number': function() {
+    'what is your favorite number': function () {
       responsiveVoice.speak("forty two");
       localStorage.ts = '42';
     },
-    'what is the lonliest number': function() {
+    'what is the lonliest number': function () {
       responsiveVoice.speak("one");
       localStorage.ts = '1';
     },
-    'sing me a song': function() {
+    'sing me a song': function () {
       responsiveVoice.speak("la la la la lele leeeeeeeee da, da, da, dididididi lalalalalalalalalllaalla. Sorry. Computers were not meant to sing.");
       localStorage.ts = 'la la la';
     },
-    'tell me a story': function() {
+    'tell me a story': function () {
       responsiveVoice.speak("Once upon a time you stopped asking me stupid questions. The End");
       localStorage.ts = 'Once upon a time you stopped asking stupid questions';
     },
-    'hey': function() {
+    'hey': function () {
       responsiveVoice.speak("Hey" + "," + localStorage.name);
       localStorage.ts = 'Hey, ' + localStorage.name;
     },
-    'hay': function() {
+    'hay': function () {
       responsiveVoice.speak("Hey" + "," + localStorage.name);
       localStorage.ts = "Hey" + ", " + localStorage.name;
     },
-    'hi': function() {
+    'hi': function () {
       responsiveVoice.speak("Hi" + "," + localStorage.name);
       localStorage.ts = "Hi" + ", " + localStorage.name;
     },
-    'hello': function() {
+    'hello': function () {
       responsiveVoice.speak("Hello" + "," + localStorage.name);
       localStorage.ts = "Hello" + ", " + localStorage.name;
     },
-    'what is up?': function() {
+    'what is up?': function () {
       responsiveVoice.speak("What is up" + "," + localStorage.name);
       localStorage.ts = "What is up" + ", " + localStorage.name + "?";
     },
-    'show me a TI 84 plus': function() {
+    'show me a TI 84 plus': function () {
       window.location.href = "https://upload.wikimedia.org/wikipedia/commons/1/16/TI-84.jpg";
     },
-    'do you like to read': function() {
+    'do you like to read': function () {
       responsiveVoice.speak("I did, but then I red all of the existing literature in the universe.");
       localStorage.ts = "I did, but then I red all of the existing literature in the universe.";
     },
-    'tell me a knock knock joke': function() {
+    'tell me a knock knock joke': function () {
       responsiveVoice.speak("Knock knock. Interupting virtual assistant, What may I help you with?");
       localStorage.ts = "Knock knock";
     },
-    'tell me a joke': function() {
+    'tell me a joke': function () {
       responsiveVoice.speak("why did teary cross the road? Because I was trapped in your computer! Ha Ha Ha Ha");
       localStorage.ts = "why did teary cross the road?<br/>Because I was trapped in your computer!";
     },
-    'kas E O': function() {
+    'kas E O': function () {
       responsiveVoice.speak("Do not say that");
       localStorage.ts = "Do not say that";
     },
-    'T I media sucks': function() {
+    'T I media sucks': function () {
       responsiveVoice.speak("I can hear you!");
       localStorage.ts = "I can hear you!";
     },
-    'T I media stinks': function() {
+    'T I media stinks': function () {
       responsiveVoice.speak("I can hear you!");
       localStorage.ts = "I can hear you!";
     },
-    'you are awesome': function() {
+    'you are awesome': function () {
       responsiveVoice.speak("Why thank you");
       localStorage.ts = "Why thank you";
     },
-    'you are amazing': function() {
+    'you are amazing': function () {
       responsiveVoice.speak("You are too");
       localStorage.ts = "You are too";
     },
-    'you are wonderful': function() {
+    'you are wonderful': function () {
       responsiveVoice.speak("I know");
       localStorage.ts = "I know";
     },
-    'I have a problem': function() {
+    'I have a problem': function () {
       window.location.href = "mailto:timediamail@gmail.com";
     },
-    'what is your favorite website': function() {
+    'what is your favorite website': function () {
       responsiveVoice.speak("T I media");
       localStorage.ts = "TiMedia";
     },
-    'what is your favorite food': function() {
+    'what is your favorite food': function () {
       responsiveVoice.speak("I am a computer software. I can not eat.");
       localStorage.ts = "I am a computer software. I can not eat.";
     },
-    'play music': function() {
+    'play music': function () {
       playSound("music");
     },
     //end of semi-useless easter eggs
     //Commands
-    'what time is it': function() {
+    'what time is it': function () {
       var da = new Date();
       var na = da.getMinutes();
       var nb = da.getHours();
@@ -579,7 +579,7 @@ if (annyang) {
       responsiveVoice.speak("It is " + nb + " " + na);
       localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     },
-    'what is the time': function() {
+    'what is the time': function () {
       var da = new Date();
       var na = da.getMinutes();
       var nb = da.getHours();
@@ -592,31 +592,31 @@ if (annyang) {
       responsiveVoice.speak("It is " + nb + " " + na);
       localStorage.ts = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     },
-    'open settings': function() {
+    'open settings': function () {
       window.location.href = "?app=6";
     },
-    'open docs': function() {
+    'open docs': function () {
       window.location.href = "?app=3";
     },
-    'open sheets': function() {
+    'open sheets': function () {
       window.location.href = "?app=4";
     },
-    'open tiles': function() {
+    'open tiles': function () {
       window.location.href = "?app=7";
     },
-    'go home': function() {
+    'go home': function () {
       window.location.href = "index.html";
     },
-    'go to home': function() {
+    'go to home': function () {
       window.location.href = "index.html";
     },
-    'open home': function() {
+    'open home': function () {
       window.location.href = "index.html";
     },
-    'open terry home': function() {
+    'open terry home': function () {
       window.location.href = "index.html?app=5";
     },
-    'log out': function() {
+    'log out': function () {
       window.location.href = "logout.html";
     },
     'set a timer for *time': setTimer,
@@ -694,8 +694,13 @@ function timerDown() {
   }
 }
 
-setInterval(function() {
-  getFromDatabase("tiriShortcuts");
+setInterval(function () {
+  var urlRef = window.dbRef.child(localStorage.name).child("tiriShortcuts")
+  urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
+      localStorage.tiriShortcuts = child.val()
+    })
+  })
   if (localStorage.tiriShortcuts == "null" || localStorage.tiriShortcuts == "") {
     localStorage.tiriShortcuts = "{}";
     tiriShortcuts = JSON.parse(localStorage.tiriShortcuts);

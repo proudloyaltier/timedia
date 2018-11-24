@@ -57,9 +57,9 @@ if (isFirefox || isIE) {
 function saveDoc() {
   if (localStorage.tidocssave == undefined) {
     var tidocssave = generateRandString()
-    window.dbRef.child("docs").child(tidocssave).child(localStorage.name).set(CryptoJS.AES.encrypt(document.getElementById('tidocsContent').innerHTML, localStorage.password) + "");
+    window.dbRef.child(localStorage.name).child("docs").child(tidocssave).child(localStorage.name).set(CryptoJS.AES.encrypt(document.getElementById('tidocsContent').innerHTML, localStorage.password) + "");
     localStorage.tidocssave = tidocssave;
-    var urlRef = window.dbRef.child("docs").child(tidocssave);
+    var urlRef = window.dbRef.child(localStorage.name).child("docs").child(tidocssave);
     urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
         localStorage.owner = child.key;
@@ -70,7 +70,7 @@ function saveDoc() {
     localStorage.workToSaveTitle = document.getElementById('docsTitle').value;
     localStorage.workToSave = url;
   } else {
-    window.dbRef.child("docs").child(localStorage.tidocssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById('tidocsContent').innerHTML, localStorage.password) + "");
+    window.dbRef.child(localStorage.name).child("docs").child(localStorage.tidocssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById('tidocsContent').innerHTML, localStorage.password) + "");
     var tidocssave = localStorage.tidocssave
   }
 }
@@ -101,7 +101,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   document.getElementById('view').style.display = "block";
   document.getElementById('tidocs-edit').style.display = "block";
   document.getElementById('tidocs-reader').style.display = "block";
-  var urlRef = window.dbRef.child("docs").child(getQueryVariable("p"));
+  var urlRef = window.dbRef.child(localStorage.name).child("docs").child(getQueryVariable("p"));
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       localStorage.owner = child.key;

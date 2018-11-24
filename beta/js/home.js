@@ -40,6 +40,9 @@ function launchApp(appname) {
 
 firebase.auth().onAuthStateChanged(function (user) {
   setInterval(function () {
+    localStorage.name = firebase.auth().currentUser.email.replace("@timediatied.com", "")
+  }, 100)
+  setInterval(function () {
     if (firebase.auth().currentUser) {
       if (localStorage.name !== user.email.replace("@timediatied.com", "")) {
         window.localStorage.clear();

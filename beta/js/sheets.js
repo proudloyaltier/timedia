@@ -47,9 +47,9 @@ function pickRandomFromColumn(column) {
 function saveSheet() {
   if (localStorage.tisheetssave == undefined) {
     var tisheetssave = generateRandString()
-    window.dbRef.child("sheets").child(tisheetssave).child(localStorage.name).set(CryptoJS.AES.encrypt(document.getElementById("sheetsContent").innerHTML, localStorage.password) + "");
+    window.dbRef.child(localStorage.name).child("sheets").child(tisheetssave).child(localStorage.name).set(CryptoJS.AES.encrypt(document.getElementById("sheetsContent").innerHTML, localStorage.password) + "");
     localStorage.tisheetssave = tisheetssave;
-    var urlRef = window.dbRef.child("sheets").child(tisheetssave);
+    var urlRef = window.dbRef.child(localStorage.name).child("sheets").child(tisheetssave);
     urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
         localStorage.owner = child.key;
@@ -60,7 +60,7 @@ function saveSheet() {
     localStorage.workToSaveTitle = document.getElementById('sheetsTitle').value;
     localStorage.recentUrl = url;
   } else {
-    window.dbRef.child("sheets").child(localStorage.tisheetssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById("sheetsContent").innerHTML, localStorage.password) + "");
+    window.dbRef.child(localStorage.name).child("sheets").child(localStorage.tisheetssave).child(localStorage.owner).set(CryptoJS.AES.encrypt(document.getElementById("sheetsContent").innerHTML, localStorage.password) + "");
     var tisheetssave = localStorage.tisheetssave
   }
 }
@@ -88,7 +88,7 @@ if (getQueryVariable("t") !== false || localStorage.editSheet !== undefined) {
   } else {
     document.getElementById('sheetsTitle').style = "display: none;";
     document.getElementById('sheets-formatting-bar').style = "display: none;";
-    var urlRef = window.dbRef.child("sheets").child(getQueryVariable("t"));
+    var urlRef = window.dbRef.child(localStorage.name).child("sheets").child(getQueryVariable("t"));
     urlRef.on("value", function (snapshot) {
       snapshot.forEach(function (child) {
         localStorage.owner = child.key;
