@@ -697,9 +697,7 @@ function timerDown() {
 setInterval(function () {
   var urlRef = window.dbRef.child(localStorage.name).child("tiriShortcuts")
   urlRef.on("value", function (snapshot) {
-    snapshot.forEach(function (child) {
-      localStorage.tiriShortcuts = child.val()
-    })
+      localStorage.tiriShortcuts = snapshot.val()
   })
   if (localStorage.tiriShortcuts == "null" || localStorage.tiriShortcuts == "") {
     localStorage.tiriShortcuts = "{}";
