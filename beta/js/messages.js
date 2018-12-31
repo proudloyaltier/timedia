@@ -22,7 +22,7 @@ function addUser() {
 
 function getMessages() {
   document.getElementById("private-messages").innerHTML = "";
-  var urlRef = window.dbRef.child("tichat").child(getQueryVariable("app"));
+  var urlRef = window.dbRef.child("tichat").child(getQueryVariable("app")).child("messages");
   urlRef.on("value", function (snapshot) {
     snapshot.forEach(function (child) {
       var message = CryptoJS.AES.decrypt(child.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)
@@ -36,7 +36,7 @@ function getMessages() {
 
 function sendMessage(message) {
   if (message !== "") {
-    window.dbRef.child("tichat").child(getQueryVariable("app")).push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, getQueryVariable("app")) + "");
+    window.dbRef.child("tichat").child(getQueryVariable("app")).child("messages").push(CryptoJS.AES.encrypt("<b>" + localStorage.name + "</b>" + " said:" + "<br>" + message, getQueryVariable("app")) + "");
     document.getElementById("message-input").value = "";
     document.getElementById("private-messages").innerHTML = " ";
     getMessages();
@@ -50,6 +50,10 @@ var sortAlphabets = function (text) {
 function joinChat() {
   var chatPassword1 = sortAlphabets(window.chat);
   var chatPassword = MD5(chatPassword1);
+  chatUsers.push(localStorage.name);
+  for (var i = 0; i < chatUsers.length; i++) {
+    window.dbRef.child("tichat").child(chatPassword).child("usersAllowed").child(chatUsers[i]).set(true);
+  }
   window.location.href = "index.html?app=" + chatPassword;
 }
 
