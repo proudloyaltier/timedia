@@ -5,17 +5,9 @@
 Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more) is not visible to any admin or other user!
 
 
-## To-do List
-- [x] Fix Security
-- [x] TiChat multi user
-- [x] Folders in tiles
-- [x] JSON for tiles
-- [x] Secure database
-- [ ] Update other-non recognized file types (like .pptx, .zip, and more)
-- [x] Add Tiri Shortcuts
-
-
 ## What's new?
+• TiChat security glitch fixed
+
 • It is now possible to update TiApps in the store
 
 • Folders and JSON Tiles
