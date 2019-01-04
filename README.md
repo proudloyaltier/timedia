@@ -6,6 +6,8 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 
 ## What's new?
+• Upload any file with new file upload on Tiles
+
 • TiChat security glitch fixed
 
 • It is now possible to update TiApps in the store
