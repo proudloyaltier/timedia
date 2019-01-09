@@ -125,7 +125,7 @@ function saveSlide() {
   slideshow[current_slide] = slideContainer.innerHTML;
   if (localStorage.tislidessave == undefined) {
     var tislidessave = generateRandString()
-    window.dbRef.child(localStorage.name).child("slides").child(tislidessave).child(localStorage.name).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
+    window.dbRef.child(localStorage.name).child("slides").child(tislidessave).child(localStorage.name).set(CryptoJS.AES.encrypt(JSON.stringify(slideshow), localStorage.password) + "");
     localStorage.tislidessave = tislidessave;
     var urlRef = window.dbRef.child(localStorage.name).child("slides").child(tislidessave);
     urlRef.on("value", function (snapshot) {
@@ -138,7 +138,7 @@ function saveSlide() {
     localStorage.workToSaveTitle = document.getElementById('slidesTitle').value;
     localStorage.workToSave = url;
   } else {
-    window.dbRef.child(localStorage.name).child("slides").child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(slideshow + "", localStorage.password) + "");
+    window.dbRef.child(localStorage.name).child("slides").child(localStorage.tislidessave).child(localStorage.owner).set(CryptoJS.AES.encrypt(JSON.stringify(slideshow), localStorage.password) + "");
     var tislidessave = localStorage.tislidessave
   }
 }
@@ -212,7 +212,7 @@ window.addEventListener('DOMContentLoaded', function () {
       document.getElementById('slidesTitle').remove();
       localStorage.tislidessave = getQueryVariable("s");
       slideshow1 = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-      slideshow = slideshow1.split(",")
+      slideshow = JSON.parse(slideshow1)
       updateSlide();
       for (var i = 0; i < document.getElementsByClassName('edit-slides').length; i++) {
         document.getElementsByClassName('edit-slides')[i].onmousedown = function() {
