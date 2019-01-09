@@ -7,17 +7,13 @@ Your documents are encrypted end to end, your data (like TiDocs, Tiles, and more
 
 ## What's new?
 
-• Fixed some font stuff on TiDocs
+• New font changing stuffs
+
+• Fix some TiSlides glitches
 
 • Upload any file with new file upload on Tiles
 
 • TiChat security glitch fixed
-
-• It is now possible to update TiApps in the store
-
-• Folders and JSON Tiles
-
-• TiMedia is now a lot faster!
 
 ## What is TiMedia?
 TiMedia is a all-in one cloud storage service.
