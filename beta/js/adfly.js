@@ -7,10 +7,22 @@ Copyright (C) 2019 The TiMedia Team. All rights reserved.
 
 */
 
-if (window.self === window.top) {
-  var websiteLinks = document.getElementsByTagName("a");
+var lastAd = localStorage.getItem("lastAd");
+var currentTime = Date.now();
 
-  for (var i = 0; i < websiteLinks.length; i++) {
-    websiteLinks[i].href = "http://adf.ly/16956779/banner/" + websiteLinks[i].href;
+if (lastAd !== null) {
+  var lastAdTime = parseInt(parseAd);
+  var timeDifference = currentTime - lastAdTime;
+  
+  if (timeDifference >= 10000) {
+    localStorage.setItem("lastAd", currentTime.toString());
+    
+    window.location.replace("http://adf.ly/16956779/banner/https://timedia.app/beta/");
+  } else {
+    window.location.replace("beta/");
   }
+} else {
+  localStorage.setItem("lastAd", currentTime.toString());
+  
+  window.location.replace("http://adf.ly/16956779/banner/https://timedia.app/beta/");
 }
