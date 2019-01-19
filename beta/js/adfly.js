@@ -14,7 +14,7 @@ if (lastAd !== null) {
   var lastAdTime = parseInt(lastAd);
   var timeDifference = currentTime - lastAdTime;
   
-  if (timeDifference >= 10000) {
+  if (timeDifference >= 300000) {
     localStorage.setItem("lastAd", currentTime.toString());
     
     window.location.replace("http://adf.ly/16956779/banner/https://timedia.app/beta/");
