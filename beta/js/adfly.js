@@ -11,7 +11,7 @@ var lastAd = localStorage.getItem("lastAd");
 var currentTime = Date.now();
 
 if (lastAd !== null) {
-  var lastAdTime = parseInt(parseAd);
+  var lastAdTime = parseInt(lastAd);
   var timeDifference = currentTime - lastAdTime;
   
   if (timeDifference >= 10000) {
