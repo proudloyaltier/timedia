@@ -298,8 +298,13 @@ function checkIfFolder() {
   }
 }
 
+function goBackFromFolder() {
+  window.location.href='?app=7'
+}
+
 checkIfFolder();
 if (getQueryVariable("f") !== false) {
+  document.getElementById("tiles-folder-bar").style.display = "block";
   var originalFilesFolder = files[getQueryVariable("f")];
 }
 setInterval(checkIfFolder, 1000);
