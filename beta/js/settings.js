@@ -43,7 +43,6 @@ var settings = {
     Account: '<h6 style="font-size: 150%">Change Password </h6><input class="form-control" type="text" id="passchange1" placeholder="New Password"><input class="form-control" type="text" id="passchange2" placeholder="Confirm New Password"><br><button onclick="changePasswordButton();" class="btn btn-primary">Change Password</button><br>',
     Tiles: '<h5>Tiles</h5><button onclick="lastTile()" class="btn btn-success">Open The Last Opened Tile</button><br><br><button onclick="resetTiles()" class="btn btn-danger">Reset Tiles</button><br>',
     Personalization: '<h6 style="font-size: 150%"> Theming Options </h6> Background Image<br><input class="form-control" type="text" id="backgroundImg"><br> Bar Color<br><input id="barColor" class="jscolor form-control" value="2296f3"><br><button onclick="updateSettings()" class="btn btn-success">Save Theme</button><br><br><button onclick="setDarkMode();" class="btn btn-primary" id="dark-mode-on">Turn On Dark Mode</button><button onclick="darkModeOff();" class="btn btn-primary" id="dark-mode-off">Turn Off Dark Mode</button>',
-    TiSmile: '<img src="other resources/smile.png" width="100" height="100"><br><h4><b>Introducing TiSmile</b> - Unlock with a smile.</h4><button onclick="openTiSmileLink()" class="btn btn-primary">Open TiSmile Preferences</button><br>'
   }
 };
 

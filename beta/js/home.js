@@ -89,10 +89,6 @@ if (localStorage.access == btoa(localStorage.name)) {
       document.title = "TiBookmarks - TiMedia";
       launchApp("tibookmarks");
       break;
-    case 11:
-      document.title = "TiSmile - TiMedia";
-      launchApp("tismile");
-      break;
     case 12:
       document.title = "Tiri Shortcuts - TiMedia";
       launchApp("tiriShortcuts");
