@@ -2,9 +2,11 @@
 
 ## What's new?
 
+• Removed TiSmile
+
 • New font changing stuffs
 
-• Fix some TiSlides glitches
+• Fixed some TiSlides glitches
 
 • Upload any file with new file upload on Tiles
 
