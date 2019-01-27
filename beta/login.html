@@ -43,6 +43,12 @@
             <br>
             <input type="password" id="login-password" class="form-control" onchange="login()">
             <br>
+            <label class="custom-control custom-checkbox">
+                <input id="show-password-login" onclick="checkChecked(this, document.getElementById('login-password'))" type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Show Password</span>
+            </label>
+            <br>
             <p id="error" style="color: red;"></p>
             <button onclick="login()" id="login-btn" class="btn btn-primary">Login</button>
             <br>
@@ -77,12 +83,25 @@
                 alert('Please enter a username and password!')
             }
         }
+
+        function checkChecked(element, nonPasswordElm) {
+            if (element.checked == true) {
+                nonPasswordElm.type = "text";
+            } else {
+                nonPasswordElm.type = "password";
+            }
+        }
     </script>
     <div id='signup' style='display: none;' class='container'>
         <div align="center">
             <h3> Sign Up For TiMedia </h3>
             <input type="text" class='form-control' id='username' placeholder='Username'>
             <input type="password" class='form-control' id='password' placeholder='Password'>
+            <label class="custom-control custom-checkbox">
+                <input id="show-password-signup" onclick="checkChecked(this, document.getElementById('password'))" type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Show Password</span>
+            </label>
             <br>
             <button class='btn btn-primary' onclick='signup()'>Sign Up</button>
         </div>
