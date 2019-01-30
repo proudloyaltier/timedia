@@ -34,7 +34,7 @@ function openTiSmileLink() {
 window.location.href = "index.html?app=11";
 }
 
-document.getElementById("settings-back-arrow").innerHTML = "<";
+document.getElementById("settings-back-arrow").innerHTML = '<i class="glyphicon glyphicon-chevron-left"></i>';
 
 var settingsPage = "settings";
 
