@@ -8,11 +8,6 @@
 
 • New font changing stuffs
 
-• Fixed some TiSlides glitches
-
-• Upload any file with new file upload on Tiles
-
-• TiChat security glitch fixed
 
 ## What is TiMedia?
 TiMedia is a all-in one cloud storage service.
