@@ -16,6 +16,9 @@ function addUser() {
     chatUsers.push(document.getElementById("chat").value)
     window.chat += document.getElementById("chat").value.toLowerCase();
   }
+  if (chatUsers.length > 1) {
+    document.getElementById("chatName").style.display = "block";
+  }
   document.getElementById("usersInChat").innerHTML += '<span style="border-radius: 20px; background-color: lightgray; margin: 2px; padding: 7px 11px;">' + document.getElementById("chat").value + '</span><br><br>';
   document.getElementById("chat").value = "";
 }
@@ -47,16 +50,45 @@ var sortAlphabets = function (text) {
   return text.split("").sort().join("");
 };
 
+function showCreate() {
+  document.getElementById('create-chat').style.display = 'block';
+}
+
+function loadChats() {
+  document.getElementById("tichat-chats").innerHTML = "";
+  window.dbRef.child("tichat-chats").child(localStorage.name).on("value", function (child) {
+    child.forEach(function (snapshot) {
+      var buttonChat = document.createElement("button");
+      buttonChat.className = "tiri-shortcuts-button";
+      buttonChat.onclick = function() {
+        window.open(snapshot.val());
+      }
+      buttonChat.innerHTML = snapshot.key;
+      document.getElementById("tichat-chats").appendChild(buttonChat);
+    })
+  })
+}
+
+var chatName;
 function joinChat() {
+  if (chatUsers.length <= 1) {
+    chatName = localStorage.name + "'s chat with " + chatUsers[0]
+  } else {
+    chatName = document.getElementById("chatName").value;
+  }
   var chatPassword1 = sortAlphabets(window.chat);
   var chatPassword = MD5(chatPassword1);
   chatUsers.push(localStorage.name);
+  document.getElementById("tichat-chats").innerHTML = "";
   for (var i = 0; i < chatUsers.length; i++) {
     window.dbRef.child("tichat").child(chatPassword).child("usersAllowed").child(chatUsers[i]).set(true);
+    window.dbRef.child("tichat-chats").child(chatUsers[i]).child(chatName).set("index.html?app=" + chatPassword);
   }
-  window.location.href = "index.html?app=" + chatPassword;
 }
 
+if (getQueryVariable("app") == 2) {
+  loadChats();
+}
 if (window.location !== "index.html" && getQueryVariable("app") !== false && getQueryVariable("app").length > 7) {
   document.title = "TiChat - TiMedia"
   document.getElementById("iChat-input").style.display = "none";
