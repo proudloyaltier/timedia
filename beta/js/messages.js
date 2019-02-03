@@ -9,16 +9,16 @@ function cleanse(text) {
 var chatUsers = [];
 
 function deleteChat(chat) {
-  window.dbRef.child("tichat").child(allChats[chat].slice(15)).child("usersAllowed").child(localStorage.name).set(null);
-  window.dbRef.child("tichat").child(allChats[chat].slice(15)).child("usersAllowed").on("value", function (snapshot) {
-    var exists = (snapshot.val() !== null);
-    if (!exists) {
+  window.dbRef.child("tichat").child(allChats[chat].slice(15)).child("usersAllowed").on("value", function (child) {
+    window.dbRef.child("tichat").child(allChats[chat].slice(15)).child("usersAllowed").child(localStorage.name).set(null);
+    console.log(child.numChildren());
+    if (child.numChildren() <= 1) {
       window.dbRef.child("tichat").child(allChats[chat].slice(15)).set(null);
     }
+    delete allChats[chat];
+    window.dbRef.child("tichat-chats").child(localStorage.name).set(allChats);
+    window.location.reload()
   })
-  delete allChats[chat];
-  window.dbRef.child("tichat-chats").child(localStorage.name).set(allChats);
-  window.location.reload()
 }
 
 function addUser() {
@@ -80,8 +80,16 @@ function loadChats() {
       }
       buttonChat.innerHTML = snapshot.key;
       allChats[snapshot.key] = snapshot.val();
+      var deleteButton = document.createElement("button");
+      deleteButton.className = "btn btn-danger";
+      deleteButton.onclick = function() {
+        deleteChat(snapshot.key);
+      }
+      deleteButton.innerHTML = "X"
       document.getElementById("tichat-chats").appendChild(buttonChat);
-      document.getElementById("tichat-chats").innerHTML += "<br>";
+      document.getElementById("tichat-chats").appendChild(deleteButton);
+      document.getElementById("tichat-chats").appendChild(document.createElement("br"));
+      document.getElementById("tichat-chats").appendChild(document.createElement("br"));
     })
   })
 }
