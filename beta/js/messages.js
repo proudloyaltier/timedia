@@ -7,6 +7,20 @@ function cleanse(text) {
 }
 
 var chatUsers = [];
+
+function deleteChat(chat) {
+  window.dbRef.child("tichat").child(allChats[chat].slice(15)).child("usersAllowed").child(localStorage.name).set(null);
+  window.dbRef.child("tichat").child(allChats[chat].slice(15)).child("usersAllowed").on("value", function (snapshot) {
+    var exists = (snapshot.val() !== null);
+    if (!exists) {
+      window.dbRef.child("tichat").child(allChats[chat].slice(15)).set(null);
+    }
+  })
+  delete allChats[chat];
+  window.dbRef.child("tichat-chats").child(localStorage.name).set(allChats);
+  window.location.reload()
+}
+
 function addUser() {
   if (chatUsers.length <= 0) {
     chatUsers.push(document.getElementById("chat").value)
@@ -54,17 +68,20 @@ function showCreate() {
   document.getElementById('create-chat').style.display = 'block';
 }
 
+var allChats = {}
 function loadChats() {
   document.getElementById("tichat-chats").innerHTML = "";
   window.dbRef.child("tichat-chats").child(localStorage.name).on("value", function (child) {
     child.forEach(function (snapshot) {
       var buttonChat = document.createElement("button");
       buttonChat.className = "tiri-shortcuts-button";
-      buttonChat.onclick = function() {
+      buttonChat.onclick = function () {
         window.open(snapshot.val());
       }
       buttonChat.innerHTML = snapshot.key;
+      allChats[snapshot.key] = snapshot.val();
       document.getElementById("tichat-chats").appendChild(buttonChat);
+      document.getElementById("tichat-chats").innerHTML += "<br>";
     })
   })
 }
