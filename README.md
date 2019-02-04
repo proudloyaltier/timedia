@@ -2,6 +2,8 @@
 
 ## What's new?
 
+• New TiChat
+
 • Add "Show password" check box to aid in speedy login and signup
 
 • Removed TiSmile
