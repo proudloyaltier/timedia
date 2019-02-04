@@ -73,23 +73,25 @@ function loadChats() {
   document.getElementById("tichat-chats").innerHTML = "";
   window.dbRef.child("tichat-chats").child(localStorage.name).on("value", function (child) {
     child.forEach(function (snapshot) {
-      var buttonChat = document.createElement("button");
-      buttonChat.className = "tiri-shortcuts-button";
+      var buttonChat = document.createElement("div");
+      buttonChat.className = "container tichat-chat";
       buttonChat.onclick = function () {
         window.open(snapshot.val());
       }
-      buttonChat.innerHTML = snapshot.key;
+      buttonChat.align = "center"
+      buttonH4 = document.createElement("h4");
+      buttonH4.innerHTML = snapshot.key;
       allChats[snapshot.key] = snapshot.val();
       var deleteButton = document.createElement("button");
       deleteButton.className = "btn btn-danger";
+      deleteButton.style.borderRadius = "50px";
       deleteButton.onclick = function() {
         deleteChat(snapshot.key);
       }
-      deleteButton.innerHTML = "X"
+      deleteButton.innerHTML = "X";
+      buttonChat.append(buttonH4);
+      buttonChat.append(deleteButton)
       document.getElementById("tichat-chats").appendChild(buttonChat);
-      document.getElementById("tichat-chats").appendChild(deleteButton);
-      document.getElementById("tichat-chats").appendChild(document.createElement("br"));
-      document.getElementById("tichat-chats").appendChild(document.createElement("br"));
     })
   })
 }
