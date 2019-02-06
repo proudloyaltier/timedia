@@ -36,7 +36,7 @@ function loadTiriShortcuts() {
 function createTiriShortcut(nameOfShortcut, contentOfShortcut, codeOfShortcut) {
   tiriShortcuts[nameOfShortcut] = [contentOfShortcut, codeOfShortcut];
   localStorage.tiriShortcuts = JSON.stringify(tiriShortcuts)
-  window.dbRef.child(localStorage.name).child("tiriShortcuts").set(localStorage.tiriShortcuts);
+  window.dbRef.child("users").child(localStorage.name).child("tiriShortcuts").set(localStorage.tiriShortcuts);
   location.reload();
 }
 
@@ -49,7 +49,7 @@ function executeTiriShortcut(shortcut) {
 function deleteTiriShortcut(shortName) {
   delete tiriShortcuts[shortName];
   localStorage.tiriShortcuts = JSON.stringify(tiriShortcuts);
-  window.dbRef.child(localStorage.name).child("tiriShortcuts").set(localStorage.tiriShortcuts);
+  window.dbRef.child("users").child(localStorage.name).child("tiriShortcuts").set(localStorage.tiriShortcuts);
   location.reload();
 }
 
@@ -695,7 +695,7 @@ function timerDown() {
 }
 
 setInterval(function () {
-  var urlRef = window.dbRef.child(localStorage.name).child("tiriShortcuts")
+  var urlRef = window.dbRef.child("users").child(localStorage.name).child("tiriShortcuts")
   urlRef.on("value", function (snapshot) {
       localStorage.tiriShortcuts = snapshot.val()
   })

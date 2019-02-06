@@ -21,7 +21,7 @@ setInterval(checkNull, 100);
 
 function getFromDatabaseTiles(name) {
   window.gfdName = name;
-  window.dbRef.child(name).on("value", snapValueTiles, errorLoadingTiles);
+  window.dbRef.child("users").child(name).on("value", snapValueTiles, errorLoadingTiles);
 }
 
 function snapValueTiles(value) {
@@ -35,7 +35,7 @@ function errorLoadingTiles(err) {
 }
 
 function refreshTiles() {
-  window.dbRef.child(localStorage.name).child("files").on("value", snapValueTiles, errorLoadingTiles);
+  window.dbRef.child("users").child(localStorage.name).child("files").on("value", snapValueTiles, errorLoadingTiles);
 }
 
 refreshTiles();
@@ -135,7 +135,7 @@ document.getElementById("ti-work").onclick = function () {
 var overTile = false;
 
 function save() {
-  window.dbRef.child(localStorage.name).child("files").set(files);
+  window.dbRef.child("users").child(localStorage.name).child("files").set(files);
 }
 
 function showTiWorkColor() {
@@ -233,7 +233,7 @@ function deleteTileFolder(tileid) {
     }
     var toDelFirebase = parsed[Object.keys(parsed)[tileid]].slice(19);
     if (fbFolder !== "photos") {
-      window.dbRef.child(localStorage.name).child(fbFolder).child(toDelFirebase).set(null);
+      window.dbRef.child("users").child(localStorage.name).child(fbFolder).child(toDelFirebase).set(null);
     } else {
       window.storageRef.child(localStorage.name).child(parsed[Object.keys(parsed)[tileid]].slice(19)).delete();
     }
@@ -268,7 +268,7 @@ function newFolder() {
       function (val) {
         if (files[encodeURI(val)] == undefined) {
           files[encodeURI(val)] = JSON.stringify({});
-          window.dbRef.child(localStorage.name).child("files").set(files);
+          window.dbRef.child("users").child(localStorage.name).child("files").set(files);
           swal("Created", "Your new folder has been created!", "success");
         } else {
           swal("Error", "The folder name is already in use!", "error")
@@ -354,13 +354,13 @@ function deleteTile(tileid) {
     }
     var toDelFirebase = files[Object.keys(files)[tileid]].slice(19);
     if (fbFolder !== "photos") {
-      window.dbRef.child(localStorage.name).child(fbFolder).child(toDelFirebase).set(null);
+      window.dbRef.child("users").child(localStorage.name).child(fbFolder).child(toDelFirebase).set(null);
     } else {
       window.storageRef.child(localStorage.name).child(files[Object.keys(files)[tileid]].slice(19)).delete();
     }
     if (Object.keys(files).length <= 1) {
       files = "";
-      window.dbRef.child(localStorage.name).child("files").set("");
+      window.dbRef.child("users").child(localStorage.name).child("files").set("");
     }
     delete files[Object.keys(files)[tileid]]
     save();
@@ -397,13 +397,13 @@ function resetTiles() {
       }
       var toDelFirebaseReset = files[Object.keys(files)[i]].slice(19);
       if (fbFolder !== "photos") {
-        window.dbRef.child(localStorage.name).child(fbFolder).child(toDelFirebaseReset).set(null);
+        window.dbRef.child("users").child(localStorage.name).child(fbFolder).child(toDelFirebaseReset).set(null);
       } else {
         window.storageRef.child(localStorage.name).child(toDelFirebaseReset).delete();
       }
     }
     files = "";
-    window.dbRef.child(localStorage.name).child("files").set("");
+    window.dbRef.child("users").child(localStorage.name).child("files").set("");
     swal("Reset!", "Tiles successfully reset!", "success").then((value) => {
       window.location.href = "index.html?app=7";
     })
