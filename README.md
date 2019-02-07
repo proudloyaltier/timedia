@@ -2,6 +2,8 @@
 
 ## What's new?
 
+• No more ads!
+
 • Reorganized the database
 
 • New TiChat
