@@ -6,15 +6,15 @@ function newTh(place) {
 
 function newRow() {
   var newTr = document.createElement('tr');
-  document.getElementById("sheetsContent").appendChild(newTr);
-  for (var i = 0; i < document.getElementById("sheetsContent").getElementsByTagName('tr')[0].getElementsByTagName('th').length; i++) {
+  document.getElementById("sheetsContent").getElementsByTagName("tbody")[0].appendChild(newTr);
+  for (var i = 0; i < document.getElementById("sheetsContent").getElementsByTagName("tbody")[0].getElementsByTagName('tr')[0].getElementsByTagName('th').length; i++) {
     newTh(newTr);
   }
 }
 
 function newColumn() {
   for (var i = 0; i < document.getElementById("sheetsContent").getElementsByTagName('tr').length; i++) {
-    newTh(document.getElementsByTagName('tr')[i]);
+    newTh(document.getElementById("sheetsContent").getElementsByTagName("tbody")[0].getElementsByTagName('tr')[i]);
   }
 }
 
