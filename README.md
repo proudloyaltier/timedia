@@ -2,17 +2,14 @@
 
 ## What's new?
 
+• Finally fixed TiSheets
+
 • No more ads!
 
 • Reorganized the database
 
 • New TiChat
 
-• Add "Show password" check box to aid in speedy login and signup
-
-• Removed TiSmile
-
-• New font changing stuffs
 
 
 ## What is TiMedia?
