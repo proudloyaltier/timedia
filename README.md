@@ -17,3 +17,6 @@ TiMedia is a all-in one cloud storage service.
 
 ## How do I start?
 Visit https://timedia.app and sign up.
+
+## How much storage do I get?
+All of our users get access to as much storage as they need.
