@@ -19,6 +19,35 @@ function checkNull() {
 }
 setInterval(checkNull, 100);
 
+function dragFileToTiles(ev) {
+  console.log('File(s) dropped');
+
+  ev.preventDefault();
+
+  if (ev.dataTransfer.items) {
+    for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+      if (ev.dataTransfer.items[i].kind === 'file') {
+        var file = ev.dataTransfer.items[i].getAsFile();
+        convertPhotoFromDrag(file, file.name)
+      }
+    }
+  } else {
+    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+      convertPhotoFromDrag(ev.dataTransfer.files[i], ev.dataTransfer.files[i].name)
+    }
+  }
+}
+
+function tileDragOver(ev) {
+  document.getElementById("body").style.backgroundColor = "lightblue"
+  ev.preventDefault();
+}
+
+function tileDragEnd(ev) {
+  document.getElementById("body").style.backgroundColor = ""
+  ev.preventDefault();
+}
+
 function getFromDatabaseTiles(name) {
   window.gfdName = name;
   window.dbRef.child("users").child(name).on("value", snapValueTiles, errorLoadingTiles);

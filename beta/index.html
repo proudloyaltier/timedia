@@ -421,7 +421,7 @@
         <span class="glyphicon glyphicon-align-justify"></span>
       </button>
     </div>
-    <div id="tiles" style="display: none;">
+    <div id="tiles" ondrop="dragFileToTiles(event)" ondragstart="tileDragOver(event)" ondragover="tileDragOver(event)" ondragleave="tileDragEnd(event)" style="display: none;">
       <span class="glyphicon glyphicon-th-large" style="font-size: 300%; float: left;"></span>
       <input style='width: 70%; display: inline-block;' placeholder="Search" class="form-control" type="text" id="tiles-search"
         oninput="searchTiles(this.value)" width="80%" autofocus>

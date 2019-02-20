@@ -18,6 +18,19 @@ function uploadPhoto() {
   selector.click();
 }
 
+function convertPhotoFromDrag(file, name) {
+  window.storageRef.child(localStorage.name).child(name).put(file).then(function () {
+    var url = "index.html?app=1" + '&i=' + name;
+    localStorage.recentUrl = url;
+    localStorage.workToSaveTitle = name.split(/(\\|\/)/g).pop()
+    localStorage.workToSave = url;
+    saveFromTiWork()
+    swal("Uploaded", "Your file has been uploaded", "success").then((value) => {
+      window.location.href = "?app=7"
+    });
+  })
+}
+
 function convertPhoto() {
   var file = selector.files[0];
   window.storageRef.child(localStorage.name).child(selector.files[0].name).put(file).then(function () {
