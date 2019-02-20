@@ -2,6 +2,8 @@
 
 ## What's new?
 
+• Added drag and drop file uploading to tiles!
+
 • Finally fixed TiSheets
 
 • No more ads!
