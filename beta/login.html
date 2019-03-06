@@ -67,9 +67,19 @@
             document.getElementById('signup').style.display = 'block';
             document.getElementById('login-user').remove();
         }
+        
+        function doesNotIncludeIllegal(text) {
+            console.log(text)
+            if (text.includes(".") || text.includes("$") || text.includes("[") || text.includes("]") || text.includes("#") || text.includes("/")) {
+                alert("Your username cannot contain '.', '$', '[', ']', '#', '/' characters")
+                return false;
+            } else {
+                return true;
+            }
+        }
 
         function signup() {
-            if (document.getElementById('username') !== "" && document.getElementById('password').value) {
+            if (document.getElementById('username').value !== "" && document.getElementById('password').value && doesNotIncludeIllegal(document.getElementById("username").value)) {
                 firebase.auth().createUserWithEmailAndPassword(document.getElementById('username').value + "@timediatied.com", document.getElementById('password').value).catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;
@@ -79,7 +89,7 @@
                     location.href = "index.html"
                 });
             } else {
-                alert('Please enter a username and password!')
+                alert('Please enter a valid username and password!')
             }
         }
 

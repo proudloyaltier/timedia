@@ -367,6 +367,18 @@ function generateRandString() {
   return text;
 }
 
+function deleteFolder(tileid) {
+  alertify.confirm("Are you sure you want to delete this folder", function() {
+    delete files[Object.keys(files)[tileid]]
+    save();
+    swal("Deleted!", "Tile successfully deleted!", "success").then((value) => {
+      window.location.reload();
+    })
+  }, function() {
+    window.location.reload();
+  })
+}
+
 function deleteTile(tileid) {
   alertify.confirm("Are you sure you want to delete this Tile?", function () {
     var fbFolder;
@@ -403,6 +415,10 @@ function deleteTile(tileid) {
 
 function openTileContext(tileID) {
   document.getElementById("context-menu").innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteTile(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li><li><a href="#" onclick="renameTilePrompt(' + tileID + ')"><span class="glyphicon glyphicon-pencil"></span> Rename</a></li><li><a href="#" onclick="moveTileIntoFolder(' + tileID + ')"><span class="glyphicon glyphicon-share"></span> Move </a></li></ul>';
+}
+
+function openFolderContext(tileID) {
+  document.getElementById("context-menu").innerHTML = '<ul class="context-menu__items"><li><a href="#" onclick="deleteFolder(' + tileID + ')"><span class="glyphicon glyphicon-trash"></span> Delete</a></li></ul>';
 }
 
 function openTileContextFolder(tileID) {
@@ -487,7 +503,7 @@ function searchTiles(search) {
           appThumbSearch(i)
         }
         if (IsJsonString(files[Object.keys(files)[i]])) {
-          document.getElementById("tiles-searchbox").innerHTML += '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
+          document.getElementById("tiles-searchbox").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openFolderContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
         }
         if (files[Object.keys(files)[i]].includes("?app=9") && !IsJsonString(files[Object.keys(files)[i]])) {
           if (localStorage.tileDeleteButton == "true") {
@@ -620,7 +636,7 @@ function loadTiles() {
           appThumb(i)
         }
         if (IsJsonString(files[Object.keys(files)[i]])) {
-          document.getElementById("tiles-tiles").innerHTML += '<li style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
+          document.getElementById("tiles-tiles").innerHTML += '<li onmouseover="overTile = true" onmouseout="overTile = false" oncontextmenu="openFolderContext(' + i + ')" style="float: left; width: 250px; height: 250px;" class="card" onclick="window.open(\'' + 'index.html?app=7&f=' + Object.keys(files)[i] + '\');"><h3><center>' + decodeURI(Object.keys(files)[i]) + '<br><span style="font-size: 300%; color: #f4b400;" class="glyphicon glyphicon-folder-open"><br></span><br></center></h3></span></li>';
         }
         if (files[Object.keys(files)[i]].includes("?app=9") && !IsJsonString(files[Object.keys(files)[i]])) {
           if (localStorage.tileDeleteButton == "true") {
