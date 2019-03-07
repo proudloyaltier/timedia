@@ -116,6 +116,26 @@ function joinChat() {
 if (getQueryVariable("app") == 2) {
   loadChats();
 }
+Notification.requestPermission().then(function(result) {
+  localStorage.hasNotifications = result;
+});
+
+function createNotification(title, body) {
+	if (localStorage.hasNotifications == "granted") {
+		var options = {
+   	 body: body,
+   	 icon: "other resources/favicon.ico"
+	  }
+  	var n = new Notification(title, options);
+    n.present
+  }
+}
+
+function stripOfHtml(html){
+  var doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || "";
+}
+
 if (window.location !== "index.html" && getQueryVariable("app") !== false && getQueryVariable("app").length > 7) {
   document.title = "TiChat - TiMedia"
   document.getElementById("iChat-input").style.display = "none";
@@ -123,5 +143,8 @@ if (window.location !== "index.html" && getQueryVariable("app") !== false && get
   document.getElementById("pming-home").style.display = "";
   window.addEventListener('DOMContentLoaded', function () {
     setInterval(getMessages, 1000);
+    window.dbRef.child("tichat").child(getQueryVariable("app")).child("messages").endAt().limitToLast(1).on('child_added', function(snapshot) {
+      createNotification("TiChat Notification", stripOfHtml(CryptoJS.AES.decrypt(snapshot.val(), getQueryVariable("app")).toString(CryptoJS.enc.Utf8)));
+   });
   }, false);
 }
