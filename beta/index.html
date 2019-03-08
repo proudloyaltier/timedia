@@ -105,17 +105,6 @@
                   <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
               </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="?app=13">App Store
-                  <span class="glyphicon glyphicon-download-alt"></span>
-                </a>
-              </li>
-              <li>
-                <a href="?app=8">New App
-                  <span class="glyphicon glyphicon-plus"></span>
-                </a>
-              </li>
             </ul>
           </li>
         </ul>
@@ -215,61 +204,6 @@
     </div>
     <div id="newapp-application-view" style="display: none;">
     </div>
-    <div id="newapp" style="display: none;">
-      <h3>New App</h3>
-      <br>
-      <div class="jumbotron">
-        <h5>Execute .TIAPP file</h5>
-        <button class="btn btn-primary" onclick="uploadApp()">Open Application</button>
-        <h5>Create App</h5>
-        <input id="newapp-name" class="form-control" placeholder="App Name">
-        <br>
-        <input id="newapp-icon" oninput="updateIcon()" class="form-control" placeholder="App Icon (GlyphIcon)">
-        <p id="newapp-preview">Preview:</p>
-        <br>
-        <textarea id="newapp-source" class="form-control" placeholder="App Source (HTML - CSS)"></textarea>
-        <textarea id='newapp-source-js' class="form-control" placeholder="App Source (JS)"></textarea>
-        <br>
-        <button class="btn btn-primary" onclick="submitApp()">Create App</button>
-      </div>
-      <div class="jumbotron">
-        <div>
-          <h4>Submit App To The Store</h4>
-          <b>NOTE: Always make sure your app works on both web TiMedia (using execute) and TiTanium</b>
-          <h5>Debug Options</h5>
-          <table class="table" style="border: none;">
-            <thead>
-              <tr>
-                <th style="border-left: 0px solid; border-right: 0px solid;">Web Execute</th>
-                <th style="border-left: 0px solid; border-right: 0px solid;">TiTanium App Window</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="border: none;">Inspector</td>
-                <td style="border: none;">"Toggle Developer Tools" option</td>
-              </tr>
-            </tbody>
-          </table>
-          <input class="form-control" placeholder="App Name" id="submitted-app-name">
-          <br>
-          <button class="btn btn-primary" onclick="uploadAppToSubmit()">Upload Packages</button>
-        </div>
-        <br>
-        <div>
-          <h4>Badges</h4>
-          <b>NOTE: You must have published your app before creating a badge</b><br>Create an app badge to put on your
-          website.</b>
-          <input class="form-control" id="app-badge-name" placeholder="Published App Name">
-          <br>
-          <button class="btn btn-primary" onclick="generateAppBadge()">Generate Badge</button>
-          <p id="app-badge-code-text" style="display: none;">Code:</p>
-          <span id="app-badge-result" style="display: none;"></span><br><br>
-          <p id="app-badge-preview-text" style="display: none;">Preview:</p>
-          <span id="app-badge-result-preview" style="display: none;"></span>
-        </div>
-      </div>
-    </div>
     <div id="tiriShortcuts" style="display: none;">
       <div class="jumbotron">
         <h3>Your Shortcuts</h3>
@@ -285,18 +219,6 @@
         <br>
         <button class="btn btn-primary" onclick="createTiriShortcut(document.getElementById('shortcutName').value.toLowerCase(), document.getElementById('shortcutResponse').value, document.getElementById('custom-code').value)">Create
           Shortcut</button>
-      </div>
-    </div>
-    <div style="display: none;" id="appstore">
-      <h3>App Store</h3>
-      <br>
-      <div>
-        <input id="apps-search" class="form-control" oninput="searchApps()" placeholder="Search">
-        <br>
-        <div id="store-allapps" class="nobullet">
-        </div>
-        <div id="store-search" class="nobullet">
-        </div>
       </div>
     </div>
     <div style="display: none;" id="tidocs">
@@ -828,17 +750,6 @@
             <span class="glyphicon glyphicon-folder-open"></span>
           </a>
         </li>
-        <li role="separator" class="divider"></li>
-        <li>
-          <a href="?app=8">New App
-            <span class="glyphicon glyphicon-plus"></span>
-          </a>
-        </li>
-        <li>
-          <a href="?app=13">App Store
-            <span class="glyphicon glyphicon-download-alt"></span>
-          </a>
-        </li>
       </ul>
       <input class="form-control" style="width: 70%" id="tiri-mini-box" onchange="tt();" placeholder="Start typing or speak now..."
         utofocus>
@@ -873,8 +784,6 @@
         crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-      <script src="js/new.js"></script>
-      <script src="js/appStore.js"></script>
       <script src="js/speech.js"></script>
       <script src="js/bookmarks.js"></script>
       <script src="js/tiri.js"></script>
