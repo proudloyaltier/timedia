@@ -2,6 +2,8 @@
 
 ## What's new?
 
+• Remove useless TiMedia App Store
+
 • Fixed some small glitches and annoyances
 
 • Added drag and drop file uploading to tiles!
