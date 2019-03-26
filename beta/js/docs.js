@@ -94,24 +94,25 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementById('tidocsContent').innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem('edit');
-  } else {
-    document.getElementById('create').remove();
-    document.getElementById('view').style.display = "block";
-    document.getElementById('tidocs-edit').style.display = "block";
-    document.getElementById('tidocs-reader').style.display = "block";
-    var urlRef = window.dbRef.child("users").child(localStorage.name).child("docs").child(getQueryVariable("p"));
-    urlRef.on("value", function (snapshot) {
-      snapshot.forEach(function (child) {
-        localStorage.owner = child.key;
-        if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
-          window.location.href = 'index.html?app=7';
-          alert("Access Denied! Get TIed!")
-        }
-        document.getElementById('view').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
-        window.edit = document.getElementById('view').innerHTML
-      });
-    });
+    break;
   }
+
+  document.getElementById('create').remove();
+  document.getElementById('view').style.display = "block";
+  document.getElementById('tidocs-edit').style.display = "block";
+  document.getElementById('tidocs-reader').style.display = "block";
+  var urlRef = window.dbRef.child("users").child(localStorage.name).child("docs").child(getQueryVariable("p"));
+  urlRef.on("value", function (snapshot) {
+    snapshot.forEach(function (child) {
+      localStorage.owner = child.key;
+      if (localStorage.owner.toLowerCase() !== localStorage.name.toLowerCase()) {
+        window.location.href = 'index.html?app=7';
+        alert("Access Denied! Get TIed!")
+      }
+      document.getElementById('view').innerHTML = CryptoJS.AES.decrypt(child.val(), localStorage.password).toString(CryptoJS.enc.Utf8);
+      window.edit = document.getElementById('view').innerHTML
+    });
+  });
 }
 
 function editDoc() {
