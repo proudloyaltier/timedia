@@ -94,7 +94,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementById('tidocsContent').innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
     localStorage.removeItem('edit');
-    break;
+    return;
   }
 
   document.getElementById('create').remove();
