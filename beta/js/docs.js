@@ -93,6 +93,7 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
     document.getElementById('tidocsContent').innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
+    localStorage.tidocssave = true;
     localStorage.removeItem('edit');
   } else {
     document.getElementById('create').remove();
