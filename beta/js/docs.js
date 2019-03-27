@@ -87,14 +87,33 @@ if ("addEventListener" in tidocsContent) {
   }
 }
 
+function editDoc() {
+  localStorage.edit = window.edit;
+  localStorage.editUrl = getQueryVariable("p");
+  window.location.href = "index.html?app=3";
+}
+
+function docReader() {
+  document.getElementById('timedia-nav-bar').remove();
+  document.getElementById('tidocs-edit').remove();
+  document.getElementById('tidocs-reader').remove();
+  document.getElementById('tidocs-header').remove();
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  if (localStorage.editAutoSave == undefined && (typeof localStorage.edit == "undefined")) {
+    localStorage.removeItem('tidocssave');
+  }
+
 
 if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   if (localStorage.edit !== undefined) {
     document.getElementById('docsTitle').remove();
     document.getElementById('tidocsContent').innerHTML = localStorage.edit;
     localStorage.editAutoSave = localStorage.edit;
-    localStorage.tidocssave = true;
+    localStorage.tidocssave = localStorage.editUrl
     localStorage.removeItem('edit');
+    localStorage.removeItem('editUrl');
   } else {
     document.getElementById('create').remove();
     document.getElementById('view').style.display = "block";
@@ -115,21 +134,4 @@ if (getQueryVariable("p") !== false || localStorage.edit !== undefined) {
   }
 }
 
-function editDoc() {
-  localStorage.edit = window.edit;
-  window.location.href = "index.html?app=3";
-  localStorage.tidocssave = getQueryVariable("p");
-}
-
-function docReader() {
-  document.getElementById('timedia-nav-bar').remove();
-  document.getElementById('tidocs-edit').remove();
-  document.getElementById('tidocs-reader').remove();
-  document.getElementById('tidocs-header').remove();
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-  if (localStorage.editAutoSave == undefined) {
-    localStorage.removeItem('tidocssave');
-  }
 }, false);
