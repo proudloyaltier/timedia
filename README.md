@@ -8,14 +8,6 @@
 
 • Added drag and drop file uploading to tiles!
 
-• Finally fixed TiSheets
-
-• No more ads!
-
-• Reorganized the database
-
-• New TiChat
-
 
 
 ## What is TiMedia?
