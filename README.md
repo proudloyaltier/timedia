@@ -1,8 +1,8 @@
-# TiMedia
+# timedia
 
 ## What's new?
 
-• Remove useless TiMedia App Store
+• Remove useless timedia App Store
 
 • Fixed some small glitches and annoyances
 
@@ -10,8 +10,8 @@
 
 
 
-## What is TiMedia?
-TiMedia is a all-in one cloud storage service.
+## What is timedia?
+timedia is a all-in one cloud storage service.
 
 ## How do I start?
 Visit https://timedia.app and sign up.
